@@ -1,0 +1,18 @@
+{
+  "status_etapa": "concluido",
+  "estrategia": "termo_para_ids_de_chunks",
+  "regras_tokenizacao": [
+    "Unicode NFC",
+    "casefold para comparação sem distinção de caixa",
+    "tokens alfanuméricos com acentos preservados",
+    "sem stemming",
+    "sem remoção de stopwords"
+  ],
+  "total_chunks_entrada": 182,
+  "total_termos": 4061,
+  "total_postings": 21530,
+  "total_ocorrencias": 37269,
+  "tempo_construcao_segundos": 0.030996,
+  "entrada": "4_chunks\\chunks.json",
+  "saida": "5_indexacao\\indice_invertido.json"
+}

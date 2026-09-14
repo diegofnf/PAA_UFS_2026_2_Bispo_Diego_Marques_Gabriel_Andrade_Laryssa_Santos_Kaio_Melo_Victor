@@ -1,0 +1,26 @@
+{
+  "status_pipeline": "concluido",
+  "quantidade_documentos": 7,
+  "quantidade_paginas": 83,
+  "quantidade_paginas_vazias": 1,
+  "tempo_processamento_segundos": 0.23563,
+  "avisos": [
+    {
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas_vazias": [
+        {
+          "numero_pagina": 1,
+          "motivo_status": "imagem_presente_sem_camada_textual"
+        }
+      ]
+    }
+  ],
+  "regras_normalizacao": [
+    "Unicode NFC",
+    "quebras de linha padronizadas",
+    "espacos repetidos reduzidos",
+    "hifenizacao entre linhas recomposta",
+    "texto original preservado"
+  ]
+}

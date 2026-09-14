@@ -1,0 +1,910 @@
+{
+  "metadados": {
+    "etapa": "4_busca_lexical_candidatos",
+    "proxima_acao": "Merge Sort manual e Top-k",
+    "consulta": "critérios para atribuição de bolsas e requisitos de matrícula",
+    "k_solicitado": 5,
+    "configuracao": "indexada",
+    "metrica_score": "bm25",
+    "criterio_score": "Okapi BM25 com saturacao de TF e ponderacao por IDF (k1=1.5, b=0.75)",
+    "criterio_desempate_esperado": "maior score decrescente, menor id_chunk crescente",
+    "parametros_metrica": {
+      "metrica": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "avgdl": 204.7747,
+      "total_documentos_N": 182
+    },
+    "total_termos_vocabulario": 4061,
+    "tokens_consulta": [
+      "critérios",
+      "para",
+      "atribuição",
+      "de",
+      "bolsas",
+      "e",
+      "requisitos",
+      "de",
+      "matrícula"
+    ],
+    "stopwords_removidas": [
+      "para",
+      "de",
+      "e",
+      "de"
+    ],
+    "termos_apos_filtro_stopwords": [
+      "critérios",
+      "atribuição",
+      "bolsas",
+      "requisitos",
+      "matrícula"
+    ],
+    "termos_distintos_consulta": [
+      "critérios",
+      "atribuição",
+      "bolsas",
+      "requisitos",
+      "matrícula"
+    ],
+    "document_frequencies": {
+      "critérios": 36,
+      "atribuição": 3,
+      "bolsas": 22,
+      "requisitos": 12,
+      "matrícula": 17
+    },
+    "inverse_document_frequencies": {
+      "critérios": 1.6122,
+      "atribuição": 3.9567,
+      "bolsas": 2.096,
+      "requisitos": 2.6838,
+      "matrícula": 2.3473
+    },
+    "total_candidatos": 75,
+    "total_postings_consultadas": 90,
+    "tempo_busca_segundos": 0.00065
+  },
+  "candidatos": [
+    {
+      "id_chunk": "chunk_0012",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [5],
+      "score": 3.6111,
+      "frequencias_termos": {
+        "critérios": 1,
+        "bolsas": 1
+      },
+      "texto": "É vedada a alteração ou complementação da documentação no momento da apresentação do\nrecurso ou a apresentação de fatos ou documentos novos que não tenham sido objeto de análise.\n10.5. O resultado da Análise Técnica, conforme disposto no item 5 deste edital, será divulgado na página\nda CAPES e cada proponente será no\u0000ﬁcado com uma mensagem automá\u0000ca da CAPES.\n11. DA ANÁLISE DE MÉRITO\n11.1. A etapa da Análise de Mérito, sob supervisão da DPB/CAPES, consiste na veriﬁcação do mérito\nacadêmico-cien\u0000ﬁco da proposta e será realizada pelos membros das coordenações de área indicados\npela CAPES.\n11.1.1. Conforme disposto no art. 2º da Portaria CAPES n° 119/2019, será man\u0000do o sigilo da iden\u0000dade\ndos par\u0000cipantes dessa etapa.\n11.2. Na etapa de análise de mérito, serão considerados os critérios abaixo que receberão pontuação\nconforme assinalado em cada item:\nItem Critério Nota Peso\n1 Atendimento da proposta encaminhada às fragilidades apontadas nas avaliações Quadrienais\n2017 e 2021\n0 a\n10,00 2\n2 Alinhamento da proposta ao planejamento estratégico da IES e do PPG. 0 a\n10,00 1\n3 Adequação do apoio/bolsas solicitadas às metas que indiquem aperfeiçoamento na gestão do\nPPG, melhorias da infraestrutura e melhor formação dos discentes do PPG.\n0 a"
+    },
+    {
+      "id_chunk": "chunk_0013",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [5],
+      "score": 4.438,
+      "frequencias_termos": {
+        "critérios": 1,
+        "bolsas": 2
+      },
+      "texto": "0 a\n10,00 1\n3 Adequação do apoio/bolsas solicitadas às metas que indiquem aperfeiçoamento na gestão do\nPPG, melhorias da infraestrutura e melhor formação dos discentes do PPG.\n0 a\n10,00 1\n4 Aderência da bolsa de Professor Visitante Sênior no país (PVS) as a\u0000vidades decorrentes do\nplanejamento estratégico do PPG e da IES.\n0 a\n10,00 1\n5 Potencial de aumento da eﬁcácia do PPG quanto à formação de mestres, aumento qualita\u0000vo\ne quan\u0000ta\u0000vo da produção técnica, inserção e impacto social.\n0 a\n10,00 1\n6 Alinhamento dos resultados com as metas do planejamento estratégico, incluindo diretrizes\nde internacionalização, autoavaliação e uso/aplicação do auxílio/bolsas.\n0 a\n10,00 1\n7 Planejamento para elaboração das Macro Polí\u0000cas e Diretrizes de Internacionalização. 0 a\n10,00 1\n8 Estratégia de ar\u0000culação interna para inserção das Polí\u0000cas e Diretrizes de Internacionalização\nno Plano de Desenvolvimento Ins\u0000tucional.\n0 a\n10,00 1\n9 Alinhamento das parcerias internacionais a serem prospectadas com o projeto de\nconsolidação do PPG.\n0 a\n10,00 1\n11.3. Cada proposta receberá nota total que poderá variar de 0,00 a 100,00, resultado da soma das notas\nde todos os critérios elencados no item 11.2, mul\u0000plicadas pelos seus respec\u0000vos pesos.\n11.4. As propostas que"
+    },
+    {
+      "id_chunk": "chunk_0014",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [5, 6],
+      "score": 1.4434,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "total que poderá variar de 0,00 a 100,00, resultado da soma das notas\nde todos os critérios elencados no item 11.2, mul\u0000plicadas pelos seus respec\u0000vos pesos.\n11.4. As propostas que ob\u0000verem nota total menor que 70,00 serão consideradas não recomendadas.\n11.5. Serão considerados recomendados na Análise de Mérito as propostas que ob\u0000verem nota total\nigual ou maior que 70,00.\n12. DO RESULTADO PRELIMINAR\n12.1. A CAPES divulgará o resultado preliminar do edital no Diário Oﬁcial da União - DOU e a relação das\npropostas, com suas respec\u0000vas notas, estará disponível no seguinte endereço eletrônico:\nh\u0000ps://www.gov.br/capes/pt-br, conforme cronograma previsto no item 5 deste edital.\n12.2.Após a divulgação do resultado preliminar, os proponentes poderão interpor recurso conforme\ndescrito no item 13.\n13. DOS RECURSOS DA ANÁLISE DE MÉRITO\n13.1. Os proponentes poderão encaminhar recurso no prazo de até 5 (cinco) dias corridos, a contar da\ndata de publicação do resultado preliminar no DOU.\n\n19/06/2023, 10:21 SEI/CAPES - 1999996 - Edital\nhttps://sei.capes.gov.br/sei/controlador.php?acao=documento_imprimir_web&acao_origem=arvore_visualizar&id_documento=2173701&infra_si… 6/13\n13.2. Os pareceres de avaliação da Análise de Mérito estarão disponíveis para visualização na plataforma\neletrônica SICAPES, acessando o link h\u0000ps://inscricao.capes.gov.br/.\n13.3. Os recursos deverão ser enviados exclusivamente por meio da plataforma eletrônica SICAPES,\nacessando o link h\u0000ps://inscricao.capes.gov.br/.\n13.4. É"
+    },
+    {
+      "id_chunk": "chunk_0015",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [6],
+      "score": 2.212,
+      "frequencias_termos": {
+        "critérios": 2
+      },
+      "texto": "disponíveis para visualização na plataforma\neletrônica SICAPES, acessando o link h\u0000ps://inscricao.capes.gov.br/.\n13.3. Os recursos deverão ser enviados exclusivamente por meio da plataforma eletrônica SICAPES,\nacessando o link h\u0000ps://inscricao.capes.gov.br/.\n13.4. É vedada a alteração ou complementação da documentação no momento da apresentação do\nrecurso.\n13.5. O ranqueamento ﬁnal das propostas será deﬁnido após apreciação dos recursos interpostos contra\na análise de mérito.\n14. DO RANQUEAMENTO DO RESULTADO FINAL\n14.1.O ranqueamento, sob a responsabilidade da DPB/CAPES, consiste na classiﬁcação das propostas,\napós a etapa de recurso da Análise de Mérito, de acordo com a nota ob\u0000da no certame e os critérios\nelencados no item 11.2.\n14.2.Em caso de empate, serão considerados, sucessivamente, os parâmetros abaixo para determinação\ndo desempate:\nI. Será considerada prioritária a proposta que ob\u0000ver a maior nota, sucessivamente, nos critérios 1,\n2 e 3 do item 11.2;\n14.3.O ranqueamento das propostas subme\u0000das pelos proponentes será realizado por região.\n14.4. O número de propostas apoiadas atenderá as proporções da Tabela abaixo:\nRegião Nº de propostas apoiadas\n(até)\nNORDESTE 50\nSUDESTE 15\nSUL 7\nCENTRO-OESTE 15\nNORTE 13\nTotal Geral 100\n14.4.1. Caso o número de propostas por Região não a\u0000nja o teto estabelecido no item 14.4, será\nselecionada a proposta"
+    },
+    {
+      "id_chunk": "chunk_0031",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [11],
+      "score": 1.5973,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "realizados dois Seminários de Acompanhamento e Avaliação, que deverão estar no\ncronograma das a\u0000vidades previstas no projeto:\nI. O primeiro seminário ocorrerá ao ﬁnal do primeiro ano de execução das a\u0000vidades; e\nII. O segundo seminário, após o terceiro ano, para a apresentação dos resultados ﬁnais.\n20.4. O acompanhamento dos projetos, inclusive do processo de internacionalização, se dará por\nintermédio da análise de Relatório de Acompanhamento do Projeto a serem encaminhados à CAPES pelo\nCoordenador de Projeto em períodos especíﬁcos: 12, 30, 42 e 54 meses.\n21. DA AVALIAÇÃO DE RESULTADOS\n21.1. Os critérios estabelecidos na etapa da Análise de Mérito servirão de parâmetro para a avaliação ao\nlongo da vigência do projeto.\n21.2. Ao ﬁnal da vigência, os projetos serão avaliados considerando:\nI. O aumento da eﬁcácia do PPG quanto à formação de recursos humanos de alto nível, aumento\nqualita\u0000vo e quan\u0000ta\u0000vo da produção técnica, patentes e outras produções consideradas relevantes\nao PPG;\nII. A consolidação dos PPGs por meio da ampliação da produção do conhecimento, da produção\ncien\u0000ﬁca ou da adoção de tecnologias, conforme os parâmetros da área em que está inserido;\nIII. As evidências de integração e cooperação com outros programas e centros de pesquisa e\ndesenvolvimento"
+    },
+    {
+      "id_chunk": "chunk_0035",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [13],
+      "score": 3.5957,
+      "frequencias_termos": {
+        "critérios": 1,
+        "bolsas": 1
+      },
+      "texto": "e ﬁnanceira da CAPES, sem\nque isso implique direito à indenização ou reclamação de qualquer natureza por parte dos beneﬁciários.\n24.2. A existência de alguma inadimplência do proponente com a CAPES ou com qualquer órgão da\nAdministração Pública Federal, direta ou indireta, cons\u0000tui fator impedi\u0000vo para o repasse do recurso\nﬁnanceiro.\n24.3. Os casos omissos e as situações não previstas neste Edital serão decididos pela Presidência da\nCAPES.\n24.4. A implementação das bolsas deverá ser realizada dentro dos prazos e critérios es\u0000pulados para\ncada modalidade, conforme as normas estabelecidas pela CAPES.\n24.5. É vedado ao discente ou pesquisador acumular bolsa de outro programa da CAPES ou de outra\nagência de fomento federal, estadual ou municipal, exceto nos casos expressamente autorizados em ato\nnorma\u0000vo da CAPES mediante requerimento prévio do bolsista.\n24.6. Não será permi\u0000da a u\u0000lização de dados bancários de terceiros, conta conjunta na qual o bolsista\nnão seja o \u0000tular ou de conta poupança para recebimento da bolsa.\n24.7. A CAPES reserva-se o direito de, a qualquer momento, solicitar informações ou documentos\nadicionais que julgar necessários.\n24.8. Para orientações ou informações adicionais sobre este Edital, contatar a equipe pelo e-mail:\nprapg@capes.gov.br.\n24.9. O resultado ﬁnal da seleção será divulgado"
+    },
+    {
+      "id_chunk": "chunk_0040",
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "paginas": [3],
+      "score": 1.6185,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "visa a capacitação do aluno nos conceitos fundamentais\nda Computação visando garantir aos egressos uma base sólida de formação em Computação. O\nNúcleo Complementar visa a capacitação do aluno nos conceitos fundamentais e avançados em\ncomputação, necessários à sua aplicação na linha de pesquisa de interesse.\nO discente deverá cursar, no mínimo, 12 (doze) créditos em disciplinas, sendo 4 (quatro) créditos\npertencentes ao Núcleo Obrigatório e ao menos 4 (quatro) créditos pertencentes ao Núcleo Base.\nDas disciplinas do Núcleo Base, o discente deverá escolher disciplinas da área Teoria da\nComputação, Análise de Algoritmos e Complexidade da Computação, Metodologia e Técnicas\nde Computação e Sistemas de Computação, em consenso com o orientador.\nPara a realização das disciplinas e atividades acadêmicas desta estrutura curricular, serão\nobservados os critérios dispostos nesta instrução normativa, bem como nas Normas Acadêmicas\nda Pós-Graduação stricto sensu da UFS (Capítulo IV - Das estruturas curriculares, Anexo I,\nResolução nº 04/2021/CONEPE).\n1. DISCIPLINAS\n1.1. Disciplina do Núcleo Obrigatório\nDisciplina: Projeto e Análise de Algoritmos\nCréditos: 4\nEmenta:\nModelo RAM (Random Access Machine). Eficiência de algoritmos. Técnicas de projeto de\nalgoritmos: ordenação, busca, indução, divisão e conquista, programação dinâmica, método\nguloso, backtracking e branch and bound. Aplicações das técnicas em"
+    },
+    {
+      "id_chunk": "chunk_0059",
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "paginas": [14],
+      "score": 1.655,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "Ementa:\nEmenta variável, de acordo com o tópico a ser ministrado.\nBibliografia:\nA definir, dependendo de cada tópico.\n2. ATIVIDADES ACADÊMICAS\nAtividade: Proficiência em Língua Estrangeira\nDescrição: Apresentação por parte do discente de um certificado de aprovação em exame de\naferição de conhecimentos instrumentais em língua estrangeira, sendo obrigatória uma língua\npara discentes do mestrado.\nCréditos: nenhum\nCritérios:\nO discente de mestrado deverá prestar exame de Proficiência em Língua Inglesa que comprove\nproficiência em nível B2, modesto, no CEFR, Common European Framework. No final do\nprimeiro ano de curso, cada discente deverá entregar os certificados de proficiência na secretaria\ndo programa.\nPara a aprovação do Exame de Proficiência em Língua Inglesa do PROCC, o aluno poderá optar\npor uma das seguintes alternativas:\nI - EPLE - Exame de Proficiência em Língua Estrangeira da POSGRAP da UFS (0 a 100):\nmínimo de 70%.\nII - TOEFL iBT (0 a 120): mínimo de 46 pontos\nIII - TOEFL CBT (0 a 300): mínimo de 133 pontos\nIV - TOEFL ITP (310 a 677): mínimo de 450 pontos\nV - TOEFL PBT (310 a 677): mínimo de 450 pontos\nVI – IELTS (0 a 9): mínimo de 5,0 pontos\nVII - TEAP: mínimo"
+    },
+    {
+      "id_chunk": "chunk_0060",
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "paginas": [14, 15],
+      "score": 1.6439,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "677): mínimo de 450 pontos\nV - TOEFL PBT (310 a 677): mínimo de 450 pontos\nVI – IELTS (0 a 9): mínimo de 5,0 pontos\nVII - TEAP: mínimo de 50 pontos\nVIII – TOEIC (10 a 990): mínimo de 625 pontos\nIX – Em exames de proficiência não listados acima, a nota mínima requerida é 70% da nota\nmáxima. Os documentos relativos ao Exame de Proficiência em Língua Inglesa devem ser\nsubmetidos à Comissão de Equivalência de Disciplinas e aprovados pelo Colegiado.\n\nAtividade: Estágio Docente\nDescrição: Apresentação de relatório por parte do discente acerca de sua participação em\natividades de ensino em cursos de nível superior. Obrigatória para os discentes de mestrado que\nsejam bolsistas. Facultativa para os demais discentes de mestrado.\nCréditos: nenhum\nCritérios:\nA duração do estágio de docência será de um semestre. A carga horária do estágio docência será\nde 15 horas. No final do segundo ano de curso, cada discente deverá entregar o relatório final do\nestágio docente, assinado por seu supervisor, na secretaria do programa. A comissão de\nSupervisão Discente ficará responsável pela avaliação do relatório final do discente.\nAtividade: Elaboração de Pesquisa I, II, III e IV\nDescrição: Aferição semestral feita por"
+    },
+    {
+      "id_chunk": "chunk_0061",
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "paginas": [15],
+      "score": 2.3205,
+      "frequencias_termos": {
+        "critérios": 2
+      },
+      "texto": "do programa. A comissão de\nSupervisão Discente ficará responsável pela avaliação do relatório final do discente.\nAtividade: Elaboração de Pesquisa I, II, III e IV\nDescrição: Aferição semestral feita por cada docente orientador sobre o desempenho de seus\nrespectivos discentes na execução de seus projetos de pesquisas, sendo obrigatória para todos os\ndiscentes.\nCréditos: 1 crédito por semestre\nCritérios: O discente deverá elaborar plano de trabalho e relatório semestral acerca do\nplanejamento e desenvolvimento das atividades de seu projeto de pesquisa a ser avaliado pelo seu\norientador. A carga horária será de 15 horas semestrais, o que equivale a 1 crédito por semestre.\nAtividade: Exame de Qualificação\nDescrição: Elaboração por parte do discente de uma proposta de dissertação de mestrado e\napresentação desta proposta em um seminário aberto ao público.\nCréditos: nenhum\nCritérios:\nO Exame de Qualificação será constituído no mínimo de uma revisão bibliográfica sobre o tema,\nobjetivos, metodologia a ser empregada, um cronograma para conclusão do mestrado e\nreferências bibliográficas. O documento deve ser submetido, preferencialmente, para um avaliador\nexterno ao PROCC, com título de Doutor há pelo menos 02 anos. A submissão será feita via\nformulário padronizado e realizada pela Secretaria do Programa a partir das informações"
+    },
+    {
+      "id_chunk": "chunk_0063",
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "paginas": [15, 16],
+      "score": 1.6402,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "de REPROVAÇÃO , o candidato terá que re-submeter um novo documento de\nQualificação, devendo obter um parecer de APROVAÇÃO dentro do prazo de 6 (seis) meses corridos\na contar do fim do prazo citado acima, a saber:\n1. Até dia 31 de agosto para candidatos ingressantes no primeiro período letivo do ano anterior;\n2. Até dia 31 de março para candidatos ingressantes no segundo período letivo do ano anterior;\nCaso seja obtido um segundo parecer de REPROVAÇÃO , o candidato será desligado do Programa .\nOs candidatos que obtiveram parecer de APROVAÇÃO emitido deverão realizar apresentação de sua\nQualificação no período letivo seguinte.\n\nEsta apresentação terá tempo de duração de 20 (vinte) minutos e tempo de até 10 (dez) minutos para\nquestionamentos de ao menos um docente credenciado no Programa, indicado pelo orientador do\ntrabalho. A apresentação deverá ocorrer no horário da disciplina Seminários Acadêmicos Semanais\n(SAS I ou SAS II).\nAtividade: Defesa de dissertação\nDescrição: Realização de uma banca examinadora, a qual o discente é submetido, com o objetivo\nde avaliar o resultado final da pesquisa desenvolvida, sendo obrigatória para todos os discentes.\nCréditos: nenhum\nCritérios :\nA banca examinadora de dissertação deverá ser composta por um presidente e,"
+    },
+    {
+      "id_chunk": "chunk_0064",
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "paginas": [16],
+      "score": 1.6293,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "de avaliar o resultado final da pesquisa desenvolvida, sendo obrigatória para todos os discentes.\nCréditos: nenhum\nCritérios :\nA banca examinadora de dissertação deverá ser composta por um presidente e, no mínimo, dois\nexaminadores, sendo ao menos um examinador externo ao programa.As bancas examinadoras do\nPROCC devem seguir as seguintes definições:\n1. O prazo mínimo de antecedência para o cadastro de bancas examinadoras é de 20 dias;\n2. O prazo mínimo e máximo de apresentação do discente e de fala dos examinadores é de 20\nminutos e 50 minutos;\n3. O prazo mínimo para requerer a gravação da banca examinadora é de 5 dias;\n4. O discente deve entregar na secretaria do programa 4 vias da dissertação ou tese no mesmo\nformato da versão original;\n5. O coorientador, quando houver, pode integrar a banca examinadora juntamente ao orientador\ne, neste caso, o orientador deverá presidi- la;\n6. Caso o orientador e o coorientador façam parte da banca, ambos terão direito a voto a\nrespeito da aprovação ou não do candidato, desde que conste apenas como um voto, e;\n7. A aprovação do candidato ocorrerá pela obtenção da maioria simples dos votos.\nTodos os integrantes da banca examinadora deverão ter título"
+    },
+    {
+      "id_chunk": "chunk_0066",
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "paginas": [16, 17],
+      "score": 4.9823,
+      "frequencias_termos": {
+        "critérios": 3,
+        "matrícula": 1
+      },
+      "texto": "como: sumário do(s) artigo(s), o(s) artigo(s) propriamente dito(s), sumário de livro(s),\ncapítulo(s) de livro(s), com os dados referentes à publicação e/ou submissão; 4) Conclusão; 5)\n\nReferências.\nOs artigos publicados ou submetidos devem ser escritos no idioma exigido pelo veículo de\ndivulgação. No caso de documento já publicado, o aluno deverá anexar a autorização da Editora\npara a sua inclusão na tese/dissertação.O discente deverá ser o primeiro autor em todos os artigos\ncompilados.\nAtividade: Estudos Extracurriculares\nDescrição: Estudos Extracurriculares compreendem um conjunto de atividades complementares\npara a formação do aluno, cujo quantitativo de créditos é variável de acordo com a quantidade de\natividades realizadas durante o período de matrícula ativa do discente. É obrigatório o\ncumprimento de pelo menos 4 créditos, relativos às atividades Produção em Conferência e\nProdução em Periódico. Para esta atividade, o discente pode solicitar aproveitamento de\ncréditos a qualquer momento desde que comprove sua realização.\nCréditos: mínimo 4 créditos\nCritérios:\nOs critérios de avaliação de desempenho discente da atividade Estudos Extracurriculares são\ndisciplinados pela tabela abaixo :\nTabela de Estudos Extracurriculares\nAtividade Créditos Descrição: Critérios\nProdução em\nConferência\n2 créditos Apresentação de um\nformulário\npreenchido, por parte\ndo discente, com\ncomprovantes de\naceite/publicação de\num artigo completo"
+    },
+    {
+      "id_chunk": "chunk_0067",
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "paginas": [17, 18],
+      "score": 1.6149,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "Tabela de Estudos Extracurriculares\nAtividade Créditos Descrição: Critérios\nProdução em\nConferência\n2 créditos Apresentação de um\nformulário\npreenchido, por parte\ndo discente, com\ncomprovantes de\naceite/publicação de\num artigo completo\nem conferência\nrealizado durante seu\nvínculo com o\nprograma.\nEsta atividade ocorre\na partir da entrada de\num discente regular\nno PROCC, e\nsomente será\nconferida ao discente\nque comprovar uma\naceite, ou\npublicação de um\nartigo completo em\numa conferência\nclassificada no\nestrato restrito do\nQualis-eventos em\nCC da CAPES. O\ndiscente deverá ser o\nprimeiro autor e o\nartigo deve ser sobre\no tema da dissertação\nde mestrado. Não\nserão aceitos artigos\nem resumos ou\n\nresumos expandidos\npara essa atividade.\nProdução em\nPeriódico\n2 créditos Apresentação de um\nformulário\npreenchido, por parte\ndo discente, com\ncomprovantes de\nsubmissão/aceite/pub\nlicação de um artigo\ncompleto em\nperiódico realizado\ndurante seu vínculo\ncom o programa.\nEsta atividade ocorre\na partir da entrada de\num discente regular\nno PROCC, e\nsomente será\nconferida ao discente\nque comprovar uma\nsubmissão, ou\naceite, ou\npublicação de um\nartigo completo em\numa periódico\nclassificado no\nestrato restrito do\nQualis da CAPES. O\ndiscente deverá ser o\nprimeiro autor e os\nartigos devem ser\nsobre o"
+    },
+    {
+      "id_chunk": "chunk_0073",
+      "id_documento": "doc_003",
+      "nome_arquivo": "IN_01_2024_PROCC_Criterios_Bolsas.pdf",
+      "paginas": [3],
+      "score": 1.6439,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "na ordem\nsubsequente.\n§ 4º Se, por qualquer motivo, o(o) aluno(a) não for contemplado com a bolsa, o(a)\naluno(a) retornará para a lista de candidatos(as) retendo seu ranqueamento original.\nArt. 6º Uma bolsa será automaticamente disponibilizada para nova concessão na\nocorrência dos seguintes fatos:\nI – Término do vínculo de um(a) aluno(a);\nII – Reprovação em atividade ou disciplina;\nIII – Obtenção de mais de um conceito C em disciplina;\nIV – Permanência no programa por período igual ou superior a um ano sem realizar\nsubmissão de artigo para conferência ou periódico classificado nos estratos A1 a A4\ndo Qualis CAPES.\nParágrafo único: caso o bolsista tenha obtido vínculo em atividade remunerada e\nexista aluno(a) sem vínculo na lista de candidatos, sua bolsa será disponibilizada\npara nova concessão.\nArt. 7º A lista de classificação será ordenada de acordo com os critérios:\nI – (POSCOMP - Média do ano) / Desvio-padrão do ano;\nII – Pontuação no Barema do Processo Seletivo de entrada do discente;\nIII – Índice de Desempenho Acadêmico = # A x 5 + #B x 3.\nParágrafo único: Permanecendo o empate, a prioridade será dada ao candidato de\nmaior idade.\nEsta Instrução Normativa entra em vigor a"
+    },
+    {
+      "id_chunk": "chunk_0076",
+      "id_documento": "doc_004",
+      "nome_arquivo": "IN_01_2026_PROCC_Credenciamento_Recredenciamento_Vagas.pdf",
+      "paginas": [1, 2],
+      "score": 1.6221,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "°\n31 de dezembro de cada ano.\n§1º Somente serão coletados e considerados os artigos publicados em periódicos e em anais de eventos que\nestejam classificados nos estratos superiores conforme o documento de área em Ciência da Computação da\nCAPES. Os estratos superiores (A1, A2, A3, A4) são estabelecidos da seguinte maneira: no caso de\nperiódicos, percentil acima de 50%; no caso de eventos, H5 (google scholar) >= 15.\n§2º Para eventos nacionais, serão considerados os critérios de indução, em que o Comitê de CC da CAPES\nclassifica os principais eventos nacionais promovidos pela SBC, conforme o estabelecido no Documento de\nÁrea em CC da CAPES. Nesse caso, os eventos nacionais serão classificados de acordo com a planilha de\nclassificação de eventos utilizada pelo comitê de CC da CAPES no último quadriênio passado.\n§3º Somente serão considerados os artigos que estejam cadastrados no currículo Lattes do docente no\nmomento da coleta.\nCidade Universitária “Prof. José Aloísio de Campos” – Av. Mal. Rondon, s/n – Jardim Rosa Elze\nCEP 49.100-000 – São Cristóvão-SE – Fone: (079) 2105-6678\n\nSERVIÇO PÚBLICO FEDERAL\nMINISTÉRIO DA EDUCAÇÃO E CULTURA\nUNIVERSIDADE FEDERAL DE SERGIPE\nPró-Reitoria de Pós-Graduação e Pesquisa (POSGRAP)\nPrograma de Pós-Graduação em Ciência da"
+    },
+    {
+      "id_chunk": "chunk_0081",
+      "id_documento": "doc_004",
+      "nome_arquivo": "IN_01_2026_PROCC_Credenciamento_Recredenciamento_Vagas.pdf",
+      "paginas": [3],
+      "score": 3.7392,
+      "frequencias_termos": {
+        "critérios": 1,
+        "bolsas": 1
+      },
+      "texto": "no Programa, nos\núltimos 4 (quatro) anos anteriores ao seu pedido;\nIV – Ter ministrado pelo menos 1 (uma) disciplina no Programa, nos últimos 4 (quatro) anos\nanteriores ao seu pedido.\nParágrafo Único Os docentes do Programa que são pesquisadores financiados por bolsas de produtividade\nde agências estaduais, nacionais e internacionais, estarão automaticamente recredenciados, mas devem\npassar pelo processo de recredenciamento.\nArt. 8 O número mínimo de docentes permanentes deve ser de 12 professores.\nArt. 9 Se o número de docentes permanentes recredenciados for menor que o mínimo conforme definido no\nArt. 8, os docentes não recredenciados serão recredenciados como permanentes até que seja atingido o\nnúmero mínimo.\nParágrafo Único Os docentes ainda não recredenciados serão ordenados de acordo com os seguintes\ncritérios: produção científica, orientações de pós-graduação concluídas, disciplinas ministradas no Programa,\nprojeto de pesquisa e estágios pós-doutorais.\nArt. 10 Os docentes que não conseguirem o recredenciamento conforme o artigo 7 ou o artigo 9, ficarão\ndescredenciados do Programa. As orientações dos docentes descredenciados serão alocadas para outros\ndocentes recredenciados a partir de janeiro do ano seguinte.\nArt. 11 Os casos omissos a esta Instrução Normativa serão resolvidos pelo colegiado do PROCC.\nArt. 12 Esta Instrução Normativa entrará em"
+    },
+    {
+      "id_chunk": "chunk_0084",
+      "id_documento": "doc_005",
+      "nome_arquivo": "IN_02_2026_PROCC_Destinacao_Recursos.pdf",
+      "paginas": [1],
+      "score": 1.6365,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "interna dos demais financiamentos para programas de\npós-graduação\n\n(ex:\n\nPROEF/FAPITEC)\n\nseguirão\n\no\n\nque\n\nconsta\n\ncomo\n\nitens\n\nfinanciáveis\n\nno\n\nedital\n\nde\n\nconcessão\n\nde\n\nrecursos\n\ndo\n\nprojeto\n\naprovado.\nArt. 2\no\n– Somente serão liberados recursos por meio de solicitações de docentes credenciados na\ncategoria\n\npermanente\n\ndo\n\nPROCC\n\ne\n\ntambém\n\npor\n\ndiscentes\n\ndesde\n\nque\n\nautorizados\n\npor\n\nseus\n\norientadores\n\n(docentes\n\npermanentes\n\ndo\n\nPrograma).\nArt. 3\no\n– Os recursos financeiros deverão ser utilizados prioritariamente para pagamentos de\ninscrição\n\nem\n\nconferências\n\ne\n\ntambém\n\npara\n\ndespesas\n\ncom\n\npublicações\n\nem\n\nperiódicos.\n§ 1\no\n– Os veículos de publicação que trata este artigo devem estar classificados nos estratos\nsuperiores\n\nconforme\n\no\n\ndocumento\n\nde\n\nárea\n\nem\n\nCiência\n\nda\n\nComputação\n\nda\n\nCAPES.\n\nOs\n\nestratos\n\nsuperiores\n\n(A1,\n\nA2,\n\nA3,\n\nA4)\n\nsão\n\nestabelecidos\n\nda\n\nseguinte\n\nmaneira:\nno caso de periódicos, percentil acima de\n50%;\n\nno\n\ncaso\n\nde\n\neventos,\n\nH5\n\n(google\n\nscholar)\n\n>=\n\n15.\n§ 2\no\n– Para eventos e periódicos nacionais, serão considerados os critérios de indução, em que o CC da\nCAPES\n\nclassifica\n\nos\n\nprincipais\n\neventos/periódicos\n\nnacionais\n\npromovidos\n\npela\n\nSBC,\n\nconforme\n\no\n\nestabelecido\n\nno\n\nDocumento\n\nde\n\nÁrea\n\nem\n\nCC\n\nda\n\nCAPES.\n\nNesse\n\ncaso,\n\nos\n\neventos/periódicos\n\nnacionais\n\nserão\n\nclassificados\n\nde\n\nacordo\n\ncom\n\na\n\nclassificação\n\nde\n\neventos/periódicos\n\nutilizada\n\npela\n\nCAPES"
+    },
+    {
+      "id_chunk": "chunk_0110",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [11],
+      "score": 2.3279,
+      "frequencias_termos": {
+        "critérios": 2
+      },
+      "texto": "DOCENTE\n\nArt. 47. Corpo docente é o conjunto de professores e pesquisadores organizado s por linhas de\npesquisa e que são responsáveis pela execução das atividades didático -científicas de cada programa de\npós-graduação stricto sensu da UFS.\n\nArt. 48. A permanência de professores e pesquisadores no corpo docente será normatizada pelo\nregimento interno do programa, que definirá os critérios para elaboração pela Comissão de Avaliação\nDocente do relatório anual de desempenho do corpo docente, observando as normas vigentes.\n\nArt. 49. A incorporação de novos integrantes ao corpo docente se dará mediante edital de\ncredenciamento.\n\n§ 1º Deverão constar em cada edital os critérios de avaliação, bem como um modelo e prazo para\napresentação de solicitação de credenciamento pelos interessados.\n\n§ 2º A Comissão de Avaliação Docente do programa deverá e mitir um parecer para cada\nsolicitação de credenciamento.\n\n§ 3º O colegiado deverá apreciar os pareceres e homologar o resultado final do credenciamento,\nque deverá ser publicado no site do programa apenas com os nomes dos docentes credenciados.\n\nArt. 50. Podem solicitar credenciamento para ingressar no corpo docente:\nI. docentes efetivos da UFS;\nII. docentes aposentados da UFS, e,\nIII. profissionais externos à UFS.\n\nArt. 5 1. São dispensados de"
+    },
+    {
+      "id_chunk": "chunk_0112",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [12],
+      "score": 1.6221,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "UFS e profissionais externos não credenciados no corpo docente do\nprograma poderão ser convidados para ministrar uma disciplina , coorientar um discente regular e/ou\nparticipar de bancas.\n\nParágrafo único. Para fins de cadastro no sistema acadêmico da universidade dos convidados\nmencionados no caput do artigo, deverão ser observados os procedimentos dispostos nos parágrafos 1º,\n2º, 3º e 4º do artigo anterior.\n\nArt. 53. A coordenação de cada programa deverá manter a lista de membros de seu respectivo\ncorpo docente atualizada no sistema acadêmico da universidade.\n\nArt. 5 4. Serão descredenciados do corpo docente aqueles que não atenderem aos critérios de\npermanência, definidos no regimento interno do programa e identificados no relatório pela Comissão de\nAvaliação Acadêmica.\n\nArt. 55. A participação dos profissionais externos e dos docentes aposentados nos programas de\npós-graduação stricto sensu da UFS dar -se-á, sem exceção, de caráter voluntário, não cabendo à\nuniversidade:\nI. admissão de vínculo empregatício;\nII. obrigação de natureza trabalhista e previdenciária ou responsabilidade de remuneração, e,\nIII. responsabilidade de indenização por eventuais danos ou prejuízos decorrentes das atividades\ndesenvolvidas.\n\nCAPÍTULO III\nDO CORPO DISCENTE\n\nArt. 56. O corpo discente da pós -graduação stricto sensu é o conjunto de discentes matriculados\nnos cursos de"
+    },
+    {
+      "id_chunk": "chunk_0124",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [16, 17],
+      "score": 2.3132,
+      "frequencias_termos": {
+        "critérios": 2
+      },
+      "texto": "de concentração dos programas baseiam -se na Tabela de Áreas do\nConhecimento estabelecida pelo órgão federal competente pela organização nacional da pós -graduação\nstricto sensu.\n\nArt. 86. Entende-se por linha de pesquisa a especificidade da produção de conhecimento, que\nexpressa um recorte específico e bem delimitado dentro da(s) área(s) de concentração.\n\nParágrafo único. Às linhas de pesquisa, são vinculados os corpos doce nte e discente a partir dos\nseus projetos de pesquisa desenvolvidos.\n\nCAPÍTULO III\nDA ORIENTAÇÃO DE PESQUISA\n\nArt. 87. Durante todo o vínculo com o programa , o discente regular estará vinculado a um\ndocente orientador, que será um dos integrantes do respectivo corpo docente do programa.\n\n15\n\n§1º O regimento interno do programa deverá estabelecer os critérios para a definição do docente\norientador de cada discente regular, bem como critérios para sua substituição.\n\n§2º Os discentes especiais não terão docentes orientadores e serão supervisionados pelos\nrespectivos coordenadores do programa.\n\nArt. 88. O docente orientador, em comum acordo com o discente regular, pode propor ao\ncolegiado a definição de um docente co orientador, que poderá ser um docente do programa ou um\ndocente externo a ele.\n\nArt. 89. Compete aos orientadores e co orientadores, supervisionar os seus respectivos"
+    },
+    {
+      "id_chunk": "chunk_0130",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [19],
+      "score": 2.9218,
+      "frequencias_termos": {
+        "critérios": 4
+      },
+      "texto": "submetido, com o objetivo de avaliar a pesquisa em\ndesenvolvimento, sendo obrigatória para todos os discentes;\nV. Defesa de Dissertação/Tese: atividade acadêmica caracterizada pela realização de uma banca\nexaminadora, à qual o discente é submetido, com o objetivo de avaliar o resultado final da\npesquisa desenvolvida, sendo obrigatória para todos os discentes, e,\nVI. Estudos Extracurriculares: atividade acadêmica caracterizada pela apresentação de um\nrelatório, por parte do discente, com comprovantes de publicação de trabalhos e/ou de\nparticipação em eventos realizados durante seu vínculo com o programa.\n\nArt. 100. Sobre as atividades acadêmicas, a estrutura curricular deverá definir:\nI. o(s) exame(s) de proficiência em língua estrangeira que será(ão) aceito(s), os idiomas\nexigidos e o prazo máximo para que o discente entregue o(s) certificado(s) na secretaria do\nprograma;\nII. os critérios para a realização do Estágio Docente, bem como os critérios de aprovação do\nrelatório do estágio e o prazo máximo para que o discente entregue o relatório na secretaria\ndo programa;\nIII. a carga horária semestral dedicada pelo discente para a Elaboração de Pesquisa e os critérios\nde avaliação de desempenho do discente;\nIV. o formato do trabalho a ser entregue pelo discente à banca examinadora, os critérios de\ncomposição da"
+    },
+    {
+      "id_chunk": "chunk_0131",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [19],
+      "score": 9.6206,
+      "frequencias_termos": {
+        "critérios": 4,
+        "atribuição": 1,
+        "requisitos": 1
+      },
+      "texto": "Elaboração de Pesquisa e os critérios\nde avaliação de desempenho do discente;\nIV. o formato do trabalho a ser entregue pelo discente à banca examinadora, os critérios de\ncomposição da banca e o prazo máximo para a realização, tanto do Exame de Qualificaç ão,\nquanto da Defesa de Dissertação/Tese, e,\nV. o prazo para que o discente entregue o relatório com comprovantes dos Estudos\nExtracurriculares, sua obrigatoriedade, a carga horária mínima e os critérios de aceitação.\n\n§1º Para a Defesa de Dissertação/Tese, o discente deverá ter aprovação no exame de qualificação\ne ter cumprido todos os demais requisitos das normas do programa.\n\n§2º Apenas as atividades acadêmicas de Elaboração de Pesquisa e de Estudos Extracurriculares\nterão carga de créditos, que serão refer entes, respectivamente, ao tempo que deve ser dedicado pelo\ndiscente para a execução do seu projeto de pesquisa, e à carga horária das atividades extracurriculares.\n\n§3º Caberá ao docente orientador supervisionar o cumprimento da carga horária da atividade\nacadêmica “Elaboração de Pesquisa”, considerando esse como um dos critérios para a atribuição do\nconceito final.\n\n§4º No caso das atividades acadêmicas de cursos ofertados por programas integrantes de redes\nnacionais, que possuam normatizações próprias e diferentes das dispostas nesta"
+    },
+    {
+      "id_chunk": "chunk_0139",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [22],
+      "score": 5.5475,
+      "frequencias_termos": {
+        "critérios": 1,
+        "matrícula": 3
+      },
+      "texto": "de turmas, quando o discente poderá retirar e adicionar turmas, e,\nIII. inclusão de turmas, quando a coordenação do programa poderá, a pedido do discente,\nrealizar matrículas em turmas.\n\n§1º Cabe ao discente conferir o processamento das matrículas em turmas.\n\n§2º Ao discente que frequentar uma turma que não esteja matriculado não é garantido direito à\nmatrícula posterior na mesma.\n\n§3º Os pedidos de inclusão deverão ser entregues na secretaria do programa no prazo definido\npelo calendário acadêmico.\n\nArt. 114. A CPG poderá estabelecer, por meio de Instrução Normativa, critérios de prioridade no\npreenchimento das vagas ofertadas.\n\nArt. 115. A matrícula de discentes regulares em atividades acadêmicas será de responsabilidade\nda coordenação do programa.\n\nSeção VI\nDo Período de Trancamento de Matrículas em Turmas\n\nArt. 11 6. Após o início das aulas, o discente regular poderá trancar sua matrícula em uma ou\nmais turmas desde que:\nI. ainda não tenha ultrapassado metade da carga horária da turma, e,\nII. mantenha-se matriculado em, pelo menos, uma turma de disciplina e/ou atividade\nacadêmica.\n\nParágrafo único. O trancamento de todas as turmas e atividades acadêmicas, às quais o discente\nesteja matriculado, apenas será permitido por meio de uma solicitação de trancamen to de"
+    },
+    {
+      "id_chunk": "chunk_0141",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [23],
+      "score": 1.6365,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "programa deve comunicar ao colegiado os casos de turmas\nconsolidadas fora do prazo, a fim de que providências sejam tomadas para evitar reincidências.\n\nCAPÍTULO VI\nDO APROVEITAMENTO DE ESTUDOS\n\nArt. 120 . Os discentes regulares podem requerer aproveitamento de estudos referente a\ndisciplinas realizadas em cursos de pós-graduação stricto sensu, nacionais ou estrangeiros.\n\n§1º É vedado o aproveitamento de estudos de atividades acadêmicas.\n\n§2º Os cursos de pós -graduação nacionais, a que se refere o caput deste artigo, deverão ser\nlegalmente reconhecidos ou autorizados para que se proceda o aproveitamento.\n\nArt. 121. O aproveitamento de estudo se dará por meio da aceitação da correspondência entr e o\nestudo realizado e uma disciplina integrante da estrutura curricular do discente interessado.\n\nParágrafo único . Caberá ao regimento interno do programa o estabelecimento de critérios de\naprovação dos requerimentos de aproveitamentos de estudos.\n\nArt. 122. Os requerimentos deverão ser acompanhados pelos comprovantes dos estudos\nrealizados.\n\nParágrafo único . A POSGRAP estabelecerá em Instrução Normativa os procedimentos e os\nmeios para que os discentes apresentem suas requisições.\n\nArt. 123. Todos os requerimentos de aproveitamento de estudos serão avaliados em, no máximo,\ntrinta dias úteis pela Comissão de Supervisão Discente do programa, que emitirá parecer"
+    },
+    {
+      "id_chunk": "chunk_0150",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [26, 27],
+      "score": 1.6257,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "até sessenta dias, cancelando a banca anterior e, caso necessário, prorrog ando o prazo de\nconclusão do discente.\n\nCAPÍTULO X\nDA PROGRESSÃO DE MESTRADO PARA DOUTORADO\n\nArt. 143. O discente regular matriculado em curso de mestrado poderá requerer sua progressão\npara o doutorado, sem a necessidade de submeter-se a processo seletivo.\n\n§1º A requisição de progressão referida no caput se dará por fluxo contínuo e existirá apenas em\nprogramas que tenham cursos de mestrado e doutorado, sendo vedada a migração de um programa para\noutro.\n\n§2º Para que ocorra a solicitação, a defesa da dissertação deve ser realizada entre o 12º e 18º mês\nde duração do curso de mestrado.\n\n§3º Os critérios e as condições de avaliação deverão ser definidos no regimento interno do\nprograma.\n\n§4º A POSGRAP estabelecerá em Instrução Normativa os procedimentos e os meios para que os\ndiscentes apresentem suas requisições.\n\n25\nArt. 144. Caberá ao colegiado analisar o enquadramento da solicitação ao disposto nas normas\nvigentes e autorizar que a banca de defesa, em única instância, avalie o mérito do trabalho apresent ado e\ndecida entre:\nI. aprovação, tanto na defesa, quanto da requisição de progressão;\nII. aprovação na defesa e reprovação da requisição de"
+    },
+    {
+      "id_chunk": "chunk_0152",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [27],
+      "score": 1.6257,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "mediante uma defesa\ndireta de tese a candidatos de alta qualificação científica e/ou profissional.\n\nParágrafo único. Apenas programas de pós -graduação com conceito igual ou superior a cinco\n(5) poderão receber candidaturas de doutoramento por defesa direta.\n\nArt. 14 8. Os interessados deverão entregar um requerimento fundamentado e um projeto de\npesquisa na secretaria do curso, que abrirá processo eletrônico e encaminhará ao colegiado para avaliação\nem instância única.\n\n§1º Os critérios de avaliação e a documentação nec essária deverão ser definidos no regimento\ninterno do programa.\n\n§2º Os requerimentos apresentados deverão ser avaliados pelo colegiado no prazo máximo de\ntrinta dias com emissão de um parecer.\n\n§3º O candidato que tiver seu requerimento negado pelo colegi ado poderá apresentar novo\nrequerimento, que será considerado como uma nova candidatura.\n\n§4º Os processos eletrônicos dos requerimentos aceitos deverão ser encaminhados pela secretaria\ndo programa à COPGD, que fará o seu registro no sistema acadêmico da universidade.\n\nArt. 149. O candidato aprovado deverá elaborar sua tese, sob orientação de um docente indicado\npelo colegiado, no prazo máximo de dois anos, contados a partir da data de aprovação no colegiado, ao\nfinal do qual deverá realizar sua banca de defesa.\n\nParágrafo único. A"
+    },
+    {
+      "id_chunk": "chunk_0168",
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "paginas": [5],
+      "score": 2.3132,
+      "frequencias_termos": {
+        "critérios": 2
+      },
+      "texto": "técnico no colegiado será composta por um representante e seu\nrespectivo suplente serão eleitos pelos técnicos vinculados ao PROCC para um mandato de um ano,\nsendo permitido sucessivas reconduções quando não houver técnicos suficientes para a sucessão.\n\nArt. 10. O colegiado se reunirá mediante convocação da coordenação, enviada por meio\neletrônico com antecedência mínima de dois dias úteis, exceto nos casos excepcionais de urgência.\n\n§ 1º As reuniões ordinárias serão realizadas mensalmente, conforme calendário semestral de\nreuniões definido pelo colegiado nos meses de novembro e maio, e as extraordinárias, quando houver\ndemanda urgente pendente de decisão, ou mediante requerimento de 1/3 (um terço) dos membros do\ncolegiado.\n\n§ 2º O quorum de instalação das reuniões será formado pela presença da maioria dos membros do\nColegiado. As deliberações serão tomadas pela maioria de votos dos membros presentes.\n\nArt. 11. São atribuições do Colegiado do PROCC, al ém daquelas estabelecidas nas Normas\nAcadêmicas da Pós-Graduação stricto sensu da UFS:\nI. homologar os planos de atividade dos pós-graduandos;\nII. deliberar sobre os critérios para credenciamento e recredenciamento de docentes do programa;\nIII. homologar ementas, carga horária e programas das disciplinas de pós-graduação;\nIV. estabelecer os critérios e procedimentos para seleção de novos discentes;"
+    },
+    {
+      "id_chunk": "chunk_0169",
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "paginas": [5],
+      "score": 4.4303,
+      "frequencias_termos": {
+        "critérios": 2,
+        "bolsas": 1
+      },
+      "texto": "para credenciamento e recredenciamento de docentes do programa;\nIII. homologar ementas, carga horária e programas das disciplinas de pós-graduação;\nIV. estabelecer os critérios e procedimentos para seleção de novos discentes;\nV. estabelecer os critérios e procedimentos para seleção de bolsistas;\nVI. atribuir ou revalidar créditos obtidos em cursos de pós -graduação equivalentes em outros\nprogramas, e,\nVII. criar grupos de trabalho para execução de atividades específicas e transitórias distintas\ndaquelas exercidas pelas comissões internas.\n\nArt. 12. O Colegiado do PROCC possui as seguintes comissões internas:\nI. Comissão de Autoavaliação e Planejamento Estratégico, responsável por elaborar a\nautoavaliação e o planejamento estratégico do programa, bem como por acompanhar o\npreenchimento da plataforma sucupira;\nII. Comissão de Bolsas, responsável pela distribuição de bo lsas do programa, conforme normas\nvigentes das agências de fomento e regimento interno do programa;\nIII. Comissão de Supervisão Discente, responsável por deliberar sobre os requerimentos de\naproveitamento de estudos, de trancamento de vínculo, de prorrogação de prazo de conclusão\ne de outros requerimentos dos discentes e por elaborar um relatório anual sobre o desempenho\ncientífico do corpo discentes;\nIV. Comissão de Avaliação Docente, responsável por elaborar um relatório anual sobre o\ndesempenho científico do corp o docente e"
+    },
+    {
+      "id_chunk": "chunk_0173",
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "paginas": [6, 7],
+      "score": 1.6221,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "DOCENTE\n\nArt. 17. Constituem categorias docentes do PROCC:\nI. Permanentes;\nII. Colaboradores, e,\nIII. Visitantes.\n\nParágrafo único. Os docentes colaboradores, visitantes e permanentes que não fazem parte do\nColegiado do programa não têm direito a voto no Colegiado do PROCC.\n\nArt. 18. O pedido de credenciamento de professores ao PROCC se dará mediante edital de\ncredenciamento, no qual deverão constar os critérios de avaliação, o modelo e o prazo para apresentação\nde solicitação de credenciamento.\n\n5\n§1º A Comissão de Avaliação Docente do PROCC deverá emitir parecer acerca de cada\nsolicitação de credenciamento, o qual deverá ser apreciado pelo Colegiado, responsável pela\nhomologação do resultado final do credenciamento.\n\n§2º O perfil daqueles que podem solicitar credenciamento está estabelecido nas Normas\nAcadêmicas da Pós-Graduação stricto sensu da UFS.\n\n§3º A descrição daqueles que são dispensados de participar do edital de credenciamento está\nfixada nas Normas Acadêmicas da Pós-Graduação stricto sensu da UFS.\n\nArt. 19. Para fins de permanência no programa, o docente deverá cumprir, no período de quatro\nanos, as seguintes condições:\nI. submeter ao menos um projeto de pesquisa ou desenvolvimento (científico ou tecnológico) a\nalguma instituição de fomento local, regional, nacional ou internacional;\nII. ter ministrado pelo menos uma"
+    },
+    {
+      "id_chunk": "chunk_0174",
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "paginas": [7],
+      "score": 1.6257,
+      "frequencias_termos": {
+        "critérios": 1
+      },
+      "texto": "condições:\nI. submeter ao menos um projeto de pesquisa ou desenvolvimento (científico ou tecnológico) a\nalguma instituição de fomento local, regional, nacional ou internacional;\nII. ter ministrado pelo menos uma turma de disciplina de pós-graduação;\nIII. ter orientado ou coorientado pelo menos um discente no Programa, e,\nIV. os interessados em recredenciamento devem manter parâmetros de produção e qualidade\ncientífica compatíveis com as recomendações do documento de área da CAPES para\nprogramas com o conceito superior ou igual a 4. Baseando -se no documento de área, os\ninstrumentos de avaliação poderão ser detalhados por meio de instrução normativa do\ncolegiado\n\nArt. 20. Os professores e pesquisadores que não atenderem aos critérios de recredenciamento\nserão descredenciados do Programa. As orientações dos docentes não recredenciados serão alocadas para\nos demais docentes do programa, conforme definido pelo Colegiado do PROCC.\n\nCAPÍTULO IV\nDO CORPO DISCENTE\n\nArt. 21. O corpo discente do programa é formado por discentes regulares e especiais, portadores\nde diplomas de cursos de graduação em Ciência da Computação e áreas afins para o curso de Mestrado\nem Ciência da Computação, e portadores de diplomas de mestrado (modalidades de mestrado acadêmico\ne mestrado profissional) em Ciência da Computação e áreas afins para"
+    },
+    {
+      "id_chunk": "chunk_0176",
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "paginas": [7, 8],
+      "score": 6.1196,
+      "frequencias_termos": {
+        "critérios": 1,
+        "bolsas": 1,
+        "matrícula": 1
+      },
+      "texto": "Ciência da Computação , desde que o graduando já\ntenha cursado, com aprovação, um mínimo de 70% das disciplinas obrigatórias de seu curso de\ngraduação.\n\nArt. 24. O Curso de Doutorado em Ciência da Computação do PROCC somente aceitará a\nadmissão de discentes regulares.\n\nArt. 25. O acesso aos cursos de Mestrado em Ciência da Computação e de Doutorado em Ciência\nda Computação se dará por meio de aprovação em processo seletivo regido por edital elaborado pelo\nColegiado, conforme modelo definido pela COPGD e nos termos da legislação vigente.\n\n6\n§1º Os editais para discentes especiais devem selecionar candidatos especificamente para cursar\ndisciplinas pré -definidas pelo PROCC, observando o limite de duas disciplinas por discente e de um\nperíodo por vínculo.\n\n§2º A matrícula institucional dos candidatos aprovados ocorrerá conforme o disposto nas Normas\nAcadêmicas da Pós-Graduação stricto sensu da UFS.\n\nArt. 26. A distribuição das cotas de bolsas destinadas ao PROCC, será de responsabilidade da\ncomissão de bolsa que seguirá critérios definidos em Instrução Normativa, considerando as normas\nvigentes das agências de fomento.\n\nCAPÍTULO V\nDO REGIME ACADÊMICO\n\nArt. 27. A duração do vínculo com o programa será:\nI. para o discente regular do mestrado, de doze meses no"
+    },
+    {
+      "id_chunk": "chunk_0177",
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "paginas": [8],
+      "score": 2.3132,
+      "frequencias_termos": {
+        "critérios": 2
+      },
+      "texto": "das agências de fomento.\n\nCAPÍTULO V\nDO REGIME ACADÊMICO\n\nArt. 27. A duração do vínculo com o programa será:\nI. para o discente regular do mestrado, de doze meses no mínimo e de vinte e quatro meses no\nmáximo;\nII. para o discente regular do doutorado, de vinte e quatro meses no mínimo e de quarenta e oito\nmeses no máximo, e;\nIII. para o discente especial do programa, de apenas um período letivo.\n\nParágrafo único. O discente regular poderá solic itar prorrogação do prazo, observando os\ncritérios definidos nas Normas Acadêmicas da Pós-Graduação stricto sensu da UFS.\n\nArt. 28. Durante todo o vínculo com o programa, o discente regular estará vinculado a um\ndocente orientador, que deverá supervisionar suas atividades conforme definido nas Normas Acadêmicas\nda Pós-Graduação stricto sensu da UFS.\n\nParágrafo único. O docente orientador, em comum acordo com o discente regular, pode propor\nao colegiado a definição de um docente coorientador, que poderá ser um docente do programa ou um\ndocente externo a ele.\n\nArt. 29. São critérios para a definição e substituição de orientadores:\nI. o orientador indicado deverá manifestar prévia e formalmente a sua concordância, e,\nII. o coorientador, quando existir, deverá substituir o orientador"
+    },
+    {
+      "id_chunk": "chunk_0178",
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "paginas": [8, 9],
+      "score": 4.6927,
+      "frequencias_termos": {
+        "critérios": 2,
+        "matrícula": 1
+      },
+      "texto": "critérios para a definição e substituição de orientadores:\nI. o orientador indicado deverá manifestar prévia e formalmente a sua concordância, e,\nII. o coorientador, quando existir, deverá substituir o orientador principal nos impedimentos\ndeste.\n\n§1º A substituição do orientador deve ser apresentada ao Colegiado em uma requisição\ndevidamente fundamentada.\n\n§2º O pedido de substituição pode ser formulado tanto pelo discente quanto pelo orientador.\n\n§3º O discente não poderá solicitar substituição do orientador após cumprido vinte meses corridos\ndo início do mestrado, ou quarenta meses no caso do doutorado.\n\nArt. 30. A estrutura curricular dos cursos Mestrado em Ciência da Computação e de Doutorado\nem Ciência da Computação é constituída de um elenco de disciplinas e atividades obrigatórias e optativas,\ne será definida por Instrução Normativa do Colegiado.\n\nParágrafo único. Para a avaliação da aprendizagem e da assiduidade em cada disciplina e\natividade cursadas, serão observados os critérios dispostos nas Normas Acadêmicas da Pós - Graduação\nstricto sensu da UFS.\n\nArt. 31. O período letivo de aulas e as datas de matrícula e de trancamento das disciplinas serão\ndefinidos por meio do Calendário Acadêmico da Pós-Graduação stricto sensu da UFS.\n\n7\nArt. 32. O discente regular poderá requerer aproveitamento de estudos"
+    },
+    {
+      "id_chunk": "chunk_0179",
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "paginas": [8, 9],
+      "score": 3.9838,
+      "frequencias_termos": {
+        "critérios": 1,
+        "matrícula": 1
+      },
+      "texto": "matrícula e de trancamento das disciplinas serão\ndefinidos por meio do Calendário Acadêmico da Pós-Graduação stricto sensu da UFS.\n\n7\nArt. 32. O discente regular poderá requerer aproveitamento de estudos para alguma disciplina de\nsua estrutura curricular, considerando os seguintes critérios:\nI. Poderão ser aceitas disciplinas cursadas em qualquer instituição credenciada e reconhecida,\nnacional ou internacional, observando -se a equivalência de carga horária/créditos e conteúdo,\ne;\nII. As disciplinas deverão ter sido cursadas há menos de 10 (dez) anos contados a partir da data\nde requerimento.\n\nArt. 33. O discente regular, tanto do mestrado quanto do doutorado, poderá solicitar apenas um\ntrancamento de vínculo durante o curso.\n\n§1º No requerimento do discente devem constar uma justificativa da necessidade de trancamento\nde vínculo, a indicação do período que pretende trancar e um cronograma de pesquisa reelaborado\nreferente ao tempo restante do prazo de conclusão de curso.\n\n§2º A concessão de trancamento de vínculo não implica a interrupção da contagem do prazo para\nconclusão do curso, nem a prorrogação automática deste prazo.\n\n§3º É vedado o trancamento durante o período de prorrogação de prazo de conclusão.\n\nArt. 34. O discente regular terá seu vínculo cancelado no s casos definidos nas Normas\nAcadêmicas"
+    },
+    {
+      "id_chunk": "chunk_0182",
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "paginas": [9, 10],
+      "score": 2.4361,
+      "frequencias_termos": {
+        "critérios": 2
+      },
+      "texto": "Doutorado serão\nestabelecidos pelo Colegiado do PROCC na forma de Instrução Normativa.\n\nArt. 40. O discente regular matriculado em curso de mestrado poderá requerer progressão\npara o doutorado, sem a necessidade de submeter -se a processo seletivo, desde que atenda os seguintes\ncritérios:\n\n8\nI. a defesa da dissertação deve ser realizada entre o décimo segundo e décimo oitavo mês de\nduração do curso de mestrado;\nII. ter publicado pelo menos um artigo em conferência com qualis restrito da CAPES;\nIII. ter publicado pelo menos um artigo em periódico com qualis restrito da CAPES, e,\nIV. ter obtido conceito A em todas as disciplinas cursadas no mestrado.\n\nParágrafo único. O atendimento a estes critérios não dispensa o cumprimento do exigido nas\nNormas Acadêmicas da Pós-Graduação da UFS.\n\nArt. 41. O grau conferido pelo PROCC será o de Mestre em Ciência da Computação para o curso\nde Mestrado acadêmico e de Doutor em Ciência da Computação para o curso de Doutorado acadêmico.\n\nSala das Sessões, 20 de junho de 2022.\n___________________"
+    },
+    {
+      "id_chunk": "chunk_0078",
+      "id_documento": "doc_004",
+      "nome_arquivo": "IN_01_2026_PROCC_Credenciamento_Recredenciamento_Vagas.pdf",
+      "paginas": [2],
+      "score": 3.9898,
+      "frequencias_termos": {
+        "atribuição": 1
+      },
+      "texto": "– Grupo PPS: docentes permanentes com mais de 60 anos de idade. Docentes desse\ngrupo poderão ter até 6 vagas de orientação de mestrado.\n§1º O docente que não foi classificado em nenhum dos grupos não poderá receber novos discentes enquanto\nperdurar tal situação.\n§2º O docente poderá solicitar à CAD a reanálise de sua classificação nos grupos descritos sempre que\nobtiver publicação ou aceitação de um novo artigo que lhe permita reverter a situação descrita neste artigo ou\nque lhe permita mudar de grupo.\nArt.3 A CAD realizará uma coleta de artigos publicados para posterior classificação de docentes sempre que\nhouver necessidade da realização de um processo de credenciamento/recredenciamento ou de atribuição de\nvagas por orientador, obedecendo o que está disposto nos artigos 1 e 2.\nArt. 4 O processo de credenciamento ocorrerá sempre que houver necessidade do Programa e é realizado via\nedital público disponibilizado na página web do Programa\n§1º A CAD deverá analisar as solicitações de credenciamento de novos docentes e elaborar um parecer de\naprovação, caso o candidato seja aceito como novo docente.\n§2º O resultado final do processo de credenciamento deve ser homologado pelo colegiado do PROCC.\n§3º O credenciamento de docentes no último"
+    },
+    {
+      "id_chunk": "chunk_0132",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [19, 20],
+      "score": 3.9461,
+      "frequencias_termos": {
+        "atribuição": 1
+      },
+      "texto": "para a atribuição do\nconceito final.\n\n§4º No caso das atividades acadêmicas de cursos ofertados por programas integrantes de redes\nnacionais, que possuam normatizações próprias e diferentes das dispostas nesta seção, prevalecerão as\nnormas da rede.\n\nSeção II\nDa Avaliação da Aprendizagem e da Assiduidade\n\nArt. 101. A avaliação da aprendizagem e da assiduidade será expressa por meio de um conceito\nindividual para cada disciplina de acordo com as seguintes classificações:\nI. conceito A: aprendizagem excelente (equivalente a notas de 9,0 a 10,0);\nII. conceito B: aprendizagem boa (equivalente a notas de 8,0 a 8,9);\nIII. conceito C: aprendizagem suficiente (equivalente a notas de 7,0 a 7,9);\nIV. conceito D: aprendizagem insuficiente (equivalente a notas inferiores a 7,0), e,\nV. conceito E: frequência insuficiente (conforme estabelecido para cada modalidade).\n\nParágrafo único . Será considerado aprovado o discente que, necessariamente, apresentar\nfrequência igual ou superior a setenta e cinco por cento (75%) das atividades desenvolvidas e conceito\nigual ou superior a “C”.\n\n18\nArt. 102. A todas as disciplinas e à atividade acadêmica “Elaboração de Pesquisa” será atribuído\num dos conceitos mencionados no artigo ant erior, enquanto que as demais atividades acadêmicas não\nterão conceito atribuído, sendo finalizadas apenas com resultado"
+    },
+    {
+      "id_chunk": "chunk_0001",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [1],
+      "score": 1.9574,
+      "frequencias_termos": {
+        "bolsas": 1
+      },
+      "texto": "19/06/2023, 10:21 SEI/CAPES - 1999996 - Edital\nhttps://sei.capes.gov.br/sei/controlador.php?acao=documento_imprimir_web&acao_origem=arvore_visualizar&id_documento=2173701&infra_si… 1/13\n\nCOORDENAÇÃO DE APERFEIÇOAMENTO DE PESSOAL DE NÍVEL SUPERIOR - CAPES\nPROGRAMA DE REDUÇÃO DE ASSIMETRIAS NA PÓS-GRADUAÇÃO (PRAPG)\nEDITAL Nº 14/2023\nPROCESSO Nº 23038.003836/2023-39\nA PRESIDENTE DA COORDENAÇÃO DE APERFEIÇOAMENTO DE PESSOAL DE NÍVEL SUPERIOR - CAPES, no\nuso das atribuições conferidas pelo Estatuto aprovado pelo Decreto nº 11.238, de 18 de outubro de\n2022, e nos termos do Processo 23038.003836/2023-39, juntamente com a Diretoria de Programas e\nBolsas no País (DPB), Diretoria de Relações Internacionais (DRI) e Diretoria de Avaliação (DAV), por se\ntratar de um programa estratégico com vistas à redução das assimetrias iden\u0000ﬁcadas no Sistema\nNacional da Pós-Graduação e por atender ao disposto no inciso II, do art. 4º da Portaria nº 34, de 9 de\nmarço de 2020, torna público o Edital nº 14/2023 - Programa de Redução de Assimetrias na PósGraduação (PRAPG), o qual passa a convocar Ins\u0000tuições de Ensino Superior (IES), por meio de seus PróReitores de Pós-Graduação e Pesquisa e Coordenadores de Programas de Pós-Graduação stricto sensu\nacadêmicos, a apresentarem propostas, conforme legislação vigente e as condições estabelecidas a\nseguir:\n1. DO OBJETIVO GERAL\n1.1. Contribuir para o aperfeiçoamento do Sistema Nacional de Pós-Graduação"
+    },
+    {
+      "id_chunk": "chunk_0016",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [6, 7],
+      "score": 1.9257,
+      "frequencias_termos": {
+        "bolsas": 1
+      },
+      "texto": "15\nSUL 7\nCENTRO-OESTE 15\nNORTE 13\nTotal Geral 100\n14.4.1. Caso o número de propostas por Região não a\u0000nja o teto estabelecido no item 14.4, será\nselecionada a proposta recomendada com maior nota até o máximo de 100 propostas, conforme previsto\nno item 7.2 deste edital.\n15. DA HOMOLOGAÇÃO DO RESULTADO FINAL\n15.1. A lista das propostas aprovadas e classiﬁcadas será subme\u0000da à apreciação da Presidência da CAPES\npara homologação.\n15.2. O resultado ﬁnal do edital será publicado no DOU, conforme cronograma previsto no item 5 desta\nchamada.\n15.3. Informações oﬁciais e resultados serão divulgados exclusivamente por meio eletrônico.\n16. DO ORÇAMENTO DA CAPES\n16.1. As propostas aprovadas serão apoiadas no valor global es\u0000mado de R$ 131.910.645,40 (cento e\ntrinta e um milhões, novecentos e dez mil, seiscentos e quarenta e cinco reais e quarenta centavos)\noriundos do orçamento da CAPES.\n16.2. Os aportes dos recursos es\u0000mados referem-se ao valor dos recursos de custeio, capital e das\nbolsas.\n16.2.1. Os recursos serão divididos da seguinte maneira para cada proposta aprovada:\nRecursos Previstos por Projeto\nTipo Valor Previsto\nRecurso de Custeio Até R$ 40.000,00 (quarenta mil reais)\n\n19/06/2023, 10:21 SEI/CAPES - 1999996 - Edital\nhttps://sei.capes.gov.br/sei/controlador.php?acao=documento_imprimir_web&acao_origem=arvore_visualizar&id_documento=2173701&infra_si… 7/13\nRecurso de Capital Até"
+    },
+    {
+      "id_chunk": "chunk_0017",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [6, 7],
+      "score": 4.0807,
+      "frequencias_termos": {
+        "bolsas": 6
+      },
+      "texto": "aprovada:\nRecursos Previstos por Projeto\nTipo Valor Previsto\nRecurso de Custeio Até R$ 40.000,00 (quarenta mil reais)\n\n19/06/2023, 10:21 SEI/CAPES - 1999996 - Edital\nhttps://sei.capes.gov.br/sei/controlador.php?acao=documento_imprimir_web&acao_origem=arvore_visualizar&id_documento=2173701&infra_si… 7/13\nRecurso de Capital Até R$ 40.000,00 (quarenta mil reais)\nNúmero de Bolsas Previstas por Projeto\nMestrado no país Até 4\nDoutorado (Pró-Doutoral) no país 1\nPós-Doutorado no país Até 2\nProfessor Visitante Sênior no país 1\nProfessor Visitante Sênior no exterior 1\nProfessor Visitante Júnior no exterior 1\nProfessor Visitante Estrangeiro 1\n\n17. DA CONCESSÃO DAS BOLSAS\n17.1. Os bene\u0000cios des\u0000nados às Coordenações de PPG deverão ser u\u0000lizados em estrita concordância\ncom o planejamento estratégico da Pró-Reitoria de Pós-Graduação e Pesquisa e, também, do PPG que,\npor sua vez, deverá apresentar as ações de melhorias propostas pela CAPES em suas ﬁchas de avaliação\nemi\u0000das, especialmente, no úl\u0000mo ciclo avalia\u0000vo coordenado pela CAPES (2021).\n17.2. A duração das bolsas não deverá ultrapassar o prazo de execução do projeto.\n17.3. As cotas de bolsas deverão ser implementadas, conforme calendário a ser divulgado pela CAPES em\no\u0000cio de concessão que, por sua vez, será enviado ao Coordenador de PPG, via sistema Linha Direta.\n17.4. As bolsas deverão ser implementadas no Sistema de Concessão de Bolsas e Auxílios"
+    },
+    {
+      "id_chunk": "chunk_0018",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [7],
+      "score": 7.0278,
+      "frequencias_termos": {
+        "bolsas": 8,
+        "requisitos": 1
+      },
+      "texto": "de concessão que, por sua vez, será enviado ao Coordenador de PPG, via sistema Linha Direta.\n17.4. As bolsas deverão ser implementadas no Sistema de Concessão de Bolsas e Auxílios (SCBA) pelo\nCoordenador de PPG, dentro dos prazos a serem informados.\n17.5. O valor das bolsas no país são deﬁnidos pela Portaria CAPES nº 33, de 16 de fevereiro de 2023 ou\noutra que venha a subs\u0000tuí-la. O valor das bolsas no exterior, por sua vez, é regido pela Portaria CAPES nº\n1, de 3 de janeiro de 2020.\n17.6. Das bolsas de Mestrado e Doutorado\n17.6.1. Mestrado - As concessões e implementações das bolsas deverão observar o norma\u0000vo da CAPES\nque regula a modalidade (Portaria CAPES nº 76/2010), no que couber.\nI. As cotas de bolsas de mestrado, com vigência máxima de 24 (vinte e quatro) meses, deverão ser\nimplementadas de maneira escalonada, sendo que a primeira metade das bolsas deve ser\nimplementada a par\u0000r do início do projeto e a segunda metade no primeiro semestre de 2024, em\ncalendário a ser informado pela CAPES.\n17.6.1.1. O candidato à bolsa de mestrado deverá atender os seguintes requisitos:\nI. Comprovar desempenho acadêmico sa\u0000sfatório, consoante às normas deﬁnidas pelo PPG;\nII."
+    },
+    {
+      "id_chunk": "chunk_0020",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [7, 8],
+      "score": 1.9736,
+      "frequencias_termos": {
+        "bolsas": 1
+      },
+      "texto": "PPG stricto sensu com nota igual ou superior a 5 (cinco),\npromovido por outra Ins\u0000tuição de Ensino Superior;\n\n19/06/2023, 10:21 SEI/CAPES - 1999996 - Edital\nhttps://sei.capes.gov.br/sei/controlador.php?acao=documento_imprimir_web&acao_origem=arvore_visualizar&id_documento=2173701&infra_si… 8/13\nIV. Ter mais de 8 anos para o tempo para aposentadoria;\nV. Não acumular a percepção de bolsa com qualquer modalidade de auxílio ou bolsa de outro\nprograma com a mesma ﬁnalidade e caracterís\u0000ca; e\nVI. Apresentar Plano de A\u0000vidade a ser desenvolvido durante o período de usufruto da bolsa de\ndoutorado.\n17.6.2.2. A concessão e implementação das bolsas de doutorado pela CAPES ocorrerá da seguinte\nmaneira:\nI. A bolsa de doutorado terá a duração inicial de 12 meses, podendo ser prorrogada, anualmente,\naté a vigência máxima de 48 meses;\nII. No caso do bolsista haver recebido bolsa de doutorado de outra agência de fomento, o período de\nbolsa usufruído será contabilizado para o cálculo de vigência total da bolsa;\nIII. As Pró-Reitorias receberão e processarão as demandas dos docentes/pesquisadores\ncontemplados, observando os prazos deﬁnidos neste edital; e\nIV. Para o cadastramento da bolsa no SCBA, o coordenador de projeto deverá anexar no sistema os\nseguintes documentos:\n1.Cópia da Portaria de Afastamento do bolsista\n2. Cronograma de A\u0000vidades a serem desenvolvidas durante o"
+    },
+    {
+      "id_chunk": "chunk_0022",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [8],
+      "score": 5.5013,
+      "frequencias_termos": {
+        "bolsas": 2,
+        "requisitos": 1
+      },
+      "texto": "da bolsa original, e limite-se ao ﬁm da vigência original da bolsa concedida de modo\na não prejudicar o andamento do projeto;\nIII. A implementação da nova bolsa advinda da subs\u0000tuição deverá ocorrer no mês subsequente ao\ndesligamento do bolsista original.\nIV. O pedido de subs\u0000tuição deverá ser formalizado, por meio de O\u0000cio, o qual apresentará as\ndevidas jus\u0000ﬁca\u0000vas para o cancelamento da bolsa, assim como a informação da nova bolsa.\n17.7. Das bolsas de Pós-Doutorado e Professor Visitante Sênior no país\n17.7.1. Pós-Doutorado- A concessão de bolsa na modalidade terá vigência máxima de 24 (vinte e\nquatro) meses e deverá observar o norma\u0000vo da CAPES que regula a modalidade (Portaria CAPES nº\n86/2013), no que couber.\n17.7.1.1. O candidato à bolsa de pós-doutorado deve atender os seguintes requisitos:\nI. Ser jovem doutor, \u0000tulado a no máximo 5 anos, a contar da data da implementação da bolsa; e\nII. Se servidor público, deverá ser apresentado o comprovante de afastamento do exercício do cargo\npor igual período da bolsa.\n17.7.1.2. É vedada a concessão de bolsas de pós-doutorado para docentes doutores que integram a\nestrutura da mesma Ins\u0000tuição de Ensino Superior responsável pela submissão do projeto, exceto para o\ncaso explicitado"
+    },
+    {
+      "id_chunk": "chunk_0023",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [8, 9],
+      "score": 2.8123,
+      "frequencias_termos": {
+        "bolsas": 2
+      },
+      "texto": "vedada a concessão de bolsas de pós-doutorado para docentes doutores que integram a\nestrutura da mesma Ins\u0000tuição de Ensino Superior responsável pela submissão do projeto, exceto para o\ncaso explicitado no item 17.6.2.3.\n\n19/06/2023, 10:21 SEI/CAPES - 1999996 - Edital\nhttps://sei.capes.gov.br/sei/controlador.php?acao=documento_imprimir_web&acao_origem=arvore_visualizar&id_documento=2173701&infra_si… 9/13\n17.7.1.3. Com vistas a contribuir para a consolidação dos PPGs, os beneﬁciários das bolsas de pósdoutorado deverão indicar, em seus respec\u0000vos planos de a\u0000vidades, as linhas de pesquisa em que\natuarão durante o período de usufruto da bolsa.\n17.7.1.4. Para cadastramento da bolsa de pós-doutorado no SCBA, o coordenador do projeto deverá\nanexar no sistema os seguintes documentos:\n1. Cópia da Portaria de Afastamento do bolsista;\n2. Diploma de Doutorado ou Ata de Defesa da Tese; e,\n3. Cronograma de A\u0000vidades, com a iden\u0000ﬁcação das linhas de pesquisa de atuação do pósdoutor, a serem desenvolvidas durante o usufruto da bolsa.\n17.7.2. Professor Visitante Sênior no país: A concessão terá vigência máxima total de 24 (vinte e quatro)\nmeses, as quais poderão ser usufruídas durante a vigência do projeto, publicado no DOU, em intervalos\ntemporais deﬁnidos pela pró-reitoria.\n17.7.2.1. O candidato a bolsa de professor visitante sênior deve possuir o seguinte perﬁl:\nI. Comprome\u0000mento com a Área de Avaliação"
+    },
+    {
+      "id_chunk": "chunk_0024",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [9],
+      "score": 2.9288,
+      "frequencias_termos": {
+        "bolsas": 2
+      },
+      "texto": "publicado no DOU, em intervalos\ntemporais deﬁnidos pela pró-reitoria.\n17.7.2.1. O candidato a bolsa de professor visitante sênior deve possuir o seguinte perﬁl:\nI. Comprome\u0000mento com a Área de Avaliação / Área de Conhecimento;\nII. Experiência com projetos de consolidação de PPG e de grupos de pesquisa;\nIII. Carreira acadêmico com comprovada produção cien\u0000ﬁca;\n17.7.2.2. Os beneﬁciários das bolsas de professor visitante sênior no país deverão ser doutores há pelo\nmenos dez anos, licenciados (exceto por invalidez) para par\u0000cipar do programa, com reconhecida\ncompetência em sua área de atuação, podendo estar aposentados.\n17.7.2.3. Para cadastramento da bolsa no SCBA, o coordenador do projeto deverá anexar no sistema o\nseguinte documento:\n1. Cópia da Portaria de Afastamento do bolsista ou o comprovante de aposentadoria emi\u0000do pelo\nIns\u0000tuto Nacional de Seguro Social (INSS), quando for o caso;\n2. Diploma de Doutorado; e,\n3. Cronograma de A\u0000vidades, com a iden\u0000ﬁcação das linhas de pesquisa de atuação, a serem\ndesenvolvidas durante o usufruto da bolsa.\n17.7.3. As Bolsas no exterior seguirão as normas con\u0000das nas Portarias nº 289, de 28 de dezembro de\n2018, nº 1 de 03 de janeiro de 2020, nº 202, de 16 de outubro de 2017, e posteriores que as"
+    },
+    {
+      "id_chunk": "chunk_0026",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [9, 10],
+      "score": 3.3493,
+      "frequencias_termos": {
+        "bolsas": 3
+      },
+      "texto": "18. DA CONCESSÃO DE RECURSOS FINANCEIROS\n18.1. A concessão dos recursos ﬁnanceiros (custeio e capital) será realizada diretamente aos\ncoordenadores de PPGs vinculados a ins\u0000tuições públicas ou privadas sem ﬁns lucra\u0000vos e dar-se-á\nmediante a assinatura do Termo de Solicitação e Concessão de Apoio Financeiro a Projeto Educacional ou\nde Pesquisa – AUXPE/Anexo III disponível no Sistema de Controle de Bolsas e Auxílios – SCBA) pelo\nproponente, com anuência do representante legal da ins\u0000tuição, respeitadas às normas previstas na\nPortaria CAPES nº 59/2013, ou outra que venha a lhe subs\u0000tuir.\n\n19/06/2023, 10:21 SEI/CAPES - 1999996 - Edital\nhttps://sei.capes.gov.br/sei/controlador.php?acao=documento_imprimir_web&acao_origem=arvore_visualizar&id_documento=2173701&infra_… 10/13\n18.2. O pe\u0000cionamento do AUXPE/Anexo III no SCBA, devidamente preenchido e assinado, é fator\ncondicionante para a liberação dos recursos (custeio e capital) e da implementação das cotas de bolsas\nno país.\n18.3. O prazo para realizar o pe\u0000cionamento do AUXPE/Anexo III é de até 60 dias após a no\u0000ﬁcação de\naprovação ﬁnal do projeto, conforme instruções a serem enviadas aos beneﬁciários. O não cumprimento\ndesse prazo poderá implicar o cancelamento da concessão.\n18.4. A implementação das bolsas estará condicionada ao devido e correto pe\u0000cionamento do\nAUXPE/Anexo III, via SCBA, pelo proponente.\n18.5. O repasse dos recursos ﬁnanceiros será realizado por"
+    },
+    {
+      "id_chunk": "chunk_0027",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [10],
+      "score": 2.0068,
+      "frequencias_termos": {
+        "bolsas": 1
+      },
+      "texto": "da concessão.\n18.4. A implementação das bolsas estará condicionada ao devido e correto pe\u0000cionamento do\nAUXPE/Anexo III, via SCBA, pelo proponente.\n18.5. O repasse dos recursos ﬁnanceiros será realizado por meio do Cartão Pesquisador.\n18.6. A existência de alguma inadimplência do proponente com a CAPES ou com qualquer órgão da\nAdministração Pública Federal, direta ou indireta, cons\u0000tuirá fator impedi\u0000vo para o repasse do recurso\nﬁnanceiro.\n18.7. Os recursos de custeio e capital a serem repassados aos Coordenadores de projeto por meio de\nAUXPE têm a seguinte previsão:\nRecurso Financeiro Previsão dos repasses Total2023 2024\nCusteio R$ 20.000,00 R$ 20.000,00 R$ 40.000,00\nCapital R$ 40.000,00 - R$ 40.000,00\nTotal Geral R$ 60.000,00 R$ 20.000,00 R$ 80.000,00\n19. DA UTILIZAÇÃO DOS RECURSOS FINANCEIROS\n19.1. A u\u0000lização dos recursos ﬁnanceiros deverá ocorrer no período de vigência do auxílio, cuja duração\nserá de 60 (sessenta) meses, constante no extrato de concessão publicado no DOU.\n19.2. São consideradas despesas de custeio, como por exemplo:\nI. Material de consumo e Serviços de terceiros (pessoa \u0000sica e jurídica):\na) Serviços de terceiros – pagamento integral ou parcial de contratos de manutenção e\nserviços de terceiros, pessoa \u0000sica ou jurídica, de caráter eventual;\nb) Material de consumo, componentes"
+    },
+    {
+      "id_chunk": "chunk_0030",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [11],
+      "score": 2.0499,
+      "frequencias_termos": {
+        "bolsas": 1
+      },
+      "texto": "PROJETOS\n20.1. As ações de monitoramento e avaliação terão caráter preven\u0000vo e saneador, obje\u0000vando a gestão\nadequada dos projetos.\n20.2. O Coordenador de Projeto deverá:\nI - Assegurar-se de executar o planejamento apresentado no projeto selecionado em conformidade\ncom os seus obje\u0000vos;\nII - Facilitar o acompanhamento longitudinal do processo de internacionalização;\nIII - Acompanhar as a\u0000vidades acadêmicas realizadas pelos beneﬁciários de bolsa;\nIV - Pe\u0000cionar e assinar o AUXPE/Anexo III da Portaria CAPES nº 59/2013;\nV - Prestar contas dos recursos de custeio recebidos, conforme os termos da Portaria CAPES nº\n59/2013;\nVI - Cumprir a legislação per\u0000nente à concessão de bolsas es\u0000pulada pela Portaria CAPES nº\n86/2013 e 76/2010;\nVII - Realizar a apresentação dos resultados do projeto nos seminários. Em caso de impossibilidade\nde comparecimento, o coordenador de projeto deverá jus\u0000ﬁcar o mo\u0000vo da ausência e indicar um\nmembro da equipe para realizar a apresentação;\nVIII- Apresentar relatórios anuais com a descrição das a\u0000vidades e do cumprimento dos objetos\npropostos, conforme previsto na Portaria nº 59/2013.\n20.3.Serão realizados dois Seminários de Acompanhamento e Avaliação, que deverão estar no\ncronograma das a\u0000vidades previstas no projeto:\nI. O primeiro seminário ocorrerá ao ﬁnal do primeiro ano de execução das"
+    },
+    {
+      "id_chunk": "chunk_0033",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [12],
+      "score": 1.9454,
+      "frequencias_termos": {
+        "bolsas": 1
+      },
+      "texto": "e Diretrizes de Internacionalização no Plano de Desenvolvimento\nIns\u0000tucional;\nII. Diagnós\u0000co das Competências centrais da ins\u0000tuição;\nIII. Estratégia de ar\u0000culação interna para inserção das Polí\u0000cas e Diretrizes de Internacionalização no\nPlano de Desenvolvimento Ins\u0000tucional;\nIV. Plano Estratégico Ins\u0000tucional de Internacionalização (PEI);\nV. Mapeamento das parcerias estratégicas entre as ins\u0000tuições brasileiras par\u0000cipantes do programa\ne as ins\u0000tuições estrangeiras.\nVI. Implementação de meios, de instrumentos e de processos de infraestrutura, básicos para o apoio\nà internacionalização.\n21.4. Adicionalmente, aos itens elencados acima, no formulário de inscrição o proponente deverá indicar,\nem campo especíﬁco, os resultados esperados de maneira circunstanciada e descri\u0000va, observando o\ncaráter singular de seu projeto em contraste às respostas que serão dadas aos problemas iden\u0000ﬁcados na\nFicha de Avaliação referente ao úl\u0000mo ciclo avalia\u0000vo da CAPES (2021).\n22. PRESTAÇÃO DE CONTAS\n22.1. É obrigatória a prestação de contas das despesas realizadas, observadas as normas que disciplinam\na u\u0000lização do AUXPE, em especial, o disposto no Manual de Prestação de Contas online do Sistema\nInforma\u0000zado de Prestação de Contas - SIPREC da CAPES (Anexo II da Portaria CAPES nº 59/2013).\n22.2.Todos os documentos, manuais e orientações acerca da prestação de contas encontram-se no site da\nCAPES (h\u0000ps://www.gov.br/capes/pt-br/acesso-a-informacao/acoes-eprogramas/bolsas/prestacao-decontas/auxilios-a-pesquisa).\n22.3. A prestação"
+    },
+    {
+      "id_chunk": "chunk_0034",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [12, 13],
+      "score": 1.8691,
+      "frequencias_termos": {
+        "bolsas": 1
+      },
+      "texto": "SIPREC da CAPES (Anexo II da Portaria CAPES nº 59/2013).\n22.2.Todos os documentos, manuais e orientações acerca da prestação de contas encontram-se no site da\nCAPES (h\u0000ps://www.gov.br/capes/pt-br/acesso-a-informacao/acoes-eprogramas/bolsas/prestacao-decontas/auxilios-a-pesquisa).\n22.3. A prestação de contas ﬁnal deverá ser realizada no SIPREC em até 60 (sessenta) dias após o término\nda vigência do auxílio.\n22.4.Para informações referentes à prestação de contas, entrar em contato com a Coordenação-Geral de\nPrestação de Contas e Cobrança Administra\u0000va, por meio do e-mail: cgpca@capes.gov.br.\n23. PUBLICAÇÕES\n23.1. As publicações cien\u0000ﬁcas, quando o caso, e qualquer outro meio de divulgação ou promoção de\neventos ou de projetos de pesquisa apoiados pela presente Chamada deverão citar, obrigatoriamente, o\napoio da CAPES.\n23.2. As ações publicitárias a\u0000nentes a projetos realizados com recursos deste Edital deverão observar\nrigorosamente as disposições que regulam à matéria.\n24. DISPOSIÇÕES GERAIS\n\n19/06/2023, 10:21 SEI/CAPES - 1999996 - Edital\nhttps://sei.capes.gov.br/sei/controlador.php?acao=documento_imprimir_web&acao_origem=arvore_visualizar&id_documento=2173701&infra_… 13/13\n24.1. O presente edital poderá ser revogado ou anulado a qualquer tempo, no todo ou em parte, por\nmo\u0000vo de interesse público, exigência legal ou indisponibilidade orçamentária e ﬁnanceira da CAPES, sem\nque isso implique direito à indenização ou reclamação de qualquer natureza por parte dos beneﬁciários.\n24.2. A existência de alguma inadimplência do proponente com a"
+    },
+    {
+      "id_chunk": "chunk_0102",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [8],
+      "score": 3.0264,
+      "frequencias_termos": {
+        "bolsas": 2
+      },
+      "texto": "para a sucessão.\n\n§ 6º A periodicidade das reuniões do colegiado deverá ser mensal.\n\n§ 7º O colegiado deverá definir nos meses de novembro e de maio de cada ano um calendário\nsemestral de reuniões ordinárias e publicá-lo no site do programa.\n\n§ 8º As atas das reuniões do colegiado deverão ser publicadas no site do programa.\n\nArt. 37. São atribuições do colegiado:\nI. deliberar sobre assuntos de ordem acadêmica no âmbito do programa;\nII. opinar sobre assuntos de ordem administrativa apresentados pelo coordenador;\nIII. exercer a supervisão didática dos cursos que compõem o programa, bem como propor\nmedidas e providências visando à melhoria da formação oferecida;\nIV. designar e alterar os membros das comissões internas;\nV. analisar e homologar a proposta de plano estratégico do programa elaborada pela Comissão\nde Planejamento;\nVI. analisar e homologar a proposta de edital do processo seletivo elaborada pela Comissão de\nSeleção;\nVII. analisar e homologar a proposta de distribuição de bolsas de estudo elaborada pela Comissão\nde Bolsas;\nVIII. designar e alterar os orientadores e coorientadores de cada discente regular;\nIX. aprovar a oferta semestral de disciplinas e respectivos ministrantes;\nX. aprovar nomes dos membros das bancas de qualificaçã o e de defesa"
+    },
+    {
+      "id_chunk": "chunk_0104",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [9],
+      "score": 3.0216,
+      "frequencias_termos": {
+        "bolsas": 2
+      },
+      "texto": "como por acompanhar o\npreenchimento da plataforma sucupira;\nII. Comissão de Supervisão Discente, responsável por deliberar so bre os requerimentos de\naproveitamento de estudos, de trancamento de vínculo , de prorrogação de prazo de\nconclusão e de outros requerimentos dos discentes e por elaborar um relatório anual sobre o\ndesempenho científico do corpo discentes;\nIII. Comissão de Avali ação Docente, responsável por elaborar um relatório anual sobre o\ndesempenho científico do corpo docente e por organizar o processo de credenciamento,\ndescredenciamento e recredenciamento;\nIV. Comissão de Bolsas, responsável pela distribuição de bolsas do programa, conforme normas\nvigentes das agências de fomento e regimento interno do programa;\nV. Comissão de Seleção, responsável p elo processo seletivo de ingresso de discentes no\nprograma, e,\nVI. Comissão de Reconhecimento, responsável pela análise acadêmica e em issão de parecer\nreferentes aos processos de reconhecimento de diplomas estrangeiros.\n\n§1º As comissões descritas nos itens I e IV serão permanentes, enquanto que as comissões\ndescritas nos itens II, III, V e VI serão constituídas mediante demanda do Programa.\n\n§2º O quantitativo, a forma de escolha, a composição e o tempo de mandato das comissões serão\nestabelecidos pelo regimento interno do programa, devendo ter, no mínimo, três"
+    },
+    {
+      "id_chunk": "chunk_0172",
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "paginas": [6],
+      "score": 2.9979,
+      "frequencias_termos": {
+        "bolsas": 2
+      },
+      "texto": "As atribuições do coordenador adjunto estão definidas nas Normas Acadêmicas\nda Pós-Graduação stricto sensu da UFS.\n\nSeção III\nDa Secretaria\n\nArt. 15. A secretaria do PROCC é o órgão de apoio da coordenação, responsável pelo controle e\nregistro das atividades acadêmicas e administrativas do programa.\n\nArt. 16. São atribuições da secretaria, em acréscimo àquelas estabelecidas nas Normas\nAcadêmicas da Pós-Graduação stricto sensu da UFS:\nI. auxiliar o Coordenador e o Colegiado do PR OCC na administração e gerenciamento dos\nCursos do Programa;\nII. auxiliar a Comissão de Bolsas em todos os aspectos referentes à solicitação, concessão e\nrenovação de bolsas de pós-graduação;\nIII. apoiar o Coordenador e Coordenador adjunto do Programa na utilização dos sistemas de\ninformação, inclusive na recuperação de informações, extração de relatórios e realização de\npesquisas diversas em sistemas externos ao programa por meio de páginas Web ou sistemas\nlegados de outras instituições, e,\nIV. manter atualizada a cole ção de leis, decretos, portarias, circulares e resoluções que\nregulamentam os Cursos de Pós-Graduação.\n\nCAPÍTULO III\nDO CORPO DOCENTE\n\nArt. 17. Constituem categorias docentes do PROCC:\nI. Permanentes;\nII. Colaboradores, e,\nIII. Visitantes.\n\nParágrafo único. Os docentes colaboradores, visitantes e permanentes que não fazem parte do\nColegiado do"
+    },
+    {
+      "id_chunk": "chunk_0019",
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas": [7, 8],
+      "score": 3.6439,
+      "frequencias_termos": {
+        "requisitos": 2
+      },
+      "texto": "calendário a ser informado pela CAPES.\n17.6.1.1. O candidato à bolsa de mestrado deverá atender os seguintes requisitos:\nI. Comprovar desempenho acadêmico sa\u0000sfatório, consoante às normas deﬁnidas pelo PPG;\nII. Estar regularmente matriculado no PPG stricto sensu proponente;\nIII. Não acumular a percepção de bolsa com qualquer modalidade de auxílio ou bolsa de outro\nprograma com a mesma ﬁnalidade e caracterís\u0000ca; e\nIV. Apresentar plano de a\u0000vidades a ser desenvolvido durante o período de usufruto da bolsa de\nmestrado.\n17.6.2. Doutorado - A concessão da bolsa deverá ser des\u0000nada aos docentes vinculados ao projeto e que\nnão possuam o \u0000tulo de doutor, e estejam regularmente matriculados em PPG stricto sensu com nota\nigual ou superior a 5 em sua área de atuação.\n17.6.2.1. O candidato a bolsa de doutorado deve atender os seguintes requisitos:\nI. Ser professor efe\u0000vo da Ins\u0000tuição de Ensino Superior (IES), contratado em regime de dedicação\nexclusiva;\nII. Estar afastado integralmente das a\u0000vidades regulares da IES de origem para cursar o doutorado;\nIII. Estar regularmente matriculado em PPG stricto sensu com nota igual ou superior a 5 (cinco),\npromovido por outra Ins\u0000tuição de Ensino Superior;\n\n19/06/2023, 10:21 SEI/CAPES - 1999996 - Edital\nhttps://sei.capes.gov.br/sei/controlador.php?acao=documento_imprimir_web&acao_origem=arvore_visualizar&id_documento=2173701&infra_si… 8/13\nIV. Ter mais"
+    },
+    {
+      "id_chunk": "chunk_0044",
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "paginas": [5],
+      "score": 2.7365,
+      "frequencias_termos": {
+        "requisitos": 1
+      },
+      "texto": "genericidade, exceções. Sintaxe\ne semântica. Paradigma de Programação Imperativo. Paradigma de Programação Orientada a\nObjetos. Paradigma de Programação Funcional. Paradigma de Programação Lógica.\nBibliografia:\nM. L. Scott. Programming Language Pragmatics . Morgan Kaufmann, 2009.\nROBERT, W. Sebesta. Conceitos de Linguagens de Programação . Editora Bookman,\n2000. DAVID Watt. Programming Language Design Concepts . John Wiley and Sons,\n2004.\nÁrea: Metodologia e Técnicas de Computação\nDisciplina: Engenharia de Software\nCréditos: 4\nEmenta:\nConceitos Gerais: Engenharia de Software x Engenharia de Sistemas; Produto versus Processo\nversus Projeto versus Pessoas; Ciclo de Vida do Software; Processos de Desenvolvimento de\nSoftware: Modelos de Processo de Software. Metodologias de desenvolvimento. Engenharia de\nRequisitos; Design de Software; Verificação e Validação de Software .\nBibliografia:\nBUSCHMANN, Frank et al. Pattern-oriented Software Architecture Vol. 1: A System\nof Patterns. Wiley.\nPRESSMAN, Roger. Engenharia de software, Uma Abordagem Profissional, 9a Ed. Mc\nGraw Hill. 2021.\nSOMMERVILLE, Ian. Engenharia de software . 9a Ed. Pearson, 2019\nÁrea: Metodologia e Técnicas de Computação\nDisciplina: Aprendizado de Máquina\nCréditos: 4\nEmenta:\nProblemas de aprendizado de máquina: classificação, segmentação, localização, agrupamento,\nreconhecimento de dados sequenciais. Aprendizado supervisionado, não supervisionado e por\nreforço. Modelos lineares. Modelos não lineares. Modelos de aprendizado profundo. Avaliação de"
+    },
+    {
+      "id_chunk": "chunk_0050",
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "paginas": [8, 9],
+      "score": 2.6248,
+      "frequencias_termos": {
+        "requisitos": 1
+      },
+      "texto": "de processos de software. Especificação de sequência, paralelismo\ne alocação de recursos. Refinamento de especificações. Verificação de boas propriedades de\nprocessos. Ferramentas.\nBibliografia:\nRAUSAND, Marvin. Reliability of Safety-Critical Systems: Theory and Applications.\nEditora : Wiley; 1ª edição (3 fevereiro 2014). ISBN-13 : 978-1118112724\nLAPLANTE, Phillip A.; OVASKA, Seppo J. Real-Time Systems Design and Analysis:\nTools for the Practitioner. Editora : Wiley-IEEE Press; 4ª edição (23 dezembro 2011).\nISBN-13 :\n978-0470768648 ROGGENBACH, Markus;CERONE, Antonio;SCHLINGLOFF, Bernd-Holger;\nSCHNEIDER, Geraldo; SHAIKH, Siraj Ahmed. Formal Methods for Software\nEngineering: Languages, Methods, Application Domains. Editora : Springer; 1st ed. 2021\nedição (10 novembro 2021)\nISBN-13 : 978-3030387990\nJENSEN, Kurt; KRISTENSEN, Lars M. Coloured Petri Nets: Modelling and Validation\nof Concurrent Systems. Editora : Springer; 2014. ISBN-13 : 978-3642425813\nDIAZ, Michel. Petri Nets: Fundamental Models, Verification and Applications. Editora\n: Wiley-ISTE; 1ª edição (10 julho 2009). ISBN-13 : 978-1848210790\n\nREISIG, Wolfgang .Understanding Petri Nets: Modeling Techniques, Analysis Methods,\nCase Studies. Springer 2013. ISBN: 978-3-642-33277-7\nGIRAULT, C; VALK, R. Petri Nets for Systems Engineering: A Guide to\nModeling, Verification, and Applications. Springer-Verlag, 2002, ISBN:\n3-540-41217-4.\nDisciplina: Planejamento e Gerenciamento de Projetos de Software\nCréditos: 4\nEmenta:\nConceitos Gerais: Gestão de Projetos e Requisitos de Produtos de Software para"
+    },
+    {
+      "id_chunk": "chunk_0051",
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "paginas": [9],
+      "score": 2.7183,
+      "frequencias_termos": {
+        "requisitos": 1
+      },
+      "texto": "Verification, and Applications. Springer-Verlag, 2002, ISBN:\n3-540-41217-4.\nDisciplina: Planejamento e Gerenciamento de Projetos de Software\nCréditos: 4\nEmenta:\nConceitos Gerais: Gestão de Projetos e Requisitos de Produtos de Software para a Gestão de\nProjetos, Planejamento do Projeto de SW: Diagrama de Gantt e Organização das Atividades,\nFerramenta para a automatização das atividades de Gestão, Planejamento de Projeto de Software.\nDiretrizes para um bom plano de projeto, Planejamento Temporal e Monitorização do Projeto,\nAnálise e Gestão do Risco, Métricas, Estimação e Planejamento de Projetos de Software. A\nrelevância da gerência de projetos.\nBibliografia:\nPRESSMAN, R. S. Engenharia de Software . Pearson Makron Books, 9.aed2021.\nSOMMERVILLE, I. Engenharia de Software , 10a Ed. Addison Wesley, 2019.\nHELDMAN, K. Gerência de Projetos: guia para o exame oficial do PMI . 7a Ed.\nCampus, 2015.\nPFEIFFER, P. Gerenciamento de Projetos de Desenvolvimento: conceitos, instrumentos\ne aplicações . Brasport, 2005.\nPROJECT MANAGEMENT INSTITUTE. UM GUIA DO CONJUNTO DE\nCONHECIMENTOS EM GERENCIAMENTO DE PROJETOS (PMBOK Guide). Ea ed, 2004.\nFIORINI, S. T.; STAA. A. V.; BAPTISTA, R. M. Engenharia de Software com CMM .\nBrasport, 1998.\nKOSCIANSKI, A.; SOARES, M. S. Qualidade de Software . 2a Ed. Novatec Editora, 2007.\nDisciplina: Qualidade de Software\nCréditos: 4"
+    },
+    {
+      "id_chunk": "chunk_0065",
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "paginas": [16, 17],
+      "score": 2.6591,
+      "frequencias_termos": {
+        "requisitos": 1
+      },
+      "texto": "desde que conste apenas como um voto, e;\n7. A aprovação do candidato ocorrerá pela obtenção da maioria simples dos votos.\nTodos os integrantes da banca examinadora deverão ter título de Doutor reconhecido oficialmente e\nobtido há pelo menos 02 anos. O cadastro da banca deverá ser realizado pelo orientador através de\nsistema (eletrônico) próprio da Instituição com um mínimo de 3 (semanas) de antecedência. Caso\nos requisitos dispostos sejam cumpridos, a homologação da banca será então realizada pelo\nCoordenador do Programa.\nO documento da Dissertação de Mestrado deverá seguir as normas da ABNT que especificam os\nprincípios gerais para a elaboração de trabalhos acadêmicos .\nA Dissertação poderá ser redigida em português ou inglês.\nO documento da Dissertação de Mestrado poderá ser uma compilação de artigos científicos\npublicados ou submetidos em veículos com Qualis Restrito e ter seu conteúdo apresentado em\nformato alternativo.\nÉ considerado formato alternativo o documento que apresente, obrigatoriamente, os seguintes\ncapítulos no corpo do trabalho: 1) Introdução; 2) Discussão; 3) Documentos publicados e/ou a\npublicar, como: sumário do(s) artigo(s), o(s) artigo(s) propriamente dito(s), sumário de livro(s),\ncapítulo(s) de livro(s), com os dados referentes à publicação e/ou submissão; 4) Conclusão; 5)\n\nReferências.\nOs artigos publicados ou"
+    },
+    {
+      "id_chunk": "chunk_0077",
+      "id_documento": "doc_004",
+      "nome_arquivo": "IN_01_2026_PROCC_Credenciamento_Recredenciamento_Vagas.pdf",
+      "paginas": [1, 2],
+      "score": 2.7002,
+      "frequencias_termos": {
+        "requisitos": 1
+      },
+      "texto": "São Cristóvão-SE – Fone: (079) 2105-6678\n\nSERVIÇO PÚBLICO FEDERAL\nMINISTÉRIO DA EDUCAÇÃO E CULTURA\nUNIVERSIDADE FEDERAL DE SERGIPE\nPró-Reitoria de Pós-Graduação e Pesquisa (POSGRAP)\nPrograma de Pós-Graduação em Ciência da Computação (PROCC)\nArt. 2. No início de cada ano, a CAD calculará a pontuação obtida por cada docente considerando\nos 4 anos anteriores , para classificá-lo em um dos grupos que definem um limite máximo de\nvagas de orientação simultânea e seus respectivos requisitos, conforme a descrição a seguir:\nI – Grupo Permanente: docentes que obtiveram pelo menos 4 artigos publicados em\neventos e/ou periódicos. Docentes desse grupo poderão ter até 8 vagas de orientação de\nmestrado.\nII – Grupo Colaborador: docentes que obtiveram pelo menos 2 artigos publicados em\neventos e/ou periódicos. Docentes desse grupo poderão ter até 4 vagas de orientação de\nmestrado.\nIII - Grupo PPJ: docentes que obtiveram suas titulações de doutorado a partir de 4 anos\nantes do início do quadriênio vigente. Docentes desse grupo poderão ter até 4 vagas de\norientação de mestrado.\nIV – Grupo PPS: docentes permanentes com mais de 60 anos de idade. Docentes desse\ngrupo poderão ter até 6 vagas de orientação de mestrado.\n§1º O docente que não foi"
+    },
+    {
+      "id_chunk": "chunk_0164",
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "paginas": [3, 4],
+      "score": 2.7122,
+      "frequencias_termos": {
+        "requisitos": 1
+      },
+      "texto": "técnicas de inteligência artificial b usca a experimentação\nempírica de soluções híbridas que se utilizem de técnicas já bem estabelecidas na área,\ncomo por exemplo, inferência em lógica de primeira ordem e lógica nebulosa, raciocínio e\naprendizado bayesiano, indução em árvores de decisão, red es neurais e algoritmos\ngenéticos. A aplicação das técnicas desenvolvidas ou combinadas é outro campo de\ninvestigação da linha de pesquisa. Dentre as principais aplicações a serem consideradas,\nestão as relacionadas ao processamento de linguagem natural, r econhecimento de padrões\nsonoros e visuais, sistemas de locomoção de robôs, sistemas de recomendação, mineração\nde dados, mineração de textos e diversas aplicações de sistemas multiagentes cooperativos\ne competitivos;\n\n2\nb) Engenharia de Software e Sistemas de I nformação: Esta linha de pesquisa compreende a\ninvestigação de processos, metodologias, técnicas e ferramentas para o desenvolvimento de\nsoftware em diversos domínios. Em particular, a ênfase desta linha de pesquisa está\nrelacionada ao desenvolvimento rigoroso de software, metodologias de desenvolvimento de\nsoftware, reuso, engenharia de requisitos, arquitetura de software, e gerenciamento de\nprojetos de software. No desenvolvimento rigoroso de software, os aspectos estudados se\nrelacionam ao uso de métodos formais no desenvolvimento de software. Quanto às\nmetodologias de desenvolvimento, elas abordam"
+    },
+    {
+      "id_chunk": "chunk_0165",
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "paginas": [4],
+      "score": 2.7122,
+      "frequencias_termos": {
+        "requisitos": 1
+      },
+      "texto": "de\nprojetos de software. No desenvolvimento rigoroso de software, os aspectos estudados se\nrelacionam ao uso de métodos formais no desenvolvimento de software. Quanto às\nmetodologias de desenvolvimento, elas abordam metodologias orientadas a componentes,\norientadas a serviços, orientadas a objetos, orientada a aspectos e dirigida por modelos. Em\nrelação à engenharia de req uisitos, o foco está no estudo de técnicas de análise e\nmodelagem de requisitos. As pesquisas em reuso envolvem o estudo de padrões, técnicas\nde refatoração e linhas de produto de software. As pesquisas relativas a Arquitetura de\nSoftware incluem os divers os padrões arquiteturais e normas de arquitetura de aplicações\ndistribuídas. Nas pesquisas em gerenciamento de projetos o foco é a investigação de\nmétodos e métricas para o planejamento e o gerenciamento de software. Todos estes\ntópicos podem ser aplicados no desenvolvimento de aplicações em diversos domínios\n(sistemas de produção, governamentais, ambientais, educacionais, da saúde, de\nentretenimento, dentre outros) com a computação localizada em diversos ambientes e\ndispositivos (sistemas eletrônicos, móveis, pervasivos e ubíquos), e,\nc) Redes de Computadores e Sistemas Distribuídos: Esta linha de pesquisa compreende o\ndesenvolvimento e a utilização de técnicas para a construção de sistemas distribuídos e\nembarcados, e para avaliação de"
+    },
+    {
+      "id_chunk": "chunk_0175",
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "paginas": [7],
+      "score": 2.7122,
+      "frequencias_termos": {
+        "requisitos": 1
+      },
+      "texto": "para o curso de Mestrado\nem Ciência da Computação, e portadores de diplomas de mestrado (modalidades de mestrado acadêmico\ne mestrado profissional) em Ciência da Computação e áreas afins para o curso de Doutorado em Ciência\nda Computação.\n\nParágrafo único. Discente regular é aquele matriculado nos cursos de Mestrado em Ciência da\nComputação ou de Doutorado em Ciência da Computação para cursá-lo em sua totalidade, enquanto\ndiscente especial é aquele matriculado no PROCC para cursar disciplinas específicas ofertadas pelo\nprograma, observados, em ambos os casos, os requisitos previstos nas Normas Acadêmicas da Pós -\nGraduação stricto sensu da UFS.\n\nArt. 22. Poderão ser aceitos como discentes especiais do programa, sem a obrigatoriedade de\nprocesso seletivo, os discentes matriculados em programas de pós -graduação stricto sensu de outras\ninstituições, brasileiras e estrangeiras, observados os p rocedimentos e a documentação previstos nas\nNormas Acadêmicas da Pós-Graduação stricto sensu da UFS.\n\nArt. 23. O PROCC poderá aceitar a admissão de graduandos como discentes especiais em\nalgumas das disciplinas do Curso de Mestrado em Ciência da Computação , desde que o graduando já\ntenha cursado, com aprovação, um mínimo de 70% das disciplinas obrigatórias de seu curso de\ngraduação.\n\nArt. 24. O Curso de"
+    },
+    {
+      "id_chunk": "chunk_0068",
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "paginas": [18, 19],
+      "score": 3.9399,
+      "frequencias_termos": {
+        "matrícula": 3
+      },
+      "texto": "publicação de um\nartigo completo em\numa periódico\nclassificado no\nestrato restrito do\nQualis da CAPES. O\ndiscente deverá ser o\nprimeiro autor e os\nartigos devem ser\nsobre o tema da\ndissertação de\nmestrado.\nProdução Científica I 4 créditos Publicação de\nartigos completos\nem eventos\ncientíficos em\nque o discente é o\nprimeiro autor. A\npublicação a ser\nconsiderada para\nesta atividade\nestá limitada ao\nperíodo de\nmatrícula ativa\ndo discente\nEssa atividade\nserá conferida ao\ndiscente que\ncomprovar uma\npublicação em\nconferência\nclassificada pela\nCAPES como\nQUALIS\nrestrito .\nProdução\nCientífica II\n4 créditos Publicação de\nartigos completos\nem eventos\ncientíficos pelo\ndiscente. A\npublicação a ser\nEssa atividade será\nconferida ao\ndiscente que\ncomprovar uma\nsegunda publicação\nem conferência\n\nconsiderada para\nesta atividade está\nlimitada ao período\nde matrícula ativa\ndo discente.\nclassificada pela\nCAPES como\nQUALIS restrito\nProdução Científica\nIII\n4 créditos Publicação de\nartigos em\nperiódicos\ncientíficos pelo\ndiscente. A\npublicação a ser\nconsiderada para\nesta atividade está\nlimitada ao\nperíodo de\nmatrícula ativa do\ndiscente.\nEssa\natividade será\nconferida ao\ndiscente que\ncomprovar\numa\npublicação\nem periódico\nclassificado\npela CAPES\ncomo\nQUALIS\nrestrito\nProdução Científica\nIV\n4 créditos Publicação de\nartigos em\nperiódicos\ncientíficos"
+    },
+    {
+      "id_chunk": "chunk_0069",
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "paginas": [19, 20],
+      "score": 3.9399,
+      "frequencias_termos": {
+        "matrícula": 3
+      },
+      "texto": "discente.\nEssa\natividade será\nconferida ao\ndiscente que\ncomprovar\numa\npublicação\nem periódico\nclassificado\npela CAPES\ncomo\nQUALIS\nrestrito\nProdução Científica\nIV\n4 créditos Publicação de\nartigos em\nperiódicos\ncientíficos pelo\ndiscente. A\npublicação a ser\nconsiderada para\nesta atividade está\nlimitada ao\nperíodo de\nmatrícula ativa do\ndiscente.\nEssa atividade será\nconferida ao\ndiscente que\ncomprovar uma\nsegunda publicação\nem periódico\nclassificado pela\nCAPES como\nQUALIS restrito .\nPrática de Ensino I 2 créditos Atividade de\ndocência exercida\npelo discente. Os\ncréditos a serem\nconsiderados para\nesta atividade\nestão limitados ao\nperíodo de\nmatrícula ativa do\naluno, e\ncondicionados à\naprovação do\nColegiado do\nPROCC.\nEssa atividade será\nconferida ao\ndiscente que\ncomprovar o\nexercício de\natividades de\ndocência no ensino\nsuperior realizadas\nna UFS com o\nmínimo de 30h de\ncarga horária.\n\nPrática de Ensino II 4 créditos Atividade de\ndocência exercida\npelo discente. Os\ncréditos a serem\nconsiderados para\nesta atividade\nestão limitados ao\nperíodo de\nmatrícula ativa do\naluno, e\ncondicionados à\naprovação do\nColegiado do\nPROCC.\nEssa atividade será\nconferida ao\ndiscente que\ncomprovar o\nexercício de\natividades de\ndocência no ensino\nsuperior realizadas\nna UFS com o\nmínimo de 60h de\ncarga horária.\n3."
+    },
+    {
+      "id_chunk": "chunk_0113",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [12, 13],
+      "score": 2.3775,
+      "frequencias_termos": {
+        "matrícula": 1
+      },
+      "texto": "ou prejuízos decorrentes das atividades\ndesenvolvidas.\n\nCAPÍTULO III\nDO CORPO DISCENTE\n\nArt. 56. O corpo discente da pós -graduação stricto sensu é o conjunto de discentes matriculados\nnos cursos de mestrado e de doutorado ofertados pela UFS.\n\nArt. 57. São categorias de discentes:\nI. discente regular, e,\nII. discente especial.\n\nArt. 58. O regimento interno de cada programa deverá definir o perfil dos discentes, regulares e\nespeciais, aceitos para participar dos cursos ofertados.\n\nArt. 59. É vedada a acumulação de matrículas simu ltâneas nos cursos de pós -graduação stricto\nsensu da UFS.\n\nSeção I\nDo Discente Regular\n\nArt. 60. Discente regular é aquele matriculado em um mestrado ou doutorado para cursá -lo em\nsua totalidade.\n\n11\nParágrafo único . Ao discente regular é garantido um histórico escolar e, caso tenha atendido\ntodas as exigências desta resolução e demais normas vigentes, um diploma ao final do curso.\n\nArt. 61. O ingresso na pós -graduação stricto sensu como discente regular é condicionado à\naprovação em processo seletivo específico.\n\nArt. 62. No ato da matrícula em cursos de mestrado e de doutorado, os discentes regulares devem\nser, respectivamente, portadores de diploma de graduação e de mestrado, ou de documento comprobatório\nde conclusão de"
+    },
+    {
+      "id_chunk": "chunk_0114",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [13],
+      "score": 2.3881,
+      "frequencias_termos": {
+        "matrícula": 1
+      },
+      "texto": "da matrícula em cursos de mestrado e de doutorado, os discentes regulares devem\nser, respectivamente, portadores de diploma de graduação e de mestrado, ou de documento comprobatório\nde conclusão de curso.\n\n§ 1º Podem ser aceitos portadores de diploma de graduação em cursos de doutorado, desde que\nem situações devidamente definidas no regimento interno do programa.\n\n§ 2º Os diplomas mencionados no caput deste artigo, quando emitidos por instituições localizadas\nno Brasil, devem ser reconhecidos por órgão federal competente.\n\nArt. 63. Poderão ser aceitos discentes regulares para modalidade de orientação cotutelada com\numa titulação simultânea em dois países.\n\nParágrafo único. A modalidade de orientação cotutelada será normatizada por resolução própria\ndo CONEPE.\n\nSeção II\nDos Discentes Especiais\n\nArt. 64. Discente especial é aquele matriculado em um programa de pós-graduação stricto sensu\npara cursar apenas disciplinas ofertadas por seu respectivo programa.\n\nParágrafo único . Ao discente especial é garantido acesso a um histórico escolar para cada\nvínculo com as disciplinas cursadas.\n\nArt. 65. O ingresso na UFS como discente especial da pós -graduação stricto sensu é\ncondicionado à aprovação em processo seletivo específico para discente especial de cada programa.\n\n§ 1º A fim de promover a cooperação e a integração da"
+    },
+    {
+      "id_chunk": "chunk_0115",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [13],
+      "score": 4.3055,
+      "frequencias_termos": {
+        "matrícula": 4
+      },
+      "texto": "pós -graduação stricto sensu é\ncondicionado à aprovação em processo seletivo específico para discente especial de cada programa.\n\n§ 1º A fim de promover a cooperação e a integração da UFS com outras universidades, serão\naceitos como discentes especiais, de forma extraordinária e sem a obrigatoriedade de processo seletivo, os\ndiscentes matriculados em programas de pós -graduação stricto sensu de outras instituições, brasileiras e\nestrangeiras.\n\n§ 2º No caso definido no parágrafo anterior, são necessários os seguintes documentos para\nrealização de matrícula institucional na UFS:\nI. comprovante de matrícula na instituição de origem;\nII. carta de encaminhamento do seu orientador;\nIII. aceite da coordenação do programa de pós-graduação que ofertará as disciplinas solicitadas;\nIV. formulário de dados pessoais para matrícula de discentes de outras instituições, a ser\ndisponibilizado pela COPGD em seu site institucional, e,\nV. no caso de estrangeiros nã o residentes, documento comprobatório da regularização de\npermanência no Brasil emitido pelo órgão federal competente.\n\n§ 3º No caso de estrangeiros não residentes , que necessitem do comprovante de vínculo com a\nuniversidade para requisitar regularização d e permanência no Brasil , emitido pelo órgão federal\ncompetente, o inciso V será dispensad o no ato da matrícula institucional, devendo"
+    },
+    {
+      "id_chunk": "chunk_0116",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [13, 14],
+      "score": 3.9399,
+      "frequencias_termos": {
+        "matrícula": 3
+      },
+      "texto": "vínculo com a\nuniversidade para requisitar regularização d e permanência no Brasil , emitido pelo órgão federal\ncompetente, o inciso V será dispensad o no ato da matrícula institucional, devendo , obrigatoriamente,\napresentar o carimbo de entrada no país e será calculado o prazo de até noventa dias para a entrega do\ndocumento na secretaria do programa.\n\nArt. 66. No ato da matrícula no programa, os discentes especiais devem ser portadores de\ndiploma de graduação ou de documentos comprobatórios de conclusão de curso.\n\n12\n§1º Podem ser aceitos graduandos como discentes especiais, desde que em situações devidamente\ndefinidas no regimento interno do programa.\n\n§2º Os diplomas mencionados no caput deste artigo, quando emitidos por instituições localizadas\nno Brasil, devem ser reconhecidos por órgão federal competente.\n\nArt. 67. No que se refere às disciplinas em que estejam matriculados, os discentes especiais se\nsubmetem às mesmas obrigações dos discentes regulares.\n\nArt. 68. É vedada ao discente especial a matrícula em atividades acadêmicas\n\nSeção III\nDo Processo Seletivo Para Discentes\n\nArt. 69. O processo seletivo para ingresso de discente regular e discente especial nos cursos de\npós-graduação stricto sensu da UFS deverá atender às normas vigentes da instituição.\n\n§1º Os programas de pós"
+    },
+    {
+      "id_chunk": "chunk_0118",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [14],
+      "score": 3.9399,
+      "frequencias_termos": {
+        "matrícula": 3
+      },
+      "texto": "pela\ncoordenação do programa;\nIV. publicação do processo seletivo no sistema acadêmico da universidade pela COPGD, e,\nV. gerenciamento da execução do processo seletivo pelo programa de pós-graduação.\n\nParágrafo único. A execução do processo seletivo , que trata o disposto no inciso V, obedecerá\naos prazos do cronograma do edital , garantindo a máxima transparência do certame e a publicidade de\ntodos os atos administrativos emanados, seja tanto em relação às regras de seleção, seja quanto aos\nresultados da mesma.\n\nArt. 71. A COPGD realizará a retificação de editais , quando solicitado pelo pro grama de pós -\ngraduação, somente durante o período de inscrições.\n\nArt. 72. Caberá ao candidato acompanhar as publicações referentes ao processo seletivo no site\ndo programa.\n\nArt. 7 3. O processo seletivo será encerrado com a publicação do resultado final no site do\nprograma, conforme calendário da pós-graduação, com a lista de aprovado em número igual ou inferior à\nquantidade de vagas ofertadas no edital, e lista de excedentes, quando houver.\n\nSeção IV\nDa Matrícula Institucional\n\nArt. 74. Entende-se por matrícula institucional o ato de formalização de vínculo do candidato\ncom a universidade, momento a partir do qual lhe é atribuído um número de matrícula"
+    },
+    {
+      "id_chunk": "chunk_0119",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [14, 15],
+      "score": 4.7215,
+      "frequencias_termos": {
+        "matrícula": 6
+      },
+      "texto": "Institucional\n\nArt. 74. Entende-se por matrícula institucional o ato de formalização de vínculo do candidato\ncom a universidade, momento a partir do qual lhe é atribuído um número de matrícula e passa a integrar o\ncorpo discente da instituição.\n\n13\nArt. 75. Para realizar a matrícula institucional, o candidato aprovado deverá:\nI. comparecer pessoalmente ou por meio de procurador no local de matrícula indicado no edital\ne em data definida no calendário acadêmico;\nII. comprovar titulação exigida no regimento interno do programa;\nIII. apresentar documentação necessária exigida no edital de seleção, e,\nIV. no caso de estrangeiros não residentes, comprovar regularização de permanência no Brasil ,\nemitida pelo órgão federal competente.\n\n§ 1º No caso de estrangeiros não residentes que necessitem do comprovante de vínculo com a\nuniversidade para requisitar regularização de permanência no Brasil , emitido pelo órgão federal\ncompetente, o inciso IV será dispensado no ato da matrícula institucional, devend o, obrigatoriamente,\napresentar o carimbo de entrada no país e será calculado o prazo de até noventa dias para a entrega do\ndocumento na secretaria do programa.\n\n§ 2º É de responsabilidade do candidato aprovado observar os prazos de matrícula institucional\ndefinidos no calendário acadêmico da pós -graduação"
+    },
+    {
+      "id_chunk": "chunk_0120",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [15],
+      "score": 2.3617,
+      "frequencias_termos": {
+        "matrícula": 1
+      },
+      "texto": "para a entrega do\ndocumento na secretaria do programa.\n\n§ 2º É de responsabilidade do candidato aprovado observar os prazos de matrícula institucional\ndefinidos no calendário acadêmico da pós -graduação stricto sensu da UFS, cabendo aos programas e à\nCOPGD publicá-lo em seus respectivos sites.\n\nArt. 76. O candidato aprovado que não atender ao disposto no artigo anterior, bem como ao\ndisposto no respectivo edital de processo seletivo, perderá o direito à vaga a qual foi aprovado.\n\nArt. 77. Os excedentes somente poderão ser convocados em caso de vagas não preenchidas, e\ndentro do limite de vagas ofertadas no edital, em período determinado pelo calendário da pós-graduação.\n\nParágrafo único . A quantidade de vagas não preenchidas e a convocação de candidatos\nexcedentes deverão ser divulgados, obrigatoriamente, no site do programa e, opcionalmente, por meio de\ncomunicação eletrônica da coordenação do programa aos excedentes.\n\nTÍTULO III\n\nDO REGIME DIDÁTICO DA PÓS-GRADUAÇÃO STRICTO SENSU\n\nCAPÍTULO I\nDA DURAÇÃO DO CURSO E DO PRAZO DE CONCLUSÃO\n\nArt. 78. Para os discentes regulares, a duração do curso será contada em meses a partir do mês de\nentrada, durante o qual deverá cumprir as exigências da estrutura curricular de cada curso, realizar sua\npesquisa e/ou"
+    },
+    {
+      "id_chunk": "chunk_0134",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [20],
+      "score": 3.9399,
+      "frequencias_termos": {
+        "matrícula": 3
+      },
+      "texto": "colegiado, que decidirá em última instância.\n\nCAPÍTULO V\nDO CALENDÁRIO ACADÊMICO\n\nArt. 104 . A pós -graduação stricto sensu da UFS terá um calendário acadêmico próprio, que\ndefinirá, no mínimo, os seguintes períodos:\nI. períodos letivos regulares;\nII. períodos letivos especiais;\nIII. período de submissão das propostas de editais para os processos seletivos;\nIV. período de matrícula institucional;\nV. período de oferta de turmas;\nVI. período de matrícula em turmas;\nVII. período de trancamento online de turmas;\nVIII. período de consolidação de turmas, e,\nIX. previsão de períodos de matrícula institucional e de início das aulas do ano subsequente.\n\n§1º O calendário acadêmico será único e para todos os cursos de pós -graduação stricto sensu,\nindependente do campus de localização.\n\n§2º A COPGD poderá submeter à aprovação da CPG a criação de novos itens para o calendário\nda pós-graduação stricto sensu.\n\n§3º No caso dos cursos ofertados por programas integrantes de redes nacionais, que possuam\ndatas e períodos próprios e diferentes do disposto nesta seção, prevalecerão ao disposto pela rede.\n\nArt. 105 . O calendário acadêmico será proposto pela COPGD, avaliado pela CPG e aprovado\npelo Reitor, com publicação de portaria específica.\n\nParágrafo único. O calendário acadêmico po derá, a"
+    },
+    {
+      "id_chunk": "chunk_0136",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [21],
+      "score": 4.8476,
+      "frequencias_termos": {
+        "matrícula": 7
+      },
+      "texto": "tem caráter complementar à oferta de\nturmas de períodos letivos regulares, não podendo substituí-los.\n\n§2º As turmas ofertadas nos períodos letivos especiais devem apresentar as mesmas\ncaracterísticas quanto ao conteúdo e à carga horária daquelas ofertadas nos períodos regulares.\n\nSeção III\nDo Período de Matrícula Institucional\n\nArt. 108. O período de matrícula institucional precede o início do período letivo regular e o início\nda matrícula em turmas, podendo ocorrer em dois momentos:\nI. período de matrícula institucional de candidatos aprovados, e,\nII. período de matrícula institucional de candidatos excedentes.\n\n§ 1º Será garantido o intervalo de, pelo menos, um dia útil entre os períodos de matrícula\ninstitucional para divulgação de convocação dos excedentes, quando houver.\n\n§ 2º É vedada a matrícula institucional de candidatos aprovados no período destinado aos\nexcedentes e vice-versa.\n\nSeção IV\nDo Período de Oferta de Turmas\n\nArt. 109. A oferta de turmas de disciplinas deverá ser aprovada pelo colegiado e cadastrada pela\nsecretaria do Programa no sistema acadêmico eletrônico da universidade no período indicado no\ncalendário acadêmico.\n\nArt. 110. No cadastro das turmas ofertadas devem estar indicados os seguintes dados:\nI. formato de realização, semestral ou intensivo (condensado);\nII. datas de início e de fim, quando"
+    },
+    {
+      "id_chunk": "chunk_0138",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [22],
+      "score": 4.5246,
+      "frequencias_termos": {
+        "matrícula": 5
+      },
+      "texto": "abordar e que deverá constar no histórico\ndos discentes que vierem a se matricular na turma.\n\nArt. 111. Compete exclusivamente ao(s) docente(s) ministrante(s) da turma ofertada o cadastro\ndo respectivo plano de aula no sistema acadêmico eletrônico da universidade.\n\nParágrafo único. O cadastro do plano de aula mencionado no caput deste artigo deverá ser feito\naté, no máximo, a primeira semana de aula da turma.\n\nSeção V\nDo Período de Matrícula em Turmas\n\nArt. 112 . A matrícula em turmas é de responsabilidade dos discentes regulares e deverá ser\nobrigatoriamente realizada por meio do sistema acadêmico eletrônico da universidade.\n\n§1º Caberá aos orientadores e à coordenação do programa fazerem uma prévia orientação sobre\nas matrículas em turmas que cada discente deverá realizar.\n\n§2º A matrícula em turmas dos discentes especiais será de responsabilidade da secretar ia do\nprograma, conforme resultado do processo seletivo específico.\n\nArt. 113. A matrícula em turmas será dividida em três etapas:\nI. matrícula em turmas, quando o discente poderá se matricular nas turmas ofertadas;\nII. reformulação de turmas, quando o discente poderá retirar e adicionar turmas, e,\nIII. inclusão de turmas, quando a coordenação do programa poderá, a pedido do discente,\nrealizar matrículas em turmas.\n\n§1º"
+    }
+  ]
+}

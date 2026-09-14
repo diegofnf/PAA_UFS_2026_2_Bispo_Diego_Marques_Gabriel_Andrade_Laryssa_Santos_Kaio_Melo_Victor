@@ -1,0 +1,74 @@
+{
+  "documentos": [
+    {
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "caminho_relativo": "2_corpus/Edital_CAPES_14_2023_PRAPG.pdf",
+      "tamanho_bytes": 308359,
+      "hash_sha256": "526565d62479af23aee5a5f4014a818f2cbfc3be43ec92acd2ba7c87460c80d4",
+      "quantidade_paginas": 13,
+      "fonte_url": "https://www.sigaa.ufs.br/sigaa/verProducao?idProducao=4214078&key=9a30771aef926507ec26e66ff5da6260",
+      "status_processamento": "processado"
+    },
+    {
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "caminho_relativo": "2_corpus/IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "tamanho_bytes": 562302,
+      "hash_sha256": "5a95a6f1eb5a58ef29d5b690cd008bc8b81112c70f8316245c5e1b45e24479c8",
+      "quantidade_paginas": 22,
+      "fonte_url": "https://www.sigaa.ufs.br/sigaa/verProducao?idProducao=4024039&key=3935a3b7b0d57462398d13c8fa68def5",
+      "status_processamento": "processado"
+    },
+    {
+      "id_documento": "doc_003",
+      "nome_arquivo": "IN_01_2024_PROCC_Criterios_Bolsas.pdf",
+      "caminho_relativo": "2_corpus/IN_01_2024_PROCC_Criterios_Bolsas.pdf",
+      "tamanho_bytes": 303411,
+      "hash_sha256": "2c6dc4f95ed7ef6a452eee6505396b5c2e3731753b44eaeef49789f82ed5faee",
+      "quantidade_paginas": 3,
+      "fonte_url": "https://www.sigaa.ufs.br/sigaa/verProducao?idProducao=4357246&key=807372ebd6adf4d3ad63cd51277fec38",
+      "status_processamento": "processado"
+    },
+    {
+      "id_documento": "doc_004",
+      "nome_arquivo": "IN_01_2026_PROCC_Credenciamento_Recredenciamento_Vagas.pdf",
+      "caminho_relativo": "2_corpus/IN_01_2026_PROCC_Credenciamento_Recredenciamento_Vagas.pdf",
+      "tamanho_bytes": 228996,
+      "hash_sha256": "4f0c402bfc4e879dc769790e49b90f80ae1b3a316349d9b1fc1f923fc9ace8c5",
+      "quantidade_paginas": 3,
+      "fonte_url": "https://www.sigaa.ufs.br/sigaa/verProducao?idProducao=5025297&key=2d84693e082547f2c3b9e5a7211baf63",
+      "status_processamento": "processado"
+    },
+    {
+      "id_documento": "doc_005",
+      "nome_arquivo": "IN_02_2026_PROCC_Destinacao_Recursos.pdf",
+      "caminho_relativo": "2_corpus/IN_02_2026_PROCC_Destinacao_Recursos.pdf",
+      "tamanho_bytes": 155717,
+      "hash_sha256": "b598fc4792c322c6132626de6f1d4cba444b6a5856f6c8ab50038d78264dec24",
+      "quantidade_paginas": 2,
+      "fonte_url": "https://www.sigaa.ufs.br/sigaa/verProducao?idProducao=5040212&key=bd7f4126e48c0ff0c3f3ecd020bea2af",
+      "status_processamento": "processado"
+    },
+    {
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "caminho_relativo": "2_corpus/Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "tamanho_bytes": 1403659,
+      "hash_sha256": "60bf740a3701e000ba1632b0020c88450f059eeea65779663a114868f2b9df3c",
+      "quantidade_paginas": 30,
+      "fonte_url": "https://www.sigaa.ufs.br/sigaa/verProducao?idProducao=2737960&key=1861aeae080b4f6318206935e3b17414",
+      "status_processamento": "processado"
+    },
+    {
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "caminho_relativo": "2_corpus/Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "tamanho_bytes": 1760134,
+      "hash_sha256": "5abd6ac3a98201baadb937b3c3f1255310a5889d677313dda58595896eb4aa2f",
+      "quantidade_paginas": 10,
+      "fonte_url": "https://www.sigaa.ufs.br/sigaa/verProducao?idProducao=4218408&key=0f7e24ac2195143e5735697d19cb43ac",
+      "status_processamento": "processado"
+    }
+  ]
+}

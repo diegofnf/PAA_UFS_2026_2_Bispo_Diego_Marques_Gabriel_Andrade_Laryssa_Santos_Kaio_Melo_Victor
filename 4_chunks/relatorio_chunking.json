@@ -1,0 +1,70 @@
+{
+  "status_etapa": "concluido",
+  "total_documentos": 7,
+  "total_chunks": 182,
+  "chunks_com_overlap_entre_paginas": 80,
+  "percentual_chunks_cruzam_paginas": 43.96,
+  "parametros": {
+    "tamanho_chunk_palavras": 200,
+    "overlap_palavras": 30,
+    "passo_palavras": 170
+  },
+  "estatisticas_palavras": {
+    "media": 196.85,
+    "minimo": 64,
+    "maximo": 200,
+    "total_palavras_acumuladas": 35826
+  },
+  "tempo_execucao_segundos": 0.060183,
+  "documentos": [
+    {
+      "id_documento": "doc_001",
+      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+      "paginas_com_conteudo": 13,
+      "quantidade_chunks": 36,
+      "chunks_com_overlap_entre_paginas": 16
+    },
+    {
+      "id_documento": "doc_002",
+      "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+      "paginas_com_conteudo": 22,
+      "quantidade_chunks": 35,
+      "chunks_com_overlap_entre_paginas": 22
+    },
+    {
+      "id_documento": "doc_003",
+      "nome_arquivo": "IN_01_2024_PROCC_Criterios_Bolsas.pdf",
+      "paginas_com_conteudo": 3,
+      "quantidade_chunks": 3,
+      "chunks_com_overlap_entre_paginas": 1
+    },
+    {
+      "id_documento": "doc_004",
+      "nome_arquivo": "IN_01_2026_PROCC_Credenciamento_Recredenciamento_Vagas.pdf",
+      "paginas_com_conteudo": 3,
+      "quantidade_chunks": 8,
+      "chunks_com_overlap_entre_paginas": 3
+    },
+    {
+      "id_documento": "doc_005",
+      "nome_arquivo": "IN_02_2026_PROCC_Destinacao_Recursos.pdf",
+      "paginas_com_conteudo": 2,
+      "quantidade_chunks": 5,
+      "chunks_com_overlap_entre_paginas": 1
+    },
+    {
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas_com_conteudo": 28,
+      "quantidade_chunks": 72,
+      "chunks_com_overlap_entre_paginas": 28
+    },
+    {
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "paginas_com_conteudo": 10,
+      "quantidade_chunks": 23,
+      "chunks_com_overlap_entre_paginas": 9
+    }
+  ]
+}
