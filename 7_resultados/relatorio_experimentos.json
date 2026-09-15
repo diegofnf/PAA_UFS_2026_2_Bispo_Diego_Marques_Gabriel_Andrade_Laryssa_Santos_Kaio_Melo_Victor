@@ -1,0 +1,164 @@
+{
+    "metadados": {
+        "projeto": "Recuperação de Contexto para IA Generativa (AV1 - PAA/UFS)",
+        "consulta_avaliada": "critérios para atribuição de bolsas e requisitos de matrícula",
+        "k_definido": 5,
+        "matriz_design": "3 configurações x 2 cargas x 2 repetições = 12 baterias",
+        "ambiente_computacional": {
+            "sistema_operacional": "Darwin 25.6.0",
+            "plataforma": "macOS-26.6.2-arm64-arm-64bit",
+            "arquitetura": "arm64",
+            "processador": "arm",
+            "versao_python": "3.9.6",
+            "interpretador": "/Library/Developer/CommandLineTools/usr/bin/python3"
+        }
+    },
+    "execucoes": [
+        {
+            "id_execucao": 1,
+            "configuracao": "Configuração 1 (Baseline — Busca Linear)",
+            "modo_busca": "linear",
+            "metrica_score": "simples",
+            "base_chunks": "4_chunks/chunks.json",
+            "repeticao": 1,
+            "tempo_execucao_ms": 194.5474,
+            "pico_memoria_mb": 37.47,
+            "status": "sucesso"
+        },
+        {
+            "id_execucao": 2,
+            "configuracao": "Configuração 1 (Baseline — Busca Linear)",
+            "modo_busca": "linear",
+            "metrica_score": "simples",
+            "base_chunks": "4_chunks/chunks.json",
+            "repeticao": 2,
+            "tempo_execucao_ms": 137.0562,
+            "pico_memoria_mb": 36.98,
+            "status": "sucesso"
+        },
+        {
+            "id_execucao": 3,
+            "configuracao": "Configuração 1 (Baseline — Busca Linear)",
+            "modo_busca": "linear",
+            "metrica_score": "simples",
+            "base_chunks": "4_chunks/chunks.json",
+            "repeticao": 1,
+            "tempo_execucao_ms": 144.2093,
+            "pico_memoria_mb": 37.03,
+            "status": "sucesso"
+        },
+        {
+            "id_execucao": 4,
+            "configuracao": "Configuração 1 (Baseline — Busca Linear)",
+            "modo_busca": "linear",
+            "metrica_score": "simples",
+            "base_chunks": "4_chunks/chunks.json",
+            "repeticao": 2,
+            "tempo_execucao_ms": 142.7191,
+            "pico_memoria_mb": 37.05,
+            "status": "sucesso"
+        },
+        {
+            "id_execucao": 5,
+            "configuracao": "Configuração 2 (Busca Indexada — Índice Invertido)",
+            "modo_busca": "indexada",
+            "metrica_score": "bm25",
+            "base_chunks": "4_chunks/chunks.json",
+            "repeticao": 1,
+            "tempo_execucao_ms": 149.9831,
+            "pico_memoria_mb": 49.09,
+            "status": "sucesso"
+        },
+        {
+            "id_execucao": 6,
+            "configuracao": "Configuração 2 (Busca Indexada — Índice Invertido)",
+            "modo_busca": "indexada",
+            "metrica_score": "bm25",
+            "base_chunks": "4_chunks/chunks.json",
+            "repeticao": 2,
+            "tempo_execucao_ms": 150.2306,
+            "pico_memoria_mb": 48.56,
+            "status": "sucesso"
+        },
+        {
+            "id_execucao": 7,
+            "configuracao": "Configuração 2 (Busca Indexada — Índice Invertido)",
+            "modo_busca": "indexada",
+            "metrica_score": "bm25",
+            "base_chunks": "4_chunks/chunks.json",
+            "repeticao": 1,
+            "tempo_execucao_ms": 145.0222,
+            "pico_memoria_mb": 49.28,
+            "status": "sucesso"
+        },
+        {
+            "id_execucao": 8,
+            "configuracao": "Configuração 2 (Busca Indexada — Índice Invertido)",
+            "modo_busca": "indexada",
+            "metrica_score": "bm25",
+            "base_chunks": "4_chunks/chunks.json",
+            "repeticao": 2,
+            "tempo_execucao_ms": 147.722,
+            "pico_memoria_mb": 48.59,
+            "status": "sucesso"
+        },
+        {
+            "id_execucao": 9,
+            "configuracao": "Configuração 3 (Divisão e Conquista — Merge Sort Top-k)",
+            "modo_busca": "indexada",
+            "metrica_score": "bm25",
+            "base_chunks": "4_chunks/chunks.json",
+            "repeticao": 1,
+            "tempo_execucao_ms": 145.0103,
+            "pico_memoria_mb": 49.08,
+            "status": "sucesso"
+        },
+        {
+            "id_execucao": 10,
+            "configuracao": "Configuração 3 (Divisão e Conquista — Merge Sort Top-k)",
+            "modo_busca": "indexada",
+            "metrica_score": "bm25",
+            "base_chunks": "4_chunks/chunks.json",
+            "repeticao": 2,
+            "tempo_execucao_ms": 145.0591,
+            "pico_memoria_mb": 49.42,
+            "status": "sucesso"
+        },
+        {
+            "id_execucao": 11,
+            "configuracao": "Configuração 3 (Divisão e Conquista — Merge Sort Top-k)",
+            "modo_busca": "indexada",
+            "metrica_score": "bm25",
+            "base_chunks": "4_chunks/chunks.json",
+            "repeticao": 1,
+            "tempo_execucao_ms": 149.2743,
+            "pico_memoria_mb": 48.7,
+            "status": "sucesso"
+        },
+        {
+            "id_execucao": 12,
+            "configuracao": "Configuração 3 (Divisão e Conquista — Merge Sort Top-k)",
+            "modo_busca": "indexada",
+            "metrica_score": "bm25",
+            "base_chunks": "4_chunks/chunks.json",
+            "repeticao": 2,
+            "tempo_execucao_ms": 144.3567,
+            "pico_memoria_mb": 48.53,
+            "status": "sucesso"
+        }
+    ],
+    "sintese_metricas": {
+        "Configuração 1 (Baseline — Busca Linear)": {
+            "tempo_medio_ms": 154.633,
+            "amostras": 4
+        },
+        "Configuração 2 (Busca Indexada — Índice Invertido)": {
+            "tempo_medio_ms": 148.2395,
+            "amostras": 4
+        },
+        "Configuração 3 (Divisão e Conquista — Merge Sort Top-k)": {
+            "tempo_medio_ms": 145.9251,
+            "amostras": 4
+        }
+    }
+}

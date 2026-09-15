@@ -1,18 +1,15 @@
 {
   "status_etapa": "concluido",
-  "arquivo_candidatos_gerado": "6_busca_lexical/candidatos_busca.json",
+  "arquivo_candidatos_gerado": "6_busca_lexical/candidatos_linear.json",
   "consulta": "critérios para atribuição de bolsas e requisitos de matrícula",
   "k": 5,
-  "configuracao": "indexada",
-  "metrica_score": "bm25",
+  "configuracao": "linear",
+  "metrica_score": "simples",
   "parametros_metrica": {
-    "metrica": "bm25",
-    "k1": 1.5,
-    "b": 0.75,
-    "avgdl": 204.7747,
-    "total_documentos_N": 182
+    "metrica": "simples"
   },
-  "total_termos_vocabulario": 4061,
+  "total_chunks_corpus": 182,
+  "chunks_examinados": 182,
   "tokens_consulta": [
     "critérios",
     "para",
@@ -51,14 +48,8 @@
     "requisitos": 12,
     "matrícula": 17
   },
-  "inverse_document_frequencies": {
-    "critérios": 1.6122,
-    "atribuição": 3.9567,
-    "bolsas": 2.096,
-    "requisitos": 2.6838,
-    "matrícula": 2.3473
-  },
   "total_candidatos": 75,
-  "total_postings_consultadas": 90,
-  "tempo_busca_segundos": 0.00065
+  "total_comparacoes_termos": 910,
+  "total_tokens_examinados": 37269,
+  "tempo_busca_segundos": 0.009746
 }

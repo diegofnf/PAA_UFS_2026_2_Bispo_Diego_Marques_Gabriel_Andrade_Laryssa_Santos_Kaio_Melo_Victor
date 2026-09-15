@@ -1,0 +1,6 @@
+{
+  "name": "Regulamentos Acadêmicos PROCC/UFS",
+  "description": "Sistema de busca lexical, índice invertido e análise de documentos acadêmicos do PROCC/UFS com ordenação Merge Sort e Top-K.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

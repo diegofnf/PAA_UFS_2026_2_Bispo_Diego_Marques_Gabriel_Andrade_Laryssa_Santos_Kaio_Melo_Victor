@@ -156,5 +156,9 @@ Corpus normativo e orientativo público do PROCC/UFS e normas correlatas. Uso ex
 | Resolução nº 29/2022/CONEPE — Regimento Interno do PROCC | [SIGAA](https://www.sigaa.ufs.br/sigaa/verProducao?idProducao=4218408&key=0f7e24ac2195143e5735697d19cb43ac) |
 
 
+## Aplicação Web — Recuperação Lexical e Ordenação (PROCC/UFS)
 
+Interface web interativa desenvolvida para busca, recuperação e ordenação de contexto sobre os regulamentos acadêmicos do Programa de Pós-Graduação em Ciência da Computação (PROCC/UFS).
+
+🔗 **[Acessar a Aplicação Web](https://procc-recuperacao-documentos.vercel.app/)**
 

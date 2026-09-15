@@ -21,6 +21,7 @@ Este script implementa:
    - Seleção dos Top-k e geração de resultados finais.
 """
 
+from __future__ import annotations
 import argparse
 import json
 import math

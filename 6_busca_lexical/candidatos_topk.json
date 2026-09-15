@@ -2,7 +2,7 @@
   "metadados": {
     "etapa": "4_busca_lexical_candidatos",
     "proxima_acao": "Resultados",
-    "tempo_ordenacao_segundos": 0.0003040510055143386,
+    "tempo_ordenacao_segundos": 0.00033387499999999737,
     "num_top_k": 5
   },
   "top_k_candidatos": [
@@ -11,58 +11,62 @@
       "id_documento": "doc_006",
       "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
       "paginas": [19],
-      "score": 6.9204,
+      "score": 9.6206,
       "frequencias_termos": {
         "critérios": 4,
-        "atribuição": 1
+        "atribuição": 1,
+        "requisitos": 1
       },
       "texto": "Elaboração de Pesquisa e os critérios\nde avaliação de desempenho do discente;\nIV. o formato do trabalho a ser entregue pelo discente à banca examinadora, os critérios de\ncomposição da banca e o prazo máximo para a realização, tanto do Exame de Qualificaç ão,\nquanto da Defesa de Dissertação/Tese, e,\nV. o prazo para que o discente entregue o relatório com comprovantes dos Estudos\nExtracurriculares, sua obrigatoriedade, a carga horária mínima e os critérios de aceitação.\n\n§1º Para a Defesa de Dissertação/Tese, o discente deverá ter aprovação no exame de qualificação\ne ter cumprido todos os demais requisitos das normas do programa.\n\n§2º Apenas as atividades acadêmicas de Elaboração de Pesquisa e de Estudos Extracurriculares\nterão carga de créditos, que serão refer entes, respectivamente, ao tempo que deve ser dedicado pelo\ndiscente para a execução do seu projeto de pesquisa, e à carga horária das atividades extracurriculares.\n\n§3º Caberá ao docente orientador supervisionar o cumprimento da carga horária da atividade\nacadêmica “Elaboração de Pesquisa”, considerando esse como um dos critérios para a atribuição do\nconceito final.\n\n§4º No caso das atividades acadêmicas de cursos ofertados por programas integrantes de redes\nnacionais, que possuam normatizações próprias e diferentes das dispostas nesta"
-    },
-    {
-      "id_chunk": "chunk_0013",
-      "id_documento": "doc_001",
-      "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
-      "paginas": [5],
-      "score": 4.438,
-      "frequencias_termos": {
-        "critérios": 1,
-        "bolsas": 2
-      },
-      "texto": "0 a\n10,00 1\n3 Adequação do apoio/bolsas solicitadas às metas que indiquem aperfeiçoamento na gestão do\nPPG, melhorias da infraestrutura e melhor formação dos discentes do PPG.\n0 a\n10,00 1\n4 Aderência da bolsa de Professor Visitante Sênior no país (PVS) as a\u0000vidades decorrentes do\nplanejamento estratégico do PPG e da IES.\n0 a\n10,00 1\n5 Potencial de aumento da eﬁcácia do PPG quanto à formação de mestres, aumento qualita\u0000vo\ne quan\u0000ta\u0000vo da produção técnica, inserção e impacto social.\n0 a\n10,00 1\n6 Alinhamento dos resultados com as metas do planejamento estratégico, incluindo diretrizes\nde internacionalização, autoavaliação e uso/aplicação do auxílio/bolsas.\n0 a\n10,00 1\n7 Planejamento para elaboração das Macro Polí\u0000cas e Diretrizes de Internacionalização. 0 a\n10,00 1\n8 Estratégia de ar\u0000culação interna para inserção das Polí\u0000cas e Diretrizes de Internacionalização\nno Plano de Desenvolvimento Ins\u0000tucional.\n0 a\n10,00 1\n9 Alinhamento das parcerias internacionais a serem prospectadas com o projeto de\nconsolidação do PPG.\n0 a\n10,00 1\n11.3. Cada proposta receberá nota total que poderá variar de 0,00 a 100,00, resultado da soma das notas\nde todos os critérios elencados no item 11.2, mul\u0000plicadas pelos seus respec\u0000vos pesos.\n11.4. As propostas que"
-    },
-    {
-      "id_chunk": "chunk_0169",
-      "id_documento": "doc_007",
-      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
-      "paginas": [5],
-      "score": 4.4303,
-      "frequencias_termos": {
-        "critérios": 2,
-        "bolsas": 1
-      },
-      "texto": "para credenciamento e recredenciamento de docentes do programa;\nIII. homologar ementas, carga horária e programas das disciplinas de pós-graduação;\nIV. estabelecer os critérios e procedimentos para seleção de novos discentes;\nV. estabelecer os critérios e procedimentos para seleção de bolsistas;\nVI. atribuir ou revalidar créditos obtidos em cursos de pós -graduação equivalentes em outros\nprogramas, e,\nVII. criar grupos de trabalho para execução de atividades específicas e transitórias distintas\ndaquelas exercidas pelas comissões internas.\n\nArt. 12. O Colegiado do PROCC possui as seguintes comissões internas:\nI. Comissão de Autoavaliação e Planejamento Estratégico, responsável por elaborar a\nautoavaliação e o planejamento estratégico do programa, bem como por acompanhar o\npreenchimento da plataforma sucupira;\nII. Comissão de Bolsas, responsável pela distribuição de bo lsas do programa, conforme normas\nvigentes das agências de fomento e regimento interno do programa;\nIII. Comissão de Supervisão Discente, responsável por deliberar sobre os requerimentos de\naproveitamento de estudos, de trancamento de vínculo, de prorrogação de prazo de conclusão\ne de outros requerimentos dos discentes e por elaborar um relatório anual sobre o desempenho\ncientífico do corpo discentes;\nIV. Comissão de Avaliação Docente, responsável por elaborar um relatório anual sobre o\ndesempenho científico do corp o docente e"
     },
     {
       "id_chunk": "chunk_0018",
       "id_documento": "doc_001",
       "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
       "paginas": [7],
-      "score": 4.3917,
+      "score": 7.0278,
       "frequencias_termos": {
-        "bolsas": 8
+        "bolsas": 8,
+        "requisitos": 1
       },
       "texto": "de concessão que, por sua vez, será enviado ao Coordenador de PPG, via sistema Linha Direta.\n17.4. As bolsas deverão ser implementadas no Sistema de Concessão de Bolsas e Auxílios (SCBA) pelo\nCoordenador de PPG, dentro dos prazos a serem informados.\n17.5. O valor das bolsas no país são deﬁnidos pela Portaria CAPES nº 33, de 16 de fevereiro de 2023 ou\noutra que venha a subs\u0000tuí-la. O valor das bolsas no exterior, por sua vez, é regido pela Portaria CAPES nº\n1, de 3 de janeiro de 2020.\n17.6. Das bolsas de Mestrado e Doutorado\n17.6.1. Mestrado - As concessões e implementações das bolsas deverão observar o norma\u0000vo da CAPES\nque regula a modalidade (Portaria CAPES nº 76/2010), no que couber.\nI. As cotas de bolsas de mestrado, com vigência máxima de 24 (vinte e quatro) meses, deverão ser\nimplementadas de maneira escalonada, sendo que a primeira metade das bolsas deve ser\nimplementada a par\u0000r do início do projeto e a segunda metade no primeiro semestre de 2024, em\ncalendário a ser informado pela CAPES.\n17.6.1.1. O candidato à bolsa de mestrado deverá atender os seguintes requisitos:\nI. Comprovar desempenho acadêmico sa\u0000sfatório, consoante às normas deﬁnidas pelo PPG;\nII."
     },
     {
-      "id_chunk": "chunk_0017",
+      "id_chunk": "chunk_0176",
+      "id_documento": "doc_007",
+      "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+      "paginas": [7, 8],
+      "score": 6.1196,
+      "frequencias_termos": {
+        "critérios": 1,
+        "bolsas": 1,
+        "matrícula": 1
+      },
+      "texto": "Ciência da Computação , desde que o graduando já\ntenha cursado, com aprovação, um mínimo de 70% das disciplinas obrigatórias de seu curso de\ngraduação.\n\nArt. 24. O Curso de Doutorado em Ciência da Computação do PROCC somente aceitará a\nadmissão de discentes regulares.\n\nArt. 25. O acesso aos cursos de Mestrado em Ciência da Computação e de Doutorado em Ciência\nda Computação se dará por meio de aprovação em processo seletivo regido por edital elaborado pelo\nColegiado, conforme modelo definido pela COPGD e nos termos da legislação vigente.\n\n6\n§1º Os editais para discentes especiais devem selecionar candidatos especificamente para cursar\ndisciplinas pré -definidas pelo PROCC, observando o limite de duas disciplinas por discente e de um\nperíodo por vínculo.\n\n§2º A matrícula institucional dos candidatos aprovados ocorrerá conforme o disposto nas Normas\nAcadêmicas da Pós-Graduação stricto sensu da UFS.\n\nArt. 26. A distribuição das cotas de bolsas destinadas ao PROCC, será de responsabilidade da\ncomissão de bolsa que seguirá critérios definidos em Instrução Normativa, considerando as normas\nvigentes das agências de fomento.\n\nCAPÍTULO V\nDO REGIME ACADÊMICO\n\nArt. 27. A duração do vínculo com o programa será:\nI. para o discente regular do mestrado, de doze meses no"
+    },
+    {
+      "id_chunk": "chunk_0139",
+      "id_documento": "doc_006",
+      "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas": [22],
+      "score": 5.5475,
+      "frequencias_termos": {
+        "critérios": 1,
+        "matrícula": 3
+      },
+      "texto": "de turmas, quando o discente poderá retirar e adicionar turmas, e,\nIII. inclusão de turmas, quando a coordenação do programa poderá, a pedido do discente,\nrealizar matrículas em turmas.\n\n§1º Cabe ao discente conferir o processamento das matrículas em turmas.\n\n§2º Ao discente que frequentar uma turma que não esteja matriculado não é garantido direito à\nmatrícula posterior na mesma.\n\n§3º Os pedidos de inclusão deverão ser entregues na secretaria do programa no prazo definido\npelo calendário acadêmico.\n\nArt. 114. A CPG poderá estabelecer, por meio de Instrução Normativa, critérios de prioridade no\npreenchimento das vagas ofertadas.\n\nArt. 115. A matrícula de discentes regulares em atividades acadêmicas será de responsabilidade\nda coordenação do programa.\n\nSeção VI\nDo Período de Trancamento de Matrículas em Turmas\n\nArt. 11 6. Após o início das aulas, o discente regular poderá trancar sua matrícula em uma ou\nmais turmas desde que:\nI. ainda não tenha ultrapassado metade da carga horária da turma, e,\nII. mantenha-se matriculado em, pelo menos, uma turma de disciplina e/ou atividade\nacadêmica.\n\nParágrafo único. O trancamento de todas as turmas e atividades acadêmicas, às quais o discente\nesteja matriculado, apenas será permitido por meio de uma solicitação de trancamen to de"
+    },
+    {
+      "id_chunk": "chunk_0022",
       "id_documento": "doc_001",
       "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
-      "paginas": [6, 7],
-      "score": 4.0807,
+      "paginas": [8],
+      "score": 5.5013,
       "frequencias_termos": {
-        "bolsas": 6
+        "bolsas": 2,
+        "requisitos": 1
       },
-      "texto": "aprovada:\nRecursos Previstos por Projeto\nTipo Valor Previsto\nRecurso de Custeio Até R$ 40.000,00 (quarenta mil reais)\n\n19/06/2023, 10:21 SEI/CAPES - 1999996 - Edital\nhttps://sei.capes.gov.br/sei/controlador.php?acao=documento_imprimir_web&acao_origem=arvore_visualizar&id_documento=2173701&infra_si… 7/13\nRecurso de Capital Até R$ 40.000,00 (quarenta mil reais)\nNúmero de Bolsas Previstas por Projeto\nMestrado no país Até 4\nDoutorado (Pró-Doutoral) no país 1\nPós-Doutorado no país Até 2\nProfessor Visitante Sênior no país 1\nProfessor Visitante Sênior no exterior 1\nProfessor Visitante Júnior no exterior 1\nProfessor Visitante Estrangeiro 1\n\n17. DA CONCESSÃO DAS BOLSAS\n17.1. Os bene\u0000cios des\u0000nados às Coordenações de PPG deverão ser u\u0000lizados em estrita concordância\ncom o planejamento estratégico da Pró-Reitoria de Pós-Graduação e Pesquisa e, também, do PPG que,\npor sua vez, deverá apresentar as ações de melhorias propostas pela CAPES em suas ﬁchas de avaliação\nemi\u0000das, especialmente, no úl\u0000mo ciclo avalia\u0000vo coordenado pela CAPES (2021).\n17.2. A duração das bolsas não deverá ultrapassar o prazo de execução do projeto.\n17.3. As cotas de bolsas deverão ser implementadas, conforme calendário a ser divulgado pela CAPES em\no\u0000cio de concessão que, por sua vez, será enviado ao Coordenador de PPG, via sistema Linha Direta.\n17.4. As bolsas deverão ser implementadas no Sistema de Concessão de Bolsas e Auxílios"
+      "texto": "da bolsa original, e limite-se ao ﬁm da vigência original da bolsa concedida de modo\na não prejudicar o andamento do projeto;\nIII. A implementação da nova bolsa advinda da subs\u0000tuição deverá ocorrer no mês subsequente ao\ndesligamento do bolsista original.\nIV. O pedido de subs\u0000tuição deverá ser formalizado, por meio de O\u0000cio, o qual apresentará as\ndevidas jus\u0000ﬁca\u0000vas para o cancelamento da bolsa, assim como a informação da nova bolsa.\n17.7. Das bolsas de Pós-Doutorado e Professor Visitante Sênior no país\n17.7.1. Pós-Doutorado- A concessão de bolsa na modalidade terá vigência máxima de 24 (vinte e\nquatro) meses e deverá observar o norma\u0000vo da CAPES que regula a modalidade (Portaria CAPES nº\n86/2013), no que couber.\n17.7.1.1. O candidato à bolsa de pós-doutorado deve atender os seguintes requisitos:\nI. Ser jovem doutor, \u0000tulado a no máximo 5 anos, a contar da data da implementação da bolsa; e\nII. Se servidor público, deverá ser apresentado o comprovante de afastamento do exercício do cargo\npor igual período da bolsa.\n17.7.1.2. É vedada a concessão de bolsas de pós-doutorado para docentes doutores que integram a\nestrutura da mesma Ins\u0000tuição de Ensino Superior responsável pela submissão do projeto, exceto para o\ncaso explicitado"
     }
   ]
 }
