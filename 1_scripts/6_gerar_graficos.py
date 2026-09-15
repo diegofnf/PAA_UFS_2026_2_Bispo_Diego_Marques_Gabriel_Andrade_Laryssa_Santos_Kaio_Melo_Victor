@@ -24,6 +24,7 @@ import json
 import math
 import random
 import statistics
+import sys
 from pathlib import Path
 
 import matplotlib
@@ -40,6 +41,13 @@ CORES_CONFIG = ["#dc2626", "#1d4ed8", "#059669"]
 COR_REFERENCIA = "#94a3b8"
 COR_NEUTRA = "#475569"
 COR_INGESTAO = ["#7c3aed", "#0891b2", "#1d4ed8", "#dc2626", "#059669", "#ea580c"]
+
+
+def configurar_saida_padrao() -> None:
+    """Força UTF-8 em stdout/stderr para não quebrar em consoles legados do Windows (cp1252)."""
+    for fluxo in (sys.stdout, sys.stderr):
+        if fluxo is not None and hasattr(fluxo, "reconfigure"):
+            fluxo.reconfigure(encoding="utf-8", errors="replace")
 
 
 def configurar_estilo() -> None:
@@ -797,6 +805,7 @@ def main() -> None:
     )
     args = parser.parse_args()
 
+    configurar_saida_padrao()
     configurar_estilo()
     args.resultados.mkdir(parents=True, exist_ok=True)
 
