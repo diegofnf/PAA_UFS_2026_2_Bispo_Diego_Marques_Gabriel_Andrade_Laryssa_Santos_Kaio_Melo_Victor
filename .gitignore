@@ -3,3 +3,5 @@ Blueprint_Atividade_1_PAA_PROCC_UFS.pdf
 __pycache__/
 *.pyc
 .venv/
+node_modules/
+dist/

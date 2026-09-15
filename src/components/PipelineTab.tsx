@@ -8,6 +8,16 @@ interface PipelineTabProps {
   relatorioIndexacao: RelatorioIndexacao | null;
 }
 
+const formatarNumero = (valor: number | undefined, casas = 0): string =>
+  typeof valor === 'number' && Number.isFinite(valor)
+    ? valor.toLocaleString('pt-BR', { minimumFractionDigits: casas, maximumFractionDigits: casas })
+    : '—';
+
+const formatarSegundos = (valor: number | undefined, casas = 4): string =>
+  typeof valor === 'number' && Number.isFinite(valor)
+    ? `${valor.toFixed(casas).replace('.', ',')} s`
+    : '—';
+
 export const PipelineTab: React.FC<PipelineTabProps> = ({
   relatorioProcessamento,
   relatorioChunking,
@@ -21,12 +31,12 @@ export const PipelineTab: React.FC<PipelineTabProps> = ({
       nome: 'Processamento & Normalização',
       descricao: 'Inventário de PDFs, extração de texto via PyMuPDF e higienização em Unicode NFC.',
       status: 'Concluído',
-      tempo: `${relatorioProcessamento?.tempo_processamento_segundos.toFixed(4) ?? '0.45'}s`,
+      tempo: formatarSegundos(relatorioProcessamento?.tempo_processamento_segundos),
       metricas: [
-        '7 documentos normativos',
-        '83 páginas analisadas',
+        `${formatarNumero(relatorioProcessamento?.quantidade_documentos)} documentos normativos`,
+        `${formatarNumero(relatorioProcessamento?.quantidade_paginas)} páginas analisadas`,
+        `${formatarNumero(relatorioProcessamento?.quantidade_paginas_vazias)} página sem camada de texto`,
         'Hifenização interlinear recomposta',
-        'Normalização Unicode NFC',
       ],
       arquivo: '1_scripts/1_processar_documentos.py',
     },
@@ -35,12 +45,12 @@ export const PipelineTab: React.FC<PipelineTabProps> = ({
       nome: 'Geração de Chunks Deslizantes',
       descricao: 'Janelamento contínuo de 200 palavras com overlap de 30 palavras (passo 170) entre páginas.',
       status: 'Concluído',
-      tempo: `${relatorioChunking?.tempo_execucao_segundos.toFixed(4) ?? '0.08'}s`,
+      tempo: formatarSegundos(relatorioChunking?.tempo_execucao_segundos),
       metricas: [
-        '182 chunks gerados',
-        '53 chunks cruzando páginas (29.12%)',
-        'Média de 196.85 palavras/chunk',
-        'Preservação de limites de páginas',
+        `${formatarNumero(relatorioChunking?.total_chunks)} chunks gerados`,
+        `${formatarNumero(relatorioChunking?.chunks_com_overlap_entre_paginas)} chunks cruzando páginas (${formatarNumero(relatorioChunking?.percentual_chunks_cruzam_paginas, 2)}%)`,
+        `Média de ${formatarNumero(relatorioChunking?.estatisticas_palavras.media, 2)} palavras/chunk`,
+        `Janela de ${formatarNumero(relatorioChunking?.parametros.tamanho_chunk_palavras)} palavras com overlap de ${formatarNumero(relatorioChunking?.parametros.overlap_palavras)}`,
       ],
       arquivo: '1_scripts/2_gerar_chunks.py',
     },
@@ -49,11 +59,11 @@ export const PipelineTab: React.FC<PipelineTabProps> = ({
       nome: 'Construção do Índice Invertido',
       descricao: 'Tokenização com expressão regular [^\\W_]+, preservação de acentos e contagem de postings.',
       status: 'Concluído',
-      tempo: `${relatorioIndexacao?.tempo_construcao_segundos.toFixed(4) ?? '0.04'}s`,
+      tempo: formatarSegundos(relatorioIndexacao?.tempo_construcao_segundos),
       metricas: [
-        '5.258 termos únicos no vocabulário',
-        '19.863 postings indexados',
-        '35.827 ocorrências totais',
+        `${formatarNumero(relatorioIndexacao?.total_termos)} termos únicos no vocabulário`,
+        `${formatarNumero(relatorioIndexacao?.total_postings)} postings indexados`,
+        `${formatarNumero(relatorioIndexacao?.total_ocorrencias)} ocorrências totais`,
         'Acesso O(1) médio por token',
       ],
       arquivo: '1_scripts/3_construir_indice_invertido.py',
@@ -61,9 +71,9 @@ export const PipelineTab: React.FC<PipelineTabProps> = ({
     {
       numero: '4',
       nome: 'Busca Lexical, Merge Sort & Top-k',
-      descricao: 'Consulta multi-termo (OU / E), cálculo de relevância TF-IDF / Frequência e ordenação por Merge Sort estável.',
+      descricao: 'Consulta multi-termo (OU / E), cálculo de relevância Okapi BM25 no pipeline (TF-IDF / Frequência no navegador) e ordenação por Merge Sort estável.',
       status: 'Implementado & Integrado',
-      tempo: '< 5 ms',
+      tempo: 'O(n log n)',
       metricas: [
         'Algoritmo Merge Sort O(n log n)',
         'Contagem exata de comparações',
@@ -76,15 +86,29 @@ export const PipelineTab: React.FC<PipelineTabProps> = ({
       numero: '5',
       nome: 'Experimentos & Análise Assintótica',
       descricao: 'Avaliação empírica de tempo de resposta, sensibilidade de parâmetros e validação de corretude.',
-      status: 'Executado & Visualizável',
-      tempo: 'Instantâneo',
+      status: 'Executado',
+      tempo: '12 baterias',
       metricas: [
-        'Curva empírica de comparações vs candidatos',
-        'Distribuição de vocabulário e Lei de Zipf',
-        'Integridade referencial de todos os chunks',
+        '3 configurações × 2 cargas × 2 repetições',
+        'Tempo total e pico de memória por execução',
+        'Ambiente computacional registrado',
         'Relatórios estatísticos salvos em JSON',
       ],
       arquivo: '1_scripts/5_experimentar.py',
+    },
+    {
+      numero: '6',
+      nome: 'Tabela Consolidada & Gráficos',
+      descricao: 'Consolidação dos relatórios das etapas anteriores em tabela CSV e figuras de análise.',
+      status: 'Concluído',
+      tempo: '6 gráficos + CSV',
+      metricas: [
+        'Tabela de resultados consolidada em CSV',
+        'Tempo, memória e custo por etapa do pipeline',
+        'Escalabilidade do Merge Sort (Θ(n log n))',
+        'Distribuição de vocabulário e Lei de Zipf',
+      ],
+      arquivo: '1_scripts/6_gerar_graficos.py',
     },
   ];
 

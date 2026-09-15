@@ -1,0 +1,4 @@
+﻿configuracao;modo_busca;metrica_score;execucoes;tempo_total_medio_ms;tempo_total_desvio_ms;tempo_busca_em_memoria_ms;unidade_de_trabalho_medida;pico_memoria_media_mb;chunks_no_corpus;k
+Configuração 1 (Baseline — Busca Linear);linear;simples;4;154,6330;23,1986;9,7460;910 comparações termo-a-termo;37,13;182;5
+Configuração 2 (Busca Indexada — Índice Invertido);indexada;bm25;4;148,2395;2,0990;0,6500;90 postings consultadas;48,88;182;5
+Configuração 3 (Divisão e Conquista — Merge Sort Top-k);indexada;bm25;4;145,9251;1,9534;0,6500;351 comparações de score;48,93;182;5

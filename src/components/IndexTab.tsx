@@ -242,7 +242,7 @@ export const IndexTab: React.FC<IndexTabProps> = ({
         <div className="bg-white border border-slate-200 p-4 rounded-xl shadow-xs">
           <span className="text-xs text-slate-500 font-medium">Total de Termos (Vocabulário)</span>
           <div className="text-2xl font-bold text-slate-900 mt-1">
-            {metadados?.total_termos.toLocaleString('pt-BR') ?? 5258}
+            {metadados ? metadados.total_termos.toLocaleString('pt-BR') : '—'}
           </div>
           <span className="text-[11px] text-sky-700 font-medium">Tokens alfanuméricos únicos</span>
         </div>
@@ -250,7 +250,7 @@ export const IndexTab: React.FC<IndexTabProps> = ({
         <div className="bg-white border border-slate-200 p-4 rounded-xl shadow-xs">
           <span className="text-xs text-slate-500 font-medium">Total de Postings</span>
           <div className="text-2xl font-bold text-slate-900 mt-1">
-            {metadados?.total_postings.toLocaleString('pt-BR') ?? 19863}
+            {metadados ? metadados.total_postings.toLocaleString('pt-BR') : '—'}
           </div>
           <span className="text-[11px] text-emerald-700 font-medium">Pares (Termo, ID_Chunk)</span>
         </div>
@@ -258,7 +258,7 @@ export const IndexTab: React.FC<IndexTabProps> = ({
         <div className="bg-white border border-slate-200 p-4 rounded-xl shadow-xs">
           <span className="text-xs text-slate-500 font-medium">Total de Ocorrências</span>
           <div className="text-2xl font-bold text-amber-600 mt-1">
-            {metadados?.total_ocorrencias.toLocaleString('pt-BR') ?? 35827}
+            {metadados ? metadados.total_ocorrencias.toLocaleString('pt-BR') : '—'}
           </div>
           <span className="text-[11px] text-slate-500">Palavras contadas no corpus</span>
         </div>
@@ -266,7 +266,7 @@ export const IndexTab: React.FC<IndexTabProps> = ({
         <div className="bg-white border border-slate-200 p-4 rounded-xl shadow-xs">
           <span className="text-xs text-slate-500 font-medium">Tempo de Construção</span>
           <div className="text-2xl font-bold text-slate-900 mt-1">
-            {metadados?.tempo_construcao_segundos ?? 0.043}{' '}
+            {metadados ? metadados.tempo_construcao_segundos : '—'}{' '}
             <span className="text-xs text-slate-500 font-normal">s</span>
           </div>
           <span className="text-[11px] text-slate-500">Indexação Python in-memory</span>

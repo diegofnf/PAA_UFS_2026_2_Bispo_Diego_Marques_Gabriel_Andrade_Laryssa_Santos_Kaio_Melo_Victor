@@ -37,15 +37,15 @@ Os itens ainda não implementados ou não definidos estão marcados como **A PRO
 - `1_scripts/1_processar_documentos.py`: inventário, extração, normalização e validação.
 - `2_corpus/`: PDFs utilizados no corpus.
 - `3_dados/`: JSONs gerados pelo pipeline com extração PyMuPDF e normalização.
-- `4_chunks/`: segmentação de texto com janelamento deslizante e sobreposição. chunks prontos para indexação (`chunks.json`).
-- `5_indexacao/`: índice invertido e relatório da indexação.
-- `6_busca_lexical/`: candidatos com scores gerados (`candidatos_busca.json`).  Métricas da busca (`relatorio_busca.json`) e resultados Top-k pós-Merge Sort **A PRODUZIR**.
-- `7_resultados/`: tabelas, gráficos e demais resultados; **A PRODUZIR**.
+- `4_chunks/`: segmentação de texto com janelamento deslizante e sobreposição; chunks prontos para indexação (`chunks.json`) e relatório estatístico da etapa (`relatorio_chunking.json`).
+- `5_indexacao/`: índice invertido (`indice_invertido.json`) e relatório da indexação (`relatorio_indexacao.json`).
+- `6_busca_lexical/`: candidatos com scores gerados (`candidatos_busca.json` na busca indexada e `candidatos_linear.json` na busca linear), métricas das duas buscas (`relatorio_busca.json` e `relatorio_busca_linear.json`), candidatos ordenados pelo Merge Sort (`candidatos_ordenados.json`), Top-k (`candidatos_topk.json`) e contadores da ordenação (`relatorio_ordenacao.json`).
+- `7_resultados/`: relatório consolidado das 12 baterias experimentais (`relatorio_experimentos.json`), tabela consolidada (`tabela_resultados.csv`) e os gráficos dos resultados (`grafico_tempo_execucao.png`, `grafico_busca_comparativo.png`, `grafico_escalabilidade_merge_sort.png`, `grafico_zipf.png`, `grafico_memoria_configuracoes.png` e `grafico_etapas_pipeline.png`).
 
 
 ## Dependências
 
-Python 3, `PyMuPDF` e `nltk`.
+Python 3, `PyMuPDF`, `nltk` e `matplotlib`.
 
 ## Ambiente
 
@@ -54,7 +54,7 @@ Execução validada em Windows com Python 3. O script usa caminhos relativos ao 
 ## Instalação
 
 ```bash
-python -m pip install PyMuPDF nltk
+python -m pip install PyMuPDF nltk matplotlib
 python -c "import nltk; nltk.download('stopwords')"
 ```
 
@@ -94,6 +94,18 @@ python 1_scripts/4_buscar_e_ordenar.py --modo linear
 python 1_scripts/4_buscar_e_ordenar.py --modo ambos
 ```
 
+Etapa 5 — Experimentos comparativos (matriz de configurações × cargas × repetições):
+```bash
+python 1_scripts/5_experimentar.py
+```
+
+Etapa 6 — Tabela consolidada e gráficos dos resultados:
+```bash
+python 1_scripts/6_gerar_graficos.py
+```
+
+A Etapa 5 gera `7_resultados/relatorio_experimentos.json` (tabela consolidada das 12 baterias com tempo, pico de memória e status de cada execução). A Etapa 6 lê os relatórios das etapas 1 a 5 e gera `7_resultados/tabela_resultados.csv` mais os gráficos `grafico_tempo_execucao.png`, `grafico_busca_comparativo.png`, `grafico_escalabilidade_merge_sort.png`, `grafico_zipf.png`, `grafico_memoria_configuracoes.png` e `grafico_etapas_pipeline.png`.
+
 ## Parâmetros
 
 - `1_scripts/1_processar_documentos.py`:
@@ -126,6 +138,26 @@ python 1_scripts/4_buscar_e_ordenar.py --modo ambos
   - `--saida_candidatos_ordenados`: caminho customizado para o arquivo de candidatos ordenados (padrão: `6_busca_lexical/candidatos_ordenados.json`).
   - `--saida_candidatos_top_k`: caminho customizado para o arquivo do Top-k (padrão: `6_busca_lexical/candidatos_topk.json`).
   - `--relatorio-ordenacao`: caminho customizado para o relatório de ordenação (padrão: `6_busca_lexical/relatorio_ordenacao.json`).
+
+- `1_scripts/5_experimentar.py`:
+  - `--consulta`: consulta padrão utilizada nas baterias de teste (padrão: `"critérios para atribuição de bolsas e requisitos de matrícula"`).
+  - `--k`: quantidade de candidatos retornados no Top-k (padrão: `5`).
+  - `--chunks`: caminho do arquivo de chunks de entrada (padrão: `4_chunks/chunks.json`).
+  - `--saida`: caminho para gravação do relatório experimental consolidado (padrão: `7_resultados/relatorio_experimentos.json`).
+
+- `1_scripts/6_gerar_graficos.py`:
+  - `--resultados`: diretório de saída dos gráficos e da tabela (padrão: `7_resultados`).
+  - `--experimentos`: relatório experimental de entrada (padrão: `7_resultados/relatorio_experimentos.json`).
+  - `--busca-linear`: relatório da busca linear (padrão: `6_busca_lexical/relatorio_busca_linear.json`).
+  - `--busca-indexada`: relatório da busca indexada (padrão: `6_busca_lexical/relatorio_busca.json`).
+  - `--ordenacao`: relatório da ordenação com os contadores do Merge Sort (padrão: `6_busca_lexical/relatorio_ordenacao.json`).
+  - `--indexacao`: relatório da indexação (padrão: `5_indexacao/relatorio_indexacao.json`).
+  - `--indice`: índice invertido de entrada, usado na distribuição de frequências (padrão: `5_indexacao/indice_invertido.json`).
+  - `--chunking`: relatório da etapa de chunking (padrão: `4_chunks/relatorio_chunking.json`).
+  - `--processamento`: relatório da etapa de extração e normalização (padrão: `3_dados/relatorio_processamento.json`).
+  - `--script-busca`: script cujo Merge Sort é reexecutado para medir a curva de escalabilidade (padrão: `1_scripts/4_buscar_e_ordenar.py`).
+  - `--tamanhos-escala`: tamanhos de entrada da curva experimental do Merge Sort (padrão: `8 16 32 64 128 256 512 1024 2048`).
+  - `--repeticoes-escala`: repetições por tamanho na curva experimental (padrão: `30`).
 
 ## Reprodução
 
