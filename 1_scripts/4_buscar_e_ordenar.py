@@ -493,6 +493,7 @@ def merge(esquerda: list[dict], direita: list[dict], metricas: dict) -> list[dic
             j += 1
         else:
             metricas["empates_score"] += 1
+            metricas["comparacoes_totais"] += 1
             metricas["comparacoes_id_chunk"] += 1
 
             if esquerda[i]["id_chunk"] <= direita[j]["id_chunk"]:
@@ -564,7 +565,7 @@ def serializar_json_compacto(objeto: dict) -> str:
     texto_json = json.dumps(objeto, ensure_ascii=False, indent=2)
     texto_json = re.sub(
         r'"paginas":\s*\[\s*(\d+(?:\s*,\s*\d+)*)\s*\]',
-        lambda m: f'"paginas": [{", ".join(re.findall("[0-9]+", m.group(1)))}]',
+        lambda m: f'"paginas": [{", ".join(re.findall(r"\d+", m.group(1)))}]',
         texto_json,
     )
     return texto_json + "\n"
@@ -676,6 +677,9 @@ def executar_ordenacao(
     Parâmetros:
     - candidatos: Lista de dicionários representando os candidatos.
     - k: Número de resultados desejados para o Top-k.
+    - caminho_candidatos_ordenados: Caminho para salvar o arquivo com os candidatos ordenados.
+    - caminho_topk: Caminho para salvar o arquivo com os resultados do Top-k.
+    - caminho_relatorio: Caminho para salvar o arquivo de relatório.
 
     Retorna:
     - top_k: Lista dos Top-k candidatos ordenados.
@@ -705,6 +709,7 @@ def executar_ordenacao(
     saida_candidatos_ordenados = {
         "metadados": {
             "etapa": "4_busca_lexical_candidatos",
+            "arquivo_candidatos_gerado": str(caminho_candidatos_ordenados),
             "proxima_acao": "Top-k",
             "tempo_ordenacao_segundos": metricas["tempo_execucao"],
             "num_candidatos_ordenados": len(candidatos_ordenados),
@@ -735,6 +740,7 @@ def executar_ordenacao(
 
     salvar_artefato(caminho_relatorio, {
         "status_etapa": "concluido",
+        "arquivo_candidatos_gerado": str(caminho_candidatos_ordenados),
         "tempo_ordenacao_segundos": metricas["tempo_execucao"],
         "num_candidatos_ordenados": len(candidatos_ordenados),
         "num_top_k": len(top_k),
