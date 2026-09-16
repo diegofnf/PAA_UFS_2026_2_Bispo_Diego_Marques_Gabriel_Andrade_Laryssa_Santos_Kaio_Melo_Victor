@@ -1,0 +1,1303 @@
+{
+  "metadados": {
+    "projeto": "Recuperação de Contexto para IA Generativa (AV1 - PAA/UFS)",
+    "secao_edital": "7.1 — Análise de complexidade e corretude",
+    "metodo": "Varredura de n sobre frações crescentes do corpus real; mediana de múltiplas amostras cronometradas in-process; ajuste por mínimos quadrados em log-espaço sem intercepto contra os modelos O(1), O(log n), O(n), O(n log n) e O(n²); classificação pelo expoente empírico p da regressão log-log (T(n) ≈ c·n^p), conforme os limiares FOLGA_LOGARITMICA, FOLGA_QUADRATICA e EVIDENCIA_MINIMA_O1. O R² de cada modelo é reportado em `comparacao_modelos`, decomposto por faixa de n, como evidência complementar — ele não decide a classificação porque, com uma década de variação de n, O(n) e O(n log n) diferem por menos de 0,06 de R².",
+    "pontos_por_estagio": 8,
+    "consulta_avaliada": "critérios para atribuição de bolsas e matrícula",
+    "ambiente_computacional": {
+      "sistema_operacional": "Windows 11",
+      "plataforma": "Windows-11-10.0.26200-SP0",
+      "arquitetura": "AMD64",
+      "processador": "Intel64 Family 6 Model 142 Stepping 12, GenuineIntel",
+      "versao_python": "3.14.7"
+    }
+  },
+  "estagios": {
+    "extracao_texto": {
+      "estagio": "Extração de texto (PDF -> texto)",
+      "unidade_entrada": "páginas extraídas",
+      "complexidade_teorica": "T(n) = Θ(n)",
+      "medicoes": [
+        {
+          "n": 3.0,
+          "tempo_ms": 65.8376
+        },
+        {
+          "n": 7.0,
+          "tempo_ms": 98.5398
+        },
+        {
+          "n": 11.0,
+          "tempo_ms": 116.3975
+        },
+        {
+          "n": 15.0,
+          "tempo_ms": 123.5885
+        },
+        {
+          "n": 18.0,
+          "tempo_ms": 146.1779
+        },
+        {
+          "n": 22.0,
+          "tempo_ms": 172.3616
+        },
+        {
+          "n": 26.0,
+          "tempo_ms": 195.3958
+        },
+        {
+          "n": 30.0,
+          "tempo_ms": 220.551
+        }
+      ],
+      "tempo_min_ms": 65.8376,
+      "tempo_max_ms": 220.551,
+      "comparacao_modelos": {
+        "criterio": "R2 em log-espaço recalculado sobre os n primeiros pontos; empate quando a diferença para o melhor R2 fica abaixo de 0.05",
+        "faixas": {
+          "3": {
+            "n_ate": 11.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          },
+          "4": {
+            "n_ate": 15.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          },
+          "5": {
+            "n_ate": 18.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          },
+          "6": {
+            "n_ate": 22.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          },
+          "7": {
+            "n_ate": 26.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          },
+          "8": {
+            "n_ate": 30.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          }
+        },
+        "modelo_preferido_por_r2": "O(1)",
+        "modelos_indistinguiveis": [
+          "O(1)",
+          "O(n)",
+          "O(n log n)",
+          "O(n^2)"
+        ],
+        "empate_por_parcimonia": true,
+        "advertencia": "Entradas em potências de 2 tornam O(log n) e O(n log n) indistinguíveis pelo R²; a distinção é feita pelo expoente log-log."
+      },
+      "modelo_eleito": "O(n log n)",
+      "expoente_empirico": 0.504,
+      "ajustes": {
+        "O(1)": {
+          "coeficiente": 0.0,
+          "r2": 0.0,
+          "rmse": Infinity
+        },
+        "O(log n)": {
+          "coeficiente": 38.634084821699,
+          "r2": 0.0,
+          "rmse": 0.967423
+        },
+        "O(n)": {
+          "coeficiente": 5.961398549026,
+          "r2": 0.0,
+          "rmse": 0.958182
+        },
+        "O(n log n)": {
+          "coeficiente": 3.319597371131,
+          "r2": 0.0,
+          "rmse": 0.956166
+        },
+        "O(n^2)": {
+          "coeficiente": 2.441597540346,
+          "r2": 0.0,
+          "rmse": 0.958182
+        }
+      },
+      "documento_amostrado": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+      "paginas_totais": 30
+    },
+    "normalizacao": {
+      "estagio": "Normalização Unicode e regex",
+      "unidade_entrada": "caracteres normalizados",
+      "complexidade_teorica": "T(n) = Θ(n)",
+      "medicoes": [
+        {
+          "n": 9957.0,
+          "tempo_ms": 1.5405
+        },
+        {
+          "n": 19915.0,
+          "tempo_ms": 3.3889
+        },
+        {
+          "n": 29873.0,
+          "tempo_ms": 5.4299
+        },
+        {
+          "n": 39831.0,
+          "tempo_ms": 7.2678
+        },
+        {
+          "n": 49788.0,
+          "tempo_ms": 8.3574
+        },
+        {
+          "n": 59746.0,
+          "tempo_ms": 10.9272
+        },
+        {
+          "n": 69704.0,
+          "tempo_ms": 12.433
+        },
+        {
+          "n": 79662.0,
+          "tempo_ms": 14.2214
+        }
+      ],
+      "tempo_min_ms": 1.5405,
+      "tempo_max_ms": 14.2214,
+      "comparacao_modelos": {
+        "criterio": "R2 em log-espaço recalculado sobre os n primeiros pontos; empate quando a diferença para o melhor R2 fica abaixo de 0.05",
+        "faixas": {
+          "3": {
+            "n_ate": 29873.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.190399,
+              "O(n log n)": 0.166289,
+              "O(n^2)": 0.190399
+            }
+          },
+          "4": {
+            "n_ate": 39831.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.224531,
+              "O(n log n)": 0.196631,
+              "O(n^2)": 0.224531
+            }
+          },
+          "5": {
+            "n_ate": 49788.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.255214,
+              "O(n log n)": 0.224066,
+              "O(n^2)": 0.255214
+            }
+          },
+          "6": {
+            "n_ate": 59746.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.275444,
+              "O(n log n)": 0.242235,
+              "O(n^2)": 0.275444
+            }
+          },
+          "7": {
+            "n_ate": 69704.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.293914,
+              "O(n log n)": 0.258883,
+              "O(n^2)": 0.293914
+            }
+          },
+          "8": {
+            "n_ate": 79662.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.309665,
+              "O(n log n)": 0.273127,
+              "O(n^2)": 0.309665
+            }
+          }
+        },
+        "modelo_preferido_por_r2": "O(n)",
+        "modelos_indistinguiveis": [
+          "O(n)",
+          "O(n log n)",
+          "O(n^2)"
+        ],
+        "empate_por_parcimonia": true,
+        "advertencia": "Entradas em potências de 2 tornam O(log n) e O(n log n) indistinguíveis pelo R²; a distinção é feita pelo expoente log-log."
+      },
+      "modelo_eleito": "O(n log n)",
+      "expoente_empirico": 1.0608,
+      "ajustes": {
+        "O(1)": {
+          "coeficiente": 0.0,
+          "r2": 0.0,
+          "rmse": Infinity
+        },
+        "O(log n)": {
+          "coeficiente": 2.005937034164,
+          "r2": 0.123337,
+          "rmse": 0.654419
+        },
+        "O(n)": {
+          "coeficiente": 1.199222753134,
+          "r2": 0.309665,
+          "rmse": 0.580723
+        },
+        "O(n log n)": {
+          "coeficiente": 1.155013410804,
+          "r2": 0.273127,
+          "rmse": 0.595894
+        },
+        "O(n^2)": {
+          "coeficiente": 1.095090294512,
+          "r2": 0.309665,
+          "rmse": 0.580723
+        }
+      }
+    },
+    "chunking": {
+      "estagio": "Chunking com sobreposição",
+      "unidade_entrada": "palavras segmentadas",
+      "complexidade_teorica": "T(n) = Θ(n)",
+      "medicoes": [
+        {
+          "n": 1547.0,
+          "tempo_ms": 3.1704
+        },
+        {
+          "n": 3093.0,
+          "tempo_ms": 6.6291
+        },
+        {
+          "n": 4640.0,
+          "tempo_ms": 7.3299
+        },
+        {
+          "n": 6186.0,
+          "tempo_ms": 12.8979
+        },
+        {
+          "n": 7732.0,
+          "tempo_ms": 15.3849
+        },
+        {
+          "n": 9279.0,
+          "tempo_ms": 18.5028
+        },
+        {
+          "n": 10825.0,
+          "tempo_ms": 25.5759
+        },
+        {
+          "n": 12371.0,
+          "tempo_ms": 31.1782
+        }
+      ],
+      "tempo_min_ms": 3.1704,
+      "tempo_max_ms": 31.1782,
+      "comparacao_modelos": {
+        "criterio": "R2 em log-espaço recalculado sobre os n primeiros pontos; empate quando a diferença para o melhor R2 fica abaixo de 0.05",
+        "faixas": {
+          "3": {
+            "n_ate": 4640.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.431279,
+              "O(n log n)": 0.379975,
+              "O(n^2)": 0.431279
+            }
+          },
+          "4": {
+            "n_ate": 6186.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.415792,
+              "O(n log n)": 0.365985,
+              "O(n^2)": 0.415792
+            }
+          },
+          "5": {
+            "n_ate": 7732.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.435761,
+              "O(n log n)": 0.384204,
+              "O(n^2)": 0.435761
+            }
+          },
+          "6": {
+            "n_ate": 9279.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.453107,
+              "O(n log n)": 0.400148,
+              "O(n^2)": 0.453107
+            }
+          },
+          "7": {
+            "n_ate": 10825.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.452231,
+              "O(n log n)": 0.399565,
+              "O(n^2)": 0.452231
+            }
+          },
+          "8": {
+            "n_ate": 12371.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.453645,
+              "O(n log n)": 0.401044,
+              "O(n^2)": 0.453645
+            }
+          }
+        },
+        "modelo_preferido_por_r2": "O(n)",
+        "modelos_indistinguiveis": [
+          "O(n)",
+          "O(n^2)"
+        ],
+        "empate_por_parcimonia": true,
+        "advertencia": "Entradas em potências de 2 tornam O(log n) e O(n log n) indistinguíveis pelo R²; a distinção é feita pelo expoente log-log."
+      },
+      "modelo_eleito": "O(n log n)",
+      "expoente_empirico": 1.0736,
+      "ajustes": {
+        "O(1)": {
+          "coeficiente": 0.0,
+          "r2": 0.0,
+          "rmse": Infinity
+        },
+        "O(log n)": {
+          "coeficiente": 2.704368805467,
+          "r2": 0.201601,
+          "rmse": 0.640089
+        },
+        "O(n)": {
+          "coeficiente": 1.338864131168,
+          "r2": 0.453645,
+          "rmse": 0.529502
+        },
+        "O(n log n)": {
+          "coeficiente": 1.253223245965,
+          "r2": 0.401044,
+          "rmse": 0.554406
+        },
+        "O(n^2)": {
+          "coeficiente": 1.157092965655,
+          "r2": 0.453645,
+          "rmse": 0.529502
+        }
+      },
+      "palavras_totais": 11973
+    },
+    "indexacao": {
+      "estagio": "Construção do índice invertido",
+      "unidade_entrada": "tokens indexados",
+      "complexidade_teorica": "T(n) = Θ(n)",
+      "medicoes": [
+        {
+          "n": 5102.0,
+          "tempo_ms": 12.365
+        },
+        {
+          "n": 10098.0,
+          "tempo_ms": 21.5907
+        },
+        {
+          "n": 14712.0,
+          "tempo_ms": 28.7331
+        },
+        {
+          "n": 19077.0,
+          "tempo_ms": 40.0537
+        },
+        {
+          "n": 23501.0,
+          "tempo_ms": 43.6347
+        },
+        {
+          "n": 28129.0,
+          "tempo_ms": 64.2755
+        },
+        {
+          "n": 32636.0,
+          "tempo_ms": 67.0717
+        },
+        {
+          "n": 37269.0,
+          "tempo_ms": 67.8746
+        }
+      ],
+      "tempo_min_ms": 12.365,
+      "tempo_max_ms": 67.8746,
+      "comparacao_modelos": {
+        "criterio": "R2 em log-espaço recalculado sobre os n primeiros pontos; empate quando a diferença para o melhor R2 fica abaixo de 0.05",
+        "faixas": {
+          "3": {
+            "n_ate": 14712.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.651859,
+              "O(n log n)": 0.584032,
+              "O(n^2)": 0.651859
+            }
+          },
+          "4": {
+            "n_ate": 19077.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.626453,
+              "O(n log n)": 0.560782,
+              "O(n^2)": 0.626453
+            }
+          },
+          "5": {
+            "n_ate": 23501.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.648019,
+              "O(n log n)": 0.581647,
+              "O(n^2)": 0.648019
+            }
+          },
+          "6": {
+            "n_ate": 28129.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.615755,
+              "O(n log n)": 0.551809,
+              "O(n^2)": 0.615755
+            }
+          },
+          "7": {
+            "n_ate": 32636.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.622925,
+              "O(n log n)": 0.558773,
+              "O(n^2)": 0.622925
+            }
+          },
+          "8": {
+            "n_ate": 37269.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.639755,
+              "O(n log n)": 0.575038,
+              "O(n^2)": 0.639755
+            }
+          }
+        },
+        "modelo_preferido_por_r2": "O(n)",
+        "modelos_indistinguiveis": [
+          "O(n)",
+          "O(n^2)"
+        ],
+        "empate_por_parcimonia": true,
+        "advertencia": "Entradas em potências de 2 tornam O(log n) e O(n log n) indistinguíveis pelo R²; a distinção é feita pelo expoente log-log."
+      },
+      "modelo_eleito": "O(n log n)",
+      "expoente_empirico": 0.908,
+      "ajustes": {
+        "O(1)": {
+          "coeficiente": 0.0,
+          "r2": 0.0,
+          "rmse": Infinity
+        },
+        "O(log n)": {
+          "coeficiente": 3.949888433613,
+          "r2": 0.287024,
+          "rmse": 0.482696
+        },
+        "O(n)": {
+          "coeficiente": 1.450436499838,
+          "r2": 0.639755,
+          "rmse": 0.343112
+        },
+        "O(n log n)": {
+          "coeficiente": 1.340066232199,
+          "r2": 0.575038,
+          "rmse": 0.372659
+        },
+        "O(n^2)": {
+          "coeficiente": 1.204340690933,
+          "r2": 0.639755,
+          "rmse": 0.343112
+        }
+      },
+      "detalhes_por_ponto": [
+        {
+          "chunks": 22,
+          "tokens": 5102,
+          "termos_distintos": 977
+        },
+        {
+          "chunks": 45,
+          "tokens": 10098,
+          "termos_distintos": 1824
+        },
+        {
+          "chunks": 68,
+          "tokens": 14712,
+          "termos_distintos": 2605
+        },
+        {
+          "chunks": 91,
+          "tokens": 19077,
+          "termos_distintos": 3038
+        },
+        {
+          "chunks": 113,
+          "tokens": 23501,
+          "termos_distintos": 3342
+        },
+        {
+          "chunks": 136,
+          "tokens": 28129,
+          "termos_distintos": 3601
+        },
+        {
+          "chunks": 159,
+          "tokens": 32636,
+          "termos_distintos": 3839
+        },
+        {
+          "chunks": 182,
+          "tokens": 37269,
+          "termos_distintos": 4061
+        }
+      ]
+    },
+    "busca_linear": {
+      "estagio": "Busca linear (baseline)",
+      "unidade_entrada": "chunks varridos",
+      "complexidade_teorica": "T(n) = Θ(n)",
+      "medicoes": [
+        {
+          "n": 22.0,
+          "tempo_ms": 6.9395
+        },
+        {
+          "n": 45.0,
+          "tempo_ms": 11.5548
+        },
+        {
+          "n": 68.0,
+          "tempo_ms": 15.6721
+        },
+        {
+          "n": 91.0,
+          "tempo_ms": 18.7603
+        },
+        {
+          "n": 113.0,
+          "tempo_ms": 20.7806
+        },
+        {
+          "n": 136.0,
+          "tempo_ms": 35.2908
+        },
+        {
+          "n": 159.0,
+          "tempo_ms": 33.0247
+        },
+        {
+          "n": 182.0,
+          "tempo_ms": 31.6652
+        }
+      ],
+      "tempo_min_ms": 6.9395,
+      "tempo_max_ms": 35.2908,
+      "comparacao_modelos": {
+        "criterio": "R2 em log-espaço recalculado sobre os n primeiros pontos; empate quando a diferença para o melhor R2 fica abaixo de 0.05",
+        "faixas": {
+          "3": {
+            "n_ate": 68.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.988102,
+              "O(n log n)": 0.953837,
+              "O(n^2)": 0.988102
+            }
+          },
+          "4": {
+            "n_ate": 91.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.991793,
+              "O(n log n)": 0.961272,
+              "O(n^2)": 0.991793
+            }
+          },
+          "5": {
+            "n_ate": 113.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.99377,
+              "O(n log n)": 0.96949,
+              "O(n^2)": 0.99377
+            }
+          },
+          "6": {
+            "n_ate": 136.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.915987,
+              "O(n log n)": 0.872453,
+              "O(n^2)": 0.915987
+            }
+          },
+          "7": {
+            "n_ate": 159.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.926931,
+              "O(n log n)": 0.882574,
+              "O(n^2)": 0.926931
+            }
+          },
+          "8": {
+            "n_ate": 182.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.936155,
+              "O(n log n)": 0.896498,
+              "O(n^2)": 0.936155
+            }
+          }
+        },
+        "modelo_preferido_por_r2": "O(n)",
+        "modelos_indistinguiveis": [
+          "O(n)",
+          "O(n log n)",
+          "O(n^2)"
+        ],
+        "empate_por_parcimonia": true,
+        "advertencia": "Entradas em potências de 2 tornam O(log n) e O(n log n) indistinguíveis pelo R²; a distinção é feita pelo expoente log-log."
+      },
+      "modelo_eleito": "O(n log n)",
+      "expoente_empirico": 0.7786,
+      "ajustes": {
+        "O(1)": {
+          "coeficiente": 0.0,
+          "r2": 0.0,
+          "rmse": Infinity
+        },
+        "O(log n)": {
+          "coeficiente": 5.013422620742,
+          "r2": 0.71579,
+          "rmse": 0.283133
+        },
+        "O(n)": {
+          "coeficiente": 1.948468889346,
+          "r2": 0.936155,
+          "rmse": 0.134194
+        },
+        "O(n log n)": {
+          "coeficiente": 1.603499757981,
+          "r2": 0.896498,
+          "rmse": 0.170862
+        },
+        "O(n^2)": {
+          "coeficiente": 1.395875671164,
+          "r2": 0.936155,
+          "rmse": 0.134194
+        }
+      },
+      "detalhes_por_ponto": [
+        {
+          "chunks": 22,
+          "tokens_por_chunk": 4400,
+          "postings_consultados": 12,
+          "candidatos_recuperados": 10
+        },
+        {
+          "chunks": 45,
+          "tokens_por_chunk": 8959,
+          "postings_consultados": 23,
+          "candidatos_recuperados": 20
+        },
+        {
+          "chunks": 68,
+          "tokens_por_chunk": 13559,
+          "postings_consultados": 32,
+          "candidatos_recuperados": 28
+        },
+        {
+          "chunks": 91,
+          "tokens_por_chunk": 17774,
+          "postings_consultados": 39,
+          "candidatos_recuperados": 34
+        },
+        {
+          "chunks": 113,
+          "tokens_por_chunk": 22174,
+          "postings_consultados": 44,
+          "candidatos_recuperados": 39
+        },
+        {
+          "chunks": 136,
+          "tokens_por_chunk": 26774,
+          "postings_consultados": 57,
+          "candidatos_recuperados": 51
+        },
+        {
+          "chunks": 159,
+          "tokens_por_chunk": 31256,
+          "postings_consultados": 63,
+          "candidatos_recuperados": 56
+        },
+        {
+          "chunks": 182,
+          "tokens_por_chunk": 35826,
+          "postings_consultados": 78,
+          "candidatos_recuperados": 66
+        }
+      ],
+      "ganho_medio_indexacao": 12.575
+    },
+    "busca_indexada": {
+      "estagio": "Busca indexada",
+      "unidade_entrada": "postings consultados",
+      "complexidade_teorica": "T(n) = Θ(n)",
+      "medicoes": [
+        {
+          "n": 12,
+          "tempo_ms": 2.2014
+        },
+        {
+          "n": 23,
+          "tempo_ms": 1.6164
+        },
+        {
+          "n": 32,
+          "tempo_ms": 1.6518
+        },
+        {
+          "n": 39,
+          "tempo_ms": 1.6093
+        },
+        {
+          "n": 44,
+          "tempo_ms": 1.6204
+        },
+        {
+          "n": 57,
+          "tempo_ms": 1.6183
+        },
+        {
+          "n": 63,
+          "tempo_ms": 1.7279
+        },
+        {
+          "n": 78,
+          "tempo_ms": 1.7668
+        }
+      ],
+      "tempo_min_ms": 1.6093,
+      "tempo_max_ms": 2.2014,
+      "comparacao_modelos": {
+        "criterio": "R2 em log-espaço recalculado sobre os n primeiros pontos; empate quando a diferença para o melhor R2 fica abaixo de 0.05",
+        "faixas": {
+          "3": {
+            "n_ate": 32,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          },
+          "4": {
+            "n_ate": 39,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          },
+          "5": {
+            "n_ate": 44,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          },
+          "6": {
+            "n_ate": 57,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          },
+          "7": {
+            "n_ate": 63,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          },
+          "8": {
+            "n_ate": 78,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          }
+        },
+        "modelo_preferido_por_r2": "O(1)",
+        "modelos_indistinguiveis": [
+          "O(1)",
+          "O(n)",
+          "O(n log n)",
+          "O(n^2)"
+        ],
+        "empate_por_parcimonia": true,
+        "advertencia": "Entradas em potências de 2 tornam O(log n) e O(n log n) indistinguíveis pelo R²; a distinção é feita pelo expoente log-log."
+      },
+      "modelo_eleito": "O(1)",
+      "expoente_empirico": -0.1011,
+      "ajustes": {
+        "O(1)": {
+          "coeficiente": 0.0,
+          "r2": 0.0,
+          "rmse": Infinity
+        },
+        "O(log n)": {
+          "coeficiente": 1.379431858939,
+          "r2": 0.0,
+          "rmse": 0.141294
+        },
+        "O(n)": {
+          "coeficiente": 1.153594374084,
+          "r2": 0.0,
+          "rmse": 0.161734
+        },
+        "O(n log n)": {
+          "coeficiente": 1.104064492397,
+          "r2": 0.0,
+          "rmse": 0.155172
+        },
+        "O(n^2)": {
+          "coeficiente": 1.074055107564,
+          "r2": 0.0,
+          "rmse": 0.161734
+        }
+      },
+      "detalhes_por_ponto": [
+        {
+          "chunks": 22,
+          "tokens_por_chunk": 4400,
+          "postings_consultados": 12,
+          "candidatos_recuperados": 10
+        },
+        {
+          "chunks": 45,
+          "tokens_por_chunk": 8959,
+          "postings_consultados": 23,
+          "candidatos_recuperados": 20
+        },
+        {
+          "chunks": 68,
+          "tokens_por_chunk": 13559,
+          "postings_consultados": 32,
+          "candidatos_recuperados": 28
+        },
+        {
+          "chunks": 91,
+          "tokens_por_chunk": 17774,
+          "postings_consultados": 39,
+          "candidatos_recuperados": 34
+        },
+        {
+          "chunks": 113,
+          "tokens_por_chunk": 22174,
+          "postings_consultados": 44,
+          "candidatos_recuperados": 39
+        },
+        {
+          "chunks": 136,
+          "tokens_por_chunk": 26774,
+          "postings_consultados": 57,
+          "candidatos_recuperados": 51
+        },
+        {
+          "chunks": 159,
+          "tokens_por_chunk": 31256,
+          "postings_consultados": 63,
+          "candidatos_recuperados": 56
+        },
+        {
+          "chunks": 182,
+          "tokens_por_chunk": 35826,
+          "postings_consultados": 78,
+          "candidatos_recuperados": 66
+        }
+      ]
+    },
+    "merge_sort": {
+      "estagio": "Ordenação por Merge Sort",
+      "unidade_entrada": "candidatos ordenados",
+      "complexidade_teorica": "T(n) = Θ(n log n)",
+      "medicoes": [
+        {
+          "n": 256.0,
+          "tempo_ms": 1.7394
+        },
+        {
+          "n": 512.0,
+          "tempo_ms": 4.2953
+        },
+        {
+          "n": 768.0,
+          "tempo_ms": 9.3464
+        },
+        {
+          "n": 1024.0,
+          "tempo_ms": 15.5505
+        },
+        {
+          "n": 1280.0,
+          "tempo_ms": 16.0662
+        },
+        {
+          "n": 1536.0,
+          "tempo_ms": 18.969
+        },
+        {
+          "n": 1792.0,
+          "tempo_ms": 20.5004
+        },
+        {
+          "n": 2048.0,
+          "tempo_ms": 24.9285
+        }
+      ],
+      "tempo_min_ms": 1.7394,
+      "tempo_max_ms": 24.9285,
+      "comparacao_modelos": {
+        "criterio": "R2 em log-espaço recalculado sobre os n primeiros pontos; empate quando a diferença para o melhor R2 fica abaixo de 0.05",
+        "faixas": {
+          "3": {
+            "n_ate": 768.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.283216,
+              "O(n log n)": 0.245951,
+              "O(n^2)": 0.283216
+            }
+          },
+          "4": {
+            "n_ate": 1024.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.319679,
+              "O(n log n)": 0.278464,
+              "O(n^2)": 0.319679
+            }
+          },
+          "5": {
+            "n_ate": 1280.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.363805,
+              "O(n log n)": 0.318244,
+              "O(n^2)": 0.363805
+            }
+          },
+          "6": {
+            "n_ate": 1536.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.399478,
+              "O(n log n)": 0.350657,
+              "O(n^2)": 0.399478
+            }
+          },
+          "7": {
+            "n_ate": 1792.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.429968,
+              "O(n log n)": 0.378626,
+              "O(n^2)": 0.429968
+            }
+          },
+          "8": {
+            "n_ate": 2048.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.454625,
+              "O(n log n)": 0.401269,
+              "O(n^2)": 0.454625
+            }
+          }
+        },
+        "modelo_preferido_por_r2": "O(n)",
+        "modelos_indistinguiveis": [
+          "O(n)",
+          "O(n^2)"
+        ],
+        "empate_por_parcimonia": true,
+        "advertencia": "Entradas em potências de 2 tornam O(log n) e O(n log n) indistinguíveis pelo R²; a distinção é feita pelo expoente log-log."
+      },
+      "modelo_eleito": "O(n log n)",
+      "expoente_empirico": 1.2884,
+      "ajustes": {
+        "O(1)": {
+          "coeficiente": 0.0,
+          "r2": 0.0,
+          "rmse": Infinity
+        },
+        "O(log n)": {
+          "coeficiente": 2.854692181156,
+          "r2": 0.225733,
+          "rmse": 0.757108
+        },
+        "O(n)": {
+          "coeficiente": 1.423706038671,
+          "r2": 0.454625,
+          "rmse": 0.635419
+        },
+        "O(n log n)": {
+          "coeficiente": 1.302660206724,
+          "r2": 0.401269,
+          "rmse": 0.665776
+        },
+        "O(n^2)": {
+          "coeficiente": 1.19319153478,
+          "r2": 0.454625,
+          "rmse": 0.635419
+        }
+      },
+      "detalhes_por_ponto": [
+        {
+          "candidatos": 256,
+          "scores_distintos": 41,
+          "selecoes_por_amostra": 2000
+        },
+        {
+          "candidatos": 512,
+          "scores_distintos": 41,
+          "selecoes_por_amostra": 2000
+        },
+        {
+          "candidatos": 768,
+          "scores_distintos": 41,
+          "selecoes_por_amostra": 2000
+        },
+        {
+          "candidatos": 1024,
+          "scores_distintos": 41,
+          "selecoes_por_amostra": 2000
+        },
+        {
+          "candidatos": 1280,
+          "scores_distintos": 41,
+          "selecoes_por_amostra": 2000
+        },
+        {
+          "candidatos": 1536,
+          "scores_distintos": 41,
+          "selecoes_por_amostra": 2000
+        },
+        {
+          "candidatos": 1792,
+          "scores_distintos": 41,
+          "selecoes_por_amostra": 2000
+        },
+        {
+          "candidatos": 2048,
+          "scores_distintos": 41,
+          "selecoes_por_amostra": 2000
+        }
+      ]
+    },
+    "selecao_topk": {
+      "estagio": "Seleção Top-k",
+      "unidade_entrada": "candidatos ordenados",
+      "complexidade_teorica": "T(n) = Θ(1)",
+      "medicoes": [
+        {
+          "n": 256.0,
+          "tempo_ms": 0.00019
+        },
+        {
+          "n": 512.0,
+          "tempo_ms": 0.000313
+        },
+        {
+          "n": 768.0,
+          "tempo_ms": 0.000221
+        },
+        {
+          "n": 1024.0,
+          "tempo_ms": 0.000366
+        },
+        {
+          "n": 1280.0,
+          "tempo_ms": 0.000214
+        },
+        {
+          "n": 1536.0,
+          "tempo_ms": 0.000223
+        },
+        {
+          "n": 1792.0,
+          "tempo_ms": 0.000218
+        },
+        {
+          "n": 2048.0,
+          "tempo_ms": 0.000204
+        }
+      ],
+      "tempo_min_ms": 0.00019,
+      "tempo_max_ms": 0.000366,
+      "comparacao_modelos": {
+        "criterio": "R2 em log-espaço recalculado sobre os n primeiros pontos; empate quando a diferença para o melhor R2 fica abaixo de 0.05",
+        "faixas": {
+          "3": {
+            "n_ate": 768.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          },
+          "4": {
+            "n_ate": 1024.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          },
+          "5": {
+            "n_ate": 1280.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          },
+          "6": {
+            "n_ate": 1536.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          },
+          "7": {
+            "n_ate": 1792.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          },
+          "8": {
+            "n_ate": 2048.0,
+            "r2": {
+              "O(1)": 0.0,
+              "O(n)": 0.0,
+              "O(n log n)": 0.0,
+              "O(n^2)": 0.0
+            }
+          }
+        },
+        "modelo_preferido_por_r2": "O(1)",
+        "modelos_indistinguiveis": [
+          "O(1)",
+          "O(n)",
+          "O(n log n)",
+          "O(n^2)"
+        ],
+        "empate_por_parcimonia": true,
+        "advertencia": "Entradas em potências de 2 tornam O(log n) e O(n log n) indistinguíveis pelo R²; a distinção é feita pelo expoente log-log."
+      },
+      "modelo_eleito": "O(1)",
+      "expoente_empirico": -0.0173,
+      "ajustes": {
+        "O(1)": {
+          "coeficiente": 0.0,
+          "r2": 0.0,
+          "rmse": Infinity
+        },
+        "O(log n)": {
+          "coeficiente": 0.026278767462,
+          "r2": 0.0,
+          "rmse": 0.4191
+        },
+        "O(n)": {
+          "coeficiente": 0.300079615887,
+          "r2": 0.0,
+          "rmse": 0.812568
+        },
+        "O(n log n)": {
+          "coeficiente": 0.404554809373,
+          "r2": 0.0,
+          "rmse": 0.710624
+        },
+        "O(n^2)": {
+          "coeficiente": 0.547795231713,
+          "r2": 0.0,
+          "rmse": 0.812568
+        }
+      },
+      "lote_por_amostra": 2000
+    }
+  }
+}
