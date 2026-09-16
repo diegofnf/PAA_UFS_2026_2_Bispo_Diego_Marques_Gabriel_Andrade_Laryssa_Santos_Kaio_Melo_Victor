@@ -1,0 +1,9 @@
+﻿estagio;unidade_entrada;n_minimo;n_maximo;pontos_medidos;complexidade_teorica;complexidade_observada;expoente_empirico;r2_melhor_ajuste;modelo_eleito;tempo_min_ms;tempo_max_ms
+Extração de texto (PDF -> texto);páginas extraídas;3.0;30.0;8;T(n) = Θ(n);O(n log n);0,504;0,00000;O(1);65,8376;220,5510
+Normalização Unicode e regex;caracteres normalizados;9957.0;79662.0;8;T(n) = Θ(n);O(n log n);1,061;0,27313;O(n);1,5405;14,2214
+Chunking com sobreposição;palavras segmentadas;1547.0;12371.0;8;T(n) = Θ(n);O(n log n);1,074;0,40104;O(n);3,1704;31,1782
+Construção do índice invertido;tokens indexados;5102.0;37269.0;8;T(n) = Θ(n);O(n log n);0,908;0,57504;O(n);12,3650;67,8746
+Busca linear (baseline);chunks varridos;22.0;182.0;8;T(n) = Θ(n);O(n log n);0,779;0,89650;O(n);6,9395;35,2908
+Busca indexada;postings consultados;12;78;8;T(n) = Θ(n);O(1);-0,101;0,00000;O(1);1,6093;2,2014
+Ordenação por Merge Sort;candidatos ordenados;256.0;2048.0;8;T(n) = Θ(n log n);O(n log n);1,288;0,40127;O(n);1,7394;24,9285
+Seleção Top-k;candidatos ordenados;256.0;2048.0;8;T(n) = Θ(1);O(1);-0,017;0,00000;O(1);0,0002;0,0004

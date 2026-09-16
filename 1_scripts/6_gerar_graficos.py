@@ -23,6 +23,7 @@ import importlib.util
 import json
 import math
 import random
+import re
 import statistics
 import sys
 from pathlib import Path
@@ -38,6 +39,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 # ==============================================================================
 
 CORES_CONFIG = ["#dc2626", "#1d4ed8", "#059669"]
+COR_DESTAQUE = "#1d4ed8"
 COR_REFERENCIA = "#94a3b8"
 COR_NEUTRA = "#475569"
 COR_INGESTAO = ["#7c3aed", "#0891b2", "#1d4ed8", "#dc2626", "#059669", "#ea580c"]
@@ -89,6 +91,16 @@ def encurtar_rotulo(nome_configuracao: str) -> str:
     return nome_configuracao
 
 
+def _sufixo_carga(nome_carga: str) -> str:
+    """Deriva um sufixo de coluna estável a partir do nome da carga experimental.
+
+    'Carga 1 (Corpus Integral)' -> 'carga_1'; o descritor entre parênteses é
+    editorial e pode mudar sem quebrar o cabeçalho do CSV.
+    """
+    base = nome_carga.split("(")[0].strip().lower()
+    return re.sub(r"[^0-9a-z]+", "_", base).strip("_") or "carga"
+
+
 # ==============================================================================
 # 2. CARREGAMENTO DOS ARTEFATOS
 # ==============================================================================
@@ -112,7 +124,15 @@ def carregar_modulo_busca(caminho: Path):
 
 
 def resumir_por_configuracao(experimentos: dict) -> list[dict]:
-    """Agrega as execuções bem-sucedidas de cada configuração experimental."""
+    """Agrega as execuções bem-sucedidas de cada configuração experimental.
+
+    A síntese por configuração passou a ser aninhada por carga depois que o
+    protocolo da Etapa 5 deixou de usar duas cargas apontando para o mesmo
+    arquivo: hoje "Carga 1" é o corpus integral (182 chunks) e "Carga 2" é um
+    subconjunto real (91 chunks), de modo que agregá-las num único tempo médio
+    misturaria regimes de tamanho e esconderia o efeito de n. O tempo global da
+    configuração é exposto separadamente em `tempo_global_ms`.
+    """
     resumos = []
     for nome_configuracao, sintese in experimentos["sintese_metricas"].items():
         execucoes = [
@@ -126,6 +146,14 @@ def resumir_por_configuracao(experimentos: dict) -> list[dict]:
             for e in execucoes
             if isinstance(e.get("pico_memoria_mb"), (int, float))
         ]
+        cargas = {
+            nome_carga: {
+                "tempo_medio_ms": dados["tempo_medio_ms"],
+                "desvio_padrao_ms": dados["desvio_padrao_ms"],
+                "amostras": dados["amostras"],
+            }
+            for nome_carga, dados in sintese.items()
+        }
         resumos.append(
             {
                 "configuracao": nome_configuracao,
@@ -133,7 +161,8 @@ def resumir_por_configuracao(experimentos: dict) -> list[dict]:
                 "modo_busca": execucoes[0]["modo_busca"] if execucoes else "-",
                 "metrica_score": execucoes[0]["metrica_score"] if execucoes else "-",
                 "amostras": len(tempos),
-                "tempo_medio_ms": sintese["tempo_medio_ms"],
+                "cargas": cargas,
+                "tempo_global_ms": statistics.fmean(tempos) if tempos else 0.0,
                 "tempo_desvio_ms": statistics.pstdev(tempos) if len(tempos) > 1 else 0.0,
                 "tempo_min_ms": min(tempos) if tempos else 0.0,
                 "tempo_max_ms": max(tempos) if tempos else 0.0,
@@ -151,71 +180,62 @@ def resumir_por_configuracao(experimentos: dict) -> list[dict]:
 
 
 def figura_tempo_execucao(resumos: list[dict], destino: Path) -> None:
-    """Compara o tempo total médio das três configurações, exibindo a dispersão bruta."""
-    rotulos = [r["rotulo"] for r in resumos]
-    medias = [r["tempo_medio_ms"] for r in resumos]
-    desvios = [r["tempo_desvio_ms"] for r in resumos]
+    """Compara o tempo médio por configuração, separando o corpus integral do reduzido.
 
-    figura, eixo = plt.subplots(figsize=(9.5, 5.6))
-    barras = eixo.bar(
-        rotulos,
-        medias,
-        yerr=desvios,
-        capsize=6,
-        color=CORES_CONFIG,
-        width=0.55,
-        edgecolor="white",
-        linewidth=0.8,
-        error_kw={"ecolor": COR_NEUTRA, "elinewidth": 1.4},
-        zorder=3,
-    )
+    As duas cargas deixaram de compartilhar o mesmo arquivo de chunks, então o
+    tempo do corpus integral (182 chunks) e o do reduzido (91 chunks) são
+    grandezas distintas e não devem ser fundidas numa média única: fazê-lo
+    misturaria o efeito de n com o da configuração. O gráfico exibe os dois
+    grupos lado a lado, um por carga.
+    """
+    nomes_cargas = list(resumos[0]["cargas"].keys()) if resumos else []
+    largura = 0.8 / max(len(nomes_cargas), 1)
+    figura, eixo = plt.subplots(figsize=(10.5, 5.8))
 
-    for barra, resumo in zip(barras, resumos):
-        eixo.text(
-            barra.get_x() + barra.get_width() / 2,
-            resumo["tempo_medio_ms"] + resumo["tempo_desvio_ms"] + 2,
-            f"{decimal(resumo['tempo_medio_ms'])} ms",
-            ha="center",
-            va="bottom",
-            fontsize=10,
-            fontweight="bold",
-            color=COR_NEUTRA,
+    for indice_carga, nome_carga in enumerate(nomes_cargas):
+        deslocamento = (indice_carga - (len(nomes_cargas) - 1) / 2) * largura
+        medias = [r["cargas"][nome_carga]["tempo_medio_ms"] for r in resumos]
+        desvios = [r["cargas"][nome_carga]["desvio_padrao_ms"] for r in resumos]
+        posicoes = [i + deslocamento for i in range(len(resumos))]
+
+        eixo.bar(
+            posicoes,
+            medias,
+            yerr=desvios,
+            width=largura * 0.92,
+            capsize=5,
+            color=CORES_CONFIG if len(nomes_cargas) == 1 else None,
+            edgecolor="white",
+            linewidth=0.8,
+            error_kw={"ecolor": COR_NEUTRA, "elinewidth": 1.4},
+            zorder=3,
+            label=nome_carga,
         )
 
-    # A dispersão individual revela que as 12 baterias se sobrepõem.
-    for indice, resumo in enumerate(resumos):
-        deslocamentos = [
-            indice + (i - (len(resumo["tempos"]) - 1) / 2) * 0.06
-            for i in range(len(resumo["tempos"]))
-        ]
-        eixo.scatter(
-            deslocamentos,
-            resumo["tempos"],
-            s=26,
-            color="white",
-            edgecolor=COR_NEUTRA,
-            linewidth=1.0,
-            zorder=4,
-            label="Execuções individuais (12 baterias)" if indice == 0 else None,
-        )
+        for posicao, media, desvio in zip(posicoes, medias, desvios):
+            eixo.text(
+                posicao,
+                media + desvio + max(medias) * 0.03,
+                f"{decimal(media)}",
+                ha="center",
+                va="bottom",
+                fontsize=9,
+                color=COR_NEUTRA,
+            )
 
-    eixo.set_ylabel("Tempo total do processo (ms)")
-    eixo.set_title("Tempo total médio por configuração — 3 configurações × 2 cargas × 2 repetições")
-    eixo.set_ylim(0, max(medias) * 1.22)
-    eixo.legend(loc="lower right", fontsize=9)
-
-    amplitude = max(medias) - min(medias)
-    figura.text(
-        0.5,
-        -0.03,
-        f"O tempo medido é o do processo completo (inicialização do interpretador + carga dos JSONs), "
-        f"não o do laço de busca:\nas médias variam apenas {decimal(amplitude)} ms entre si. "
-        f"O ganho algorítmico real aparece no gráfico de busca comparativa.",
-        ha="center",
-        va="top",
-        fontsize=8.5,
-        color=COR_NEUTRA,
+    eixo.set_xticks(range(len(resumos)))
+    eixo.set_xticklabels([r["rotulo"] for r in resumos])
+    eixo.set_ylabel("Tempo médio da busca (ms)")
+    eixo.set_title(
+        "Tempo médio por configuração e carga — medição in-process do laço de busca"
     )
+    eixo.set_ylim(0, max(
+        r["cargas"][c]["tempo_medio_ms"] + r["cargas"][c]["desvio_padrao_ms"]
+        for r in resumos
+        for c in nomes_cargas
+    ) * 1.2)
+    eixo.legend(loc="upper right", fontsize=9, title="Carga")
+
     figura.savefig(destino)
     plt.close(figura)
 
@@ -705,7 +725,13 @@ def gerar_tabela_csv(
     experimentos: dict,
     destino: Path,
 ) -> None:
-    """Consolida a tabela de resultados exigida pela Seção 7.3 do edital."""
+    """Consolida a tabela de resultados exigida pela Seção 7.3 do edital.
+
+    Como as duas cargas passaram a ter tamanhos distintos (corpus integral e
+    reduzido), o tempo é reportado por carga em colunas próprias; uma coluna
+    única de "tempo médio" só faria sentido se ambas medissem o mesmo n.
+    """
+    nomes_cargas = list(resumos[0]["cargas"].keys()) if resumos else []
     colunas = [
         "configuracao",
         "modo_busca",
@@ -719,6 +745,11 @@ def gerar_tabela_csv(
         "chunks_no_corpus",
         "k",
     ]
+    for nome_carga in nomes_cargas:
+        sufixo = _sufixo_carga(nome_carga)
+        colunas.append(f"tempo_medio_{sufixo}_ms")
+        colunas.append(f"tempo_desvio_{sufixo}_ms")
+        colunas.append(f"amostras_{sufixo}")
 
     comparacoes_por_configuracao = {
         resumos[0]["configuracao"]: f"{relatorio_linear['total_comparacoes_termos']} comparações termo-a-termo",
@@ -737,19 +768,143 @@ def gerar_tabela_csv(
         escritor.writerow(colunas)
         for resumo in resumos:
             configuracao = resumo["configuracao"]
+            linha = [
+                configuracao,
+                resumo["modo_busca"],
+                resumo["metrica_score"],
+                resumo["amostras"],
+                decimal(resumo["tempo_global_ms"], 4),
+                decimal(resumo["tempo_desvio_ms"], 4),
+                decimal(tempo_busca_por_configuracao[configuracao], 4),
+                comparacoes_por_configuracao[configuracao],
+                decimal(resumo["memoria_media_mb"], 2),
+                indexacao["total_chunks_entrada"],
+                experimentos["metadados"]["k_definido"],
+            ]
+            for nome_carga in nomes_cargas:
+                dados = resumo["cargas"][nome_carga]
+                linha.extend(
+                    [
+                        decimal(dados["tempo_medio_ms"], 4),
+                        decimal(dados["desvio_padrao_ms"], 4),
+                        dados["amostras"],
+                    ]
+                )
+            escritor.writerow(linha)
+
+
+def figura_analise_assintotica(analise: dict, destino: Path) -> None:
+    """Desenha uma grade de curvas tempo × n por etapa, em escala log-log.
+
+    A faixa de n cobre cerca de uma década em cada etapa, o que basta para o
+    ajuste de expoente usado na classificação, mas é estreita demais para que o
+    R² separe O(n) de O(n log n) — por isso cada painel mostrará as curvas
+    teóricas de referência e o expoente medido, deixando a decisão auditável.
+    """
+    estagios = list(analise["estagios"].values())
+    colunas = 4
+    linhas = math.ceil(len(estagios) / colunas)
+    figura, eixos = plt.subplots(
+        linhas, colunas, figsize=(4.1 * colunas, 3.3 * linhas), squeeze=False
+    )
+
+    for eixo, estagio in zip(eixos.ravel(), estagios):
+        medicoes = sorted(estagio["medicoes"], key=lambda m: m["n"])
+        xs = [float(m["n"]) for m in medicoes]
+        ys = [m["tempo_ms"] for m in medicoes]
+
+        eixo.plot(xs, ys, marker="o", markersize=4.5, color=COR_DESTAQUE, zorder=4,
+                  label="medido")
+
+        # As curvas teóricas são ancoradas no primeiro ponto medido, de modo que
+        # o que se compara visualmente é a inclinação, não a constante.
+        x_ref = [xs[0] * (xs[-1] / xs[0]) ** (i / 80) for i in range(81)]
+        for rotulo, funcao in (
+            ("O(n)", lambda n: n),
+            ("O(n log n)", lambda n: n * math.log2(max(n, 2.0))),
+        ):
+            base = funcao(xs[0])
+            if base <= 0:
+                continue
+            eixo.plot(
+                x_ref,
+                [ys[0] * funcao(n) / base for n in x_ref],
+                linestyle="--",
+                linewidth=1.1,
+                alpha=0.7,
+                zorder=2,
+                label=rotulo,
+            )
+
+
+        eixo.set_xscale("log")
+        eixo.set_yscale("log")
+        eixo.set_title(
+            f"{estagio['estagio']}\n"
+            f"eleito: {estagio['modelo_eleito']} (p={decimal(estagio['expoente_empirico'], 2)})",
+            fontsize=9.5,
+        )
+        eixo.set_xlabel(estagio["unidade_entrada"], fontsize=8)
+        eixo.set_ylabel("tempo (ms)", fontsize=8)
+        eixo.tick_params(labelsize=7.5)
+        eixo.grid(True, which="both", linestyle=":", alpha=0.35, zorder=0)
+        eixo.legend(fontsize=7, loc="upper left")
+
+    for eixo in eixos.ravel()[len(estagios):]:
+        eixo.axis("off")
+
+    figura.suptitle(
+        "Análise assintótica do pipeline — tempo por tamanho de entrada (escala log-log)",
+        fontsize=12,
+    )
+    figura.tight_layout(rect=(0, 0, 1, 0.965))
+    figura.savefig(destino)
+    plt.close(figura)
+
+
+def gerar_tabela_analise_assintotica(analise: dict, destino: Path) -> None:
+    """Consolida a análise assintótica do pipeline (item 7.1 do edital) em CSV.
+
+    O item 7.1 pede a complexidade de cada etapa do pipeline, não só a dos
+    algoritmos centrais; a tabela reúne, por etapa, o que foi observado e o
+    modelo eleito, para que a defesa contra a teoria fique auditável.
+    """
+    colunas = [
+        "estagio",
+        "unidade_entrada",
+        "n_minimo",
+        "n_maximo",
+        "pontos_medidos",
+        "complexidade_teorica",
+        "complexidade_observada",
+        "expoente_empirico",
+        "r2_melhor_ajuste",
+        "modelo_eleito",
+        "tempo_min_ms",
+        "tempo_max_ms",
+    ]
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    with open(destino, "w", encoding="utf-8-sig", newline="") as arquivo:
+        escritor = csv.writer(arquivo, delimiter=";")
+        escritor.writerow(colunas)
+        for chave, estagio in analise["estagios"].items():
+            medicoes = estagio["medicoes"]
             escritor.writerow(
                 [
-                    configuracao,
-                    resumo["modo_busca"],
-                    resumo["metrica_score"],
-                    resumo["amostras"],
-                    decimal(resumo["tempo_medio_ms"], 4),
-                    decimal(resumo["tempo_desvio_ms"], 4),
-                    decimal(tempo_busca_por_configuracao[configuracao], 4),
-                    comparacoes_por_configuracao[configuracao],
-                    decimal(resumo["memoria_media_mb"], 2),
-                    indexacao["total_chunks_entrada"],
-                    experimentos["metadados"]["k_definido"],
+                    estagio["estagio"],
+                    estagio["unidade_entrada"],
+                    min(m["n"] for m in medicoes),
+                    max(m["n"] for m in medicoes),
+                    len(medicoes),
+                    estagio["complexidade_teorica"],
+                    estagio["modelo_eleito"],
+                    decimal(estagio["expoente_empirico"], 3),
+                    decimal(
+                        estagio["ajustes"].get(estagio["modelo_eleito"], {}).get("r2", 0.0), 5
+                    ),
+                    estagio["comparacao_modelos"]["modelo_preferido_por_r2"],
+                    decimal(estagio["tempo_min_ms"], 4),
+                    decimal(estagio["tempo_max_ms"], 4),
                 ]
             )
 
@@ -783,6 +938,12 @@ def main() -> None:
     parser.add_argument("--chunking", type=Path, default=Path("4_chunks/relatorio_chunking.json"))
     parser.add_argument(
         "--processamento", type=Path, default=Path("3_dados/relatorio_processamento.json")
+    )
+    parser.add_argument(
+        "--analise-assintotica",
+        type=Path,
+        default=Path("7_resultados/analise_assintotica.json"),
+        help="Saída da Etapa 7, consolidada na tabela do item 7.1 do edital.",
     )
     parser.add_argument(
         "--script-busca",
@@ -824,12 +985,12 @@ def main() -> None:
     print("=" * 74)
 
     figura_tempo_execucao(resumos, args.resultados / "grafico_tempo_execucao.png")
-    print("[1/6] grafico_tempo_execucao.png")
+    print("[1/7] grafico_tempo_execucao.png")
 
     figura_busca_comparativo(
         relatorio_linear, relatorio_indexada, args.resultados / "grafico_busca_comparativo.png"
     )
-    print("[2/6] grafico_busca_comparativo.png")
+    print("[2/7] grafico_busca_comparativo.png")
 
     modulo_busca = carregar_modulo_busca(args.script_busca)
     medicoes = medir_comparacoes_merge_sort(
@@ -839,7 +1000,7 @@ def main() -> None:
         medicoes, args.resultados / "grafico_escalabilidade_merge_sort.png"
     )
     print(
-        "[3/6] grafico_escalabilidade_merge_sort.png "
+        "[3/7] grafico_escalabilidade_merge_sort.png "
         f"(b={decimal(estatisticas_escala['expoente_ajustado'], 3)}, "
         f"R²={decimal(estatisticas_escala['r2_ajuste'], 4)}, "
         f"razão n·log₂n = {decimal(estatisticas_escala['constante_n_log_n'], 3)} "
@@ -848,10 +1009,10 @@ def main() -> None:
 
     frequencias = frequencias_vocabulario(carregar_json(args.indice)["indice_invertido"])
     figura_zipf(frequencias, indexacao["total_termos"], args.resultados / "grafico_zipf.png")
-    print(f"[4/6] grafico_zipf.png ({milhar(len(frequencias))} termos)")
+    print(f"[4/7] grafico_zipf.png ({milhar(len(frequencias))} termos)")
 
     figura_memoria_configuracoes(resumos, args.resultados / "grafico_memoria_configuracoes.png")
-    print("[5/6] grafico_memoria_configuracoes.png")
+    print("[5/7] grafico_memoria_configuracoes.png")
 
     figura_etapas_pipeline(
         processamento,
@@ -862,13 +1023,26 @@ def main() -> None:
         ordenacao,
         args.resultados / "grafico_etapas_pipeline.png",
     )
-    print("[6/6] grafico_etapas_pipeline.png")
+    print("[6/7] grafico_etapas_pipeline.png")
 
     tabela = args.resultados / "tabela_resultados.csv"
     gerar_tabela_csv(
         resumos, relatorio_linear, relatorio_indexada, ordenacao, indexacao, experimentos, tabela
     )
     print(f"[tabela] {tabela}")
+
+    if args.analise_assintotica.exists():
+        analise = carregar_json(args.analise_assintotica)
+        figura_analise_assintotica(analise, args.resultados / "grafico_analise_assintotica.png")
+        print("[7/7] grafico_analise_assintotica.png")
+        destino_asintotica = args.resultados / "tabela_analise_assintotica.csv"
+        gerar_tabela_analise_assintotica(analise, destino_asintotica)
+        print(f"[tabela] {destino_asintotica}")
+    else:
+        print(
+            f"[aviso] {args.analise_assintotica} não encontrado; "
+            "execute 1_scripts/7_analise_assintotica.py para gerar os artefatos do item 7.1."
+        )
 
     print("-" * 74)
     print(f"Todas as figuras foram gravadas em: {args.resultados}")
