@@ -45,7 +45,7 @@ Os itens ainda não implementados ou não definidos estão marcados como **A PRO
 
 ## Dependências
 
-Python 3, `PyMuPDF`, `nltk` e `matplotlib`.
+Python 3, `PyMuPDF`, `nltk` e `matplotlib`. Os testes da Etapa 4 requerem `pytest`.
 
 ## Ambiente
 
@@ -54,7 +54,7 @@ Execução validada em Windows com Python 3. O script usa caminhos relativos ao 
 ## Instalação
 
 ```bash
-python -m pip install PyMuPDF nltk matplotlib
+python -m pip install PyMuPDF nltk matplotlib pytest
 python -c "import nltk; nltk.download('stopwords')"
 ```
 
@@ -175,7 +175,7 @@ Corpus normativo e orientativo público do PROCC/UFS e normas correlatas. Uso ex
 - **Idioma/formato:** português brasileiro; arquivos PDF.
 - **Dados removidos ou anonimizados:** nenhum.
 - **Limpeza e normalização:** Unicode NFC, quebras de linha, espaços repetidos e hifenização entre linhas; texto original preservado.
-- **Chunking:** implementado com janelamento deslizante contínuo de 200 palavras por documento com overlap de 30 palavras entre páginas (passo de 170 palavras). Total de 182 chunks com alta densidade textual (média de 196,85 palavras/chunk).
+- **Chunking:** janelamento deslizante contínuo de 200 palavras por documento, com overlap de 30 palavras entre chunks consecutivos (passo de 170 palavras). Total de 182 chunks, com média de 196,85 palavras/chunk: 175 chunks atingem a janela cheia de 200 palavras e apenas 7 são menores (o menor tem 64), por serem o último chunk de um documento. Os chunks são extraídos do fluxo contínuo de texto, portanto o overlap de 30 palavras também ocorre entre chunks de uma mesma página; 80 chunks (43,96%) atravessam fronteiras de página.
 
 | Documento | URL oficial |
 |---|---|
