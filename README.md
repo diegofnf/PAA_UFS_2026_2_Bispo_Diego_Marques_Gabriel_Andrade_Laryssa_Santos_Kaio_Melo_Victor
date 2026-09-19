@@ -12,10 +12,9 @@ Este README é o manual operacional do repositório. O relatório técnico conce
   
 **A PRODUZIR:** adicionar o PDF final do relatório nesta seção quando ele estiver concluído.
 
-## Apresentações
+## Apresentação
 
-- [Checkpoint — 10/09/2026](https://docs.google.com/presentation/d/1RHaAl9oXhdnzkjwhi0gLFhiCCBeQxHgZQSAyOLu0M_M/edit)
-- [Apresentação final — 24/09/2026](https://docs.google.com/presentation/d/1oCvhlEqzGFUmxv-1XzmbMLjySthox-GRHUXjkgRtdVs/edit)
+- [Apresentação final — 24/09/2026](https://docs.google.com/presentation/d/1RHaAl9oXhdnzkjwhi0gLFhiCCBeQxHgZQSAyOLu0M_M/edit)
 
 As apresentações estão em desenvolvimento e serão atualizadas com os resultados finais.
 
