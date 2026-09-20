@@ -86,7 +86,7 @@ export function App() {
         setActiveTab={setActiveTab}
         totalDocs={documentos.length}
         totalChunks={chunks.length}
-        totalTermos={indiceData?.metadados?.total_termos || 5258}
+        totalTermos={indiceData?.metadados?.total_termos ?? 0}
       />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -97,7 +97,7 @@ export function App() {
               Carregando Corpus e Índice Invertido...
             </h3>
             <p className="text-xs text-slate-500 mt-1 max-w-md">
-              Inicializando dicionário com 5.258 termos, 19.863 postings e 182 chunks normalizados.
+              Carregando corpus normativo, chunks e índice invertido do PROCC/UFS.
             </p>
           </div>
         ) : error ? (

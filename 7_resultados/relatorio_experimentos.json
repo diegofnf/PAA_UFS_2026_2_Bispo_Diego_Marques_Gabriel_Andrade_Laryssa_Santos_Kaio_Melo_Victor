@@ -4,13 +4,23 @@
         "consulta_avaliada": "critérios para atribuição de bolsas e requisitos de matrícula",
         "k_definido": 5,
         "matriz_design": "3 configurações x 2 cargas x 2 repetições = 12 baterias",
+        "metodo_medicao": "Cronometragem in-process (time.perf_counter) da mediana de 5 execuções da região algoritmicamente relevante; memória via tracemalloc.",
+        "cargas": {
+            "Carga 1 (Corpus Integral)": "182 chunks — corpus completo da Etapa 2",
+            "Carga 2 (Corpus Reduzido)": "91 chunks — amostragem determinística (~50%)"
+        },
+        "configuracoes": {
+            "Configuração 1 (Baseline — Busca Linear)": "Varredura sequencial de todos os chunks, sem índice invertido.",
+            "Configuração 2 (Busca Indexada — Índice Invertido)": "Recuperação por postings lists do índice invertido (Etapa 3).",
+            "Configuração 3 (Divisão e Conquista — Merge Sort Top-k)": "Busca indexada acrescida da ordenação dos candidatos por Merge Sort antes da seleção do Top-k, isolando o custo O(n log n)."
+        },
         "ambiente_computacional": {
-            "sistema_operacional": "Darwin 25.6.0",
-            "plataforma": "macOS-26.6.2-arm64-arm-64bit",
-            "arquitetura": "arm64",
-            "processador": "arm",
-            "versao_python": "3.9.6",
-            "interpretador": "/Library/Developer/CommandLineTools/usr/bin/python3"
+            "sistema_operacional": "Windows 11",
+            "plataforma": "Windows-11-10.0.26200-SP0",
+            "arquitetura": "AMD64",
+            "processador": "Intel64 Family 6 Model 142 Stepping 12, GenuineIntel",
+            "versao_python": "3.14.7",
+            "interpretador": "C:\\Users\\victo.000\\AppData\\Local\\Programs\\Python\\Python314\\python.exe"
         }
     },
     "execucoes": [
@@ -19,10 +29,22 @@
             "configuracao": "Configuração 1 (Baseline — Busca Linear)",
             "modo_busca": "linear",
             "metrica_score": "simples",
-            "base_chunks": "4_chunks/chunks.json",
+            "base_chunks": "4_chunks\\chunks.json",
+            "carga": "Carga 1 (Corpus Integral)",
+            "total_chunks_carga": 182,
             "repeticao": 1,
-            "tempo_execucao_ms": 194.5474,
-            "pico_memoria_mb": 37.47,
+            "tempo_execucao_ms": 41.6755,
+            "tempo_ordenacao_ms": 0.0,
+            "pico_memoria_mb": 0.1455,
+            "candidatos_avaliados": 75,
+            "comparacoes_ordenacao": 0,
+            "distintos_consulta": [
+                "critérios",
+                "atribuição",
+                "bolsas",
+                "requisitos",
+                "matrícula"
+            ],
             "status": "sucesso"
         },
         {
@@ -30,10 +52,22 @@
             "configuracao": "Configuração 1 (Baseline — Busca Linear)",
             "modo_busca": "linear",
             "metrica_score": "simples",
-            "base_chunks": "4_chunks/chunks.json",
+            "base_chunks": "4_chunks\\chunks.json",
+            "carga": "Carga 1 (Corpus Integral)",
+            "total_chunks_carga": 182,
             "repeticao": 2,
-            "tempo_execucao_ms": 137.0562,
-            "pico_memoria_mb": 36.98,
+            "tempo_execucao_ms": 41.2409,
+            "tempo_ordenacao_ms": 0.0,
+            "pico_memoria_mb": 0.1302,
+            "candidatos_avaliados": 75,
+            "comparacoes_ordenacao": 0,
+            "distintos_consulta": [
+                "critérios",
+                "atribuição",
+                "bolsas",
+                "requisitos",
+                "matrícula"
+            ],
             "status": "sucesso"
         },
         {
@@ -41,10 +75,22 @@
             "configuracao": "Configuração 1 (Baseline — Busca Linear)",
             "modo_busca": "linear",
             "metrica_score": "simples",
-            "base_chunks": "4_chunks/chunks.json",
+            "base_chunks": "4_chunks\\chunks.json",
+            "carga": "Carga 2 (Corpus Reduzido)",
+            "total_chunks_carga": 91,
             "repeticao": 1,
-            "tempo_execucao_ms": 144.2093,
-            "pico_memoria_mb": 37.03,
+            "tempo_execucao_ms": 24.3084,
+            "tempo_ordenacao_ms": 0.0,
+            "pico_memoria_mb": 0.1302,
+            "candidatos_avaliados": 32,
+            "comparacoes_ordenacao": 0,
+            "distintos_consulta": [
+                "critérios",
+                "atribuição",
+                "bolsas",
+                "requisitos",
+                "matrícula"
+            ],
             "status": "sucesso"
         },
         {
@@ -52,10 +98,22 @@
             "configuracao": "Configuração 1 (Baseline — Busca Linear)",
             "modo_busca": "linear",
             "metrica_score": "simples",
-            "base_chunks": "4_chunks/chunks.json",
+            "base_chunks": "4_chunks\\chunks.json",
+            "carga": "Carga 2 (Corpus Reduzido)",
+            "total_chunks_carga": 91,
             "repeticao": 2,
-            "tempo_execucao_ms": 142.7191,
-            "pico_memoria_mb": 37.05,
+            "tempo_execucao_ms": 21.9445,
+            "tempo_ordenacao_ms": 0.0,
+            "pico_memoria_mb": 0.1302,
+            "candidatos_avaliados": 32,
+            "comparacoes_ordenacao": 0,
+            "distintos_consulta": [
+                "critérios",
+                "atribuição",
+                "bolsas",
+                "requisitos",
+                "matrícula"
+            ],
             "status": "sucesso"
         },
         {
@@ -63,10 +121,22 @@
             "configuracao": "Configuração 2 (Busca Indexada — Índice Invertido)",
             "modo_busca": "indexada",
             "metrica_score": "bm25",
-            "base_chunks": "4_chunks/chunks.json",
+            "base_chunks": "4_chunks\\chunks.json",
+            "carga": "Carga 1 (Corpus Integral)",
+            "total_chunks_carga": 182,
             "repeticao": 1,
-            "tempo_execucao_ms": 149.9831,
-            "pico_memoria_mb": 49.09,
+            "tempo_execucao_ms": 3.0205,
+            "tempo_ordenacao_ms": 0.0,
+            "pico_memoria_mb": 0.1301,
+            "candidatos_avaliados": 75,
+            "comparacoes_ordenacao": 0,
+            "distintos_consulta": [
+                "critérios",
+                "atribuição",
+                "bolsas",
+                "requisitos",
+                "matrícula"
+            ],
             "status": "sucesso"
         },
         {
@@ -74,10 +144,22 @@
             "configuracao": "Configuração 2 (Busca Indexada — Índice Invertido)",
             "modo_busca": "indexada",
             "metrica_score": "bm25",
-            "base_chunks": "4_chunks/chunks.json",
+            "base_chunks": "4_chunks\\chunks.json",
+            "carga": "Carga 1 (Corpus Integral)",
+            "total_chunks_carga": 182,
             "repeticao": 2,
-            "tempo_execucao_ms": 150.2306,
-            "pico_memoria_mb": 48.56,
+            "tempo_execucao_ms": 4.2769,
+            "tempo_ordenacao_ms": 0.0,
+            "pico_memoria_mb": 0.1301,
+            "candidatos_avaliados": 75,
+            "comparacoes_ordenacao": 0,
+            "distintos_consulta": [
+                "critérios",
+                "atribuição",
+                "bolsas",
+                "requisitos",
+                "matrícula"
+            ],
             "status": "sucesso"
         },
         {
@@ -85,10 +167,22 @@
             "configuracao": "Configuração 2 (Busca Indexada — Índice Invertido)",
             "modo_busca": "indexada",
             "metrica_score": "bm25",
-            "base_chunks": "4_chunks/chunks.json",
+            "base_chunks": "4_chunks\\chunks.json",
+            "carga": "Carga 2 (Corpus Reduzido)",
+            "total_chunks_carga": 91,
             "repeticao": 1,
-            "tempo_execucao_ms": 145.0222,
-            "pico_memoria_mb": 49.28,
+            "tempo_execucao_ms": 2.8592,
+            "tempo_ordenacao_ms": 0.0,
+            "pico_memoria_mb": 0.1301,
+            "candidatos_avaliados": 32,
+            "comparacoes_ordenacao": 0,
+            "distintos_consulta": [
+                "critérios",
+                "atribuição",
+                "bolsas",
+                "requisitos",
+                "matrícula"
+            ],
             "status": "sucesso"
         },
         {
@@ -96,10 +190,22 @@
             "configuracao": "Configuração 2 (Busca Indexada — Índice Invertido)",
             "modo_busca": "indexada",
             "metrica_score": "bm25",
-            "base_chunks": "4_chunks/chunks.json",
+            "base_chunks": "4_chunks\\chunks.json",
+            "carga": "Carga 2 (Corpus Reduzido)",
+            "total_chunks_carga": 91,
             "repeticao": 2,
-            "tempo_execucao_ms": 147.722,
-            "pico_memoria_mb": 48.59,
+            "tempo_execucao_ms": 2.2837,
+            "tempo_ordenacao_ms": 0.0,
+            "pico_memoria_mb": 0.1301,
+            "candidatos_avaliados": 32,
+            "comparacoes_ordenacao": 0,
+            "distintos_consulta": [
+                "critérios",
+                "atribuição",
+                "bolsas",
+                "requisitos",
+                "matrícula"
+            ],
             "status": "sucesso"
         },
         {
@@ -107,10 +213,22 @@
             "configuracao": "Configuração 3 (Divisão e Conquista — Merge Sort Top-k)",
             "modo_busca": "indexada",
             "metrica_score": "bm25",
-            "base_chunks": "4_chunks/chunks.json",
+            "base_chunks": "4_chunks\\chunks.json",
+            "carga": "Carga 1 (Corpus Integral)",
+            "total_chunks_carga": 182,
             "repeticao": 1,
-            "tempo_execucao_ms": 145.0103,
-            "pico_memoria_mb": 49.08,
+            "tempo_execucao_ms": 2.8027,
+            "tempo_ordenacao_ms": 0.4051,
+            "pico_memoria_mb": 0.1323,
+            "candidatos_avaliados": 75,
+            "comparacoes_ordenacao": 369,
+            "distintos_consulta": [
+                "critérios",
+                "atribuição",
+                "bolsas",
+                "requisitos",
+                "matrícula"
+            ],
             "status": "sucesso"
         },
         {
@@ -118,10 +236,22 @@
             "configuracao": "Configuração 3 (Divisão e Conquista — Merge Sort Top-k)",
             "modo_busca": "indexada",
             "metrica_score": "bm25",
-            "base_chunks": "4_chunks/chunks.json",
+            "base_chunks": "4_chunks\\chunks.json",
+            "carga": "Carga 1 (Corpus Integral)",
+            "total_chunks_carga": 182,
             "repeticao": 2,
-            "tempo_execucao_ms": 145.0591,
-            "pico_memoria_mb": 49.42,
+            "tempo_execucao_ms": 2.5966,
+            "tempo_ordenacao_ms": 0.6433,
+            "pico_memoria_mb": 0.1323,
+            "candidatos_avaliados": 75,
+            "comparacoes_ordenacao": 369,
+            "distintos_consulta": [
+                "critérios",
+                "atribuição",
+                "bolsas",
+                "requisitos",
+                "matrícula"
+            ],
             "status": "sucesso"
         },
         {
@@ -129,10 +259,22 @@
             "configuracao": "Configuração 3 (Divisão e Conquista — Merge Sort Top-k)",
             "modo_busca": "indexada",
             "metrica_score": "bm25",
-            "base_chunks": "4_chunks/chunks.json",
+            "base_chunks": "4_chunks\\chunks.json",
+            "carga": "Carga 2 (Corpus Reduzido)",
+            "total_chunks_carga": 91,
             "repeticao": 1,
-            "tempo_execucao_ms": 149.2743,
-            "pico_memoria_mb": 48.7,
+            "tempo_execucao_ms": 3.1448,
+            "tempo_ordenacao_ms": 0.1926,
+            "pico_memoria_mb": 0.1311,
+            "candidatos_avaliados": 32,
+            "comparacoes_ordenacao": 112,
+            "distintos_consulta": [
+                "critérios",
+                "atribuição",
+                "bolsas",
+                "requisitos",
+                "matrícula"
+            ],
             "status": "sucesso"
         },
         {
@@ -140,25 +282,66 @@
             "configuracao": "Configuração 3 (Divisão e Conquista — Merge Sort Top-k)",
             "modo_busca": "indexada",
             "metrica_score": "bm25",
-            "base_chunks": "4_chunks/chunks.json",
+            "base_chunks": "4_chunks\\chunks.json",
+            "carga": "Carga 2 (Corpus Reduzido)",
+            "total_chunks_carga": 91,
             "repeticao": 2,
-            "tempo_execucao_ms": 144.3567,
-            "pico_memoria_mb": 48.53,
+            "tempo_execucao_ms": 3.5862,
+            "tempo_ordenacao_ms": 0.1585,
+            "pico_memoria_mb": 0.1311,
+            "candidatos_avaliados": 32,
+            "comparacoes_ordenacao": 112,
+            "distintos_consulta": [
+                "critérios",
+                "atribuição",
+                "bolsas",
+                "requisitos",
+                "matrícula"
+            ],
             "status": "sucesso"
         }
     ],
     "sintese_metricas": {
         "Configuração 1 (Baseline — Busca Linear)": {
-            "tempo_medio_ms": 154.633,
-            "amostras": 4
+            "Carga 1 (Corpus Integral)": {
+                "tempo_medio_ms": 41.4582,
+                "desvio_padrao_ms": 0.2173,
+                "amostras": 2
+            },
+            "Carga 2 (Corpus Reduzido)": {
+                "tempo_medio_ms": 23.1264,
+                "desvio_padrao_ms": 1.1819,
+                "amostras": 2
+            }
         },
         "Configuração 2 (Busca Indexada — Índice Invertido)": {
-            "tempo_medio_ms": 148.2395,
-            "amostras": 4
+            "Carga 1 (Corpus Integral)": {
+                "tempo_medio_ms": 3.6487,
+                "desvio_padrao_ms": 0.6282,
+                "amostras": 2
+            },
+            "Carga 2 (Corpus Reduzido)": {
+                "tempo_medio_ms": 2.5715,
+                "desvio_padrao_ms": 0.2877,
+                "amostras": 2
+            }
         },
         "Configuração 3 (Divisão e Conquista — Merge Sort Top-k)": {
-            "tempo_medio_ms": 145.9251,
-            "amostras": 4
+            "Carga 1 (Corpus Integral)": {
+                "tempo_medio_ms": 2.6997,
+                "desvio_padrao_ms": 0.1031,
+                "amostras": 2
+            },
+            "Carga 2 (Corpus Reduzido)": {
+                "tempo_medio_ms": 3.3655,
+                "desvio_padrao_ms": 0.2207,
+                "amostras": 2
+            }
         }
+    },
+    "tempo_medio_global_ms": {
+        "Configuração 1 (Baseline — Busca Linear)": 32.2923,
+        "Configuração 2 (Busca Indexada — Índice Invertido)": 3.1101,
+        "Configuração 3 (Divisão e Conquista — Merge Sort Top-k)": 3.0326
     }
 }
