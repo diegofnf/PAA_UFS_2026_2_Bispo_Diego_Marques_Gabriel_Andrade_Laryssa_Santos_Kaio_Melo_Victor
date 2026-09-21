@@ -12,6 +12,33 @@ Este README é o manual operacional do repositório. O relatório técnico conce
   
 **A PRODUZIR:** adicionar o PDF final do relatório nesta seção quando ele estiver concluído.
 
+O relatório em PDF deve cobrir os 19 itens exigidos na Seção 10 do enunciado.
+A tabela abaixo indica, para cada item, o artefato deste repositório que já
+contém o material pronto para ser transposto — o relatório não precisa
+reconstruir nada, apenas redigir e referenciar as evidências.
+
+| # | Item exigido no relatório (Seção 10) | Material de origem neste repositório |
+|---|---|---|
+| 1 | Identificação da equipe | [`CONTRIBUICOES.md`](CONTRIBUICOES.md) — 5 integrantes e papéis por etapa |
+| 2 | Tema, corpus e fonte | Seção [Corpus](#corpus) — 7 PDFs, 83 páginas, URLs oficiais |
+| 3 | URL do repositório, **licença**, commit/tag/release e data de acesso | Badge do Colab e demais URLs; [`LICENSE`](LICENSE); commit `2a9a8e9`; acesso em 02/09/2026 às 21h10 |
+| 4 | Definição formal do problema | [`ANALISE_CORRETUDE_COMPLEXIDADE.md`](ANALISE_CORRETUDE_COMPLEXIDADE.md) §1 (entrada, saída, relevância, pré/pós-condições, casos de borda) |
+| 5 | Representação dos dados e estratégia de *chunking* | Seção [Corpus](#corpus) e `4_chunks/relatorio_chunking.json` |
+| 6 | Algoritmos e pseudocódigo | `ANALISE_CORRETUDE_COMPLEXIDADE.md` §2 e §2.1 |
+| 7 | Justificativa de corretude | `ANALISE_CORRETUDE_COMPLEXIDADE.md` §3 (invariante de laço + indução) |
+| 8 | Análise no modelo RAM | `ANALISE_CORRETUDE_COMPLEXIDADE.md` §4.1 e §4.2 |
+| 9 | Melhor, pior e caso médio | `ANALISE_CORRETUDE_COMPLEXIDADE.md` §4.3 |
+| 10 | Recorrências | `ANALISE_CORRETUDE_COMPLEXIDADE.md` §5 |
+| 11 | Metodologia experimental | Seção [Execução](#execução) (decisões de medição) e `metadados` de `7_resultados/relatorio_experimentos.json` |
+| 12 | Resultados e gráficos | Seção [Resultados principais](#resultados-principais), `7_resultados/*.png` e as 3 tabelas CSV |
+| 13 | Discussão de escalabilidade | `7_resultados/analise_assintotica.json`, `tabela_analise_assintotica.csv` e §6 do documento de análise |
+| 14 | Relação com IA generativa e RAG | [`RAG_GENAI.md`](RAG_GENAI.md) |
+| 15 | Limitações e ameaças à validade | Seção [Corpus](#corpus) (riscos e limitações), §3.6 e §4.5 do documento de análise e `RAG_GENAI.md` |
+| 16 | Declaração de Uso de IA Generativa | [`DECLARACAO_IA.md`](DECLARACAO_IA.md) |
+| 17 | Contribuição individual | [`CONTRIBUICOES.md`](CONTRIBUICOES.md) |
+| 18 | URL do vídeo | [`VIDEO.md`](VIDEO.md) — **a preencher** |
+| 19 | Referências | Seção [Referências](#referências) |
+
 ## Apresentação
 
 - [Apresentação final — 24/09/2026](https://docs.google.com/presentation/d/1RHaAl9oXhdnzkjwhi0gLFhiCCBeQxHgZQSAyOLu0M_M/edit)
@@ -405,5 +432,37 @@ Este repositório não contém chaves, senhas, tokens ou dados pessoais. Arquivo
 grandes (PDFs do corpus e `node_modules/`) são controlados por `.gitignore`, e as
 instruções para obtê-los ou reproduzi-los estão nas seções
 [Instalação](#instalação), [Execução](#execução) e [Reprodução](#reprodução).
+
+## Referências
+
+Referências bibliográficas efetivamente consultadas na atividade:
+
+**Algoritmos e estruturas de dados**
+
+- CORMEN, Thomas H. et al. *Introduction to Algorithms*. 4. ed. Cambridge: MIT Press, 2022. (Merge Sort, recorrências e modelo RAM)
+- KLEINBERG, Jon; TARDOS, Éva. *Algorithm Design*. Boston: Pearson, 2006. (divisão e conquista, análise de recorrências)
+- SKIENA, Steven S. *The Algorithm Design Manual*. 3. ed. Cham: Springer, 2020. (escolha de algoritmos e *trade-offs* práticos)
+- SEDGEWICK, Robert; WAYNE, Kevin. *Algorithms*. 4. ed. Boston: Addison-Wesley, 2011. (*baseline* de ordenação e *mergesort*)
+
+**Recuperação de informação**
+
+- MANNING, Christopher D.; RAGHAVAN, Prabhakar; SCHÜTZE, Hinrich. *Introduction to Information Retrieval*. Cambridge: Cambridge University Press, 2008. (índice invertido, *postings lists* e medidas de avaliação)
+- ROBERTSON, Stephen; ZARAGOZA, Hugo. *The Probabilistic Relevance Framework: BM25 and Beyond*. Foundations and Trends in Information Retrieval, v. 3, n. 4, p. 333–389, 2009. (fundamentação do Okapi BM25 e dos parâmetros `k1` e `b`)
+
+**Recuperação aumentada por geração (RAG) e IA generativa**
+
+- LEWIS, Patrick et al. *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*. NeurIPS, 2020. Disponível em: <https://arxiv.org/abs/2005.11401>.
+- ZHOU, Zixuan et al. *A Survey on Efficient Inference for Large Language Models*. arXiv:2404.14294, 2024. Disponível em: <https://arxiv.org/abs/2404.14294>.
+- GAN, Aoran et al. *Retrieval Augmented Generation Evaluation in the Era of Large Language Models: A Comprehensive Survey*. arXiv:2504.14891, 2025. Disponível em: <https://arxiv.org/abs/2504.14891>.
+- SENTENCE TRANSFORMERS. Repositório oficial. Disponível em: <https://github.com/huggingface/sentence-transformers>. (alternativa de busca semântica não adotada, discutida em [`RAG_GENAI.md`](RAG_GENAI.md))
+- FAISS. *Faiss documentation*. Disponível em: <https://faiss.ai/>. (busca vetorial em larga escala, discutida como trabalho futuro)
+
+**Ferramentas**
+
+- BIRD, Steven; KLEIN, Ewan; LOPER, Edward. *Natural Language Processing with Python*. Sebastopol: O'Reilly Media, 2009. (NLTK, usado na tokenização e na lista de *stopwords*)
+- PYMUPDF. *PyMuPDF Documentation*. Disponível em: <https://pymupdf.readthedocs.io/>. (extração de texto dos PDFs)
+
+As fontes do corpus (atos normativos do PROCC/UFS e o Edital CAPES) estão
+listadas com seus endereços oficiais na seção [Corpus](#corpus).
 
 

@@ -1,9 +1,10 @@
 # Corretude, modelo RAM, casos e recorrências
 
-Este documento responde às Seções **5.3** (corretude), **6.1** (modelo RAM e
-operações elementares), **6.2** (melhor, pior e caso médio), **6.3**
-(recorrências) da atividade e ao entregável **10 §10, item 8** ("prova ou
-justificativa de corretude").
+Este documento responde às Seções **5.1** (definição formal do problema),
+**5.2** (algoritmos obrigatórios e pseudocódigo), **5.3** (corretude), **6.1**
+(modelo RAM e operações elementares), **6.2** (melhor, pior e caso médio),
+**6.3** (recorrências) da atividade e ao entregável **10 §10, item 8** ("prova
+ou justificativa de corretude").
 
 Toda referência de código aponta para
 [`1_scripts/4_buscar_e_ordenar.py`](./1_scripts/4_buscar_e_ordenar.py), que é o
@@ -104,6 +105,101 @@ condicionada a um modelo de permutação aleatória dos scores (§4.2).
 | A2 | Busca indexada por postings lists | Configuração 2 | `buscar_indexada` (linha 347) |
 | A3 | `merge` + Merge Sort | Configuração 3 (divisão e conquista) | `merge` (474), `merge_sort` (521) |
 | A4 | Seleção do Top-k | Pós-processamento | `selecionar_topk` (550) |
+
+### 2.1 Pseudocódigo
+
+A notação é a da Seção 1: `≺` é a relação de ordem sobre candidatos, `T(q)` é o
+conjunto de termos distintos de `q` após a remoção de stopwords e `I(t)` é a
+*posting list* do termo `t` no índice invertido, ou seja, a lista de pares
+`(id_chunk, freq(t, D))`.
+
+```
+ALGORITMO A1 — BUSCA-LINEAR(C, q)
+  entrada: C = {D_1, …, D_N}, consulta q
+  saída:   C_q = {D ∈ C : score(D, q) > 0}, sem ordenação
+ 1  C_q ← ∅
+ 2  para i ← 1 até N faça                    ▷ todo chunk é pontuado
+ 3      s ← score(D_i, q)                    ▷ soma sobre T(q), com DF e IDF
+ 4      se s > 0 então C_q ← C_q ∪ {(D_i, s)}
+ 5  devolve C_q
+```
+
+```
+ALGORITMO A2 — BUSCA-INDEXADA(I, C, q)
+  entrada: índice invertido I, corpus C, consulta q
+  saída:   C_q = {D ∈ C : score(D, q) > 0}, sem ordenação
+ 1  acumulador ← dicionário vazio
+ 2  para cada t ∈ T(q) faça
+ 3      para cada (id, f) ∈ I(t) faça         ▷ apenas chunks que contêm t
+ 4          acumulador[id].freqs[t] ← f
+ 5  para cada (id, freqs) ∈ acumulador faça   ▷ apenas candidatos acumulados
+ 6      s ← score(freqs, |D_id|, avgdl, IDF, k1, b)
+ 7      se s > 0 então C_q ← C_q ∪ {(D_id, s)}
+ 8  devolve C_q
+```
+
+Os passos 3 e 4 de **A1** custam Θ(N · |T(q)|) acessos a `D_i.texto`, enquanto
+os passos 3 e 4 de **A2** percorrem somente as *posting lists* dos termos
+consultados: |I(t)| ≤ N e, na consulta de referência, Σ|I(t)| = 90 contra
+N · |T(q)| = 182 · 5 = 910. É essa diferença que a Etapa 5 mede.
+
+```
+ALGORITMO A3a — MERGE(E, D, M)                ▷ intercalação (linha 474)
+  pré-condição: E e D ordenados segundo ≺
+  pós-condição: R ordenado segundo ≺, com |R| = |E| + |D|
+ 1  i ← 0; j ← 0; R ← []
+ 2  enquanto i < |E| e j < |D| faça
+ 3      M.comparacoes_totais ← M.comparacoes_totais + 1
+ 4      M.comparacoes_score ← M.comparacoes_score + 1
+ 5      se score(E[i]) > score(D[j]) então R.append(E[i]); i ← i + 1
+ 6      senão se score(E[i]) < score(D[j]) então R.append(D[j]); j ← j + 1
+ 7      senão                                    ▷ empate de score
+ 8          M.empates_score ← M.empates_score + 1
+ 9          M.comparacoes_totais ← M.comparacoes_totais + 1
+10          M.comparacoes_id_chunk ← M.comparacoes_id_chunk + 1
+11          se id_chunk(E[i]) ≤ id_chunk(D[j]) então R.append(E[i]); i ← i + 1
+12          senão R.append(D[j]); j ← j + 1
+13      M.movimentacoes ← M.movimentacoes + 1
+14  R.append(E[i..]); R.append(D[j..])           ▷ a cauda restante já está ordenada
+15  devolve R
+  INVARIANTE DE LAÇO: no início de cada iteração do passo 2, R é a intercalação
+  ordenada de E[0..i) e D[0..j) — ver Seção 3.2.
+```
+
+O laço do passo 2 executa **no máximo** |E| + |D| − 1 iterações (cada iteração
+consome um elemento; o laço termina assim que um dos dois lados se esgota), o
+que explica a contagem de comparações: cada iteração faz uma comparação de
+score, e as iterações que caem no empate fazem **duas** comparações (score e
+`id_chunk`). Somadas todas as fusões da carga real, `comparacoes_score` = 351,
+`empates_score` = 18 e `comparacoes_totais` = 369 = 351 + 18.
+
+```
+ALGORITMO A3b — MERGE-SORT(A, M, p)         ▷ M é o acumulador de métricas
+  pré-condição: A é uma lista de candidatos obtida pela busca
+  pós-condição: devolve A ordenado segundo ≺
+ 1  M.chamadas_recursivas ← M.chamadas_recursivas + 1
+ 2  M.profundidade_maxima ← max(M.profundidade_maxima, p)
+ 3  se |A| ≤ 1 então devolve A                ▷ caso base: já ordenado
+ 4  meio ← ⌊|A| / 2⌋
+ 5  E ← MERGE-SORT(A[0..meio), M, p + 1)
+ 6  D ← MERGE-SORT(A[meio..|A|), M, p + 1)
+ 7  devolve MERGE(E, D, M)
+  RECORRÊNCIA: T(n) = 2T(n/2) + Θ(n) — ver Seção 5.1.
+```
+
+```
+ALGORITMO A4 — TOP-K(A, k)
+  entrada: A ordenado segundo ≺, inteiro k ≥ 1
+  saída:   R = os min( k, |A| ) primeiros elementos de A
+1  devolve A[0 .. min(k, |A|))
+```
+
+O pipeline completo é, portanto,
+`R ← TOP-K( MERGE-SORT( BUSCA-{LINEAR|INDEXADA}(C, q) ), k )`. A ordenação é
+aplicada a `C_q`, e não ao corpus inteiro: ordenar `C_q` (75 itens na consulta
+de referência) em vez de `C` (182 chunks) é o efeito de filtrar `score > 0`
+antes de ordenar, o que não altera a pós-condição 4 da Seção 1 mas reduz o
+custo de Θ(N log N) para Θ(|C_q| log |C_q|) com |C_q| ≤ N.
 
 ---
 
