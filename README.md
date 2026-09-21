@@ -28,7 +28,22 @@ As apresentações estão em desenvolvimento e serão atualizadas com os resulta
 
 ## Status dos entregáveis
 
-Os itens ainda não implementados ou não definidos estão marcados como **A PRODUZIR** e serão atualizados no decorrer do projeto.
+| Entregável | Situação |
+|---|---|
+| Corpus de 7 PDFs indexado | Concluído |
+| Etapa 1 — extração e normalização | Concluído |
+| Etapa 2 — chunking | Concluído — 182 chunks |
+| Etapa 3 — índice invertido | Concluído — 4 061 termos, 21 530 postings |
+| Etapa 4 — busca lexical e ordenação | Concluído — 14 testes automatizados |
+| Etapa 5 — baterias experimentais | Concluído — medição in-process |
+| Etapa 6 — tabela e gráficos | Concluído — 7 gráficos, 2 CSVs |
+| Etapa 7 — análise assintótica (item 7.1 do edital) | Concluído — 8 etapas do pipeline |
+| Aplicação web (React + Vite) | Concluído — `vite build` e `tsc --noEmit` sem erros |
+| Relatório técnico | **A PRODUZIR** — documento no Google Docs; falta exportar o PDF |
+| Apresentação | **A PRODUZIR** — slides no Google Drive, em revisão |
+| Vídeo da atividade | **A PRODUZIR** — a gravar |
+
+Os três itens finais dependem de produção humana (redação final, ensaio e gravação) e são os únicos pendentes para a entrega.
 
 ## Estrutura do repositório
 
