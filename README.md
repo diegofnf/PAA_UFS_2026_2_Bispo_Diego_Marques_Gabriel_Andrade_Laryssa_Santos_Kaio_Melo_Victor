@@ -251,3 +251,6 @@ Interface web interativa desenvolvida para busca, recuperação e ordenação de
 
 🔗 **[Acessar a Aplicação Web](https://procc-recuperacao-documentos.vercel.app/)**
 
+> A publicação é feita na **Vercel** pelo workflow [`.github/workflows/deploy-vercel.yml`](.github/workflows/deploy-vercel.yml) a cada push em `main`.
+> O **GitHub Pages não é utilizado**: o `index.html` da raiz é o arquivo de desenvolvimento do Vite e, quando servido estaticamente (por exemplo, pelos forks), aponta para `/src/main.tsx` e resulta em página em branco.
+
