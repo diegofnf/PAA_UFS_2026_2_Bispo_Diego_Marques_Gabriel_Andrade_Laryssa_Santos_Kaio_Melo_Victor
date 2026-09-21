@@ -51,7 +51,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
 
             <a
-              href="https://colab.research.google.com/github/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor/blob/main/orquestrador_pipeline.ipynb"
+              href="https://colab.research.google.com/github/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/blob/main/orquestrador_pipeline.ipynb"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 px-2.5 py-1.5 rounded-lg transition-colors font-medium shadow-2xs"
