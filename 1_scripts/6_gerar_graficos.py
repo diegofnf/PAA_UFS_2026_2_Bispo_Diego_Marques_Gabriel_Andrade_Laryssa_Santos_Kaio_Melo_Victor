@@ -754,7 +754,10 @@ def gerar_tabela_csv(
     comparacoes_por_configuracao = {
         resumos[0]["configuracao"]: f"{relatorio_linear['total_comparacoes_termos']} comparações termo-a-termo",
         resumos[1]["configuracao"]: f"{relatorio_indexada['total_postings_consultadas']} postings consultadas",
-        resumos[2]["configuracao"]: f"{ordenacao['num_comparacoes_totais']} comparações de score",
+        resumos[2]["configuracao"]: (
+            f"{ordenacao['num_comparacoes_score']} comparações de score + "
+            f"{ordenacao['num_comparacoes_id_chunk']} desempates por id_chunk"
+        ),
     }
     tempo_busca_por_configuracao = {
         resumos[0]["configuracao"]: relatorio_linear["tempo_busca_segundos"] * 1000,

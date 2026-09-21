@@ -24,7 +24,11 @@ As apresentações estão em desenvolvimento e serão atualizadas com os resulta
 
 ## Vídeo da atividade
 
-**URL pública:** **A PRODUZIR**.
+**URL pública:** **A PRODUZIR** — a URL definitiva deve ser registrada neste
+ponto, em [`VIDEO.md`](VIDEO.md) e na capa do relatório em PDF, conforme a
+Seção 11 do enunciado. O arquivo [`VIDEO.md`](VIDEO.md) já contém os campos de
+URL, data de gravação e identificação dos participantes, além do roteiro
+sugerido para caber em 10 minutos.
 
 ## Status dos entregáveis
 
@@ -37,13 +41,50 @@ As apresentações estão em desenvolvimento e serão atualizadas com os resulta
 | Etapa 4 — busca lexical e ordenação | Concluído — 14 testes automatizados |
 | Etapa 5 — baterias experimentais | Concluído — medição in-process |
 | Etapa 6 — tabela e gráficos | Concluído — 7 gráficos, 2 CSVs |
-| Etapa 7 — análise assintótica (item 7.1 do edital) | Concluído — 8 etapas do pipeline |
+| Etapa 7 — análise assintótica do pipeline | Concluído — 8 etapas medidas |
+| Etapa 8 — robustez, taxa de falhas e baseline de ordenação | Concluído — 18 execuções, 0 falhas |
 | Aplicação web (React + Vite) | Concluído — `vite build` e `tsc --noEmit` sem erros |
+| Análise de corretude e complexidade | Concluído — `ANALISE_CORRETUDE_COMPLEXIDADE.md` |
+| Relação com IA generativa e RAG | Concluído — `RAG_GENAI.md` |
+| Declaração de uso de IA generativa | Concluído — `DECLARACAO_IA.md` |
+| Tabela de contribuição individual | Concluído — `CONTRIBUICOES.md` |
+| Licença | Concluído — `LICENSE` |
 | Relatório técnico | **A PRODUZIR** — documento no Google Docs; falta exportar o PDF |
 | Apresentação | **A PRODUZIR** — slides no Google Drive, em revisão |
 | Vídeo da atividade | **A PRODUZIR** — a gravar |
 
 Os três itens finais dependem de produção humana (redação final, ensaio e gravação) e são os únicos pendentes para a entrega.
+
+## Documentação complementar
+
+| Documento | Conteúdo |
+|---|---|
+| [`ANALISE_CORRETUDE_COMPLEXIDADE.md`](ANALISE_CORRETUDE_COMPLEXIDADE.md) | Definição formal do problema, invariantes de laço, indução, modelo RAM, melhor/pior/caso médio, recorrências e complexidade de espaço |
+| [`RAG_GENAI.md`](RAG_GENAI.md) | Uso do contexto recuperado por uma aplicação RAG: montagem do prompt, impacto de k e do chunking, relevância lexical vs. semântica, riscos de recuperação e trade-offs |
+| [`DECLARACAO_IA.md`](DECLARACAO_IA.md) | Ferramenta e modelo, finalidade, prompts, sugestões aproveitadas/corrigidas/rejeitadas, erros identificados e verificação aplicada |
+| [`CONTRIBUICOES.md`](CONTRIBUICOES.md) | Contribuição individual apurada a partir do histórico Git, por integrante e por etapa |
+| [`VIDEO.md`](VIDEO.md) | Dados do vídeo (URL, data de gravação, participantes) e roteiro de gravação |
+| [`LICENSE`](LICENSE) | Licença MIT para o código da equipe; condições de uso do corpus |
+
+## Conformidade com os entregáveis da Seção 10 do enunciado
+
+| # | Entregável exigido | Onde está neste repositório | Situação |
+|---|---|---|---|
+| 1 | Relatório técnico em PDF | Documento no Google Docs (ver [Relatório técnico](#relatório-técnico)) | **A PRODUZIR** |
+| 2 | Código-fonte e instruções de execução | `1_scripts/`, `src/`, seções [Execução](#execução) e [Reprodução](#reprodução) | Concluído |
+| 3 | README.md com dependências, ambiente, comandos, parâmetros e reprodução | Este arquivo | Concluído |
+| 4 | Corpus, subconjunto permitido ou script de obtenção | `2_corpus/`, seção [Corpus](#corpus) com URLs oficiais | Concluído |
+| 5 | Scripts de pré-processamento, ordenação, busca e medição | `1_scripts/1` a `1_scripts/8` | Concluído |
+| 6 | Dados brutos, tabelas e gráficos dos experimentos | `3_dados/`, `4_chunks/`, `5_indexacao/`, `6_busca_lexical/`, `7_resultados/` | Concluído |
+| 7 | Casos de teste e resultados esperados | [`1_scripts/test_etapa_4.py`](1_scripts/test_etapa_4.py) — 14 testes; seção [Testes](#testes) | Concluído |
+| 8 | Prova ou justificativa de corretude | [`ANALISE_CORRETUDE_COMPLEXIDADE.md`](ANALISE_CORRETUDE_COMPLEXIDADE.md) | Concluído |
+| 9 | Declaração de Uso de IA Generativa | [`DECLARACAO_IA.md`](DECLARACAO_IA.md) | Concluído |
+| 10 | Tabela de contribuição individual dos integrantes | [`CONTRIBUICOES.md`](CONTRIBUICOES.md) | Concluído |
+| 11 | Apresentação em PDF ou slides | Slides no Google Drive (ver [Apresentação](#apresentação)) | **A PRODUZIR** |
+| 12 | URL funcional do vídeo (Seção 11) | `VIDEO.md`, esta seção [Vídeo da atividade](#vídeo-da-atividade) e o relatório em PDF | **A PRODUZIR** |
+
+Os três itens pendentes (1, 11 e 12) dependem de produção humana e não podem ser
+gerados a partir do código.
 
 ## Estrutura do repositório
 
@@ -54,7 +95,14 @@ Os três itens finais dependem de produção humana (redação final, ensaio e g
 - `4_chunks/`: segmentação de texto com janelamento deslizante e sobreposição; chunks prontos para indexação (`chunks.json`) e relatório estatístico da etapa (`relatorio_chunking.json`).
 - `5_indexacao/`: índice invertido (`indice_invertido.json`) e relatório da indexação (`relatorio_indexacao.json`).
 - `6_busca_lexical/`: candidatos com scores gerados (`candidatos_busca.json` na busca indexada e `candidatos_linear.json` na busca linear), métricas das duas buscas (`relatorio_busca.json` e `relatorio_busca_linear.json`), candidatos ordenados pelo Merge Sort (`candidatos_ordenados.json`), Top-k (`candidatos_topk.json`) e contadores da ordenação (`relatorio_ordenacao.json`).
-- `7_resultados/`: relatório consolidado das baterias experimentais (`relatorio_experimentos.json`), tabela consolidada (`tabela_resultados.csv`), análise assintótica do pipeline (`analise_assintotica.json` e `tabela_analise_assintotica.csv`) e os gráficos dos resultados (`grafico_tempo_execucao.png`, `grafico_busca_comparativo.png`, `grafico_escalabilidade_merge_sort.png`, `grafico_zipf.png`, `grafico_memoria_configuracoes.png`, `grafico_etapas_pipeline.png` e `grafico_analise_assintotica.png`).
+- `7_resultados/`: relatório consolidado das baterias experimentais (`relatorio_experimentos.json`), tabela consolidada (`tabela_resultados.csv`), análise assintótica do pipeline (`analise_assintotica.json` e `tabela_analise_assintotica.csv`), avaliação de robustez e *baseline* de ordenação (`avaliacao_robustez.json`, `tabela_robustez.csv` e `tabela_baseline_ordenacao.csv`) e os gráficos dos resultados (`grafico_tempo_execucao.png`, `grafico_busca_comparativo.png`, `grafico_escalabilidade_merge_sort.png`, `grafico_zipf.png`, `grafico_memoria_configuracoes.png`, `grafico_etapas_pipeline.png` e `grafico_analise_assintotica.png`).
+- `src/`: aplicação web em React + Vite que consulta os artefatos já versionados em `public/data/`.
+- `ANALISE_CORRETUDE_COMPLEXIDADE.md`: justificativa de corretude, análise no modelo RAM, melhor/pior/caso médio, recorrências e complexidade de espaço.
+- `RAG_GENAI.md`: relação do contexto recuperado com aplicações RAG e IA generativa.
+- `DECLARACAO_IA.md`: declaração de uso crítico de IA generativa.
+- `CONTRIBUICOES.md`: contribuição individual dos integrantes.
+- `VIDEO.md`: dados e roteiro do vídeo da atividade.
+- `LICENSE`: licença do código e condições de uso do corpus.
 
 ## Resultados principais
 
@@ -66,7 +114,22 @@ Medições in-process, em Windows 11 (AMD64) com Python 3.14.7:
 | 2 — Busca indexada (Okapi BM25) | 3,65 ms | 2,57 ms |
 | 3 — Indexada + Merge Sort Top-k | 2,70 ms | 3,37 ms |
 
-A busca indexada é cerca de **11× mais rápida** que a linear no corpus integral e, o que é o ponto central, é a única que praticamente não escala com o tamanho do corpus: reduzir o corpus à metade quase não altera seu tempo (3,65 → 2,57 ms), enquanto a busca linear cai para pouco mais da metade (41,46 → 23,13 ms), como esperado de um custo Θ(n). A configuração 3 acrescenta ao índice o custo do Merge Sort, que ordena os 75 candidatos do corpus integral em cerca de 0,52 ms (369 comparações de score). O artefato isolado da Etapa 4, que ordena os mesmos 75 candidatos, registra 351 comparações — a diferença vem dos 18 empates de score, resolvidos de forma distinta conforme a ordem em que os candidatos chegam.
+A busca indexada é cerca de **11× mais rápida** que a linear no corpus integral e, o que é o ponto central, é a única que praticamente não escala com o tamanho do corpus: reduzir o corpus à metade quase não altera seu tempo (3,65 → 2,57 ms), enquanto a busca linear cai para pouco mais da metade (41,46 → 23,13 ms), como esperado de um custo Θ(n). A configuração 3 acrescenta ao índice o custo do Merge Sort, que ordena os 75 candidatos do corpus integral em cerca de 0,52 ms e executa **369 comparações** — 351 comparações de score e 18 desempates por `id_chunk`. O artefato isolado da Etapa 4 (`6_busca_lexical/relatorio_ordenacao.json`), que ordena exatamente os mesmos 75 candidatos, registra os mesmos 369, porque as duas contagens incluem o desempate.
+
+Por que 18 desempates: os 75 candidatos produzem **61 scores distintos**, o que significa que **14 candidatos compartilham o score com outro** (18,7% do conjunto), em 7 grupos de scores repetidos — com multiplicidades 5, 3, 3, 3, 3, 2 e 2. Ao longo das fusões, o Merge Sort cai 18 vezes no ramo de igualdade de score; como o score é igual, cada uma dessas 18 comparações é resolvida pelo `id_chunk`, o que produz exatamente `num_comparacoes_score = 351` e `num_comparacoes_id_chunk = 18`. Os 18 desempates e os 14 candidatos duplicados são grandezas diferentes: a primeira conta *comparações*, a segunda conta *elementos*.
+
+A Etapa 8 fecha a verificação de ordenação contra a biblioteca de referência, como pede a Seção 5.2, item 5. Sobre os mesmos 75 candidatos reais (valores da execução registrada em `7_resultados/avaliacao_robustez.json`):
+
+| Implementação | Tempo (mediana) | Ordem final | Top-5 |
+|---|---|---|---|
+| `merge_sort` da equipe | 0,3390 ms | — | — |
+| `sorted()` (Timsort) | 0,0282 ms | idêntica | idêntico |
+| `heapq.nsmallest` | 0,0290 ms | idêntica | idêntico |
+
+A razão entre a referência e a implementação da equipe é 0,0832 — ou seja, o Timsort é cerca de 12× mais rápido, o que é o esperado de um algoritmo de biblioteca escrito em C contra uma implementação em Python puro. O ponto que a comparação estabelece não é desempenho, e sim **equivalência de resultado**: a ordem completa e o Top-5 coincidem. A varredura sintética de 75 a 4 800 elementos confirma o mesmo em todas as 7 ordens de grandeza. Os tempos absolutos variam entre execuções (a medição é feita em máquina compartilhada); as contagens de comparações, movimentações e chamadas recursivas, essas, são determinísticas.
+
+A bateria de robustez da Etapa 8 cobre a exigência de "taxa de falhas, resultados vazios ou itens irrelevantes" da Seção 7.3: 9 consultas em 2 configurações, 18 execuções, **0 falhas (0,0%)** e 5 resultados vazios (55,6%). Os 5 vazios são todos consultas construídas para serem patológicas — string vazia, apenas espaços, apenas pontuação, apenas stopwords e termos fora do vocabulário —, e a consulta mista ("de bolsas xilofone") ainda devolve resultados ao descartar o termo estranho. A mesma bateria confirma que a busca linear e a busca indexada devolvem **o mesmo Top-k** nas 9 consultas.
+
 
 Os valores absolutos variam entre execuções por causa da contenção da máquina, mas o ranking entre as configurações é estável — é ele que sustenta a conclusão, não os milissegundos exatos. As medianas por configuração e o desvio-padrão de cada carga estão em `7_resultados/tabela_resultados.csv`.
 
@@ -135,7 +198,7 @@ python 1_scripts/4_buscar_e_ordenar.py --consulta "critérios para atribuição 
 python 1_scripts/4_buscar_e_ordenar.py --metrica bm25 --k1 1.2 --b 0.75
 
 # Indicando nome de arquivo customizado de saída:
-python 1_scripts/4_buscar_e_ordenar.py --saida-candidatos 6_busca_lexical/minha_busca.json --relatorio 6_busca_lexical/meu_relatorio.json
+python 1_scripts/4_buscar_e_ordenar.py --saida-candidatos 6_busca_lexical/minha_busca.json --relatorio-busca 6_busca_lexical/meu_relatorio.json
 
 # Execuções alternativas para comparação/benchmarking (gerando linear ou ambos):
 python 1_scripts/4_buscar_e_ordenar.py --modo linear
@@ -147,15 +210,36 @@ Etapa 5 — Experimentos comparativos (matriz de configurações × cargas × re
 python 1_scripts/5_experimentar.py
 ```
 
-Etapa 6 — Tabela consolidada, gráficos dos resultados e consolidação da análise assintótica:
+Etapa 7 — Análise assintótica do pipeline:
+```bash
+python 1_scripts/7_analise_assintotica.py
+```
+
+Etapa 8 — Robustez, taxa de falhas e *baseline* de ordenação (Seção 7.3 e Seção 5.2, item 5, do enunciado):
+```bash
+python 1_scripts/8_avaliar_robustez.py
+```
+
+Etapa 6 — Tabela consolidada e gráficos dos resultados (executar por último, pois consolida as saídas das etapas 1 a 5 e 7):
 ```bash
 python 1_scripts/6_gerar_graficos.py
 ```
 
-Etapa 7 — Análise assintótica do pipeline (item 7.1 do edital):
-```bash
-python 1_scripts/7_analise_assintotica.py
-```
+A Etapa 8 é **aditiva e somente leitura** sobre os artefatos das etapas 1 a 4:
+não regrava nenhum arquivo produzido por elas. Ela produz duas evidências que
+faltavam:
+
+1. **Bateria de robustez** — 9 consultas (relevante, string vazia, apenas
+   espaços, apenas pontuação, apenas stopwords, fora do vocabulário e uma mista)
+   executadas nas duas configurações de busca: 18 execuções, **0 falhas** e 5
+   resultados vazios — todos correspondentes às consultas patológicas
+   construídas de propósito. Também confirma que a busca linear e a indexada
+   devolvem **o mesmo Top-k** nas 9 consultas.
+2. ***Baseline* de ordenação contra a biblioteca de referência** — o `merge_sort`
+   da equipe é comparado, na **mesma** lista de 75 candidatos reais e em
+   varreduras sintéticas de 75 a 4 800 elementos, com `sorted()` (Timsort) e com
+   `heapq.nsmallest`. Em todas as ordens de grandeza testadas a ordem final e o
+   Top-5 são idênticos aos das duas referências.
 
 Como o protocolo de medição é o ponto mais delicado do trabalho, vale registrar as decisões:
 
@@ -231,14 +315,45 @@ A Etapa 5 gera `7_resultados/relatorio_experimentos.json` (tempo, pico de memór
   - `--saida`: arquivo JSON de saída com as medições e ajustes (padrão: `7_resultados/analise_assintotica.json`).
   - `--grafico`: arquivo PNG com as curvas medidas e os modelos ajustados (padrão: `7_resultados/grafico_analise_assintotica.png`).
 
+- `1_scripts/8_avaliar_robustez.py`:
+  - `--chunks`: chunks da Etapa 2 (padrão: `4_chunks/chunks.json`).
+  - `--indice`: índice invertido da Etapa 3 (padrão: `5_indexacao/indice_invertido.json`).
+  - `--candidatos`: artefato de candidatos da Etapa 4 usado como carga real da comparação de ordenação (padrão: `6_busca_lexical/candidatos_busca.json`).
+  - `--consulta`: consulta usada nas consultas de robustez marcadas como relevantes (padrão: `"critérios para atribuição de bolsas"`).
+  - `--k`: tamanho do Top-k (padrão: `5`).
+  - `--repeticao`: repetições internas por medição de tempo (padrão: `5`).
+  - `--pontos`: quantidade de pontos da varredura de escala sintética (padrão: `7`).
+  - `--semente`: semente das cargas sintéticas, para reprodutibilidade (padrão: `20260923`).
+  - `--saida`: JSON consolidado de saída (padrão: `7_resultados/avaliacao_robustez.json`).
+  - `--tabela-robustez`: CSV da taxa de falhas e de resultados vazios (padrão: `7_resultados/tabela_robustez.csv`).
+  - `--tabela-baseline`: CSV do *baseline* de ordenação (padrão: `7_resultados/tabela_baseline_ordenacao.csv`).
+
 ## Reprodução
 
 1. Obter ou utilizar os PDFs do diretório `2_corpus/`.
 2. Preparar o ambiente conforme as seções acima.
-3. Executar os comandos do pipeline (etapas 1 a 4), depois os experimentos (etapa 5), a análise assintótica (etapa 7) e, por fim, a consolidação (etapa 6).
+3. Executar os comandos do pipeline (etapas 1 a 4), depois os experimentos (etapa 5), a análise assintótica (etapa 7), a avaliação de robustez (etapa 8) e, por fim, a consolidação (etapa 6).
 4. Conferir os resultados, tabelas, gráficos e dados brutos gerados.
 
 Todas as medições de tempo devem ser feitas no **mesmo ambiente**. Os valores registrados em `relatorio_experimentos.json` e nos gráficos foram obtidos em Windows 11 (AMD64) com Python 3.14.7; misturar máquinas ou versões invalida a comparação entre configurações.
+
+## Testes
+
+```bash
+python -m pytest 1_scripts/test_etapa_4.py
+```
+
+A suíte cobre a corretude da ordenação, o critério de desempate
+`(−score, id_chunk)`, a contagem de comparações, a seleção do Top-k e os casos
+de borda (lista vazia, `k` igual a 1, `k` maior que o número de candidatos e
+empates totais). Resultado esperado: **14 testes aprovados**.
+
+Os "resultados esperados" dos experimentos estão nos artefatos versionados em
+`7_resultados/`, e a verificação de que eles não são apenas plausíveis mas
+**reproduzíveis** é feita por conferência aritmética entre contadores: a soma
+`comparacoes_score + comparacoes_id_chunk` deve igualar `comparacoes_totais`
+(351 + 18 = 369), o número de chamadas recursivas deve ser `2n − 1` (149 para
+n = 75) e a profundidade máxima deve ser `1 + ⌈log₂ n⌉` (8 para n = 75).
 
 ## Corpus
 
@@ -247,9 +362,12 @@ Corpus normativo e orientativo público do PROCC/UFS e normas correlatas. Uso ex
 - **Acesso/download:** 02/09/2026, às 21h10.
 - **Quantidade:** 7 documentos, 83 páginas e aproximadamente 4,50 MB.
 - **Idioma/formato:** português brasileiro; arquivos PDF.
-- **Dados removidos ou anonimizados:** nenhum.
+- **Licença e condições de uso:** os PDFs são **documentos institucionais públicos**, publicados pelo próprio PROCC/UFS em seus canais oficiais (SIGAA) e pelo Edital CAPES, e são utilizados aqui **exclusivamente para fins acadêmicos e não comerciais**, sem redistribuição com finalidade comercial. Eles **não** estão cobertos pela licença MIT que se aplica ao código da equipe: a licença do repositório cobre apenas os scripts e artefatos produzidos pelo grupo, e cada documento permanece sujeito às condições do órgão emissor. As URLs oficiais de origem constam da tabela abaixo, o que permite verificar a procedência de cada arquivo. Ver [`LICENSE`](LICENSE).
+- **Dados removidos ou anonimizados:** nenhum — o corpus é composto por atos normativos públicos, sem dados pessoais.
 - **Limpeza e normalização:** Unicode NFC, quebras de linha, espaços repetidos e hifenização entre linhas; texto original preservado.
 - **Chunking:** janelamento deslizante contínuo de 200 palavras por documento, com overlap de 30 palavras entre chunks consecutivos (passo de 170 palavras). Total de 182 chunks, com média de 196,85 palavras/chunk: 175 chunks atingem a janela cheia de 200 palavras e apenas 7 são menores (o menor tem 64), por serem o último chunk de um documento. Os chunks são extraídos do fluxo contínuo de texto, portanto o overlap de 30 palavras também ocorre entre chunks de uma mesma página; 80 chunks (43,96%) atravessam fronteiras de página.
+- **Riscos de viés, qualidade ou cobertura:** o corpus é **pequeno e tematicamente concentrado** em normas do PROCC/UFS sobre bolsas, credenciamento e estrutura curricular. Consequências observáveis: (i) assuntos ausentes do corpus são irrecuperáveis por qualquer consulta, e o sistema não distingue "não existe" de "não encontrei"; (ii) o Top-5 da consulta de referência traz **4 dos 5 chunks de apenas 2 documentos**, o que concentra o contexto recuperado e pode enviesar uma resposta gerada a partir dele; (iii) a relevância é **lexical**, de modo que consultas formuladas com vocabulário diferente do normativo ("auxílio" em vez de "bolsa") têm cobertura pior; (iv) uma página de `Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf` é apenas imagem, sem camada de texto, e seu conteúdo é irrecuperável — a ocorrência está registrada em `3_dados/relatorio_processamento.json`; (v) todo o material é pt-BR, e consultas em outro idioma produzem zero resultados.
+- **Limitações para generalização dos resultados:** os tempos e as contagens deste trabalho caracterizam **este** corpus, com N = 182 chunks e vocabulário de 4 061 termos. O comportamento assintótico é geral, mas os valores absolutos não se transferem para outros conjuntos — em particular, o tempo de consulta indexada depende do número de candidatos `n_c`, que aqui é 75 (corpus integral) e 32 (metade do corpus), e não do tamanho do corpus. Além disso, `n_c` cresce com a cobertura terminológica da consulta, de modo que uma consulta com termos muito comuns pode elevar `n_c` bem acima de 75 e alterar o custo relativo das configurações. Por fim, não há conjunto de relevância anotado, o que impede reportar Precision@k e limita as conclusões à eficiência, não à qualidade da recuperação.
 
 | Documento | URL oficial |
 |---|---|
@@ -270,4 +388,22 @@ Interface web interativa desenvolvida para busca, recuperação e ordenação de
 
 > A publicação é feita na **Vercel** pelo workflow [`.github/workflows/deploy-vercel.yml`](.github/workflows/deploy-vercel.yml) a cada push em `main`.
 > O **GitHub Pages não é utilizado**: o `index.html` da raiz é o arquivo de desenvolvimento do Vite e, quando servido estaticamente (por exemplo, pelos forks), aponta para `/src/main.tsx` e resulta em página em branco.
+
+## Licença
+
+O **código-fonte** deste repositório (scripts em `1_scripts/`, aplicação web em
+`src/`, *notebook* e documentação produzida pela equipe) está licenciado sob a
+**Licença MIT** — ver [`LICENSE`](LICENSE).
+
+Os **PDFs do corpus** em `2_corpus/` **não** estão cobertos por essa licença:
+são documentos institucionais públicos, publicados pelos próprios órgãos
+emissores, e são utilizados neste trabalho exclusivamente para fins acadêmicos e
+não comerciais. As URLs oficiais de origem estão na seção [Corpus](#corpus), o
+que permite verificar a procedência de cada arquivo.
+
+Este repositório não contém chaves, senhas, tokens ou dados pessoais. Arquivos
+grandes (PDFs do corpus e `node_modules/`) são controlados por `.gitignore`, e as
+instruções para obtê-los ou reproduzi-los estão nas seções
+[Instalação](#instalação), [Execução](#execução) e [Reprodução](#reprodução).
+
 

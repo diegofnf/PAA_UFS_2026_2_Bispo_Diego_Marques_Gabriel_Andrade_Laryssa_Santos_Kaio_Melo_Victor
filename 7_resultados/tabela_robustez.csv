@@ -1,0 +1,19 @@
+categoria;consulta;configuracao;status;total_candidatos;resultados_retornados;resultado_vazio;erro
+relevante;critérios para atribuição de bolsas;linear;sucesso;54;5;nao;
+relevante;critérios para atribuição de bolsas;indexada_com_merge_sort;sucesso;54;5;nao;
+relevante;aproveitamento de estudos;linear;sucesso;18;5;nao;
+relevante;aproveitamento de estudos;indexada_com_merge_sort;sucesso;18;5;nao;
+relevante;estrutura curricular do mestrado;linear;sucesso;57;5;nao;
+relevante;estrutura curricular do mestrado;indexada_com_merge_sort;sucesso;57;5;nao;
+nula;;linear;sucesso;0;0;sim;
+nula;;indexada_com_merge_sort;sucesso;0;0;sim;
+nula;   ;linear;sucesso;0;0;sim;
+nula;   ;indexada_com_merge_sort;sucesso;0;0;sim;
+nula;!!! ??? ---;linear;sucesso;0;0;sim;
+nula;!!! ??? ---;indexada_com_merge_sort;sucesso;0;0;sim;
+apenas_stopwords;de da do para com os as um uma;linear;sucesso;0;0;sim;
+apenas_stopwords;de da do para com os as um uma;indexada_com_merge_sort;sucesso;0;0;sim;
+fora_do_vocabulario;xilofone quântico blockchain astrofísica;linear;sucesso;0;0;sim;
+fora_do_vocabulario;xilofone quântico blockchain astrofísica;indexada_com_merge_sort;sucesso;0;0;sim;
+mista;de bolsas xilofone;linear;sucesso;22;5;nao;
+mista;de bolsas xilofone;indexada_com_merge_sort;sucesso;22;5;nao;

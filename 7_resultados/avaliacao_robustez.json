@@ -1,0 +1,527 @@
+{
+  "metadados": {
+    "etapa": 8,
+    "objetivo": "Robustez, taxa de falhas e baseline de referência (Seções 5.1, 5.2 item 5 e 7.3 do edital).",
+    "gerado_em": "2026-09-21 11:41:32",
+    "sistema_operacional": "Windows 11",
+    "arquitetura": "AMD64",
+    "versao_python": "3.14.7",
+    "interpretador": "C:\\Users\\victo.000\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "artefatos_de_entrada": {
+      "chunks": "D:\\1 - PROCC\\1-Disciplinas\\Semestre-2\\PROJETO E ANÁLISE DE ALGORITMOS\\PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor\\4_chunks\\chunks.json",
+      "indice_invertido": "D:\\1 - PROCC\\1-Disciplinas\\Semestre-2\\PROJETO E ANÁLISE DE ALGORITMOS\\PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor\\5_indexacao\\indice_invertido.json",
+      "candidatos_etapa_4": "D:\\1 - PROCC\\1-Disciplinas\\Semestre-2\\PROJETO E ANÁLISE DE ALGORITMOS\\PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor\\6_busca_lexical\\candidatos_busca.json"
+    },
+    "k": 5,
+    "repeticao_interna_por_medicao": 5,
+    "semente_cargas_sinteticas": 20260923,
+    "baselines_de_referencia": [
+      "sorted() — Timsort da biblioteca padrão do Python (ordenação completa)",
+      "heapq.nsmallest() — seleção Top-k por heap da biblioteca padrão do Python"
+    ],
+    "nota_metodologica": "As duas referências são usadas apenas como baseline de comparação. A ordenação entregue pelo pipeline é o Merge Sort implementado pela equipe em 1_scripts/4_buscar_e_ordenar.py, que não usa sorted() nem list.sort(). As cargas sintéticas da varredura servem exclusivamente para comparar os algoritmos entre si sobre a mesma entrada."
+  },
+  "robustez": {
+    "k": 5,
+    "total_consultas_bateria": 9,
+    "consultas": [
+      {
+        "categoria": "relevante",
+        "consulta": "critérios para atribuição de bolsas",
+        "configuracoes": {
+          "linear": {
+            "modo": "linear",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 54,
+            "resultados_retornados": 5,
+            "aviso": null,
+            "top_k_ids": [
+              "chunk_0131",
+              "chunk_0013",
+              "chunk_0169",
+              "chunk_0018",
+              "chunk_0017"
+            ],
+            "comparacoes_merge_sort": 258,
+            "resultado_vazio": false
+          },
+          "indexada_com_merge_sort": {
+            "modo": "indexada",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 54,
+            "resultados_retornados": 5,
+            "aviso": null,
+            "top_k_ids": [
+              "chunk_0131",
+              "chunk_0013",
+              "chunk_0169",
+              "chunk_0018",
+              "chunk_0017"
+            ],
+            "comparacoes_merge_sort": 263,
+            "resultado_vazio": false
+          }
+        },
+        "top_k_equivalente_entre_configuracoes": true
+      },
+      {
+        "categoria": "relevante",
+        "consulta": "aproveitamento de estudos",
+        "configuracoes": {
+          "linear": {
+            "modo": "linear",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 18,
+            "resultados_retornados": 5,
+            "aviso": null,
+            "top_k_ids": [
+              "chunk_0141",
+              "chunk_0066",
+              "chunk_0142",
+              "chunk_0103",
+              "chunk_0104"
+            ],
+            "comparacoes_merge_sort": 54,
+            "resultado_vazio": false
+          },
+          "indexada_com_merge_sort": {
+            "modo": "indexada",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 18,
+            "resultados_retornados": 5,
+            "aviso": null,
+            "top_k_ids": [
+              "chunk_0141",
+              "chunk_0066",
+              "chunk_0142",
+              "chunk_0103",
+              "chunk_0104"
+            ],
+            "comparacoes_merge_sort": 52,
+            "resultado_vazio": false
+          }
+        },
+        "top_k_equivalente_entre_configuracoes": true
+      },
+      {
+        "categoria": "relevante",
+        "consulta": "estrutura curricular do mestrado",
+        "configuracoes": {
+          "linear": {
+            "modo": "linear",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 57,
+            "resultados_retornados": 5,
+            "aviso": null,
+            "top_k_ids": [
+              "chunk_0127",
+              "chunk_0037",
+              "chunk_0126",
+              "chunk_0039",
+              "chunk_0129"
+            ],
+            "comparacoes_merge_sort": 268,
+            "resultado_vazio": false
+          },
+          "indexada_com_merge_sort": {
+            "modo": "indexada",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 57,
+            "resultados_retornados": 5,
+            "aviso": null,
+            "top_k_ids": [
+              "chunk_0127",
+              "chunk_0037",
+              "chunk_0126",
+              "chunk_0039",
+              "chunk_0129"
+            ],
+            "comparacoes_merge_sort": 269,
+            "resultado_vazio": false
+          }
+        },
+        "top_k_equivalente_entre_configuracoes": true
+      },
+      {
+        "categoria": "nula",
+        "consulta": "",
+        "configuracoes": {
+          "linear": {
+            "modo": "linear",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 0,
+            "resultados_retornados": 0,
+            "aviso": "Consulta vazia ou composta exclusivamente por stopwords / caracteres não alfanuméricos.",
+            "top_k_ids": [],
+            "comparacoes_merge_sort": 0,
+            "resultado_vazio": true
+          },
+          "indexada_com_merge_sort": {
+            "modo": "indexada",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 0,
+            "resultados_retornados": 0,
+            "aviso": "Consulta vazia ou composta exclusivamente por stopwords / caracteres não alfanuméricos.",
+            "top_k_ids": [],
+            "comparacoes_merge_sort": 0,
+            "resultado_vazio": true
+          }
+        },
+        "top_k_equivalente_entre_configuracoes": true
+      },
+      {
+        "categoria": "nula",
+        "consulta": "   ",
+        "configuracoes": {
+          "linear": {
+            "modo": "linear",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 0,
+            "resultados_retornados": 0,
+            "aviso": "Consulta vazia ou composta exclusivamente por stopwords / caracteres não alfanuméricos.",
+            "top_k_ids": [],
+            "comparacoes_merge_sort": 0,
+            "resultado_vazio": true
+          },
+          "indexada_com_merge_sort": {
+            "modo": "indexada",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 0,
+            "resultados_retornados": 0,
+            "aviso": "Consulta vazia ou composta exclusivamente por stopwords / caracteres não alfanuméricos.",
+            "top_k_ids": [],
+            "comparacoes_merge_sort": 0,
+            "resultado_vazio": true
+          }
+        },
+        "top_k_equivalente_entre_configuracoes": true
+      },
+      {
+        "categoria": "nula",
+        "consulta": "!!! ??? ---",
+        "configuracoes": {
+          "linear": {
+            "modo": "linear",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 0,
+            "resultados_retornados": 0,
+            "aviso": "Consulta vazia ou composta exclusivamente por stopwords / caracteres não alfanuméricos.",
+            "top_k_ids": [],
+            "comparacoes_merge_sort": 0,
+            "resultado_vazio": true
+          },
+          "indexada_com_merge_sort": {
+            "modo": "indexada",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 0,
+            "resultados_retornados": 0,
+            "aviso": "Consulta vazia ou composta exclusivamente por stopwords / caracteres não alfanuméricos.",
+            "top_k_ids": [],
+            "comparacoes_merge_sort": 0,
+            "resultado_vazio": true
+          }
+        },
+        "top_k_equivalente_entre_configuracoes": true
+      },
+      {
+        "categoria": "apenas_stopwords",
+        "consulta": "de da do para com os as um uma",
+        "configuracoes": {
+          "linear": {
+            "modo": "linear",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 0,
+            "resultados_retornados": 0,
+            "aviso": "Consulta vazia ou composta exclusivamente por stopwords / caracteres não alfanuméricos.",
+            "top_k_ids": [],
+            "comparacoes_merge_sort": 0,
+            "resultado_vazio": true
+          },
+          "indexada_com_merge_sort": {
+            "modo": "indexada",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 0,
+            "resultados_retornados": 0,
+            "aviso": "Consulta vazia ou composta exclusivamente por stopwords / caracteres não alfanuméricos.",
+            "top_k_ids": [],
+            "comparacoes_merge_sort": 0,
+            "resultado_vazio": true
+          }
+        },
+        "top_k_equivalente_entre_configuracoes": true
+      },
+      {
+        "categoria": "fora_do_vocabulario",
+        "consulta": "xilofone quântico blockchain astrofísica",
+        "configuracoes": {
+          "linear": {
+            "modo": "linear",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 0,
+            "resultados_retornados": 0,
+            "aviso": null,
+            "top_k_ids": [],
+            "comparacoes_merge_sort": 0,
+            "resultado_vazio": true
+          },
+          "indexada_com_merge_sort": {
+            "modo": "indexada",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 0,
+            "resultados_retornados": 0,
+            "aviso": null,
+            "top_k_ids": [],
+            "comparacoes_merge_sort": 0,
+            "resultado_vazio": true
+          }
+        },
+        "top_k_equivalente_entre_configuracoes": true
+      },
+      {
+        "categoria": "mista",
+        "consulta": "de bolsas xilofone",
+        "configuracoes": {
+          "linear": {
+            "modo": "linear",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 22,
+            "resultados_retornados": 5,
+            "aviso": null,
+            "top_k_ids": [
+              "chunk_0018",
+              "chunk_0017",
+              "chunk_0026",
+              "chunk_0102",
+              "chunk_0104"
+            ],
+            "comparacoes_merge_sort": 73,
+            "resultado_vazio": false
+          },
+          "indexada_com_merge_sort": {
+            "modo": "indexada",
+            "status": "sucesso",
+            "erro": null,
+            "total_candidatos": 22,
+            "resultados_retornados": 5,
+            "aviso": null,
+            "top_k_ids": [
+              "chunk_0018",
+              "chunk_0017",
+              "chunk_0026",
+              "chunk_0102",
+              "chunk_0104"
+            ],
+            "comparacoes_merge_sort": 73,
+            "resultado_vazio": false
+          }
+        },
+        "top_k_equivalente_entre_configuracoes": true
+      }
+    ],
+    "sintese": {
+      "linear": {
+        "execucoes": 9,
+        "falhas_excecao": 0,
+        "resultados_vazios": 5,
+        "taxa_falhas": 0.0,
+        "taxa_resultados_vazios": 0.5556
+      },
+      "indexada_com_merge_sort": {
+        "execucoes": 9,
+        "falhas_excecao": 0,
+        "resultados_vazios": 5,
+        "taxa_falhas": 0.0,
+        "taxa_resultados_vazios": 0.5556
+      }
+    },
+    "todas_os_top_k_equivalentes": true
+  },
+  "baseline_ordenacao": {
+    "carga_real": {
+      "n": 75,
+      "k": 5,
+      "scores_distintos": 61,
+      "empates_score": 14,
+      "comparacoes_merge_sort": 369,
+      "comparacoes_score": 351,
+      "comparacoes_id_chunk": 18,
+      "movimentacoes_merge_sort": 472,
+      "chamadas_recursivas": 149,
+      "profundidade_maxima": 8,
+      "tempo_ms_merge_sort_equipe": 0.339,
+      "tempo_ms_sorted_timsort": 0.0282,
+      "tempo_ms_heapq_nsmallest": 0.029,
+      "razao_referencia_sobre_equipe": 0.0832,
+      "ordem_completa_identica_a_sorted": true,
+      "top_k_identico_a_sorted": true,
+      "top_k_identico_a_heapq": true
+    },
+    "varredura": [
+      {
+        "n": 75,
+        "k": 5,
+        "scores_distintos": 63,
+        "empates_score": 12,
+        "comparacoes_merge_sort": 388,
+        "comparacoes_score": 376,
+        "comparacoes_id_chunk": 12,
+        "movimentacoes_merge_sort": 472,
+        "chamadas_recursivas": 149,
+        "profundidade_maxima": 8,
+        "tempo_ms_merge_sort_equipe": 0.314,
+        "tempo_ms_sorted_timsort": 0.0271,
+        "tempo_ms_heapq_nsmallest": 0.0274,
+        "razao_referencia_sobre_equipe": 0.0863,
+        "ordem_completa_identica_a_sorted": true,
+        "top_k_identico_a_sorted": true,
+        "top_k_identico_a_heapq": true,
+        "carga": "sintetica"
+      },
+      {
+        "n": 150,
+        "k": 5,
+        "scores_distintos": 123,
+        "empates_score": 27,
+        "comparacoes_merge_sort": 921,
+        "comparacoes_score": 891,
+        "comparacoes_id_chunk": 30,
+        "movimentacoes_merge_sort": 1094,
+        "chamadas_recursivas": 299,
+        "profundidade_maxima": 9,
+        "tempo_ms_merge_sort_equipe": 0.7257,
+        "tempo_ms_sorted_timsort": 0.0592,
+        "tempo_ms_heapq_nsmallest": 0.0512,
+        "razao_referencia_sobre_equipe": 0.0816,
+        "ordem_completa_identica_a_sorted": true,
+        "top_k_identico_a_sorted": true,
+        "top_k_identico_a_heapq": true,
+        "carga": "sintetica"
+      },
+      {
+        "n": 300,
+        "k": 5,
+        "scores_distintos": 231,
+        "empates_score": 69,
+        "comparacoes_merge_sort": 2158,
+        "comparacoes_score": 2085,
+        "comparacoes_id_chunk": 73,
+        "movimentacoes_merge_sort": 2488,
+        "chamadas_recursivas": 599,
+        "profundidade_maxima": 10,
+        "tempo_ms_merge_sort_equipe": 1.6519,
+        "tempo_ms_sorted_timsort": 0.1346,
+        "tempo_ms_heapq_nsmallest": 0.0878,
+        "razao_referencia_sobre_equipe": 0.0815,
+        "ordem_completa_identica_a_sorted": true,
+        "top_k_identico_a_sorted": true,
+        "top_k_identico_a_heapq": true,
+        "carga": "sintetica"
+      },
+      {
+        "n": 600,
+        "k": 5,
+        "scores_distintos": 473,
+        "empates_score": 127,
+        "comparacoes_merge_sort": 4932,
+        "comparacoes_score": 4796,
+        "comparacoes_id_chunk": 136,
+        "movimentacoes_merge_sort": 5576,
+        "chamadas_recursivas": 1199,
+        "profundidade_maxima": 11,
+        "tempo_ms_merge_sort_equipe": 3.7543,
+        "tempo_ms_sorted_timsort": 0.3099,
+        "tempo_ms_heapq_nsmallest": 0.165,
+        "razao_referencia_sobre_equipe": 0.0825,
+        "ordem_completa_identica_a_sorted": true,
+        "top_k_identico_a_sorted": true,
+        "top_k_identico_a_heapq": true,
+        "carga": "sintetica"
+      },
+      {
+        "n": 1200,
+        "k": 5,
+        "scores_distintos": 911,
+        "empates_score": 289,
+        "comparacoes_merge_sort": 11104,
+        "comparacoes_score": 10790,
+        "comparacoes_id_chunk": 314,
+        "movimentacoes_merge_sort": 12352,
+        "chamadas_recursivas": 2399,
+        "profundidade_maxima": 12,
+        "tempo_ms_merge_sort_equipe": 9.7731,
+        "tempo_ms_sorted_timsort": 0.7026,
+        "tempo_ms_heapq_nsmallest": 0.3708,
+        "razao_referencia_sobre_equipe": 0.0719,
+        "ordem_completa_identica_a_sorted": true,
+        "top_k_identico_a_sorted": true,
+        "top_k_identico_a_heapq": true,
+        "carga": "sintetica"
+      },
+      {
+        "n": 2400,
+        "k": 5,
+        "scores_distintos": 1827,
+        "empates_score": 573,
+        "comparacoes_merge_sort": 24622,
+        "comparacoes_score": 24000,
+        "comparacoes_id_chunk": 622,
+        "movimentacoes_merge_sort": 27104,
+        "chamadas_recursivas": 4799,
+        "profundidade_maxima": 13,
+        "tempo_ms_merge_sort_equipe": 18.9299,
+        "tempo_ms_sorted_timsort": 1.3438,
+        "tempo_ms_heapq_nsmallest": 0.614,
+        "razao_referencia_sobre_equipe": 0.071,
+        "ordem_completa_identica_a_sorted": true,
+        "top_k_identico_a_sorted": true,
+        "top_k_identico_a_heapq": true,
+        "carga": "sintetica"
+      },
+      {
+        "n": 4800,
+        "k": 5,
+        "scores_distintos": 3498,
+        "empates_score": 1302,
+        "comparacoes_merge_sort": 54145,
+        "comparacoes_score": 52723,
+        "comparacoes_id_chunk": 1422,
+        "movimentacoes_merge_sort": 59008,
+        "chamadas_recursivas": 9599,
+        "profundidade_maxima": 14,
+        "tempo_ms_merge_sort_equipe": 64.1645,
+        "tempo_ms_sorted_timsort": 3.302,
+        "tempo_ms_heapq_nsmallest": 1.3552,
+        "razao_referencia_sobre_equipe": 0.0515,
+        "ordem_completa_identica_a_sorted": true,
+        "top_k_identico_a_sorted": true,
+        "top_k_identico_a_heapq": true,
+        "carga": "sintetica"
+      }
+    ],
+    "expoentes_log_log": {
+      "merge_sort_equipe_tempo": 1.25,
+      "sorted_timsort_tempo": 1.1493,
+      "heapq_nsmallest_tempo": 0.9332,
+      "merge_sort_equipe_comparacoes": 1.1864
+    },
+    "todas_as_ordens_identicas": true,
+    "todos_os_top_k_identicos": true
+  }
+}

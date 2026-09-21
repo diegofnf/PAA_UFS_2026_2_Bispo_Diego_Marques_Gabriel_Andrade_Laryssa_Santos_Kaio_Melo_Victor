@@ -1,15 +1,16 @@
 {
   "status_etapa": "concluido",
-  "tempo_ordenacao_segundos": 0.00033387499999999737,
+  "arquivo_candidatos_gerado": "6_busca_lexical\\candidatos_ordenados.json",
+  "tempo_ordenacao_segundos": 0.0008439000230282545,
   "num_candidatos_ordenados": 75,
   "num_top_k": 5,
   "k": 5,
-  "memoria_pico_bytes": 5408,
+  "memoria_pico_bytes": 1480,
   "num_movimentacoes": 472,
   "num_chamadas_recursivas": 149,
   "profundidade_maxima": 8,
   "num_empates_score": 18,
   "num_comparacoes_score": 351,
   "num_comparacoes_id_chunk": 18,
-  "num_comparacoes_totais": 351
+  "num_comparacoes_totais": 369
 }

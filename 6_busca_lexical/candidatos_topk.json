@@ -2,7 +2,7 @@
   "metadados": {
     "etapa": "4_busca_lexical_candidatos",
     "proxima_acao": "Resultados",
-    "tempo_ordenacao_segundos": 0.00033387499999999737,
+    "tempo_ordenacao_segundos": 0.0008439000230282545,
     "num_top_k": 5
   },
   "top_k_candidatos": [

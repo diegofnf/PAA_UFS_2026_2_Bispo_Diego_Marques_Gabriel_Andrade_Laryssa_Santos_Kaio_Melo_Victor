@@ -16,7 +16,10 @@ Este script implementa:
      time.perf_counter(), imediatamente ao redor da(s) função(ões) em avaliação;
    - Aferição de pico de consumo de memória RAM dinâmica via tracemalloc;
    - Registro de parâmetros ambientais de reprodutibilidade (S.O., arquitetura e interpretador);
-   - Contabilização e análise de falhas, consultas nulas e estabilidade temporal;
+   - Contabilização de falhas por execução (exceções capturadas e registradas no campo
+     'status' de cada bateria); a taxa de falhas, a taxa de resultados vazios e o
+     comportamento em consultas nulas ou fora do vocabulário são medidos na Etapa 8
+     ('8_avaliar_robustez.py');
    - Persistência estruturada das evidências em '7_resultados/relatorio_experimentos.json'.
 
 Nota de metodologia: a cronometragem é feita in-process, e não por subprocesso. Medir o

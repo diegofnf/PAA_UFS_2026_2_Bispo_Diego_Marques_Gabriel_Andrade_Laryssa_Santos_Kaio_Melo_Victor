@@ -1,0 +1,50 @@
+Licença do código-fonte e condições de uso do corpus
+====================================================
+
+1. Código-fonte
+---------------
+
+MIT License
+
+Copyright (c) 2026 Equipe PAA/UFS 2026.2 — Bispo Diego, Marques Gabriel,
+Andrade Laryssa, Santos Kaio e Melo Victor
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+2. Corpus (`2_corpus/`) — não coberto pela licença MIT acima
+------------------------------------------------------------
+
+Os 7 PDFs em `2_corpus/` são documentos normativos e orientativos de origem
+institucional pública (PROCC/UFS, CONEPE/UFS e CAPES), obtidos nas URLs
+oficiais listadas no README.md e redistribuídos neste repositório
+**exclusivamente para fins acadêmicos** de pesquisa e reprodução dos
+experimentos da disciplina de Projeto e Análise de Algoritmos (PAA/UFS).
+
+A licença MIT declarada no item 1 aplica-se ao código-fonte, aos scripts e aos
+artefatos produzidos pela equipe (`1_scripts/`, `3_dados/`, `4_chunks/`,
+`5_indexacao/`, `6_busca_lexical/`, `7_resultados/`). Ela **não** concede
+direitos sobre os documentos do corpus, cujos direitos autorais permanecem com
+os respectivos órgãos emissores. Quem reutilizar este repositório deve
+verificar as condições de uso junto à fonte original; em caso de uso não
+acadêmico ou redistribuição, basta reexecutar o pipeline sobre as URLs
+oficiais, dispensando a cópia local dos PDFs (ver a seção "Reprodução" do
+README.md).
+
+Nenhum dado pessoal, credencial, token ou documento sigiloso é distribuído
+neste repositório.

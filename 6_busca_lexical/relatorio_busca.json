@@ -1,6 +1,6 @@
 {
   "status_etapa": "concluido",
-  "arquivo_candidatos_gerado": "6_busca_lexical/candidatos_busca.json",
+  "arquivo_candidatos_gerado": "6_busca_lexical\\candidatos_busca.json",
   "consulta": "critérios para atribuição de bolsas e requisitos de matrícula",
   "k": 5,
   "configuracao": "indexada",
@@ -60,5 +60,5 @@
   },
   "total_candidatos": 75,
   "total_postings_consultadas": 90,
-  "tempo_busca_segundos": 0.00065
+  "tempo_busca_segundos": 0.009143
 }
