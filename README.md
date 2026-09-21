@@ -47,26 +47,28 @@ Medições in-process, em Windows 11 (AMD64) com Python 3.14.7:
 
 | Configuração | Carga 1 — 182 chunks | Carga 2 — 91 chunks |
 |---|---|---|
-| 1 — Busca linear (baseline) | 34,50 ms | 17,52 ms |
-| 2 — Busca indexada (Okapi BM25) | 1,93 ms | 1,97 ms |
-| 3 — Indexada + Merge Sort Top-k | 2,69 ms | 1,94 ms |
+| 1 — Busca linear (baseline) | 41,46 ms | 23,13 ms |
+| 2 — Busca indexada (Okapi BM25) | 3,65 ms | 2,57 ms |
+| 3 — Indexada + Merge Sort Top-k | 2,70 ms | 3,37 ms |
 
-A busca indexada é cerca de **18× mais rápida** que a linear no corpus integral e, o que é o ponto central, é a única que não escala com o tamanho do corpus: dobrar o número de chunks quase não altera seu tempo (1,93 → 1,97 ms), enquanto a busca linear aproximadamente o divide pela metade (34,50 → 17,52 ms), como esperado de um custo Θ(n). A configuração 3 acrescenta ao índice o custo do Merge Sort, que ordena os candidatos em 0,35 ms (369 comparações) sobre o corpus integral.
+A busca indexada é cerca de **11× mais rápida** que a linear no corpus integral e, o que é o ponto central, é a única que praticamente não escala com o tamanho do corpus: reduzir o corpus à metade quase não altera seu tempo (3,65 → 2,57 ms), enquanto a busca linear cai para pouco mais da metade (41,46 → 23,13 ms), como esperado de um custo Θ(n). A configuração 3 acrescenta ao índice o custo do Merge Sort, que ordena os 75 candidatos do corpus integral em cerca de 0,52 ms (369 comparações de score). O artefato isolado da Etapa 4, que ordena os mesmos 75 candidatos, registra 351 comparações — a diferença vem dos 18 empates de score, resolvidos de forma distinta conforme a ordem em que os candidatos chegam.
+
+Os valores absolutos variam entre execuções por causa da contenção da máquina, mas o ranking entre as configurações é estável — é ele que sustenta a conclusão, não os milissegundos exatos. As medianas por configuração e o desvio-padrão de cada carga estão em `7_resultados/tabela_resultados.csv`.
 
 A análise assintótica do pipeline (Etapa 7) classifica cada etapa pelo expoente empírico da regressão log-log:
 
 | Etapa | Unidade de entrada | Faixa de n | Observado | Expoente |
 |---|---|---|---|---|
-| Extração de texto | páginas | 3 – 30 | O(n log n) | 0,42 |
-| Normalização | caracteres | 9 957 – 79 662 | O(n log n) | 1,41 |
-| Chunking | palavras | 1 547 – 12 371 | O(n log n) | 1,46 |
-| Indexação | tokens | 5 102 – 37 269 | O(n log n) | 1,01 |
-| Busca linear | chunks varridos | 22 – 182 | O(n log n) | 0,71 |
-| Busca indexada | postings | 12 – 78 | O(1) | 0,04 |
+| Extração de texto | páginas | 3 – 30 | O(n log n) | 0,50 |
+| Normalização | caracteres | 9 957 – 79 662 | O(n log n) | 1,06 |
+| Chunking | palavras | 1 547 – 12 371 | O(n log n) | 1,07 |
+| Indexação | tokens | 5 102 – 37 269 | O(n log n) | 0,91 |
+| Busca linear | chunks varridos | 22 – 182 | O(n log n) | 0,78 |
+| Busca indexada | postings | 12 – 78 | O(1) | −0,10 |
 | Merge Sort | candidatos | 256 – 2 048 | O(n log n) | 1,29 |
-| Seleção Top-k | candidatos | 256 – 2 048 | O(1) | −0,00 |
+| Seleção Top-k | candidatos | 256 – 2 048 | O(1) | −0,02 |
 
-O expoente deve ser lido como o coeficiente de crescimento: valores próximos de 1 correspondem a crescimento linear e o excedente sobre 1 é a contribuição do termo logarítmico. O `O(n log n)` eleito para a extração, cujo expoente é 0,42, e o eleito para a busca linear, com 0,71, são consequências de ruído em n pequeno: os primeiros pontos de cada varredura pagam custos de primeira execução (I/O de PDF e tokenização) que não se repetem, e o ajuste recebe essa curvatura. Uma varredura em ordem decrescente desloca esse efeito para o ponto de menor n, onde é visível, e uma medição isolada em n = 22/91/182 devolve expoente 1,00/0,96, confirmando que a busca é genuinamente Θ(n).
+O expoente deve ser lido como o coeficiente de crescimento: valores próximos de 1 correspondem a crescimento linear e o excedente sobre 1 é a contribuição do termo logarítmico. O `O(n log n)` eleito para a extração, cujo expoente é 0,50, e o eleito para a busca linear, com 0,78, são consequências de ruído em n pequeno: os primeiros pontos de cada varredura pagam custos de primeira execução (I/O de PDF e tokenização) que não se repetem, e o ajuste recebe essa curvatura. Uma varredura em ordem decrescente desloca esse efeito para o ponto de menor n, onde é visível, e uma medição isolada em n = 22/91/182 devolve expoente 1,00/0,96, confirmando que a busca é genuinamente Θ(n).
 
 Duas limitações devem ser explicitadas na defesa:
 
