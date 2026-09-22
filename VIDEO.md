@@ -5,9 +5,10 @@ Arquivo exigido pela **Seção 11** do enunciado: *"no arquivo `VIDEO.md` ou
 participantes"*.
 
 > ⚠️ **PENDÊNCIA — preencher antes da entrega (23/09/2026, 23h59).**
-> O vídeo ainda não foi gravado. Os campos marcados com `⬜` precisam ser
-> substituídos pelas informações reais. A URL deve permanecer acessível
-> **sem solicitação de acesso ao docente** até o encerramento da avaliação.
+> O vídeo já está publicado (link abaixo). Faltam apenas a **data de gravação**,
+> a **duração** e a conferência de acesso anônimo; esses campos seguem marcados
+> com `⬜`. A URL deve permanecer acessível **sem solicitação de acesso ao
+> docente** até o encerramento da avaliação.
 
 ---
 
@@ -15,15 +16,15 @@ participantes"*.
 
 | Campo | Valor |
 |---|---|
-| **URL** | ⬜ *(inserir link público — YouTube não listado, Google Drive com acesso por link, ou equivalente)* |
+| **URL** | <https://youtu.be/6Qv1OSFnZBo> |
 | **Data de gravação** | ⬜ `____/____/2026` |
 | **Duração** | ⬜ `____ min ____ s` — **limite máximo: 10 minutos** |
-| **Plataforma de hospedagem** | ⬜ *(YouTube / Google Drive / outra)* |
+| **Plataforma de hospedagem** | YouTube (link público) |
 | **Verificação de acesso** | ⬜ *(conferir em janela anônima que o vídeo abre sem pedir permissão)* |
 
 A URL acima também deve constar em **outros três lugares**, conforme a Seção 11:
 
-1. `README.md` do repositório, em seção intitulada **"Vídeo da atividade"** ✅ *(seção já criada; falta apenas o link)*
+1. `README.md` do repositório, em seção intitulada **"Vídeo da atividade"** ✅ *(seção criada com o link)*
 2. Relatório técnico em PDF, na capa ou seção inicial ⬜
 3. Área da atividade no Google Classroom, exclusivamente como link ⬜
 

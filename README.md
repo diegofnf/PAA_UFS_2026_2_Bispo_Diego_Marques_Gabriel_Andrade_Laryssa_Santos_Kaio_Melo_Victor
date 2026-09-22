@@ -27,9 +27,9 @@ As apresentações estão em desenvolvimento e serão atualizadas com os resulta
 
 ## Status da entrega
 
-Ponto de congelamento da versão avaliada: **tag [`av1-entrega`](https://github.com/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor/releases/tag/av1-entrega)**.
-Todo o material técnico está versionado e verificado; os únicos itens abertos
-são de produção humana (PDF do relatório, slides e gravação do vídeo).
+Ponto de congelamento da versão avaliada: **tag [`av1-entrega`](https://github.com/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/releases/tag/av1-entrega)**.
+Todo o material técnico está versionado e verificado; o que resta é produção
+humana (PDF do relatório e dados de gravação do vídeo).
 
 **Concluído**
 
@@ -42,14 +42,16 @@ são de produção humana (PDF do relatório, slides e gravação do vídeo).
   [`CONTRIBUICOES.md`](CONTRIBUICOES.md), [`VIDEO.md`](VIDEO.md) e [`LICENSE`](LICENSE).
 - Licença, ausência de segredos e corpus com URLs oficiais de origem
   (Seções 10 e 12 do enunciado).
+- Vídeo publicado — link na seção [Vídeo da atividade](#vídeo-da-atividade) e em
+  [`VIDEO.md`](VIDEO.md), com o roteiro dos 10 tópicos da Seção 11.
+- Slides disponíveis no Drive — link na seção [Apresentação](#apresentação).
 
 **A produzir (produção humana)**
 
 | Item | Ação necessária |
 |---|---|
-| Relatório técnico em PDF | Exportar o documento e depositar o PDF na seção [Relatório técnico](#relatório-técnico); o material dos 19 itens já está pronto na tabela acima. A seção 16 deve reproduzir a declaração e anexar [`DECLARACAO_IA.md`](DECLARACAO_IA.md) como Anexo A |
-| Apresentação final | Fechar os slides (24/09/2026); resultados finais já consolidados em `7_resultados/` |
-| Vídeo da atividade | Seguir o roteiro de [`VIDEO.md`](VIDEO.md) e preencher a URL nos 4 pontos exigidos pela Seção 11 |
+| Relatório técnico em PDF | Exportar o documento e depositar o PDF na seção [Relatório técnico](#relatório-técnico). As seções 3, 4, 5, 13, 14, 16, 17, 18 e 19 ainda estão marcadas como "A PRODUZIR"; a seção 16 deve reproduzir [`DECLARACAO_IA.md`](DECLARACAO_IA.md), que segue como Anexo A |
+| Dados da gravação do vídeo | Preencher data e duração em [`VIDEO.md`](VIDEO.md) e conferir em janela anônima que a URL abre sem solicitar acesso |
 
 ## Estrutura do repositório
 
@@ -197,6 +199,6 @@ que permite verificar a procedência de cada arquivo.
 Este repositório não contém chaves, senhas, tokens ou dados pessoais. Arquivos
 grandes (PDFs do corpus e `node_modules/`) são controlados por `.gitignore`, e as
 instruções para obtê-los ou reproduzi-los estão nas seções
-[Instalação](#instalação), [Execução](#execução) e [Reprodução](#reprodução).
+[Instalação](#instalação), [Ambiente](#ambiente) e [Reprodução](#reprodução).
 
 
