@@ -12,7 +12,7 @@ Este README é o manual operacional do repositório. O relatório técnico conce
   
 ## Vídeo da atividade
 
-[Vídeo](https://youtu.be/6Qv1OSFnZBo)
+- [Vídeo](https://youtu.be/6Qv1OSFnZBo)
 
 ## Apresentação
 
@@ -96,9 +96,7 @@ Corpus normativo e orientativo público do PROCC/UFS e normas correlatas. Uso ex
 - **Licença e condições de uso:** os PDFs são **documentos institucionais públicos**, publicados pelo próprio PROCC/UFS em seus canais oficiais (SIGAA) e pelo Edital CAPES, e são utilizados aqui **exclusivamente para fins acadêmicos e não comerciais**, sem redistribuição com finalidade comercial. Eles **não** estão cobertos pela licença MIT que se aplica ao código da equipe: a licença do repositório cobre apenas os scripts e artefatos produzidos pelo grupo, e cada documento permanece sujeito às condições do órgão emissor. As URLs oficiais de origem constam da tabela abaixo, o que permite verificar a procedência de cada arquivo. Ver [`LICENSE`](LICENSE).
 - **Dados removidos ou anonimizados:** nenhum — o corpus é composto por atos normativos públicos, sem dados pessoais.
 - **Limpeza e normalização:** Unicode NFC, quebras de linha, espaços repetidos e hifenização entre linhas; texto original preservado.
-- **Chunking:** janelamento deslizante contínuo de 200 palavras por documento, com overlap de 30 palavras entre chunks consecutivos (passo de 170 palavras). Total de 182 chunks, com média de 196,85 palavras/chunk: 175 chunks atingem a janela cheia de 200 palavras e apenas 7 são menores (o menor tem 64), por serem o último chunk de um documento. Os chunks são extraídos do fluxo contínuo de texto, portanto o overlap de 30 palavras também ocorre entre chunks de uma mesma página; 80 chunks (43,96%) atravessam fronteiras de página.
-- **Riscos de viés, qualidade ou cobertura:** o corpus é **pequeno e tematicamente concentrado** em normas do PROCC/UFS sobre bolsas, credenciamento e estrutura curricular. Consequências observáveis: (i) assuntos ausentes do corpus são irrecuperáveis por qualquer consulta, e o sistema não distingue "não existe" de "não encontrei"; (ii) o Top-5 da consulta de referência traz **4 dos 5 chunks de apenas 2 documentos**, o que concentra o contexto recuperado e pode enviesar uma resposta gerada a partir dele; (iii) a relevância é **lexical**, de modo que consultas formuladas com vocabulário diferente do normativo ("auxílio" em vez de "bolsa") têm cobertura pior; (iv) uma página de `Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf` é apenas imagem, sem camada de texto, e seu conteúdo é irrecuperável — a ocorrência está registrada em `3_dados/relatorio_processamento.json`; (v) todo o material é pt-BR, e consultas em outro idioma produzem zero resultados.
-- **Limitações para generalização dos resultados:** os tempos e as contagens deste trabalho caracterizam **este** corpus, com N = 182 chunks e vocabulário de 4 061 termos. O comportamento assintótico é geral, mas os valores absolutos não se transferem para outros conjuntos — em particular, o tempo de consulta indexada depende do número de candidatos `n_c`, que aqui é 75 (corpus integral) e 32 (metade do corpus), e não do tamanho do corpus. Além disso, `n_c` cresce com a cobertura terminológica da consulta, de modo que uma consulta com termos muito comuns pode elevar `n_c` bem acima de 75 e alterar o custo relativo das configurações. Por fim, não há conjunto de relevância anotado, o que impede reportar Precision@k e limita as conclusões à eficiência, não à qualidade da recuperação.
+
 
 | Documento | URL oficial |
 |---|---|
