@@ -16,7 +16,7 @@ Este README é o manual operacional do repositório. O relatório técnico conce
 
 ## Apresentação
 
-- [Apresentação final — 24/09/2026](https://docs.google.com/presentation/d/1RHaAl9oXhdnzkjwhi0gLFhiCCBeQxHgZQSAyOLu0M_M/edit)
+- [Apresentação](https://drive.google.com/file/d/1lAGornS6dA-uNCQJ60wJdmWgpHZDu0LI/view?usp=sharing)
 
 As apresentações estão em desenvolvimento e serão atualizadas com os resultados finais.
 
