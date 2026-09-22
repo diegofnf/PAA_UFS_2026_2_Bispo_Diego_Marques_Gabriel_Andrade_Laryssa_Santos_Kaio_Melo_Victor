@@ -47,7 +47,7 @@ são de produção humana (PDF do relatório, slides e gravação do vídeo).
 
 | Item | Ação necessária |
 |---|---|
-| Relatório técnico em PDF | Exportar o documento e depositar o PDF na seção [Relatório técnico](#relatório-técnico); o material dos 19 itens já está pronto na tabela acima |
+| Relatório técnico em PDF | Exportar o documento e depositar o PDF na seção [Relatório técnico](#relatório-técnico); o material dos 19 itens já está pronto na tabela acima. A seção 16 deve reproduzir a declaração e anexar [`DECLARACAO_IA.md`](DECLARACAO_IA.md) como Anexo A |
 | Apresentação final | Fechar os slides (24/09/2026); resultados finais já consolidados em `7_resultados/` |
 | Vídeo da atividade | Seguir o roteiro de [`VIDEO.md`](VIDEO.md) e preencher a URL nos 4 pontos exigidos pela Seção 11 |
 
