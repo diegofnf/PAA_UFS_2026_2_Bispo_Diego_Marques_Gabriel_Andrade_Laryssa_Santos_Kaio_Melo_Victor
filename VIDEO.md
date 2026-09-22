@@ -42,8 +42,8 @@ contribuição de cada um:
 |---|---|
 | **Diego Bispo** | Corpus: fonte, licença, data de acesso e características; definição formal do problema |
 | **Gabriel Marques** | Etapa 4 — busca lexical: BM25, critério de desempate `(−score, id_chunk)` e Top-k |
-| **Laryssa Santos** | Etapas 1–6 — extração, normalização, *chunking*, índice invertido e demonstração do protótipo |
-| **Kaio Farias** | Casos de teste, resultados esperados e evidência de corretude pela suíte automatizada |
+| **Laryssa Andrade** | Etapas 1–6 — extração, normalização, *chunking*, índice invertido e demonstração do protótipo |
+| **Kaio Santos** | Casos de teste, resultados esperados e evidência de corretude pela suíte automatizada |
 | **Victor Melo** | Análise RAM, recorrrências, análise assintótica (Etapa 7), resultados experimentais e relação com RAG/IA generativa |
 
 ---
@@ -57,9 +57,9 @@ A Seção 11 lista 10 tópicos obrigatórios. Sugestão de distribuição para c
 |---|---|---|---|
 | 1 | Identificação da equipe, tema e corpus | 0:30 | Diego Bispo |
 | 2 | Problema de recuperação de contexto | 1:00 | Diego Bispo |
-| 3 | Algoritmos implementados (busca linear, Merge Sort, busca indexada) | 2:00 | Gabriel Marques + Laryssa Santos |
-| 4 | **Demonstração breve do protótipo** | 1:00 | Laryssa Santos |
-| 5 | Justificativa de corretude (invariantes de laço e indução) | 1:30 | Kaio Farias |
+| 3 | Algoritmos implementados (busca linear, Merge Sort, busca indexada) | 2:00 | Gabriel Marques + Laryssa Andrade |
+| 4 | **Demonstração breve do protótipo** | 1:00 | Laryssa Andrade |
+| 5 | Justificativa de corretude (invariantes de laço e indução) | 1:30 | Kaio Santos |
 | 6 | Análise assintótica e recorrências | 1:30 | Victor Melo |
 | 7 | Resultados experimentais e gráfico principal | 1:00 | Victor Melo |
 | 8 | Relação com RAG ou IA generativa | 1:00 | Victor Melo |

@@ -12,8 +12,8 @@ da Seção 9** (contribuição individual na declaração de uso de IA).
 |---|---|
 | **Diego Bispo** | Dados, corpus e orquestração do *pipeline* |
 | **Gabriel Marques** | Busca lexical e ordenação (Etapa 4) |
-| **Laryssa Santos** | Implementação do *pipeline* (Etapas 1–6) e aplicação web |
-| **Kaio Farias** | *Chunking*, busca lexical e casos de teste |
+| **Laryssa Andrade** | Implementação do *pipeline* (Etapas 1–6) e aplicação web |
+| **Kaio Santos** | *Chunking*, busca lexical e casos de teste |
 | **Victor Melo** | Análise assintótica (Etapa 7), resultados, infraestrutura e integração |
 
 Total de **5 integrantes**, dentro da faixa de 5 a 7 exigida pela Seção 16.
@@ -32,8 +32,8 @@ cuidados metodológicos:
    | Integrante | Identidades no histórico |
    |---|---|
    | Diego Bispo | `diegofnf@users.noreply.github.com` e `145767830+diegofnf@users.noreply.github.com` |
-   | Kaio Farias | `kaioc89@gmail.com` (assina também como `kaio` e `Kaio`) |
-   | Laryssa Santos | `laryssabarbosadeandrade@Laptop-de-Laryssa.local` |
+   | Kaio Santos | `kaioc89@gmail.com` (assina também como `kaio` e `Kaio`) |
+   | Laryssa Andrade | `laryssabarbosadeandrade@Laptop-de-Laryssa.local` |
 
 2. **Contagem por entrega, não por linha.** **Não** se usa o número de linhas
    adicionadas/removidas como medida de contribuição, porque a maior parte do
@@ -67,7 +67,7 @@ não uma separação estanque de trabalho.
 | Artefatos da Etapa 4 | Criação de `6_busca_lexical/candidatos_ordenados.json`, `candidatos_topk.json` e `relatorio_ordenacao.json` |
 | Revisão | Alterações em `README.md` e `orquestrador_pipeline.ipynb` |
 
-### Laryssa Santos — 2 commits
+### Laryssa Andrade — 2 commits
 
 | Frente | Evidência |
 |---|---|
@@ -83,7 +83,7 @@ não uma separação estanque de trabalho.
 > introduzidas por essa frente de trabalho**, o que inclui o núcleo algorítmico
 > do projeto.
 
-### Kaio Farias — 5 commits
+### Kaio Santos — 5 commits
 
 | Frente | Evidência |
 |---|---|
@@ -110,15 +110,15 @@ não uma separação estanque de trabalho.
 
 | Etapa | Produto principal | Responsável principal |
 |---|---|---|
-| 1 — Pré-processamento | `3_dados/documentos_normalizados.json` | Diego Bispo / Laryssa Santos |
-| 2 — Fragmentação (*chunking*) | `4_chunks/chunks.json` (182 chunks) | Kaio Farias |
+| 1 — Pré-processamento | `3_dados/documentos_normalizados.json` | Diego Bispo / Laryssa Andrade |
+| 2 — Fragmentação (*chunking*) | `4_chunks/chunks.json` (182 chunks) | Kaio Santos |
 | 3 — Índice invertido | `5_indexacao/indice_invertido.json` (4 061 termos) | Diego Bispo |
-| 4 — Busca e ordenação | `6_busca_lexical/*` (BM25 + Merge Sort + Top-k) | Gabriel Marques / Kaio Farias |
+| 4 — Busca e ordenação | `6_busca_lexical/*` (BM25 + Merge Sort + Top-k) | Gabriel Marques / Kaio Santos |
 | 5 — Bateria de experimentos | `7_resultados/relatorio_experimentos.json` | Victor Melo |
 | 6 — Tabelas e gráficos | `7_resultados/*.png`, `7_resultados/*.csv` | Victor Melo |
 | 7 — Análise assintótica | `7_resultados/analise_assintotica.json` | Victor Melo |
 | 8 — Robustez e *baseline* | `7_resultados/avaliacao_robustez.json`, `tabela_robustez.csv`, `tabela_baseline_ordenacao.csv` | Victor Melo |
-| Aplicação web (demonstração) | `src/` (React + Vite) | Laryssa Santos / Victor Melo |
+| Aplicação web (demonstração) | `src/` (React + Vite) | Laryssa Andrade / Victor Melo |
 | Análise de corretude e complexidade | `ANALISE_CORRETUDE_COMPLEXIDADE.md` | Equipe (revisão de Victor Melo) |
 | Relação com RAG/IA generativa | `RAG_GENAI.md` | Equipe |
 | Declaração de uso de IA | `DECLARACAO_IA.md` | Equipe |
@@ -135,7 +135,7 @@ integrante deve confirmar sua participação antes da entrega:
 |---|---|---|
 | Relatório técnico em PDF | Seção 10, item 1 | *(a preencher pela equipe)* |
 | Apresentação de slides | Seção 12 | *(a preencher pela equipe)* |
-| Vídeo de até 10 min (participação de **todos** os integrantes) | Seção 11 | Diego Bispo, Gabriel Marques, Laryssa Santos, Kaio Farias, Victor Melo |
+| Vídeo de até 10 min (participação de **todos** os integrantes) | Seção 11 | Diego Bispo, Gabriel Marques, Laryssa Andrade, Kaio Santos, Victor Melo |
 | Revisão final e submissão no Google Classroom | Seções 11 e 10 | *(a preencher pela equipe)* |
 
 ---
@@ -149,6 +149,6 @@ refletem a participação efetiva de cada um na atividade:
 |---|---|
 | Diego Bispo | |
 | Gabriel Marques | |
-| Laryssa Santos | |
-| Kaio Farias | |
+| Laryssa Andrade | |
+| Kaio Santos | |
 | Victor Melo | |

@@ -269,8 +269,8 @@ A discriminação detalhada por integrante, por etapa e por artefato encontra-se
 |---|---|
 | Diego Bispo | Dados/corpus, *notebook* orquestrador, revisão do `README.md` |
 | Gabriel Marques | Etapa 4 (busca e ordenação), artefatos de `6_busca_lexical/` |
-| Laryssa Santos | Etapas 1–6 (scripts do *pipeline*), testes, aplicação web |
-| Kaio Farias | Etapa 4, chunks, *notebook*, revisão do `README.md` |
+| Laryssa Andrade | Etapas 1–6 (scripts do *pipeline*), testes, aplicação web |
+| Kaio Santos | Etapa 4, chunks, *notebook*, revisão do `README.md` |
 | Victor Melo | Análise assintótica (Etapa 7), artefatos de resultados, gráficos, infraestrutura e integração |
 
 > **Campos para preenchimento pela equipe antes da entrega.** Cada integrante
@@ -295,8 +295,8 @@ trabalho entregue, conforme o registro das Seções 4 a 7.
 |---|---|---|
 | Diego Bispo | | |
 | Gabriel Marques | | |
-| Laryssa Santos | | |
-| Kaio Farias | | |
+| Laryssa Andrade | | |
+| Kaio Santos | | |
 | Victor Melo | | |
 
 **Local e data:** ____________________, ______ de __________________ de 2026.
