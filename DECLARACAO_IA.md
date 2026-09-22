@@ -8,6 +8,25 @@ listada abaixo é acompanhada do **teste, prova, documentação ou observação*
 que a validou — e as sugestões que a validação **reprovou** estão registradas na
 Seção 5 com o erro correspondente.
 
+A Seção 9 do enunciado enumera oito itens obrigatórios. A correspondência com as
+seções deste documento é direta:
+
+| Item exigido pela Seção 9 | Seção desta declaração |
+|---|---|
+| Ferramenta e modelo utilizados | §1 |
+| Finalidade de cada uso | §2 (F1 a F8) |
+| **Até cinco prompts relevantes** | §3 (cinco prompts) |
+| Sugestões aproveitadas | §4 |
+| Sugestões corrigidas ou rejeitadas | §5 (R1 a R9) |
+| Erros identificados | §6 (E1 a E11) |
+| Testes, provas, documentação ou observações utilizadas para verificação | §7 (7.1 a 7.6) |
+| Contribuição individual dos integrantes | §8 |
+
+O fecho da Seção 9 lista ainda seis alvos de verificação prioritários
+(corretude, complexidade, casos de borda, estabilidade de ordenação, critérios de
+desempate e coerência entre análise formal e experimento); o mapeamento de cada
+um está na abertura da Seção 7.
+
 ---
 
 ## 1. Ferramenta e modelo utilizados
@@ -38,6 +57,7 @@ publicamente no repositório do grupo.
 | F5 | Diagnóstico de falhas de execução (codificação do console, dependências, *timing*) | correções de `PYTHONIOENCODING` e *imports* |
 | F6 | Revisão da prova de corretude (invariantes de laço e indução) | `ANALISE_CORRETUDE_COMPLEXIDADE.md`, Seções 3 a 5 |
 | F7 | Geração de casos de teste para o módulo de busca e ordenação | `1_scripts/test_etapa_4.py` |
+| F8 | Porte do motor de busca do Python para TypeScript e diagnóstico da divergência de resultados entre a aplicação web e os artefatos | `src/utils/searchEngine.ts`, `src/utils/tokenizer.ts`, `src/utils/stopwords.ts`, `src/utils/mergeSort.ts` |
 
 Em **todos** os casos o uso foi de assistência: a IA propôs, e a equipe
 executou, mediu, comparou com o resultado esperado e corrigiu.
@@ -46,10 +66,15 @@ executou, mediu, comparou com o resultado esperado e corrigiu.
 
 ## 3. Até cinco prompts relevantes
 
-> **Nota de transparência:** os prompts abaixo são a transcrição fiel dos
-> pedidos feitos durante o desenvolvimento. O trabalho foi conduzido de forma
-> iterativa; os cinco foram selecionados por serem os que mais alteraram
-> decisões técnicas do projeto.
+O enunciado pede **até cinco prompts relevantes**. Os cinco abaixo são a
+transcrição consolidada dos pedidos efetivamente feitos à ferramenta durante o
+desenvolvimento: o trabalho foi conduzido de forma iterativa e conversacional,
+de modo que cada bloco reúne o essencial de uma linha de pedidos, sem as
+mensagens de ajuste intermediárias. A seleção priorizou os pedidos que mais
+alteraram decisões técnicas do projeto — os dois primeiros, por exemplo, são os
+que originaram os artefatos da Etapa 4 e da Etapa 8. Os pedidos de revisão de
+redação e de nomenclatura não estão listados por não terem alterado nenhum
+artefato técnico.
 
 **Prompt 1 — instrumentação da ordenação**
 
@@ -159,6 +184,20 @@ recorrência de espaço.
 
 ## 7. Testes, provas, documentação e observações usados para verificação
 
+O enunciado encerra a Seção 9 com a exigência de que *"códigos, provas e análises
+sugeridos por IA não serão aceitos sem validação"* e nomeia seis alvos de
+verificação prioritários. A tabela abaixo indica onde cada um foi tratado; as
+subseções 7.1 a 7.6 detalham os instrumentos.
+
+| Alvo de verificação (Seção 9) | Como foi verificado | Evidência |
+|---|---|---|
+| Corretude | Prova por invariante de laço e indução forte; suíte automatizada de 14 testes | §7.1 e `ANALISE_CORRETUDE_COMPLEXIDADE.md` §3 |
+| Complexidade | Recorrências resolvidas e confrontadas com as contagens medidas (expoente 1,1864 para comparações, contra `Θ(n log n)`) | §7.2 e `ANALISE_CORRETUDE_COMPLEXIDADE.md` §4 a §6 |
+| Casos de borda | Testes de lista vazia, `k = 1`, `k > n` e empates totais; bateria com 5 consultas patológicas | §7.1 e §7.5 |
+| Estabilidade de ordenação | O critério `(−score, id_chunk)` é ordem **total** estrita, logo a permutação ordenada é única e o resultado não depende da estabilidade da intercalação; a estabilidade está implementada (`<=`) e é registrada como irrelevante para a correção | `ANALISE_CORRETUDE_COMPLEXIDADE.md` §3.3 |
+| Critérios de desempate | 18 desempates reais de score observados e conferidos por identidade aritmética; ordem final idêntica à de `sorted()` e de `heapq.nsmallest` | §7.2, §7.3 e item E3 da Seção 6 |
+| Coerência entre análise formal e experimento | Identidades conferidas entre artefatos (`Σ DF = total de postings`, `chamadas recursivas = 2n − 1`, `profundidade = 1 + ⌈log₂ n⌉`) e teste de 14 casos contra a especificação | §7.3 e §7.2 |
+
 ### 7.1 Suíte automatizada
 
 `1_scripts/test_etapa_4.py` — **14 testes**, executados com
@@ -173,13 +212,13 @@ de referência declarando o que foi feito **pela equipe**. A verificação é
 empírica, não argumentativa: sobre os 75 candidatos reais e sobre séries
 sintéticas de 75 a 4 800 elementos, a ordem final e o Top-5 produzidos pelo
 `merge_sort` da equipe coincidiram **exatamente** com `sorted()` (Timsort) e com
-`heapq.nsmallest`. O *log-log* das contagens de reproduz o expoente esperado
+`heapq.nsmallest`. O *log-log* das contagens reproduz o expoente esperado
 (1,1864 para comparações), o que fecha a coerência entre a análise formal
 (`Θ(n log n)`) e o experimento.
 
 ### 7.3 Verificação por consistência aritmética entre artefatos
 
-Vários dos erros E1–E10 foram encontrados por conferência de identidades:
+Vários dos erros E1–E11 foram encontrados por conferência de identidades:
 `comparacoes_totais = comparacoes_score + comparacoes_id_chunk`;
 `num_chamadas_recursivas = 2n − 1` (149 para `n = 75`);
 `profundidade_maxima = 1 + ⌈log₂ n⌉` (8 para `n = 75`);
@@ -199,7 +238,18 @@ artefatos.
 | Teorema Mestre | Material didático da disciplina (Projeto e Análise de Algoritmos) |
 | Tokenização e stopwords em português | Documentação oficial do NLTK (`nltk.corpus.stopwords`, lista `portuguese`) |
 
-### 7.5 Reprodutibilidade
+### 7.5 Casos de borda e bateria de robustez
+
+Além das bordas cobertas pela suíte (`k = 1`, `k > n`, lista vazia, empates
+totais), a Etapa 8 executa 9 consultas em 2 configurações — 18 execuções,
+**0 falhas** e 5 resultados vazios, todos correspondentes a consultas
+patológicas construídas de propósito (string vazia, apenas espaços, apenas
+pontuação, apenas stopwords e termos fora do vocabulário). A consulta mista
+("de bolsas xilofone") ainda devolve resultados, descartando o termo estranho, e
+a bateria confirma que a busca linear e a busca indexada devolvem **o mesmo
+Top-k** nas 9 consultas.
+
+### 7.6 Reprodutibilidade
 
 Os três artefatos da Etapa 8 (`7_resultados/avaliacao_robustez.json`,
 `7_resultados/tabela_robustez.csv`, `7_resultados/tabela_baseline_ordenacao.csv`)
@@ -223,10 +273,34 @@ A discriminação detalhada por integrante, por etapa e por artefato encontra-se
 | Kaio Farias | Etapa 4, chunks, *notebook*, revisão do `README.md` |
 | Victor Melo | Análise assintótica (Etapa 7), artefatos de resultados, gráficos, infraestrutura e integração |
 
-> **Campos para preenchimento pela equipe antes da entrega.** A lista de
-> prompts da Seção 3 é a transcrição dos pedidos efetivamente feitos, mas cada
-> integrante deve **confirmar e, se necessário, completar** as contribuições da
-> Seção 8 com os itens não rastreados por Git (redação do relatório, gravação do
-> vídeo, preparação dos *slides*). Esta confirmação é obrigatória porque o
-> enunciado exige a declaração assinada pela equipe, e a atribuição por commits
-> cobre apenas a parte versionada do trabalho.
+> **Campos para preenchimento pela equipe antes da entrega.** Cada integrante
+> deve **confirmar e, se necessário, completar** as contribuições da Seção 8 com
+> os itens não rastreados por Git (redação do relatório, gravação do vídeo,
+> preparação dos *slides*) e assinar a Seção 9. A atribuição por *commits* cobre
+> apenas a parte versionada do trabalho, e o enunciado exige, no artigo 1 da
+> Seção 10, a *"relação de todos os participantes da equipe com as respectivas
+> contribuições para esta atividade"* — a assinatura é uma formalidade interna da
+> equipe, não uma exigência literal do enunciado.
+
+---
+
+## 9. Ciência e assinatura da equipe
+
+Declaramos, para os devidos fins, que as informações registradas nesta
+declaração são verdadeiras e que **todo** o material sugerido por IA generativa
+foi executado, conferido e validado pela equipe antes de ser incorporado ao
+trabalho entregue, conforme o registro das Seções 4 a 7.
+
+| Integrante | Matrícula | Assinatura |
+|---|---|---|
+| Diego Bispo | | |
+| Gabriel Marques | | |
+| Laryssa Santos | | |
+| Kaio Farias | | |
+| Victor Melo | | |
+
+**Local e data:** ____________________, ______ de __________________ de 2026.
+
+> **Campos para preenchimento pela equipe antes da entrega.** Preencher as
+> matrículas, assinar e datar. A versão assinada deve ser transposta para o
+> relatório técnico em PDF, conforme a Seção 10 do enunciado.

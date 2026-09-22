@@ -54,6 +54,7 @@ são de produção humana (PDF do relatório, slides e gravação do vídeo).
 ## Estrutura do repositório
 
 - `orquestrador_pipeline.ipynb`: execução integrada no Google Colab.
+- `requirements.txt`: dependências do *pipeline* em Python, com as versões validadas.
 - `1_scripts/1_processar_documentos.py`: inventário, extração, normalização e validação.
 - `2_corpus/`: PDFs utilizados no corpus.
 - `3_dados/`: JSONs gerados pelo pipeline com extração PyMuPDF e normalização.
@@ -72,7 +73,9 @@ são de produção humana (PDF do relatório, slides e gravação do vídeo).
 
 ## Dependências
 
-Python 3, `PyMuPDF`, `nltk` e `matplotlib`. Os testes da Etapa 4 requerem `pytest`.
+Python 3, `PyMuPDF`, `nltk` e `matplotlib`. Os testes da Etapa 4 requerem
+`pytest`. As versões mínimas estão em [`requirements.txt`](requirements.txt).
+A aplicação web requer Node.js 18 ou superior (`package.json`).
 
 ## Ambiente
 
@@ -81,7 +84,7 @@ Execução validada em Windows com Python 3. O script usa caminhos relativos ao 
 ## Instalação
 
 ```bash
-python -m pip install PyMuPDF nltk matplotlib pytest
+python -m pip install -r requirements.txt
 python -c "import nltk; nltk.download('stopwords')"
 ```
 

@@ -1,0 +1,15 @@
+# Dependencias do pipeline (Etapas 1 a 8) em Python.
+#
+# Versoes validadas nesta atividade, em Windows 11 (AMD64) com Python 3.14.7:
+#   PyMuPDF 1.28.2 | nltk 3.10.3 | matplotlib 3.11.2 | pytest 9.1.1
+#
+# Os limites inferiores sao as primeiras versoes que expoem as APIs usadas
+# (Unicode NFC, tracemalloc, nltk.corpus.stopwords). Instale com:
+#
+#   python -m pip install -r requirements.txt
+#   python -c "import nltk; nltk.download('stopwords')"
+
+PyMuPDF>=1.24
+nltk>=3.8
+matplotlib>=3.8
+pytest>=8.0
