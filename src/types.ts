@@ -129,4 +129,6 @@ export interface SearchMetrics {
   totalComparacoesMergeSort: number;
   candidatosEncontrados: number;
   termosConsultados: string[];
+  stopwordsRemovidas: string[];
+  termosAposFiltro: string[];
 }

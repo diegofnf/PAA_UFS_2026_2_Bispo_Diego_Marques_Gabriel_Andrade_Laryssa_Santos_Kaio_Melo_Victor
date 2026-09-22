@@ -35,7 +35,7 @@ As apresentações estão em desenvolvimento e serão atualizadas com os resulta
 - `5_indexacao/`: índice invertido (`indice_invertido.json`) e relatório da indexação (`relatorio_indexacao.json`).
 - `6_busca_lexical/`: candidatos com scores gerados (`candidatos_busca.json` na busca indexada e `candidatos_linear.json` na busca linear), métricas das duas buscas (`relatorio_busca.json` e `relatorio_busca_linear.json`), candidatos ordenados pelo Merge Sort (`candidatos_ordenados.json`), Top-k (`candidatos_topk.json`) e contadores da ordenação (`relatorio_ordenacao.json`).
 - `7_resultados/`: relatório consolidado das baterias experimentais (`relatorio_experimentos.json`), tabela consolidada (`tabela_resultados.csv`), análise assintótica do pipeline (`analise_assintotica.json` e `tabela_analise_assintotica.csv`), avaliação de robustez e *baseline* de ordenação (`avaliacao_robustez.json`, `tabela_robustez.csv` e `tabela_baseline_ordenacao.csv`) e os gráficos dos resultados (`grafico_tempo_execucao.png`, `grafico_busca_comparativo.png`, `grafico_escalabilidade_merge_sort.png`, `grafico_zipf.png`, `grafico_memoria_configuracoes.png`, `grafico_etapas_pipeline.png` e `grafico_analise_assintotica.png`).
-- `src/`: aplicação web em React + Vite que consulta os artefatos já versionados em `public/data/`.
+- `src/`: aplicação web em React + Vite que consulta os artefatos já versionados em `public/data/`. O motor de busca em `src/utils/searchEngine.ts` reimplementa o Okapi BM25 da Etapa 4 com paridade numérica (ver [Paridade da busca com a Etapa 4](#paridade-da-busca-com-a-etapa-4)).
 - `ANALISE_CORRETUDE_COMPLEXIDADE.md`: justificativa de corretude, análise no modelo RAM, melhor/pior/caso médio, recorrências e complexidade de espaço.
 - `RAG_GENAI.md`: relação do contexto recuperado com aplicações RAG e IA generativa.
 - `DECLARACAO_IA.md`: declaração de uso crítico de IA generativa.
@@ -117,6 +117,41 @@ Interface web interativa desenvolvida para busca, recuperação e ordenação de
 
 > A publicação é feita na **Vercel** pelo workflow [`.github/workflows/deploy-vercel.yml`](.github/workflows/deploy-vercel.yml) a cada push em `main`.
 > O **GitHub Pages não é utilizado**: o `index.html` da raiz é o arquivo de desenvolvimento do Vite e, quando servido estaticamente (por exemplo, pelos forks), aponta para `/src/main.tsx` e resulta em página em branco.
+
+### Paridade da busca com a Etapa 4
+
+A aba **Busca Lexical & Top-K** reimplementa em TypeScript o mesmo motor de
+`1_scripts/4_buscar_e_ordenar.py`, de modo que os números exibidos no navegador
+coincidam com os artefatos versionados — não se trata de uma demonstração
+simplificada:
+
+| Regra | Implementação |
+|---|---|
+| Tokenização | Unicode NFC + *casefold*, `\p{L}\p{N}` (equivalente ao `\w` Unicode do Python) |
+| Stopwords | Lista do **NLTK** em português (207 palavras), em [`src/utils/stopwords.ts`](src/utils/stopwords.ts) |
+| `\|D\|` e `avgdl` | Medidos em **tokens do texto** do *chunk*, como no script Python |
+| IDF | `ln(1 + (N − DF + 0,5) / (DF + 0,5))` |
+| TF | `(freq × (k1 + 1)) / (freq + k1 × (1 − b + b × \|D\| / avgdl))`, com `k1 = 1,5` e `b = 0,75` |
+| Ordenação | Merge Sort com critério `(−score, id_chunk)` |
+
+Com a consulta canônica do trabalho (`"critérios para atribuição de bolsas e
+requisitos de matrícula"`), a aplicação devolve **exatamente** o mesmo resultado
+de `6_busca_lexical/candidatos_topk.json`:
+
+| Métrica | Valor na aplicação e no artefato |
+|---|---|
+| Tokens da consulta | 9 |
+| Stopwords removidas | 4 (`para`, `de`, `e`, `de`) |
+| Termos distintos | 5 |
+| Candidatos | 75 |
+| Comparações do Merge Sort | 369 |
+| Top-1 | `chunk_0131` — score 9,6206 |
+
+> **Nota de portabilidade.** Em JavaScript `\w` é *ASCII-only* por especificação,
+> mesmo com a flag `u`: `/[^\W_]+/u` separa `"critérios"` em `crit` + `rios`. O
+> tokenizador usa `\p{L}\p{N}` com a flag `u` para reproduzir o comportamento
+> Unicode de `\w` do Python. Sem esse ajuste, a busca indexada deixava de
+> encontrar termos acentuados e a contagem de candidatos divergia do relatório.
 
 ## Licença
 

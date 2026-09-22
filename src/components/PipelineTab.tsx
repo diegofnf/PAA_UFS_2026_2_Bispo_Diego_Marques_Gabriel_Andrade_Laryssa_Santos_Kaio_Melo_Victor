@@ -71,7 +71,7 @@ export const PipelineTab: React.FC<PipelineTabProps> = ({
     {
       numero: '4',
       nome: 'Busca Lexical, Merge Sort & Top-k',
-      descricao: 'Consulta multi-termo (OU / E), cálculo de relevância Okapi BM25 no pipeline (TF-IDF / Frequência no navegador) e ordenação por Merge Sort estável.',
+      descricao: 'Consulta multi-termo (OU / E), cálculo de relevância Okapi BM25 com remoção de stopwords do NLTK (idêntico no navegador) e ordenação por Merge Sort estável.',
       status: 'Implementado & Integrado',
       tempo: 'O(n log n)',
       metricas: [

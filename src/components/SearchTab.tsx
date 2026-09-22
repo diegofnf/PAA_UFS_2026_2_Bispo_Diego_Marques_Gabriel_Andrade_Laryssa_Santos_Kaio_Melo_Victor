@@ -18,7 +18,7 @@ export const SearchTab: React.FC<SearchTabProps> = ({
 }) => {
   const [consulta, setConsulta] = useState<string>('bolsa mestrado');
   const [modo, setModo] = useState<'OU' | 'E'>('OU');
-  const [metrica, setMetrica] = useState<'tf_idf' | 'frequencia'>('tf_idf');
+  const [metrica, setMetrica] = useState<'bm25' | 'frequencia'>('bm25');
   const [k, setK] = useState<number>(10);
   const [docFiltro, setDocFiltro] = useState<string>('');
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -45,6 +45,8 @@ export const SearchTab: React.FC<SearchTabProps> = ({
           totalComparacoesMergeSort: 0,
           candidatosEncontrados: 0,
           termosConsultados: [],
+          stopwordsRemovidas: [],
+          termosAposFiltro: [],
         } as SearchMetrics,
       };
     }
@@ -180,15 +182,15 @@ export const SearchTab: React.FC<SearchTabProps> = ({
             </label>
             <div className="grid grid-cols-2 gap-1 bg-slate-100 p-1 rounded-lg border border-slate-200">
               <button
-                onClick={() => setMetrica('tf_idf')}
+                onClick={() => setMetrica('bm25')}
                 className={`py-1.5 text-center rounded font-medium transition-all ${
-                  metrica === 'tf_idf'
+                  metrica === 'bm25'
                     ? 'bg-sky-600 text-white shadow-2xs'
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
-                title="Ponderação TF-IDF normalizada pelo tamanho do chunk"
+                title="Okapi BM25 (k1 = 1,5; b = 0,75) — mesma métrica da Etapa 4"
               >
-                TF-IDF
+                Okapi BM25
               </button>
               <button
                 onClick={() => setMetrica('frequencia')}
@@ -296,34 +298,46 @@ export const SearchTab: React.FC<SearchTabProps> = ({
       </div>
 
       {/* Query Terms Breakdown */}
-      {searchResult.metricas.termosConsultados.length > 0 && indiceData && (
-        <div className="bg-slate-50 border border-slate-200 p-3 rounded-lg flex flex-wrap items-center gap-2 text-xs">
-          <span className="text-slate-600 font-medium">Termos no Vocabulário:</span>
-          {searchResult.metricas.termosConsultados.map((termo) => {
-            const info = indiceData.indice_invertido[termo];
-            const presente = !!info;
-            return (
-              <span
-                key={termo}
-                className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border ${
-                  presente
-                    ? 'bg-sky-50 text-sky-800 border-sky-200'
-                    : 'bg-rose-50 text-rose-800 border-rose-200'
-                }`}
-              >
-                <span className="font-semibold">{termo}</span>
-                {presente ? (
-                  <span className="text-[10px] text-sky-700 bg-sky-100/70 px-1.5 py-0.2 rounded">
-                    {info.chunks.length} chunks ({info.frequencia_total}x)
-                  </span>
-                ) : (
-                  <span className="text-[10px] text-rose-600">não no índice</span>
-                )}
+      {(searchResult.metricas.termosConsultados.length > 0 ||
+        searchResult.metricas.stopwordsRemovidas.length > 0) &&
+        indiceData && (
+          <div className="bg-slate-50 border border-slate-200 p-3 rounded-lg flex flex-wrap items-center gap-2 text-xs">
+            <span className="text-slate-600 font-medium">Termos no Vocabulário:</span>
+            {searchResult.metricas.termosConsultados.map((termo) => {
+              const info = indiceData.indice_invertido[termo];
+              const presente = !!info;
+              return (
+                <span
+                  key={termo}
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border ${
+                    presente
+                      ? 'bg-sky-50 text-sky-800 border-sky-200'
+                      : 'bg-rose-50 text-rose-800 border-rose-200'
+                  }`}
+                >
+                  <span className="font-semibold">{termo}</span>
+                  {presente ? (
+                    <span className="text-[10px] text-sky-700 bg-sky-100/70 px-1.5 py-0.2 rounded">
+                      {info.chunks.length} chunks ({info.frequencia_total}x)
+                    </span>
+                  ) : (
+                    <span className="text-[10px] text-rose-600">não no índice</span>
+                  )}
+                </span>
+              );
+            })}
+            {searchResult.metricas.stopwordsRemovidas.length > 0 && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border bg-slate-100 text-slate-500 border-slate-200">
+                <span className="font-semibold">
+                  {searchResult.metricas.stopwordsRemovidas.length} stopwords removidas (NLTK)
+                </span>
+                <span className="text-[10px] text-slate-500">
+                  {searchResult.metricas.stopwordsRemovidas.join(', ')}
+                </span>
               </span>
-            );
-          })}
-        </div>
-      )}
+            )}
+          </div>
+        )}
 
       {/* Results Header */}
       <div className="flex items-center justify-between pt-2">

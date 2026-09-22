@@ -126,6 +126,7 @@ recorrência de espaço.
 | R6 | Arredondar/limitar as casas decimais dos tempos nos relatórios JSON | **Rejeitada** | Prejudicaria a reprodutibilidade e a análise dos expoentes log-log da Etapa 7 |
 | R7 | Gerar o `package-lock.json` apenas como *stub* | **Corrigida** | O arquivo tinha 203 bytes e nome de pacote divergente; era inútil para `npm ci`. Regenerado (87 674 bytes) e validado com `npm ci` |
 | R8 | Considerar `log₂ n` como anotação em texto sem verificar a codificação de saída do console | **Corrigida** | Em console Windows cp1252 o caractere `₂` quebrava a execução com `UnicodeEncodeError`. Adicionada configuração explícita de saída UTF-8 no script de gráficos |
+| R9 | Manter na aplicação web uma métrica **TF-IDF própria**, com tokenizador `/[^\W_]+/u` e sem remoção de stopwords, descrita como equivalente ao BM25 do relatório | **Corrigida** | A verificação no navegador mostrou que o motor divergia dos artefatos: 182 candidatos em vez de 75, 1 100 comparações em vez de 369 e um Top-5 de um único documento em vez de três. Além disso, `\w` em JavaScript é ASCII-only, de modo que `critérios` era tokenizado como `crit` + `rios` e termos acentuados não eram encontrados. O motor foi reescrito para reproduzir `4_buscar_e_ordenar.py` com paridade numérica — ver Seção 6, item E11 |
 
 ---
 
@@ -143,14 +144,16 @@ recorrência de espaço.
 | E8 | **`UnicodeEncodeError`** no script de gráficos ao imprimir `log₂n` em console cp1252 | Execução do script no terminal padrão do Windows | Configuração explícita de saída UTF-8 (`configurar_saida_padrao()`) |
 | E9 | **Afirmação não sustentada** de que a Etapa 5 mede taxa de falhas e estabilidade temporal | Leitura da função `executar_bateria` mostrou que ela apenas registra exceções por execução | *Docstring* corrigida; a medição foi implementada na Etapa 8 e a Seção 7.3 passou a citar a fonte correta |
 | E10 | **Rótulo incorreto na tabela de resultados**: "369 comparações de score", quando 369 é o total (score + desempates) | Conferência cruzada entre o CSV gerado e os campos do `relatorio_ordenacao.json` | Rótulo corrigido para "351 comparações de score + 18 desempates por id_chunk" |
+| E11 | **Aplicação web divergente do relatório**: métrica TF-IDF própria no lugar do Okapi BM25, sem remoção de stopwords, e tokenizador que separava palavras acentuadas (`critérios` → `crit` + `rios`) | Execução da consulta canônica no navegador (build de produção) e comparação com `6_busca_lexical/candidatos_topk.json`. O app exibia "10 de 182" candidatos e 1 100 comparações, contra 75 e 369 do artefato | `src/utils/searchEngine.ts` reescrito com IDF e TF do BM25 (`k1 = 1,5`, `b = 0,75`), `|D|`/`avgdl` medidos em tokens do texto e `src/utils/stopwords.ts` com as 207 stopwords do NLTK; `src/utils/tokenizer.ts` passou a usar `\p{L}\p{N}` com a flag `u`; `mergeSort` passou a receber comparador com desempate separado, contando 369 comparações. Verificado no navegador: Top-5, scores, 75 candidatos e 369 comparações idênticos ao artefato |
 
-> **Observação importante.** Os erros E1 a E10 são de **instrumentação, medição e
-> documentação** — não de corretude algorítmica. Nenhum deles foi encontrado
-> pelos testes da equipe: foram encontrados por **conferência cruzada entre
-> artefatos** (soma de contadores que não fechava, tempos incoerentes com a
-> ordem de grandeza do trabalho, valores que mudavam entre execuções). Isso
-> reforça a exigência do enunciado de validar toda sugestão de IA: um número
-> gerado por IA só é aceitável depois de verificado contra outra fonte.
+> **Observação importante.** Os erros E1 a E11 são de **instrumentação, medição,
+> documentação e portabilidade de linguagem** — não de corretude algorítmica.
+> Nenhum deles foi encontrado pelos testes da equipe: foram encontrados por
+> **conferência cruzada entre artefatos** (soma de contadores que não fechava,
+> tempos incoerentes com a ordem de grandeza do trabalho, valores que mudavam
+> entre execuções, resultados do navegador que não coincidiam com o relatório).
+> Isso reforça a exigência do enunciado de validar toda sugestão de IA: um
+> número gerado por IA só é aceitável depois de verificado contra outra fonte.
 
 ---
 
