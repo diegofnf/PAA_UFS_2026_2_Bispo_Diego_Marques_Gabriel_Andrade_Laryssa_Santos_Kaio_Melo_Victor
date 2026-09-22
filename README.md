@@ -25,6 +25,32 @@ As apresentações estão em desenvolvimento e serão atualizadas com os resulta
 - [Abrir `orquestrador_pipeline.ipynb` no Google Colab](https://colab.research.google.com/github/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/blob/main/orquestrador_pipeline.ipynb)
 
 
+## Status da entrega
+
+Ponto de congelamento da versão avaliada: **tag [`av1-entrega`](https://github.com/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor/releases/tag/av1-entrega)**.
+Todo o material técnico está versionado e verificado; os únicos itens abertos
+são de produção humana (PDF do relatório, slides e gravação do vídeo).
+
+**Concluído**
+
+- Etapas 1 a 8 do pipeline, com artefatos versionados em `3_dados/`,
+  `4_chunks/`, `5_indexacao/`, `6_busca_lexical/` e `7_resultados/`.
+- Aplicação web em React + Vite, com paridade numérica com a Etapa 4 — ver
+  [Paridade da busca com a Etapa 4](#paridade-da-busca-com-a-etapa-4).
+- Documentação: [`ANALISE_CORRETUDE_COMPLEXIDADE.md`](ANALISE_CORRETUDE_COMPLEXIDADE.md),
+  [`RAG_GENAI.md`](RAG_GENAI.md), [`DECLARACAO_IA.md`](DECLARACAO_IA.md),
+  [`CONTRIBUICOES.md`](CONTRIBUICOES.md), [`VIDEO.md`](VIDEO.md) e [`LICENSE`](LICENSE).
+- Licença, ausência de segredos e corpus com URLs oficiais de origem
+  (Seções 10 e 12 do enunciado).
+
+**A produzir (produção humana)**
+
+| Item | Ação necessária |
+|---|---|
+| Relatório técnico em PDF | Exportar o documento e depositar o PDF na seção [Relatório técnico](#relatório-técnico); o material dos 19 itens já está pronto na tabela acima |
+| Apresentação final | Fechar os slides (24/09/2026); resultados finais já consolidados em `7_resultados/` |
+| Vídeo da atividade | Seguir o roteiro de [`VIDEO.md`](VIDEO.md) e preencher a URL nos 4 pontos exigidos pela Seção 11 |
+
 ## Estrutura do repositório
 
 - `orquestrador_pipeline.ipynb`: execução integrada no Google Colab.
