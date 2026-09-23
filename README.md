@@ -8,7 +8,7 @@ Este README é o manual operacional do repositório. O relatório técnico conce
 
 ## Relatório técnico
 
-- [Relatório](https://docs.google.com/document/d/1RLEssVnXO0mOw0kx70mevGKRufop8sq1oqN-WQzNv2I/edit?usp=sharing)
+- [Relatório](https://drive.google.com/file/d/1StzkP3tbtl3OucawtnjrNmtO8Z66fOMQ/view?usp=sharing)
   
 ## Vídeo da atividade
 
@@ -25,38 +25,9 @@ As apresentações estão em desenvolvimento e serão atualizadas com os resulta
 - [Abrir `orquestrador_pipeline.ipynb` no Google Colab](https://colab.research.google.com/github/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/blob/main/orquestrador_pipeline.ipynb)
 
 
-## Status da entrega
-
-Ponto de congelamento da versão avaliada: **tag [`av1-entrega`](https://github.com/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/releases/tag/av1-entrega)**.
-Todo o material técnico está versionado e verificado; o que resta é produção
-humana (PDF do relatório e dados de gravação do vídeo).
-
-**Concluído**
-
-- Etapas 1 a 8 do pipeline, com artefatos versionados em `3_dados/`,
-  `4_chunks/`, `5_indexacao/`, `6_busca_lexical/` e `7_resultados/`.
-- Aplicação web em React + Vite, com paridade numérica com a Etapa 4 — ver
-  [Paridade da busca com a Etapa 4](#paridade-da-busca-com-a-etapa-4).
-- Documentação: [`ANALISE_CORRETUDE_COMPLEXIDADE.md`](ANALISE_CORRETUDE_COMPLEXIDADE.md),
-  [`RAG_GENAI.md`](RAG_GENAI.md), [`DECLARACAO_IA.md`](DECLARACAO_IA.md),
-  [`CONTRIBUICOES.md`](CONTRIBUICOES.md), [`VIDEO.md`](VIDEO.md) e [`LICENSE`](LICENSE).
-- Licença, ausência de segredos e corpus com URLs oficiais de origem
-  (Seções 10 e 12 do enunciado).
-- Vídeo publicado — link na seção [Vídeo da atividade](#vídeo-da-atividade) e em
-  [`VIDEO.md`](VIDEO.md), com o roteiro dos 10 tópicos da Seção 11.
-- Slides disponíveis no Drive — link na seção [Apresentação](#apresentação).
-
-**A produzir (produção humana)**
-
-| Item | Ação necessária |
-|---|---|
-| Relatório técnico em PDF | Exportar o documento e depositar o PDF na seção [Relatório técnico](#relatório-técnico). As seções 3, 4, 5, 13, 14, 16, 17, 18 e 19 ainda estão marcadas como "A PRODUZIR"; a seção 16 deve reproduzir [`DECLARACAO_IA.md`](DECLARACAO_IA.md), que segue como Anexo A |
-| Dados da gravação do vídeo | Preencher data e duração em [`VIDEO.md`](VIDEO.md) e conferir em janela anônima que a URL abre sem solicitar acesso |
-
 ## Estrutura do repositório
 
 - `orquestrador_pipeline.ipynb`: execução integrada no Google Colab.
-- `requirements.txt`: dependências do *pipeline* em Python, com as versões validadas.
 - `1_scripts/1_processar_documentos.py`: inventário, extração, normalização e validação.
 - `2_corpus/`: PDFs utilizados no corpus.
 - `3_dados/`: JSONs gerados pelo pipeline com extração PyMuPDF e normalização.
@@ -64,7 +35,7 @@ humana (PDF do relatório e dados de gravação do vídeo).
 - `5_indexacao/`: índice invertido (`indice_invertido.json`) e relatório da indexação (`relatorio_indexacao.json`).
 - `6_busca_lexical/`: candidatos com scores gerados (`candidatos_busca.json` na busca indexada e `candidatos_linear.json` na busca linear), métricas das duas buscas (`relatorio_busca.json` e `relatorio_busca_linear.json`), candidatos ordenados pelo Merge Sort (`candidatos_ordenados.json`), Top-k (`candidatos_topk.json`) e contadores da ordenação (`relatorio_ordenacao.json`).
 - `7_resultados/`: relatório consolidado das baterias experimentais (`relatorio_experimentos.json`), tabela consolidada (`tabela_resultados.csv`), análise assintótica do pipeline (`analise_assintotica.json` e `tabela_analise_assintotica.csv`), avaliação de robustez e *baseline* de ordenação (`avaliacao_robustez.json`, `tabela_robustez.csv` e `tabela_baseline_ordenacao.csv`) e os gráficos dos resultados (`grafico_tempo_execucao.png`, `grafico_busca_comparativo.png`, `grafico_escalabilidade_merge_sort.png`, `grafico_zipf.png`, `grafico_memoria_configuracoes.png`, `grafico_etapas_pipeline.png` e `grafico_analise_assintotica.png`).
-- `src/`: aplicação web em React + Vite que consulta os artefatos já versionados em `public/data/`. O motor de busca em `src/utils/searchEngine.ts` reimplementa o Okapi BM25 da Etapa 4 com paridade numérica (ver [Paridade da busca com a Etapa 4](#paridade-da-busca-com-a-etapa-4)).
+- `src/`: aplicação web em React + Vite que consulta os artefatos já versionados em `public/data/`.
 - `ANALISE_CORRETUDE_COMPLEXIDADE.md`: justificativa de corretude, análise no modelo RAM, melhor/pior/caso médio, recorrências e complexidade de espaço.
 - `RAG_GENAI.md`: relação do contexto recuperado com aplicações RAG e IA generativa.
 - `DECLARACAO_IA.md`: declaração de uso crítico de IA generativa.
@@ -75,9 +46,7 @@ humana (PDF do relatório e dados de gravação do vídeo).
 
 ## Dependências
 
-Python 3, `PyMuPDF`, `nltk` e `matplotlib`. Os testes da Etapa 4 requerem
-`pytest`. As versões mínimas estão em [`requirements.txt`](requirements.txt).
-A aplicação web requer Node.js 18 ou superior (`package.json`).
+Python 3, `PyMuPDF`, `nltk` e `matplotlib`. Os testes da Etapa 4 requerem `pytest`.
 
 ## Ambiente
 
@@ -86,7 +55,7 @@ Execução validada em Windows com Python 3. O script usa caminhos relativos ao 
 ## Instalação
 
 ```bash
-python -m pip install -r requirements.txt
+python -m pip install PyMuPDF nltk matplotlib pytest
 python -c "import nltk; nltk.download('stopwords')"
 ```
 
@@ -149,41 +118,6 @@ Interface web interativa desenvolvida para busca, recuperação e ordenação de
 > A publicação é feita na **Vercel** pelo workflow [`.github/workflows/deploy-vercel.yml`](.github/workflows/deploy-vercel.yml) a cada push em `main`.
 > O **GitHub Pages não é utilizado**: o `index.html` da raiz é o arquivo de desenvolvimento do Vite e, quando servido estaticamente (por exemplo, pelos forks), aponta para `/src/main.tsx` e resulta em página em branco.
 
-### Paridade da busca com a Etapa 4
-
-A aba **Busca Lexical & Top-K** reimplementa em TypeScript o mesmo motor de
-`1_scripts/4_buscar_e_ordenar.py`, de modo que os números exibidos no navegador
-coincidam com os artefatos versionados — não se trata de uma demonstração
-simplificada:
-
-| Regra | Implementação |
-|---|---|
-| Tokenização | Unicode NFC + *casefold*, `\p{L}\p{N}` (equivalente ao `\w` Unicode do Python) |
-| Stopwords | Lista do **NLTK** em português (207 palavras), em [`src/utils/stopwords.ts`](src/utils/stopwords.ts) |
-| `\|D\|` e `avgdl` | Medidos em **tokens do texto** do *chunk*, como no script Python |
-| IDF | `ln(1 + (N − DF + 0,5) / (DF + 0,5))` |
-| TF | `(freq × (k1 + 1)) / (freq + k1 × (1 − b + b × \|D\| / avgdl))`, com `k1 = 1,5` e `b = 0,75` |
-| Ordenação | Merge Sort com critério `(−score, id_chunk)` |
-
-Com a consulta canônica do trabalho (`"critérios para atribuição de bolsas e
-requisitos de matrícula"`), a aplicação devolve **exatamente** o mesmo resultado
-de `6_busca_lexical/candidatos_topk.json`:
-
-| Métrica | Valor na aplicação e no artefato |
-|---|---|
-| Tokens da consulta | 9 |
-| Stopwords removidas | 4 (`para`, `de`, `e`, `de`) |
-| Termos distintos | 5 |
-| Candidatos | 75 |
-| Comparações do Merge Sort | 369 |
-| Top-1 | `chunk_0131` — score 9,6206 |
-
-> **Nota de portabilidade.** Em JavaScript `\w` é *ASCII-only* por especificação,
-> mesmo com a flag `u`: `/[^\W_]+/u` separa `"critérios"` em `crit` + `rios`. O
-> tokenizador usa `\p{L}\p{N}` com a flag `u` para reproduzir o comportamento
-> Unicode de `\w` do Python. Sem esse ajuste, a busca indexada deixava de
-> encontrar termos acentuados e a contagem de candidatos divergia do relatório.
-
 ## Licença
 
 O **código-fonte** deste repositório (scripts em `1_scripts/`, aplicação web em
@@ -199,6 +133,5 @@ que permite verificar a procedência de cada arquivo.
 Este repositório não contém chaves, senhas, tokens ou dados pessoais. Arquivos
 grandes (PDFs do corpus e `node_modules/`) são controlados por `.gitignore`, e as
 instruções para obtê-los ou reproduzi-los estão nas seções
-[Instalação](#instalação), [Ambiente](#ambiente) e [Reprodução](#reprodução).
-
+[Instalação](#instalação), [Execução](#execução) e [Reprodução](#reprodução).
 
