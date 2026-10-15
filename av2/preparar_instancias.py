@@ -128,9 +128,9 @@ def salvar_json(caminho, dados):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--chunks", type=Path, default=RAIZ / "4_chunks/chunks.json")
+    parser.add_argument("--chunks", type=Path, default=RAIZ / "av1/4_chunks/chunks.json")
     parser.add_argument("--candidatos", type=Path,
-                        default=RAIZ / "6_busca_lexical/candidatos_busca.json")
+                        default=RAIZ / "av1/6_busca_lexical/candidatos_busca.json")
     parser.add_argument("--encoding", default="cl100k_base")
     parser.add_argument("--orcamentos", type=int, nargs="+", default=list(ORCAMENTOS))
     parser.add_argument("--saida", type=Path, default=RAIZ / "av2/dados")

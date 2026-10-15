@@ -3,3 +3,9 @@
 /av2/*.ipynb text eol=lf
 /av2/dados/*.json text eol=lf
 /av2/evidencias/*.json text eol=lf
+
+# Preserva os finais de linha ja versionados nestes scripts da AV1 ao move-los.
+/av1/1_scripts/1_processar_documentos.py -text
+/av1/1_scripts/2_gerar_chunks.py -text
+/av1/1_scripts/3_construir_indice_invertido.py -text
+/av1/1_scripts/5_experimentar.py -text

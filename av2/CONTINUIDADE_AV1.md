@@ -13,8 +13,8 @@ A nova preparação acrescenta a cada chunk o custo inteiro `w_i`, calculado em
 tokens, e o benefício `v_i`, igual ao score já produzido pela busca. A etapa
 não refaz a ingestão dos PDFs nem altera o texto dos chunks. Os campos
 `id_chunk`, `id_documento`, `nome_arquivo` e `paginas` preservam o vínculo da
-evidência com sua fonte. O novo diretório `av2/` reúne código, dados e
-documentação sem substituir os artefatos da primeira atividade.
+evidência com sua fonte. O diretório `av2/` reúne código, dados e documentação. Os artefatos reutilizados
+da primeira atividade estão organizados em `av1/`, com conteúdo preservado.
 
 ## Representação e parâmetros
 

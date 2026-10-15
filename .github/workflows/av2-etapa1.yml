@@ -26,7 +26,7 @@ jobs:
       - name: Executar notebook completo e testes
         run: python av2/validar_notebook.py --saida "$RUNNER_TEMP/notebook_executado.ipynb"
       - name: Conferir preservacao dos artefatos AV1
-        run: git diff --exit-code -- 1_scripts 2_corpus 3_dados 4_chunks 5_indexacao 6_busca_lexical 7_resultados public src
+        run: git diff --exit-code -- av1
       - uses: actions/upload-artifact@v7
         with:
           name: av2-etapa1-linux

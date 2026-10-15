@@ -1,8 +1,5 @@
 # Contribuições individuais dos integrantes
 
-**Escopo histórico: AV1.** Para as entregas implementadas na atividade 2,
-consulte [`av2/REGISTRO_ETAPA_1.md`](av2/REGISTRO_ETAPA_1.md).
-
 Documento exigido pelo **item 10 da Seção 10** ("relação de todos os participantes
 da equipe com as respectivas contribuições para esta atividade") e pelo **item 8
 da Seção 9** (contribuição individual na declaração de uso de IA).

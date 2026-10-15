@@ -57,9 +57,11 @@ tokens individuais; essa soma inclui a sobreposição herdada entre chunks e
 não representa o tamanho de um prompt. Em W = 512, um candidato excede a
 capacidade. Nos demais orçamentos, nenhum item excede W individualmente.
 
-Os scripts e artefatos das pastas da AV1 foram conferidos por `git diff` e
-permanecem intactos. Os hashes das entradas e do preparador conferem com as
-saídas. As células originais do notebook AV1 foram preservadas. A verificação
+Os scripts e artefatos da AV1 foram movidos para `av1/`; seu conteúdo foi
+conferido por hashes SHA-256. Os registros desta pasta documentam a execução
+histórica no commit indicado acima, anterior à reorganização dos diretórios. Os hashes das entradas e do preparador conferem com as
+saídas. O notebook AV1 agora executa em `av1/`; a célula de preparação foi ajustada
+para essa localização, e a seção AV2 foi retirada dele. A verificação
 Linux do mesmo notebook é executada no workflow
 [`AV2 - Preparacao e notebook`](https://github.com/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/actions/workflows/av2-etapa1.yml).
 
@@ -67,7 +69,7 @@ Linux do mesmo notebook é executada no workflow
 
 | Entrega prevista | Implementação / evidência |
 |---|---|
-| Preservar pipeline e corpus da AV1 | Diretórios antigos intactos, tag AV1 preservada e novo diretório `av2/`. |
+| Preservar pipeline e corpus da AV1 | Arquivos reorganizados em `av1/`, corpus preservado e tag AV1 mantida. |
 | Associar custo exato em tokens e relevância | `preparar_instancias.py`, encoding/versionamento fixos e testes. |
 | Estruturar W = 512, 1024, 2048, 4096 | `../dados/instancias.json` e execução integrada. |
 | Documentar continuidade e versionamento | `../CONTINUIDADE_AV1.md`, README e commit de execução. |

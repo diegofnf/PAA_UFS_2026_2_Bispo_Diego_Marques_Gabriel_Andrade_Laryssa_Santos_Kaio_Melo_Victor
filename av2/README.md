@@ -1,8 +1,30 @@
-# AV2 - Etapa 1: ingestão e tokenização
+# PAA — Atividade 2 — Seleção de contexto com orçamento de tokens
 
 Responsável: Diego Bispo. Trilha A: seleção de contexto por mochila 0/1.
 Esta etapa prepara as entradas; a seleção gulosa, a programação dinâmica e o
 benchmark comparativo pertencem às próximas etapas.
+
+## Relatório técnico
+
+- [Relatório da AV2](https://docs.google.com/document/d/1cFoJsM_uP5D8M5gXjQQlGoIUPa56ldwupIIRD0V7Y_8/edit)
+
+## Vídeo da atividade
+
+Vídeo da AV2 a publicar.
+
+## Apresentação
+
+- [Apresentação da AV2](https://docs.google.com/presentation/d/1FjPmWpVQE1aJELaLnQo0peaQ_8FZfcmRb1jCor3uHu0/edit)
+
+## Orquestrador
+
+- [Abrir no Google Colab](https://colab.research.google.com/github/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/blob/av2/av2/orquestrador_av2.ipynb)
+
+## Estrutura
+
+Os arquivos da primeira atividade estão em `../av1/`. Este diretório reúne
+o preparador, os dados em `dados/`, os testes, as evidências em `evidencias/`
+e o notebook da segunda atividade. Os comandos abaixo partem da raiz do repositório.
 
 ## Organização no GitHub
 
@@ -42,15 +64,13 @@ tokenizer pode baixar seu vocabulário; execuções posteriores usam o cache loc
 Não exige chave de API. Para Colab, utilize o
 [notebook exclusivo da AV2](https://colab.research.google.com/github/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/blob/av2/av2/orquestrador_av2.ipynb)
 e execute todas as células. Ele clona explicitamente a branch `av2`, instala
-as dependências, prepara os dados e roda os testes. O
-`orquestrador_pipeline.ipynb` original também conserva sua seção AV2 ao final
-para uso local; não é necessário executar as células anteriores da AV1.
+as dependências, prepara os dados e roda os testes.
 
 ## Continuidade da AV1
 
 Reutilizamos os 7 PDFs institucionais, o pré-processamento, os 182 chunks em
-`4_chunks/chunks.json` e os candidatos completos da busca indexada em
-`6_busca_lexical/candidatos_busca.json`. O caso versionado contém 75 candidatos
+`av1/4_chunks/chunks.json` e os candidatos completos da busca indexada em
+`av1/6_busca_lexical/candidatos_busca.json`. O caso versionado contém 75 candidatos
 com BM25 positivo para a consulta registrada no próprio arquivo. `v_i` é esse
 score, inclusive o arredondamento da AV1; não é uma avaliação humana nem uma
 medida direta de cobertura. Não usamos `candidatos_topk.json`, pois limitar os
@@ -123,11 +143,11 @@ misturar scores de consultas diferentes. Para gerar nova busca com o script da
 AV1, direcione **todas** as saídas para a AV2, preservando os resultados antigos:
 
 ```bash
-python 1_scripts/4_buscar_e_ordenar.py --consulta "requisitos de matrícula" --modo indexada --saida-candidatos av2/dados/candidatos_matricula.json --relatorio-busca av2/dados/busca_matricula.json --saida_candidatos_ordenados av2/dados/ordenados_matricula.json --saida_candidatos_top_k av2/dados/topk_matricula.json --relatorio-ordenacao av2/dados/ordenacao_matricula.json
+python av1/1_scripts/4_buscar_e_ordenar.py --chunks av1/4_chunks/chunks.json --indice av1/5_indexacao/indice_invertido.json --consulta "requisitos de matrícula" --modo indexada --saida-candidatos av2/dados/candidatos_matricula.json --relatorio-busca av2/dados/busca_matricula.json --saida_candidatos_ordenados av2/dados/ordenados_matricula.json --saida_candidatos_top_k av2/dados/topk_matricula.json --relatorio-ordenacao av2/dados/ordenacao_matricula.json
 python av2/preparar_instancias.py --candidatos av2/dados/candidatos_matricula.json --saida av2/dados/matricula
 ```
 
-Essa opção requer também as dependências da AV1 (`requirements.txt`). Ela não é
+Essa opção requer também as dependências da AV1 (`av1/requirements.txt`). Ela não é
 necessária para reproduzir o caso padrão já versionado.
 
 ## Custos: RAM, tokenização e I/O
@@ -174,3 +194,16 @@ uma prova de corretude dos algoritmos de seleção, ainda não implementados.
 Os quatro valores de W também não substituem as duas escalas e as repetições
 exigidas no futuro benchmark. Há uma única consulta no caso padrão; ampliar as
 consultas e medir redundância/qualidade é trabalho das próximas etapas.
+
+## Resultados da preparação
+
+Foram preparados 182 chunks de 7 documentos e 75 candidatos positivos. O corpus
+tokenizado soma 74.055 tokens, incluindo sobreposições. As quatro capacidades
+são 512, 1024, 2048 e 4096. Em W = 512, um candidato excede sozinho a capacidade.
+
+Foram aprovados 48 testes: 34 da preparação e 14 de regressão da AV1. Para
+executá-los juntos, após instalar `av2/requirements-validacao.txt`:
+
+```bash
+python -m pytest av2/test_preparar_instancias.py av1/1_scripts/test_etapa_4.py -q
+```
