@@ -22,9 +22,25 @@ Vídeo da AV2 a publicar.
 
 ## Estrutura
 
-Os arquivos da primeira atividade estão em `../av1/`. Este diretório reúne
-o preparador, os dados em `dados/`, os testes, as evidências em `evidencias/`
-e o notebook da segunda atividade. Os comandos abaixo partem da raiz do repositório.
+```text
+av2/
+├── 1_scripts/              # Preparação, testes e validação do notebook
+├── 2_dados_tokenizados/    # Corpus com custos e scores associados
+├── 3_instancias/           # Entradas para os seletores, com capacidades W
+├── 4_selecao_contexto/     # Reservada para as saídas dos seletores
+├── 5_resultados/           # Relatórios e resultados das execuções
+├── 6_evidencias/           # Notebook executado, testes e versões
+├── orquestrador_av2.ipynb
+├── requirements.txt
+├── requirements-validacao.txt
+└── README.md
+```
+
+O fluxo dos dados segue a numeração: tokenização → instâncias → seleção →
+resultados. Os scripts executam o fluxo e as evidências registram sua validação.
+`4_selecao_contexto/` está reservada e contém apenas `.gitkeep`, para aparecer
+no GitHub mesmo sem resultados. O corpus original continua em `../av1/`.
+Os comandos abaixo partem da raiz do repositório.
 
 ## Organização no GitHub
 
@@ -53,9 +69,9 @@ Na raiz do repositório, com Python 3.10 ou superior:
 
 ```bash
 python -m pip install -r av2/requirements.txt
-python av2/preparar_instancias.py
+python av2/1_scripts/preparar_instancias.py
 python -m pip install pytest
-python -m pytest av2/test_preparar_instancias.py -q
+python -m pytest av2/1_scripts/test_preparar_instancias.py -q
 ```
 
 O comando padrão funciona com os artefatos já versionados da AV1. Não executa
@@ -81,7 +97,7 @@ A base utilizada nesta implementação é
 `1cdf6cf5463a178d7679a58e83237fc75f2def6d`. São referências distintas e ambas
 são registradas. Nenhum script, corpus ou resultado da AV1 é regravado pela
 preparação. Textos, IDs, ordem, documentos e páginas são preservados; a AV2
-acrescenta somente `w_i` e `v_i` nas cópias em `av2/dados/`.
+acrescenta somente `w_i` e `v_i` nas cópias em `av2/2_dados_tokenizados/` e `av2/3_instancias/`.
 
 Chunks ausentes da recuperação recebem `v_i = 0` no corpus tokenizado. Apenas
 itens com score positivo e custo positivo seguem para as instâncias. Textos
@@ -108,11 +124,11 @@ algoritmos. Referência: [documentação oficial do tiktoken](https://github.com
 
 ## Contrato dos arquivos de saída
 
-| Arquivo em `av2/dados/` | Conteúdo |
+| Arquivo relativo a `av2/` | Conteúdo |
 |---|---|
-| `chunks_tokenizados.json` | Todos os chunks, com origem/texto intactos, `w_i` inteiro e `v_i` numérico. |
-| `instancias.json` | Lista comum `itens` e quatro `instancias`, com `W` e `ids_itens`. |
-| `relatorio_preparacao.json` | Contagens, tempos, ambiente, consulta, tokenizer e proveniência. |
+| `2_dados_tokenizados/chunks_tokenizados.json` | Todos os chunks, com origem/texto intactos, `w_i` inteiro e `v_i` numérico. |
+| `3_instancias/instancias.json` | Lista comum `itens` e quatro `instancias`, com `W` e `ids_itens`. |
+| `5_resultados/relatorio_preparacao.json` | Contagens, tempos, ambiente, consulta, tokenizer e proveniência. |
 
 Os seletores devem carregar `itens` por `id_chunk` e, em cada cenário, usar os
 IDs em `ids_itens` e a capacidade `W`. Todos os cenários utilizam a mesma lista
@@ -131,10 +147,11 @@ um segundo commit guarda os artefatos obtidos. Isso evita atribuir os resultados
 à base da AV1, que ainda não continha este código. Os dados das instâncias são
 determinísticos para os mesmos arquivos, tokenizer e parâmetros. Os tempos e a
 data do relatório variam por execução. Arquivos padrão são regenerados a cada
-execução; para guardar outra consulta/tokenizer, use uma pasta de saída própria:
+execução; para guardar outra consulta/tokenizer, use uma pasta base de saída própria. `--saida` recebe a pasta base e cria
+dentro dela `2_dados_tokenizados/`, `3_instancias/` e `5_resultados/`:
 
 ```bash
-python av2/preparar_instancias.py --candidatos caminho/candidatos_completos.json --saida av2/dados/outra_consulta
+python av2/1_scripts/preparar_instancias.py --candidatos caminho/candidatos_completos.json --saida caminho/outra_execucao
 ```
 
 O arquivo de candidatos precisa ser a saída completa da busca AV1, com as chaves
@@ -143,8 +160,8 @@ misturar scores de consultas diferentes. Para gerar nova busca com o script da
 AV1, direcione **todas** as saídas para a AV2, preservando os resultados antigos:
 
 ```bash
-python av1/1_scripts/4_buscar_e_ordenar.py --chunks av1/4_chunks/chunks.json --indice av1/5_indexacao/indice_invertido.json --consulta "requisitos de matrícula" --modo indexada --saida-candidatos av2/dados/candidatos_matricula.json --relatorio-busca av2/dados/busca_matricula.json --saida_candidatos_ordenados av2/dados/ordenados_matricula.json --saida_candidatos_top_k av2/dados/topk_matricula.json --relatorio-ordenacao av2/dados/ordenacao_matricula.json
-python av2/preparar_instancias.py --candidatos av2/dados/candidatos_matricula.json --saida av2/dados/matricula
+python av1/1_scripts/4_buscar_e_ordenar.py --chunks av1/4_chunks/chunks.json --indice av1/5_indexacao/indice_invertido.json --consulta "requisitos de matrícula" --modo indexada --saida-candidatos av2/3_instancias/candidatos_matricula.json --relatorio-busca av2/5_resultados/busca_matricula.json --saida_candidatos_ordenados av2/3_instancias/ordenados_matricula.json --saida_candidatos_top_k av2/3_instancias/topk_matricula.json --relatorio-ordenacao av2/5_resultados/ordenacao_matricula.json
+python av2/1_scripts/preparar_instancias.py --candidatos av2/3_instancias/candidatos_matricula.json --saida caminho/execucao_matricula
 ```
 
 Essa opção requer também as dependências da AV1 (`av1/requirements.txt`). Ela não é
@@ -178,12 +195,12 @@ Jupyter real, instale as dependências de validação:
 
 ```bash
 python -m pip install -r av2/requirements-validacao.txt
-python av2/validar_notebook.py --saida caminho/notebook_executado.ipynb
+python av2/1_scripts/validar_notebook.py --saida caminho/notebook_executado.ipynb
 ```
 
 O workflow `.github/workflows/av2-etapa1.yml` executa esse mesmo procedimento
 em Linux e guarda notebook executado, resultados e testes como artefatos.
-Veja a [matriz de testes e evidências](evidencias/README.md) e a
+Veja a [matriz de testes e evidências](6_evidencias/README.md) e a
 [seção preparada para o relatório](CONTINUIDADE_AV1.md).
 
 A suíte cobre contagem conhecida, não mutação, vazio/sem correspondência,
@@ -205,5 +222,5 @@ Foram aprovados 48 testes: 34 da preparação e 14 de regressão da AV1. Para
 executá-los juntos, após instalar `av2/requirements-validacao.txt`:
 
 ```bash
-python -m pytest av2/test_preparar_instancias.py av1/1_scripts/test_etapa_4.py -q
+python -m pytest av2/1_scripts/test_preparar_instancias.py av1/1_scripts/test_etapa_4.py -q
 ```

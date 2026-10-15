@@ -24,7 +24,7 @@ jobs:
       - name: Instalar dependencias de validacao
         run: python -m pip install -r av2/requirements-validacao.txt
       - name: Executar notebook completo e testes
-        run: python av2/validar_notebook.py --saida "$RUNNER_TEMP/notebook_executado.ipynb"
+        run: python av2/1_scripts/validar_notebook.py --saida "$RUNNER_TEMP/notebook_executado.ipynb"
       - name: Conferir preservacao dos artefatos AV1
         run: git diff --exit-code -- av1
       - uses: actions/upload-artifact@v7
@@ -32,6 +32,8 @@ jobs:
           name: av2-etapa1-linux
           path: |
             ${{ runner.temp }}/notebook_executado.ipynb
-            av2/dados/*.json
-            av2/evidencias/testes.xml
+            av2/2_dados_tokenizados/*.json
+            av2/3_instancias/*.json
+            av2/5_resultados/*.json
+            av2/6_evidencias/testes.xml
           if-no-files-found: error

@@ -1,8 +1,10 @@
 # Mantem os hashes do codigo e dos artefatos AV2 estaveis entre Windows e Linux.
-/av2/*.py text eol=lf
+/av2/1_scripts/*.py text eol=lf
 /av2/*.ipynb text eol=lf
-/av2/dados/*.json text eol=lf
-/av2/evidencias/*.json text eol=lf
+/av2/2_dados_tokenizados/*.json text eol=lf
+/av2/3_instancias/*.json text eol=lf
+/av2/5_resultados/*.json text eol=lf
+/av2/6_evidencias/*.json text eol=lf
 
 # Preserva os finais de linha ja versionados nestes scripts da AV1 ao move-los.
 /av1/1_scripts/1_processar_documentos.py -text

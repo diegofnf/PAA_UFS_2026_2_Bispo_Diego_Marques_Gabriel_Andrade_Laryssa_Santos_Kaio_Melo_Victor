@@ -9,7 +9,7 @@ novo, Windows AMD64 e Python 3.12.14. O registro de geração indica
 
 ```bash
 python -m pip install -r av2/requirements-validacao.txt
-python av2/validar_notebook.py --saida caminho/notebook_executado.ipynb
+python av2/1_scripts/validar_notebook.py --saida caminho/notebook_executado.ipynb
 ```
 
 Resultado: **48 testes aprovados** (34 da preparação AV2 e 14 da AV1).
@@ -20,7 +20,7 @@ que a execução Windows tenha ocorrido no serviço Colab.
 
 ## Matriz de resultados esperados e observados
 
-Os nomes abaixo correspondem a testes em `av2/test_preparar_instancias.py`.
+Os nomes abaixo correspondem a testes em `av2/1_scripts/test_preparar_instancias.py`.
 O XML registra o status de cada execução, incluindo os parâmetros.
 
 | Caso / requisito | Resultado esperado | Resultado observado | Evidência / status |
@@ -49,7 +49,7 @@ não à preparação dos dados.
 - `notebook_executado.ipynb`: células executadas, saídas e resumo das instâncias.
 - `validacao_limpa.json`: resumo da execução e identificação do código.
 - `dependencias_validacao.txt`: versões instaladas no ambiente novo.
-- `../dados/relatorio_preparacao.json`: custos separados, hashes e ambiente.
+- `../5_resultados/relatorio_preparacao.json`: custos separados, hashes e ambiente.
 
 A execução real produziu 182 chunks de 7 documentos, 75 candidatos positivos e
 as quatro capacidades 512, 1024, 2048 e 4096. O corpus tokenizado soma 74.055
@@ -59,7 +59,9 @@ capacidade. Nos demais orçamentos, nenhum item excede W individualmente.
 
 Os scripts e artefatos da AV1 foram movidos para `av1/`; seu conteúdo foi
 conferido por hashes SHA-256. Os registros desta pasta documentam a execução
-histórica no commit indicado acima, anterior à reorganização dos diretórios. Os hashes das entradas e do preparador conferem com as
+histórica no commit indicado acima, anterior à reorganização dos diretórios.
+Por isso, o notebook executado preserva os caminhos usados naquela execução;
+para executar a versão atual, utilize `../orquestrador_av2.ipynb`. Os hashes das entradas e do preparador conferem com as
 saídas. O notebook AV1 agora executa em `av1/`; a célula de preparação foi ajustada
 para essa localização, e a seção AV2 foi retirada dele. A verificação
 Linux do mesmo notebook é executada no workflow
@@ -70,8 +72,8 @@ Linux do mesmo notebook é executada no workflow
 | Entrega prevista | Implementação / evidência |
 |---|---|
 | Preservar pipeline e corpus da AV1 | Arquivos reorganizados em `av1/`, corpus preservado e tag AV1 mantida. |
-| Associar custo exato em tokens e relevância | `preparar_instancias.py`, encoding/versionamento fixos e testes. |
-| Estruturar W = 512, 1024, 2048, 4096 | `../dados/instancias.json` e execução integrada. |
+| Associar custo exato em tokens e relevância | `../1_scripts/preparar_instancias.py`, encoding/versionamento fixos e testes. |
+| Estruturar W = 512, 1024, 2048, 4096 | `../3_instancias/instancias.json` e execução integrada. |
 | Documentar continuidade e versionamento | `../CONTINUIDADE_AV1.md`, README e commit de execução. |
 | Documentar tokenização e RAM versus I/O | Seção de custos e campos separados no relatório de preparação. |
 | Permitir reprodução e uso pelos colegas | Notebook independente, dependências, contrato dos JSONs e workflow Linux. |

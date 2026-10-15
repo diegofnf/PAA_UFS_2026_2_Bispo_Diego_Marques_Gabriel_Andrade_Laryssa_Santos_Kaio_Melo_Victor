@@ -15,7 +15,7 @@ from pathlib import Path
 import tiktoken
 
 
-RAIZ = Path(__file__).resolve().parents[1]
+RAIZ = Path(__file__).resolve().parents[2]
 ORCAMENTOS = (512, 1024, 2048, 4096)
 
 
@@ -133,7 +133,8 @@ def main(argv=None):
                         default=RAIZ / "av1/6_busca_lexical/candidatos_busca.json")
     parser.add_argument("--encoding", default="cl100k_base")
     parser.add_argument("--orcamentos", type=int, nargs="+", default=list(ORCAMENTOS))
-    parser.add_argument("--saida", type=Path, default=RAIZ / "av2/dados")
+    parser.add_argument("--saida", type=Path, default=RAIZ / "av2",
+                        help="Diretório base das saídas, organizadas nas pastas numeradas da AV2.")
     args = parser.parse_args(argv)
     inicio = time.perf_counter()
     dados_chunks, hash_chunks = ler_entrada(args.chunks, "chunks")
@@ -164,7 +165,8 @@ def main(argv=None):
     instancias = criar_instancias(preparados, args.orcamentos)
     tempo_instancias = time.perf_counter() - t0
     arquivos_saida = [args.saida / nome for nome in (
-        "chunks_tokenizados.json", "instancias.json", "relatorio_preparacao.json")]
+        "2_dados_tokenizados/chunks_tokenizados.json", "3_instancias/instancias.json",
+        "5_resultados/relatorio_preparacao.json")]
     entradas = {args.chunks.resolve(), args.candidatos.resolve()}
     if entradas.intersection(p.resolve() for p in arquivos_saida):
         raise ValueError("A saída não pode sobrescrever os arquivos de entrada.")
@@ -216,7 +218,8 @@ def main(argv=None):
             "montagem_instancias_ram": tempo_instancias,
         },
     }
-    args.saida.mkdir(parents=True, exist_ok=True)
+    for caminho in arquivos_saida:
+        caminho.parent.mkdir(parents=True, exist_ok=True)
     t0 = time.perf_counter()
     salvar_json(arquivos_saida[0], {"metadados": metadados, "chunks": preparados})
     salvar_json(arquivos_saida[1], instancias)

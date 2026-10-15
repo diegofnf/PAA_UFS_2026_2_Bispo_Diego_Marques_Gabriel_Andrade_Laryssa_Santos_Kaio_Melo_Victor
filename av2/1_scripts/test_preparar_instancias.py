@@ -122,20 +122,20 @@ def test_rejeita_chunk_malformado(encoding, campo, valor):
 
 
 def test_cli_real_gera_quatro_instancias_preservando_entradas(tmp_path):
-    raiz = Path(__file__).resolve().parents[1]
+    raiz = Path(__file__).resolve().parents[2]
     chunks_path = raiz / "av1/4_chunks/chunks.json"
     candidatos_path = raiz / "av1/6_busca_lexical/candidatos_busca.json"
     antes = [p.read_bytes() for p in (chunks_path, candidatos_path)]
     main(["--saida", str(tmp_path)])
-    instancias = json.loads((tmp_path / "instancias.json").read_text(encoding="utf-8"))
-    chunks = json.loads((tmp_path / "chunks_tokenizados.json").read_text(encoding="utf-8"))
+    instancias = json.loads((tmp_path / "3_instancias/instancias.json").read_text(encoding="utf-8"))
+    chunks = json.loads((tmp_path / "2_dados_tokenizados/chunks_tokenizados.json").read_text(encoding="utf-8"))
     scores = {c["id_chunk"]: c["score"] for c in json.loads(antes[1])["candidatos"]}
     assert len(chunks["chunks"]) == 182
     assert len(instancias["itens"]) == 75
     assert {c["id_chunk"]: c["v_i"] for c in instancias["itens"]} == scores
     assert [i["W"] for i in instancias["instancias"]] == list(ORCAMENTOS)
     assert instancias["metadados"]["tokenizer"]["encoding"] == "cl100k_base"
-    relatorio = json.loads((tmp_path / "relatorio_preparacao.json").read_text(encoding="utf-8"))
+    relatorio = json.loads((tmp_path / "5_resultados/relatorio_preparacao.json").read_text(encoding="utf-8"))
     tempos = relatorio["tempos_segundos"]
     assert tempos["tokenizacao_ram"] >= 0
     assert tempos["validacao_associacao_ram"] >= 0
@@ -158,7 +158,7 @@ def test_associacao_independe_do_tokenizer():
 
 @pytest.mark.parametrize("metadados_corpus", [True, False])
 def test_cli_rejeita_tamanho_de_corpus_incompativel(tmp_path, metadados_corpus):
-    raiz = Path(__file__).resolve().parents[1]
+    raiz = Path(__file__).resolve().parents[2]
     c = json.loads((raiz / "av1/4_chunks/chunks.json").read_text(encoding="utf-8"))
     busca = json.loads((raiz / "av1/6_busca_lexical/candidatos_busca.json").read_text(encoding="utf-8"))
     if metadados_corpus:

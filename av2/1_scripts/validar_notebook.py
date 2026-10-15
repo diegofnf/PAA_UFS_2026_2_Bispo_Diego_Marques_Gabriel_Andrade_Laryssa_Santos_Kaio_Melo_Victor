@@ -11,7 +11,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--saida", type=Path, required=True)
     args = parser.parse_args()
-    raiz = Path(__file__).resolve().parents[1]
+    raiz = Path(__file__).resolve().parents[2]
     notebook = nbformat.read(raiz / "av2/orquestrador_av2.ipynb", as_version=4)
     nbformat.validate(notebook)
     NotebookClient(notebook, timeout=180, kernel_name="python3",
