@@ -1,0 +1,94 @@
+{
+  "metadados": {
+    "etapa": "av2_1_ingestao_tokenizacao",
+    "versao_schema": 1,
+    "consulta": "critérios para atribuição de bolsas e requisitos de matrícula",
+    "metrica_score": "bm25",
+    "parametros_metrica": {
+      "metrica": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "avgdl": 204.7747,
+      "total_documentos_N": 182
+    },
+    "tokenizer": {
+      "biblioteca": "tiktoken",
+      "versao": "0.14.0",
+      "encoding": "cl100k_base",
+      "metodo": "encode_ordinary",
+      "modelo_llm": null
+    },
+    "orcamento": "soma dos tokens individuais dos textos dos chunks; exclui overhead do prompt",
+    "politica_candidatos": "todos com score positivo; sem truncamento Top-k; ordem do corpus",
+    "entradas": {
+      "chunks": {
+        "arquivo": "chunks.json",
+        "sha256": "86b6422ab2cbd786dcd0cc53c92b6beb154e64cad8db8a2ee515e3b1036b5746"
+      },
+      "candidatos": {
+        "arquivo": "candidatos_busca.json",
+        "sha256": "f5b7492efe1c0d0d6f6dc78ae4492f1b299e8788197e4a7e9a100d003f7ea97b"
+      }
+    },
+    "versionamento": {
+      "commit_execucao": "b984f377c101386f27399da683bed644de38e987",
+      "tag_av1_commit": "34e06aaa63a0d50f1ad634861d3a40476894df96",
+      "arvore_suja_antes_gravar": false,
+      "sha256_preparador": "65ffa2eb2348a818b7b66a8091cdd4d9121846a1bf6f7db18a20e8148c1a0a8c"
+    }
+  },
+  "data_utc": "2026-10-15T21:04:27.441591+00:00",
+  "ambiente": {
+    "python": "3.12.14",
+    "sistema": "Windows-11-10.0.26300-SP0",
+    "maquina": "AMD64",
+    "processador": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel"
+  },
+  "comando_argv": [
+    "C:\\Users\\Diego\\Documents\\Mestrado\\PAA_ATIVIDADE_2\\tmp\\validacao-etapa1\\av2\\preparar_instancias.py"
+  ],
+  "total_chunks": 182,
+  "total_documentos": 7,
+  "total_candidatos_positivos": 75,
+  "total_chunks_vazios": 0,
+  "tokens": {
+    "total": 74055,
+    "minimo": 148,
+    "maximo": 1721
+  },
+  "instancias": [
+    {
+      "id_instancia": "W_512",
+      "W": 512,
+      "total_itens": 75,
+      "total_itens_acima_W": 1
+    },
+    {
+      "id_instancia": "W_1024",
+      "W": 1024,
+      "total_itens": 75,
+      "total_itens_acima_W": 0
+    },
+    {
+      "id_instancia": "W_2048",
+      "W": 2048,
+      "total_itens": 75,
+      "total_itens_acima_W": 0
+    },
+    {
+      "id_instancia": "W_4096",
+      "W": 4096,
+      "total_itens": 75,
+      "total_itens_acima_W": 0
+    }
+  ],
+  "tempos_segundos": {
+    "leitura_entradas_io": 0.023072699987096712,
+    "validacao_associacao_ram": 0.00032160000409930944,
+    "carregamento_tokenizer": 0.09924640000099316,
+    "tokenizacao_ram": 0.02193789999000728,
+    "montagem_instancias_ram": 4.949999856762588e-05,
+    "serializacao_gravacao_dados_io": 0.006086700013838708,
+    "total_antes_gravar_relatorio": 0.32430729997577146
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "data_utc": "2026-10-15T21:05:44.027004+00:00",
+  "commit_codigo": "b984f377c101386f27399da683bed644de38e987",
+  "copia_limpa_antes_da_execucao": true,
+  "ambiente": "Windows, Python 3.12.14, venv nova, notebook executado por nbclient em kernel ipykernel real",
+  "testes": {
+    "av2": 34,
+    "regressao_av1": 14,
+    "total": 48,
+    "falhas": 0
+  },
+  "notebook": {
+    "arquivo": "notebook_executado.ipynb",
+    "celulas_codigo_executadas": 3,
+    "erros": 0
+  },
+  "artefatos_av1_preservados": true,
+  "escopo": "preparacao das instancias; nao inclui seletores, benchmark comparativo ou geracao por LLM",
+  "comando": "python av2/validar_notebook.py --saida caminho/notebook_executado.ipynb"
+}
