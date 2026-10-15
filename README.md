@@ -1,160 +1,123 @@
-[![Open in Colab](https://img.shields.io/badge/Open%20in-Colab-F9AB00?logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/blob/main/orquestrador_pipeline.ipynb)
+[![Abrir no Colab](https://img.shields.io/badge/Abrir%20no-Colab-F9AB00?logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/blob/av2/av2/orquestrador_av2.ipynb)
 
-# Regulamentos acadêmicos e manuais públicos
+# PAA — Atividade 2 — Seleção de contexto com orçamento de tokens
 
-Corretude, eficiência e recuperação de contexto para IA generativa.
+Grupo 2 · PROCC/UFS · Projeto e Análise de Algoritmos · 2026.2
 
-Este README é o manual operacional do repositório. O relatório técnico concentra a fundamentação, as provas, a análise detalhada, os experimentos e a discussão; esta página será atualizada à medida que esses artefatos forem produzidos.
+**Trilha A:** mochila 0/1 por programação dinâmica, comparada com seleção gulosa por relevância/custo. A AV2 evolui o protótipo de recuperação do mesmo corpus para escolher evidências que caibam em um orçamento de tokens.
 
-## Atividade 2 - preparação das instâncias
-
-A AV2 continua o mesmo corpus e pipeline, com a Trilha A (mochila 0/1).
-A etapa 1, de Diego Bispo, associa custos exatos em tokens aos scores da AV1 e
-prepara os orçamentos 512, 1024, 2048 e 4096. Os links de relatório, vídeo e
-apresentação abaixo permanecem referentes à **AV1**.
-
-O desenvolvimento está na branch **`av2`**. A tag `av1-entrega` permanece
-preservada; `av2-entrega` será criada somente ao concluir a atividade inteira.
-[Abrir a etapa 1 no Colab](https://colab.research.google.com/github/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/blob/av2/av2/orquestrador_av2.ipynb).
-
-```bash
-python -m pip install -r av2/requirements.txt
-python av2/preparar_instancias.py
-python -m pytest av2/test_preparar_instancias.py -q
-```
-
-Veja [instruções, contrato de dados e continuidade](av2/README.md) e
-[contribuição e uso de IA da etapa 1](av2/REGISTRO_ETAPA_1.md).
-Os resultados são gravados em `av2/dados/`; a seção AV2 ao final do notebook
-permite executar apenas essa preparação sem regravar os artefatos da AV1.
-A programação dinâmica e a baseline gulosa ainda pertencem às próximas etapas.
+**Situação em 15/10/2026:** etapa 1 concluída e publicada. Os seletores, a comparação experimental e a integração com LLM estão planejados; ainda não há resultados de PD versus guloso.
 
 ## Relatório técnico
 
-- [Relatório](https://drive.google.com/file/d/1StzkP3tbtl3OucawtnjrNmtO8Z66fOMQ/view?usp=sharing)
-  
+- [Relatório da AV2 — Google Docs](https://docs.google.com/document/d/1cFoJsM_uP5D8M5gXjQQlGoIUPa56ldwupIIRD0V7Y_8/edit)
+- [Texto de continuidade e preparação](av2/CONTINUIDADE_AV1.md)
+
 ## Vídeo da atividade
 
-- [Vídeo](https://youtu.be/6Qv1OSFnZBo)
+Vídeo da **AV2** a produzir, com participação de todos e duração de até 10 minutos. O link será incluído aqui e no relatório quando publicado.
 
 ## Apresentação
 
-- [Apresentação](https://drive.google.com/file/d/1lAGornS6dA-uNCQJ60wJdmWgpHZDu0LI/view?usp=sharing)
-
-As apresentações estão em desenvolvimento e serão atualizadas com os resultados finais.
+- [Apresentação da AV2 — Google Slides](https://docs.google.com/presentation/d/1FjPmWpVQE1aJELaLnQo0peaQ_8FZfcmRb1jCor3uHu0/edit)
 
 ## Orquestrador no Google Colab
 
-- [Abrir `orquestrador_pipeline.ipynb` no Google Colab](https://colab.research.google.com/github/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/blob/main/orquestrador_pipeline.ipynb)
+- [Abrir o notebook exclusivo da AV2](https://colab.research.google.com/github/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/blob/av2/av2/orquestrador_av2.ipynb)
 
+No Colab, execute todas as células. O notebook clona a branch `av2`, instala as dependências, prepara as instâncias e executa os testes. Não requer chave de API nem chama uma LLM.
 
 ## Estrutura do repositório
 
-- `orquestrador_pipeline.ipynb`: execução integrada no Google Colab.
-- `1_scripts/1_processar_documentos.py`: inventário, extração, normalização e validação.
-- `2_corpus/`: PDFs utilizados no corpus.
-- `3_dados/`: JSONs gerados pelo pipeline com extração PyMuPDF e normalização.
-- `4_chunks/`: segmentação de texto com janelamento deslizante e sobreposição; chunks prontos para indexação (`chunks.json`) e relatório estatístico da etapa (`relatorio_chunking.json`).
-- `5_indexacao/`: índice invertido (`indice_invertido.json`) e relatório da indexação (`relatorio_indexacao.json`).
-- `6_busca_lexical/`: candidatos com scores gerados (`candidatos_busca.json` na busca indexada e `candidatos_linear.json` na busca linear), métricas das duas buscas (`relatorio_busca.json` e `relatorio_busca_linear.json`), candidatos ordenados pelo Merge Sort (`candidatos_ordenados.json`), Top-k (`candidatos_topk.json`) e contadores da ordenação (`relatorio_ordenacao.json`).
-- `7_resultados/`: relatório consolidado das baterias experimentais (`relatorio_experimentos.json`), tabela consolidada (`tabela_resultados.csv`), análise assintótica do pipeline (`analise_assintotica.json` e `tabela_analise_assintotica.csv`), avaliação de robustez e *baseline* de ordenação (`avaliacao_robustez.json`, `tabela_robustez.csv` e `tabela_baseline_ordenacao.csv`) e os gráficos dos resultados (`grafico_tempo_execucao.png`, `grafico_busca_comparativo.png`, `grafico_escalabilidade_merge_sort.png`, `grafico_zipf.png`, `grafico_memoria_configuracoes.png`, `grafico_etapas_pipeline.png` e `grafico_analise_assintotica.png`).
-- `src/`: aplicação web em React + Vite que consulta os artefatos já versionados em `public/data/`.
-- `ANALISE_CORRETUDE_COMPLEXIDADE.md`: justificativa de corretude, análise no modelo RAM, melhor/pior/caso médio, recorrências e complexidade de espaço.
-- `RAG_GENAI.md`: relação do contexto recuperado com aplicações RAG e IA generativa.
-- `DECLARACAO_IA.md`: declaração de uso crítico de IA generativa.
-- `CONTRIBUICOES.md`: contribuição individual dos integrantes.
-- `VIDEO.md`: dados e roteiro do vídeo da atividade.
-- `LICENSE`: licença do código e condições de uso do corpus.
+| Caminho | Papel na AV2 |
+|---|---|
+| `av2/preparar_instancias.py` | Validação, associação dos scores e contagem de tokens. |
+| `av2/dados/` | Corpus tokenizado, instâncias e relatório de preparação. |
+| `av2/orquestrador_av2.ipynb` | Execução independente da etapa 1. |
+| `av2/test_preparar_instancias.py` | Testes da preparação. |
+| `av2/evidencias/` | Notebook executado, matriz de testes, versões e resultados. |
+| `av2/README.md` | Contrato dos dados e detalhes técnicos. |
+| `av2/REGISTRO_ETAPA_1.md` | Contribuição e uso crítico de IA nesta entrega. |
+| `2_corpus/`, `3_dados/`, `4_chunks/`, `5_indexacao/`, `6_busca_lexical/` | Base de recuperação reutilizada pela AV2. |
+| `.github/workflows/av2-etapa1.yml` | Validação automática em Linux. |
 
+Uma branch representa o estado completo do projeto. Os arquivos herdados permanecem porque a AV2 depende do corpus e da recuperação existentes. O código novo e seus resultados ficam em `av2/`.
 
-## Dependências
+## Dependências e ambiente
 
-Python 3, `PyMuPDF`, `nltk` e `matplotlib`. Os testes da Etapa 4 requerem `pytest`.
-
-## Ambiente
-
-Execução validada em Windows com Python 3. O script usa caminhos relativos ao repositório.
+Python 3.12 validado em Windows e Linux. A preparação utiliza **tiktoken 0.14.0**; as dependências de testes e notebook estão fixadas em `av2/requirements-validacao.txt`.
 
 ## Instalação
 
+Na raiz de uma cópia da branch `av2`:
+
 ```bash
-python -m pip install PyMuPDF nltk matplotlib pytest
-python -c "import nltk; nltk.download('stopwords')"
+python -m pip install -r av2/requirements-validacao.txt
 ```
 
 ## Reprodução
 
-1. Obter ou utilizar os PDFs do diretório `2_corpus/`.
-2. Preparar o ambiente conforme as seções acima.
-3. Executar os comandos do pipeline (etapas 1 a 4), depois os experimentos (etapa 5), a análise assintótica (etapa 7), a avaliação de robustez (etapa 8) e, por fim, a consolidação (etapa 6).
-4. Conferir os resultados, tabelas, gráficos e dados brutos gerados.
-
-Todas as medições de tempo devem ser feitas no **mesmo ambiente**. Os valores registrados em `relatorio_experimentos.json` e nos gráficos foram obtidos em Windows 11 (AMD64) com Python 3.14.7; misturar máquinas ou versões invalida a comparação entre configurações.
-
-## Testes
-
 ```bash
-python -m pytest 1_scripts/test_etapa_4.py
+python av2/preparar_instancias.py
 ```
 
-A suíte cobre a corretude da ordenação, o critério de desempate
-`(−score, id_chunk)`, a contagem de comparações, a seleção do Top-k e os casos
-de borda (lista vazia, `k` igual a 1, `k` maior que o número de candidatos e
-empates totais). Resultado esperado: **14 testes aprovados**.
+O comando apenas lê os chunks e candidatos completos já versionados. Associa `w_i` (tokens) e `v_i` (score BM25), preserva texto e origem e gera capacidades **512, 1024, 2048 e 4096**.
 
-Os "resultados esperados" dos experimentos estão nos artefatos versionados em
-`7_resultados/`, e a verificação de que eles não são apenas plausíveis mas
-**reproduzíveis** é feita por conferência aritmética entre contadores: a soma
-`comparacoes_score + comparacoes_id_chunk` deve igualar `comparacoes_totais`
-(351 + 18 = 369), o número de chamadas recursivas deve ser `2n − 1` (149 para
-n = 75) e a profundidade máxima deve ser `1 + ⌈log₂ n⌉` (8 para n = 75).
+| Saída | Conteúdo |
+|---|---|
+| [chunks_tokenizados.json](av2/dados/chunks_tokenizados.json) | Os 182 chunks, com custo e benefício associados. |
+| [instancias.json](av2/dados/instancias.json) | Os 75 candidatos positivos e quatro cenários de capacidade. |
+| [relatorio_preparacao.json](av2/dados/relatorio_preparacao.json) | Tempos separados, consulta, tokenizer, hashes e commit de execução. |
+
+Para as próximas etapas, carregue `itens` por `id_chunk` e utilize `W` e `ids_itens` de cada cenário. Ambos os seletores devem receber a mesma entrada. Consulte o [contrato completo](av2/README.md#contrato-dos-arquivos-de-saída).
+
+## Tokenizer e orçamento
+
+- Biblioteca/versão: `tiktoken==0.14.0`.
+- Encoding: `cl100k_base`; método: `encode_ordinary`.
+- Custo: contagem exata do texto original para esse encoding, sem estimativa por palavras.
+- `W`: orçamento da soma dos custos individuais dos chunks. Instruções, consulta, citações e resposta exigem espaço adicional.
+- Modelo gerador ainda não definido. A integração deverá contar o prompt final com o tokenizer do modelo escolhido.
+
+## Testes e evidências
+
+```bash
+python -m pytest av2/test_preparar_instancias.py 1_scripts/test_etapa_4.py -q
+```
+
+**48 testes aprovados:** 34 da preparação e 14 de regressão da recuperação reutilizada. Esse total é de testes, não de medições do futuro benchmark.
+
+- [Matriz de resultados esperados e observados](av2/evidencias/README.md)
+- [Notebook executado em cópia limpa](av2/evidencias/notebook_executado.ipynb)
+- [Validação automática em Linux](https://github.com/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/actions/workflows/av2-etapa1.yml)
 
 ## Corpus
 
-Corpus normativo e orientativo público do PROCC/UFS e normas correlatas. Uso exclusivamente acadêmico.
+A AV2 mantém os **7 documentos normativos e orientativos públicos do PROCC/UFS, CAPES e CONEPE**, com 83 páginas e 182 chunks. Fontes e identificação dos documentos estão no [catálogo](3_dados/catalogo_documentos.json). Não são adicionados documentos ao caso padrão.
 
-- **Acesso/download:** 02/09/2026, às 21h10.
-- **Quantidade:** 7 documentos, 83 páginas e aproximadamente 4,50 MB.
-- **Idioma/formato:** português brasileiro; arquivos PDF.
-- **Licença e condições de uso:** os PDFs são **documentos institucionais públicos**, publicados pelo próprio PROCC/UFS em seus canais oficiais (SIGAA) e pelo Edital CAPES, e são utilizados aqui **exclusivamente para fins acadêmicos e não comerciais**, sem redistribuição com finalidade comercial. Eles **não** estão cobertos pela licença MIT que se aplica ao código da equipe: a licença do repositório cobre apenas os scripts e artefatos produzidos pelo grupo, e cada documento permanece sujeito às condições do órgão emissor. As URLs oficiais de origem constam da tabela abaixo, o que permite verificar a procedência de cada arquivo. Ver [`LICENSE`](LICENSE).
-- **Dados removidos ou anonimizados:** nenhum — o corpus é composto por atos normativos públicos, sem dados pessoais.
-- **Limpeza e normalização:** Unicode NFC, quebras de linha, espaços repetidos e hifenização entre linhas; texto original preservado.
+O caso atual usa uma consulta sobre bolsas e matrícula. A comparação final deverá cobrir duas escalas de entrada e pelo menos três repetições por cenário; variar apenas `W` não cumpre esse requisito.
 
+## Etapas e responsáveis
 
-| Documento | URL oficial |
-|---|---|
-| IN 02/2026/PROCC — Destinação de recursos financeiros | [SIGAA](https://www.sigaa.ufs.br/sigaa/verProducao?idProducao=5040212&key=bd7f4126e48c0ff0c3f3ecd020bea2af) |
-| IN 01/2026/PROCC — Credenciamento, recredenciamento e distribuição de vagas de orientação docente | [SIGAA](https://www.sigaa.ufs.br/sigaa/verProducao?idProducao=5025297&key=2d84693e082547f2c3b9e5a7211baf63) |
-| Edital CAPES nº 14/2023 — PRAPG | [SIGAA](https://www.sigaa.ufs.br/sigaa/verProducao?idProducao=4214078&key=9a30771aef926507ec26e66ff5da6260) |
-| IN 01/2023/PROCC — Estrutura curricular do Mestrado | [SIGAA](https://www.sigaa.ufs.br/sigaa/verProducao?idProducao=4024039&key=3935a3b7b0d57462398d13c8fa68def5) |
-| IN 01/2024/PROCC — Critérios para atribuição de bolsas | [SIGAA](https://www.sigaa.ufs.br/sigaa/verProducao?idProducao=4357246&key=807372ebd6adf4d3ad63cd51277fec38) |
-| Resolução nº 04/2021/CONEPE — Normas Acadêmicas da Pós-Graduação | [SIGAA](https://www.sigaa.ufs.br/sigaa/verProducao?idProducao=2737960&key=1861aeae080b4f6318206935e3b17414) |
-| Resolução nº 29/2022/CONEPE — Regimento Interno do PROCC | [SIGAA](https://www.sigaa.ufs.br/sigaa/verProducao?idProducao=4218408&key=0f7e24ac2195143e5735697d19cb43ac) |
+| Etapa | Responsável | Situação |
+|---|---|---|
+| 1 — Ingestão e tokenização | Diego Bispo | Concluída |
+| 2 — Especificação e baseline gulosa | Kaio Santos | Planejada |
+| 3 — Programação dinâmica | Diego Bispo e Kaio Santos | Planejada |
+| 4 — Corretude e limites | Gabriel Marques | Planejada |
+| 5 — Complexidade e integração com IA | Victor Melo | Planejada |
+| 6 — Métricas e benchmark | Laryssa Andrade | Planejada |
 
+## Versionamento e prazos
 
-## Aplicação Web — Recuperação Lexical e Ordenação (PROCC/UFS)
+O desenvolvimento acontece na branch **`av2`**. A versão da primeira atividade permanece preservada na `main` e na tag `av1-entrega`. A tag `av2-entrega` será criada somente ao concluir a atividade inteira.
 
-Interface web interativa desenvolvida para busca, recuperação e ordenação de contexto sobre os regulamentos acadêmicos do Programa de Pós-Graduação em Ciência da Computação (PROCC/UFS).
+Os dados da etapa 1 registram o commit de código `b984f37`; o commit `c4d7007` guarda as instâncias e evidências dessa execução limpa.
 
-🔗 **[Acessar a Aplicação Web](https://procc-recuperacao-documentos.vercel.app/)**
-
-> A publicação é feita na **Vercel** pelo workflow [`.github/workflows/deploy-vercel.yml`](.github/workflows/deploy-vercel.yml) a cada push em `main`.
-> O **GitHub Pages não é utilizado**: o `index.html` da raiz é o arquivo de desenvolvimento do Vite e, quando servido estaticamente (por exemplo, pelos forks), aponta para `/src/main.tsx` e resulta em página em branco.
+- Entrega da AV2: **04/11/2026, às 23h59**.
+- Apresentação: **05/11/2026**.
 
 ## Licença
 
-O **código-fonte** deste repositório (scripts em `1_scripts/`, aplicação web em
-`src/`, *notebook* e documentação produzida pela equipe) está licenciado sob a
-**Licença MIT** — ver [`LICENSE`](LICENSE).
-
-Os **PDFs do corpus** em `2_corpus/` **não** estão cobertos por essa licença:
-são documentos institucionais públicos, publicados pelos próprios órgãos
-emissores, e são utilizados neste trabalho exclusivamente para fins acadêmicos e
-não comerciais. As URLs oficiais de origem estão na seção [Corpus](#corpus), o
-que permite verificar a procedência de cada arquivo.
-
-Este repositório não contém chaves, senhas, tokens ou dados pessoais. Arquivos
-grandes (PDFs do corpus e `node_modules/`) são controlados por `.gitignore`, e as
-instruções para obtê-los ou reproduzi-los estão nas seções
-[Instalação](#instalação), [Execução](#execução) e [Reprodução](#reprodução).
+O código produzido pela equipe é distribuído sob a [licença MIT](LICENSE). Os PDFs institucionais mantêm as condições de seus órgãos emissores e não são abrangidos pela licença do código.
 
