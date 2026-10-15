@@ -35,6 +35,9 @@ nem presume contribuições futuras de outros integrantes.
 - Cuidados conceituais aplicados: não equiparar palavras a tokens; não confundir
   score BM25 com qualidade humana ou cobertura; não apresentar W como a janela
   total do modelo; não cortar os candidatos em Top-k antes da otimização.
+- Erro identificado e corrigido na validação: inferir que a existência da pasta
+  `/content` identifica o Colab. O notebook agora verifica a disponibilidade do
+  módulo `google.colab`; fora dele, utiliza a cópia local explicitamente aberta.
 - Limitações reconhecidas: nenhum modelo final foi escolhido; o encoding é uma
   convenção experimental explícita; overhead e tokenização do prompt montado
   serão verificados na integração. Não houve geração de resposta por LLM.
