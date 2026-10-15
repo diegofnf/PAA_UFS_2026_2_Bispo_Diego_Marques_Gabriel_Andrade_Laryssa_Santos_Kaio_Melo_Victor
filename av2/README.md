@@ -200,8 +200,7 @@ python av2/1_scripts/validar_notebook.py --saida caminho/notebook_executado.ipyn
 
 O workflow `.github/workflows/av2-etapa1.yml` executa esse mesmo procedimento
 em Linux e guarda notebook executado, resultados e testes como artefatos.
-Veja a [matriz de testes e evidências](6_evidencias/README.md) e a
-[seção preparada para o relatório](CONTINUIDADE_AV1.md).
+Veja a [matriz de testes e evidências](6_evidencias/README.md).
 
 A suíte cobre contagem conhecida, não mutação, vazio/sem correspondência,
 fronteiras de orçamento, empate, textos duplicados com IDs distintos, entrada

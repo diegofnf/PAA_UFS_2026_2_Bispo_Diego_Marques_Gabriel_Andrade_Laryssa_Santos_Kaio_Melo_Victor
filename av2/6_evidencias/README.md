@@ -74,7 +74,7 @@ Linux do mesmo notebook é executada no workflow
 | Preservar pipeline e corpus da AV1 | Arquivos reorganizados em `av1/`, corpus preservado e tag AV1 mantida. |
 | Associar custo exato em tokens e relevância | `../1_scripts/preparar_instancias.py`, encoding/versionamento fixos e testes. |
 | Estruturar W = 512, 1024, 2048, 4096 | `../3_instancias/instancias.json` e execução integrada. |
-| Documentar continuidade e versionamento | `../CONTINUIDADE_AV1.md`, README e commit de execução. |
+| Documentar continuidade e versionamento | Seções “Organização no GitHub” e “Continuidade da AV1” do `../README.md`, relatório técnico e commit de execução. |
 | Documentar tokenização e RAM versus I/O | Seção de custos e campos separados no relatório de preparação. |
 | Permitir reprodução e uso pelos colegas | Notebook independente, dependências, contrato dos JSONs e workflow Linux. |
 
