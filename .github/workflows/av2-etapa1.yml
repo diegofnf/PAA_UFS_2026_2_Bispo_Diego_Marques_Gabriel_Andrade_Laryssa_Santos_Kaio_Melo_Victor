@@ -1,0 +1,37 @@
+name: AV2 - Preparacao e notebook
+
+on:
+  push:
+    branches: [av2]
+  pull_request:
+    branches: [av2]
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Instalar dependencias de validacao
+        run: python -m pip install -r av2/requirements-validacao.txt
+      - name: Executar notebook completo e testes
+        run: python av2/validar_notebook.py --saida "$RUNNER_TEMP/notebook_executado.ipynb"
+      - name: Conferir preservacao dos artefatos AV1
+        run: git diff --exit-code -- 1_scripts 2_corpus 3_dados 4_chunks 5_indexacao 6_busca_lexical 7_resultados public src
+      - uses: actions/upload-artifact@v7
+        with:
+          name: av2-etapa1-linux
+          path: |
+            ${{ runner.temp }}/notebook_executado.ipynb
+            av2/dados/*.json
+            av2/evidencias/testes.xml
+          if-no-files-found: error

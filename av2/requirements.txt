@@ -1,0 +1,2 @@
+# Tokenizer fixado para reproduzir os custos w_i da AV2.
+tiktoken==0.14.0

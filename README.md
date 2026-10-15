@@ -6,6 +6,29 @@ Corretude, eficiência e recuperação de contexto para IA generativa.
 
 Este README é o manual operacional do repositório. O relatório técnico concentra a fundamentação, as provas, a análise detalhada, os experimentos e a discussão; esta página será atualizada à medida que esses artefatos forem produzidos.
 
+## Atividade 2 - preparação das instâncias
+
+A AV2 continua o mesmo corpus e pipeline, com a Trilha A (mochila 0/1).
+A etapa 1, de Diego Bispo, associa custos exatos em tokens aos scores da AV1 e
+prepara os orçamentos 512, 1024, 2048 e 4096. Os links de relatório, vídeo e
+apresentação abaixo permanecem referentes à **AV1**.
+
+O desenvolvimento está na branch **`av2`**. A tag `av1-entrega` permanece
+preservada; `av2-entrega` será criada somente ao concluir a atividade inteira.
+[Abrir a etapa 1 no Colab](https://colab.research.google.com/github/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/blob/av2/av2/orquestrador_av2.ipynb).
+
+```bash
+python -m pip install -r av2/requirements.txt
+python av2/preparar_instancias.py
+python -m pytest av2/test_preparar_instancias.py -q
+```
+
+Veja [instruções, contrato de dados e continuidade](av2/README.md) e
+[contribuição e uso de IA da etapa 1](av2/REGISTRO_ETAPA_1.md).
+Os resultados são gravados em `av2/dados/`; a seção AV2 ao final do notebook
+permite executar apenas essa preparação sem regravar os artefatos da AV1.
+A programação dinâmica e a baseline gulosa ainda pertencem às próximas etapas.
+
 ## Relatório técnico
 
 - [Relatório](https://drive.google.com/file/d/1StzkP3tbtl3OucawtnjrNmtO8Z66fOMQ/view?usp=sharing)

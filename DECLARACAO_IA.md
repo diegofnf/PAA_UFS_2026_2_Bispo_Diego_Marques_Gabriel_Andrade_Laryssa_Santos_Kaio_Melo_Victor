@@ -1,5 +1,9 @@
 # Declaração de Uso de IA Generativa
 
+**Escopo histórico: AV1.** Esta declaração foi preservada como registro da
+primeira atividade. O uso de IA na AV2 está documentado separadamente em
+[`av2/REGISTRO_ETAPA_1.md`](av2/REGISTRO_ETAPA_1.md).
+
 Conforme exigido pela **Seção 9** do enunciado da atividade, esta declaração
 documenta o uso de IA generativa no desenvolvimento do trabalho, item por item.
 O princípio que a orienta é o do próprio enunciado: *"Códigos, provas e análises

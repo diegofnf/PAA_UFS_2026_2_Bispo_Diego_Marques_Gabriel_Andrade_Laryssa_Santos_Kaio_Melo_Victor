@@ -1,0 +1,5 @@
+# Mantem os hashes do codigo e dos artefatos AV2 estaveis entre Windows e Linux.
+/av2/*.py text eol=lf
+/av2/*.ipynb text eol=lf
+/av2/dados/*.json text eol=lf
+/av2/evidencias/*.json text eol=lf
