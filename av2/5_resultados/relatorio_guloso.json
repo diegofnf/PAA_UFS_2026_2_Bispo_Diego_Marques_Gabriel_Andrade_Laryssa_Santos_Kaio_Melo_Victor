@@ -1,0 +1,85 @@
+{
+  "metadados": {
+    "etapa": "av2_2_relatorio_baseline_gulosa",
+    "responsavel": "Kaio Santos",
+    "data_utc": "2026-10-17T14:46:21.833602+00:00",
+    "consulta": "critérios para atribuição de bolsas e requisitos de matrícula",
+    "metrica_score": "bm25",
+    "total_candidatos_positivos": 75,
+    "algoritmo": "heuristica_gulosa_densidade",
+    "complexidade_assintotica": {
+      "tempo": "O(n log n + B * n) = O(n log n)",
+      "espaco": "O(n)"
+    }
+  },
+  "resumo_cenarios": [
+    {
+      "id_instancia": "W_512",
+      "W": 512,
+      "tokens_usados": 370,
+      "saldo_W": 142,
+      "taxa_ocupacao_percentual": 72.27,
+      "relevancia_total": 9.6206,
+      "total_chunks_selecionados": 1,
+      "ids_selecionados": [
+        "chunk_0131"
+      ]
+    },
+    {
+      "id_instancia": "W_1024",
+      "W": 1024,
+      "tokens_usados": 761,
+      "saldo_W": 263,
+      "taxa_ocupacao_percentual": 74.32,
+      "relevancia_total": 16.6484,
+      "total_chunks_selecionados": 2,
+      "ids_selecionados": [
+        "chunk_0131",
+        "chunk_0018"
+      ]
+    },
+    {
+      "id_instancia": "W_2048",
+      "W": 2048,
+      "tokens_usados": 1905,
+      "saldo_W": 143,
+      "taxa_ocupacao_percentual": 93.02,
+      "relevancia_total": 33.8168,
+      "total_chunks_selecionados": 5,
+      "ids_selecionados": [
+        "chunk_0131",
+        "chunk_0018",
+        "chunk_0176",
+        "chunk_0022",
+        "chunk_0139"
+      ]
+    },
+    {
+      "id_instancia": "W_4096",
+      "W": 4096,
+      "tokens_usados": 3820,
+      "saldo_W": 276,
+      "taxa_ocupacao_percentual": 93.26,
+      "relevancia_total": 57.5855,
+      "total_chunks_selecionados": 10,
+      "ids_selecionados": [
+        "chunk_0131",
+        "chunk_0018",
+        "chunk_0176",
+        "chunk_0022",
+        "chunk_0139",
+        "chunk_0119",
+        "chunk_0178",
+        "chunk_0136",
+        "chunk_0066",
+        "chunk_0138"
+      ]
+    }
+  ],
+  "tempos_segundos": {
+    "selecao_gulosa_ram": 0.0005847999709658325,
+    "tempo_processamento_total": 0.0008163999882526696,
+    "leitura_io": 0.0037455999990925193,
+    "escrita_io": 0.007367299986071885
+  }
+}
