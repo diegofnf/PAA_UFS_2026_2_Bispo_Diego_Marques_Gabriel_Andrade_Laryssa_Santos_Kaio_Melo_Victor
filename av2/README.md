@@ -1,7 +1,10 @@
 # PAA — Atividade 2 — Seleção de contexto com orçamento de tokens
 
-Responsável: Diego Bispo. Trilha A: seleção de contexto por mochila 0/1.
-Esta etapa prepara as entradas; a seleção gulosa, a programação dinâmica e o
+Responsáveis:
+- Etapa 1 (Ingestão e tokenização): Diego Bispo.
+- Etapa 2 (Especificação e baseline guloso): Kaio Santos.
+Trilha A: seleção de contexto por mochila 0/1 com orçamento de tokens.
+Esta etapa implementa a seleção gulosa (baseline); a programação dinâmica e o
 benchmark comparativo pertencem às próximas etapas.
 
 ## Relatório técnico
@@ -68,10 +71,15 @@ git pull --ff-only
 Na raiz do repositório, com Python 3.10 ou superior:
 
 ```bash
+# Etapa 1: Ingestão, tokenização e preparação das instâncias (Diego Bispo)
 python -m pip install -r av2/requirements.txt
 python av2/1_scripts/preparar_instancias.py
 python -m pip install pytest
 python -m pytest av2/1_scripts/test_preparar_instancias.py -q
+
+# Etapa 2: Seleção de contexto por baseline guloso (Kaio Santos)
+python av2/1_scripts/selecionar_guloso.py
+python av2/1_scripts/test_selecionar_guloso.py
 ```
 
 O comando padrão funciona com os artefatos já versionados da AV1. Não executa
@@ -128,7 +136,9 @@ algoritmos. Referência: [documentação oficial do tiktoken](https://github.com
 |---|---|
 | `2_dados_tokenizados/chunks_tokenizados.json` | Todos os chunks, com origem/texto intactos, `w_i` inteiro e `v_i` numérico. |
 | `3_instancias/instancias.json` | Lista comum `itens` e quatro `instancias`, com `W` e `ids_itens`. |
-| `5_resultados/relatorio_preparacao.json` | Contagens, tempos, ambiente, consulta, tokenizer e proveniência. |
+| `4_selecao_contexto/selecao_gulosa.json` | Chunks selecionados para cada capacidade $W$, tokens usados e saldo de $W$. |
+| `5_resultados/relatorio_preparacao.json` | Contagens, tempos, ambiente, consulta, tokenizer e proveniência da Etapa 1. |
+| `5_resultados/relatorio_guloso.json` | Resumo executivo, aproveitamento de $W$, relevância total e tempos da Etapa 2. |
 
 Os seletores devem carregar `itens` por `id_chunk` e, em cada cenário, usar os
 IDs em `ids_itens` e a capacidade `W`. Todos os cenários utilizam a mesma lista
@@ -222,4 +232,23 @@ executá-los juntos, após instalar `av2/requirements-validacao.txt`:
 
 ```bash
 python -m pytest av2/1_scripts/test_preparar_instancias.py av1/1_scripts/test_etapa_4.py -q
+python av2/1_scripts/test_selecionar_guloso.py
 ```
+
+## Resultados da seleção gulosa (Etapa 2 — Kaio Santos)
+
+A Etapa 2 implementa o baseline da heurística gulosa com ordenação por densidade de relevância ($r_i = v_i / w_i$) e desempate determinístico quádruplo (`-r_i`, `-v_i`, `w_i`, `id_chunk`).
+
+A varredura contínua garante que itens não sejam descartados precipitadamente: ao encontrar um chunk que excede o saldo restante de $W$, o algoritmo o ignora e segue avaliando os itens subsequentes menores.
+
+| Capacidade $W$ | Chunks Selecionados | Tokens Utilizados | Saldo de $W$ | Taxa de Ocupação | Relevância Acumulada | Chunks Escolhidos |
+|---|:---:|:---:|:---:|:---:|:---:|---|
+| **$W = 512$** | 1 | 370 / 512 | 142 tokens | 72,27% | 9,6206 | `chunk_0131` |
+| **$W = 1024$** | 2 | 761 / 1024 | 263 tokens | 74,32% | 16,6484 | `chunk_0131`, `chunk_0018` |
+| **$W = 2048$** | 5 | 1905 / 2048 | 143 tokens | 93,02% | 33,8168 | `chunk_0131`, `chunk_0018`, `chunk_0176`, `chunk_0022`, `chunk_0139` |
+| **$W = 4096$** | 10 | 3820 / 4096 | 276 tokens | 93,26% | 57,5855 | `chunk_0131`, `chunk_0018`, `chunk_0176`, `chunk_0022`, `chunk_0139`, `chunk_0119`, `chunk_0178`, `chunk_0136`, `chunk_0066`, `chunk_0138` |
+
+- **Complexidade no Modelo RAM:** Tempo $\mathcal{O}(n \log n + B \cdot n) = \mathcal{O}(n \log n)$ com $n=75$ e $B=4$; espaço auxiliar $\mathcal{O}(n)$.
+- **Tempo medido em RAM:** ~0,0005 segundos (sub-milissegundo).
+- **Testes automatizados:** 9 testes unitários aprovados em `av2/1_scripts/test_selecionar_guloso.py`.
+

@@ -1,0 +1,350 @@
+{
+  "metadados": {
+    "etapa": "av2_2_selecao_baseline_gulosa",
+    "responsavel": "Kaio Santos",
+    "estrategia": "densidade_relevancia_vi_por_wi",
+    "criterio_desempate": "maior_densidade_desc, maior_vi_desc, menor_wi_asc, id_chunk_asc",
+    "consulta": "critérios para atribuição de bolsas e requisitos de matrícula",
+    "metrica_score": "bm25",
+    "total_itens_universo": 75,
+    "instancias_processadas": [
+      512,
+      1024,
+      2048,
+      4096
+    ]
+  },
+  "cenarios": {
+    "W_512": {
+      "id_instancia": "W_512",
+      "W": 512,
+      "tokens_usados": 370,
+      "saldo_W": 142,
+      "taxa_ocupacao_percentual": 72.27,
+      "relevancia_total": 9.6206,
+      "total_chunks_selecionados": 1,
+      "total_candidatos_avaliados": 75,
+      "ids_selecionados": [
+        "chunk_0131"
+      ],
+      "chunks": [
+        {
+          "id_chunk": "chunk_0131",
+          "ordem_selecao": 1,
+          "rank_densidade": 1,
+          "v_i": 9.6206,
+          "w_i": 370,
+          "densidade": 0.026002,
+          "id_documento": "doc_006",
+          "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+          "paginas": [
+            19
+          ],
+          "texto": "Elaboração de Pesquisa e os critérios\nde avaliação de desempenho do discente;\nIV. o formato do trabalho a ser entregue pelo discente à banca examinadora, os critérios de\ncomposição da banca e o prazo máximo para a realização, tanto do Exame de Qualificaç ão,\nquanto da Defesa de Dissertação/Tese, e,\nV. o prazo para que o discente entregue o relatório com comprovantes dos Estudos\nExtracurriculares, sua obrigatoriedade, a carga horária mínima e os critérios de aceitação.\n\n§1º Para a Defesa de Dissertação/Tese, o discente deverá ter aprovação no exame de qualificação\ne ter cumprido todos os demais requisitos das normas do programa.\n\n§2º Apenas as atividades acadêmicas de Elaboração de Pesquisa e de Estudos Extracurriculares\nterão carga de créditos, que serão refer entes, respectivamente, ao tempo que deve ser dedicado pelo\ndiscente para a execução do seu projeto de pesquisa, e à carga horária das atividades extracurriculares.\n\n§3º Caberá ao docente orientador supervisionar o cumprimento da carga horária da atividade\nacadêmica “Elaboração de Pesquisa”, considerando esse como um dos critérios para a atribuição do\nconceito final.\n\n§4º No caso das atividades acadêmicas de cursos ofertados por programas integrantes de redes\nnacionais, que possuam normatizações próprias e diferentes das dispostas nesta"
+        }
+      ]
+    },
+    "W_1024": {
+      "id_instancia": "W_1024",
+      "W": 1024,
+      "tokens_usados": 761,
+      "saldo_W": 263,
+      "taxa_ocupacao_percentual": 74.32,
+      "relevancia_total": 16.6484,
+      "total_chunks_selecionados": 2,
+      "total_candidatos_avaliados": 75,
+      "ids_selecionados": [
+        "chunk_0131",
+        "chunk_0018"
+      ],
+      "chunks": [
+        {
+          "id_chunk": "chunk_0131",
+          "ordem_selecao": 1,
+          "rank_densidade": 1,
+          "v_i": 9.6206,
+          "w_i": 370,
+          "densidade": 0.026002,
+          "id_documento": "doc_006",
+          "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+          "paginas": [
+            19
+          ],
+          "texto": "Elaboração de Pesquisa e os critérios\nde avaliação de desempenho do discente;\nIV. o formato do trabalho a ser entregue pelo discente à banca examinadora, os critérios de\ncomposição da banca e o prazo máximo para a realização, tanto do Exame de Qualificaç ão,\nquanto da Defesa de Dissertação/Tese, e,\nV. o prazo para que o discente entregue o relatório com comprovantes dos Estudos\nExtracurriculares, sua obrigatoriedade, a carga horária mínima e os critérios de aceitação.\n\n§1º Para a Defesa de Dissertação/Tese, o discente deverá ter aprovação no exame de qualificação\ne ter cumprido todos os demais requisitos das normas do programa.\n\n§2º Apenas as atividades acadêmicas de Elaboração de Pesquisa e de Estudos Extracurriculares\nterão carga de créditos, que serão refer entes, respectivamente, ao tempo que deve ser dedicado pelo\ndiscente para a execução do seu projeto de pesquisa, e à carga horária das atividades extracurriculares.\n\n§3º Caberá ao docente orientador supervisionar o cumprimento da carga horária da atividade\nacadêmica “Elaboração de Pesquisa”, considerando esse como um dos critérios para a atribuição do\nconceito final.\n\n§4º No caso das atividades acadêmicas de cursos ofertados por programas integrantes de redes\nnacionais, que possuam normatizações próprias e diferentes das dispostas nesta"
+        },
+        {
+          "id_chunk": "chunk_0018",
+          "ordem_selecao": 2,
+          "rank_densidade": 2,
+          "v_i": 7.0278,
+          "w_i": 391,
+          "densidade": 0.017974,
+          "id_documento": "doc_001",
+          "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+          "paginas": [
+            7
+          ],
+          "texto": "de concessão que, por sua vez, será enviado ao Coordenador de PPG, via sistema Linha Direta.\n17.4. As bolsas deverão ser implementadas no Sistema de Concessão de Bolsas e Auxílios (SCBA) pelo\nCoordenador de PPG, dentro dos prazos a serem informados.\n17.5. O valor das bolsas no país são deﬁnidos pela Portaria CAPES nº 33, de 16 de fevereiro de 2023 ou\noutra que venha a subs\u0000tuí-la. O valor das bolsas no exterior, por sua vez, é regido pela Portaria CAPES nº\n1, de 3 de janeiro de 2020.\n17.6. Das bolsas de Mestrado e Doutorado\n17.6.1. Mestrado - As concessões e implementações das bolsas deverão observar o norma\u0000vo da CAPES\nque regula a modalidade (Portaria CAPES nº 76/2010), no que couber.\nI. As cotas de bolsas de mestrado, com vigência máxima de 24 (vinte e quatro) meses, deverão ser\nimplementadas de maneira escalonada, sendo que a primeira metade das bolsas deve ser\nimplementada a par\u0000r do início do projeto e a segunda metade no primeiro semestre de 2024, em\ncalendário a ser informado pela CAPES.\n17.6.1.1. O candidato à bolsa de mestrado deverá atender os seguintes requisitos:\nI. Comprovar desempenho acadêmico sa\u0000sfatório, consoante às normas deﬁnidas pelo PPG;\nII."
+        }
+      ]
+    },
+    "W_2048": {
+      "id_instancia": "W_2048",
+      "W": 2048,
+      "tokens_usados": 1905,
+      "saldo_W": 143,
+      "taxa_ocupacao_percentual": 93.02,
+      "relevancia_total": 33.8168,
+      "total_chunks_selecionados": 5,
+      "total_candidatos_avaliados": 75,
+      "ids_selecionados": [
+        "chunk_0131",
+        "chunk_0018",
+        "chunk_0176",
+        "chunk_0022",
+        "chunk_0139"
+      ],
+      "chunks": [
+        {
+          "id_chunk": "chunk_0131",
+          "ordem_selecao": 1,
+          "rank_densidade": 1,
+          "v_i": 9.6206,
+          "w_i": 370,
+          "densidade": 0.026002,
+          "id_documento": "doc_006",
+          "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+          "paginas": [
+            19
+          ],
+          "texto": "Elaboração de Pesquisa e os critérios\nde avaliação de desempenho do discente;\nIV. o formato do trabalho a ser entregue pelo discente à banca examinadora, os critérios de\ncomposição da banca e o prazo máximo para a realização, tanto do Exame de Qualificaç ão,\nquanto da Defesa de Dissertação/Tese, e,\nV. o prazo para que o discente entregue o relatório com comprovantes dos Estudos\nExtracurriculares, sua obrigatoriedade, a carga horária mínima e os critérios de aceitação.\n\n§1º Para a Defesa de Dissertação/Tese, o discente deverá ter aprovação no exame de qualificação\ne ter cumprido todos os demais requisitos das normas do programa.\n\n§2º Apenas as atividades acadêmicas de Elaboração de Pesquisa e de Estudos Extracurriculares\nterão carga de créditos, que serão refer entes, respectivamente, ao tempo que deve ser dedicado pelo\ndiscente para a execução do seu projeto de pesquisa, e à carga horária das atividades extracurriculares.\n\n§3º Caberá ao docente orientador supervisionar o cumprimento da carga horária da atividade\nacadêmica “Elaboração de Pesquisa”, considerando esse como um dos critérios para a atribuição do\nconceito final.\n\n§4º No caso das atividades acadêmicas de cursos ofertados por programas integrantes de redes\nnacionais, que possuam normatizações próprias e diferentes das dispostas nesta"
+        },
+        {
+          "id_chunk": "chunk_0018",
+          "ordem_selecao": 2,
+          "rank_densidade": 2,
+          "v_i": 7.0278,
+          "w_i": 391,
+          "densidade": 0.017974,
+          "id_documento": "doc_001",
+          "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+          "paginas": [
+            7
+          ],
+          "texto": "de concessão que, por sua vez, será enviado ao Coordenador de PPG, via sistema Linha Direta.\n17.4. As bolsas deverão ser implementadas no Sistema de Concessão de Bolsas e Auxílios (SCBA) pelo\nCoordenador de PPG, dentro dos prazos a serem informados.\n17.5. O valor das bolsas no país são deﬁnidos pela Portaria CAPES nº 33, de 16 de fevereiro de 2023 ou\noutra que venha a subs\u0000tuí-la. O valor das bolsas no exterior, por sua vez, é regido pela Portaria CAPES nº\n1, de 3 de janeiro de 2020.\n17.6. Das bolsas de Mestrado e Doutorado\n17.6.1. Mestrado - As concessões e implementações das bolsas deverão observar o norma\u0000vo da CAPES\nque regula a modalidade (Portaria CAPES nº 76/2010), no que couber.\nI. As cotas de bolsas de mestrado, com vigência máxima de 24 (vinte e quatro) meses, deverão ser\nimplementadas de maneira escalonada, sendo que a primeira metade das bolsas deve ser\nimplementada a par\u0000r do início do projeto e a segunda metade no primeiro semestre de 2024, em\ncalendário a ser informado pela CAPES.\n17.6.1.1. O candidato à bolsa de mestrado deverá atender os seguintes requisitos:\nI. Comprovar desempenho acadêmico sa\u0000sfatório, consoante às normas deﬁnidas pelo PPG;\nII."
+        },
+        {
+          "id_chunk": "chunk_0176",
+          "ordem_selecao": 3,
+          "rank_densidade": 3,
+          "v_i": 6.1196,
+          "w_i": 378,
+          "densidade": 0.016189,
+          "id_documento": "doc_007",
+          "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+          "paginas": [
+            7,
+            8
+          ],
+          "texto": "Ciência da Computação , desde que o graduando já\ntenha cursado, com aprovação, um mínimo de 70% das disciplinas obrigatórias de seu curso de\ngraduação.\n\nArt. 24. O Curso de Doutorado em Ciência da Computação do PROCC somente aceitará a\nadmissão de discentes regulares.\n\nArt. 25. O acesso aos cursos de Mestrado em Ciência da Computação e de Doutorado em Ciência\nda Computação se dará por meio de aprovação em processo seletivo regido por edital elaborado pelo\nColegiado, conforme modelo definido pela COPGD e nos termos da legislação vigente.\n\n6\n§1º Os editais para discentes especiais devem selecionar candidatos especificamente para cursar\ndisciplinas pré -definidas pelo PROCC, observando o limite de duas disciplinas por discente e de um\nperíodo por vínculo.\n\n§2º A matrícula institucional dos candidatos aprovados ocorrerá conforme o disposto nas Normas\nAcadêmicas da Pós-Graduação stricto sensu da UFS.\n\nArt. 26. A distribuição das cotas de bolsas destinadas ao PROCC, será de responsabilidade da\ncomissão de bolsa que seguirá critérios definidos em Instrução Normativa, considerando as normas\nvigentes das agências de fomento.\n\nCAPÍTULO V\nDO REGIME ACADÊMICO\n\nArt. 27. A duração do vínculo com o programa será:\nI. para o discente regular do mestrado, de doze meses no"
+        },
+        {
+          "id_chunk": "chunk_0022",
+          "ordem_selecao": 4,
+          "rank_densidade": 4,
+          "v_i": 5.5013,
+          "w_i": 381,
+          "densidade": 0.014439,
+          "id_documento": "doc_001",
+          "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+          "paginas": [
+            8
+          ],
+          "texto": "da bolsa original, e limite-se ao ﬁm da vigência original da bolsa concedida de modo\na não prejudicar o andamento do projeto;\nIII. A implementação da nova bolsa advinda da subs\u0000tuição deverá ocorrer no mês subsequente ao\ndesligamento do bolsista original.\nIV. O pedido de subs\u0000tuição deverá ser formalizado, por meio de O\u0000cio, o qual apresentará as\ndevidas jus\u0000ﬁca\u0000vas para o cancelamento da bolsa, assim como a informação da nova bolsa.\n17.7. Das bolsas de Pós-Doutorado e Professor Visitante Sênior no país\n17.7.1. Pós-Doutorado- A concessão de bolsa na modalidade terá vigência máxima de 24 (vinte e\nquatro) meses e deverá observar o norma\u0000vo da CAPES que regula a modalidade (Portaria CAPES nº\n86/2013), no que couber.\n17.7.1.1. O candidato à bolsa de pós-doutorado deve atender os seguintes requisitos:\nI. Ser jovem doutor, \u0000tulado a no máximo 5 anos, a contar da data da implementação da bolsa; e\nII. Se servidor público, deverá ser apresentado o comprovante de afastamento do exercício do cargo\npor igual período da bolsa.\n17.7.1.2. É vedada a concessão de bolsas de pós-doutorado para docentes doutores que integram a\nestrutura da mesma Ins\u0000tuição de Ensino Superior responsável pela submissão do projeto, exceto para o\ncaso explicitado"
+        },
+        {
+          "id_chunk": "chunk_0139",
+          "ordem_selecao": 5,
+          "rank_densidade": 5,
+          "v_i": 5.5475,
+          "w_i": 385,
+          "densidade": 0.014409,
+          "id_documento": "doc_006",
+          "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+          "paginas": [
+            22
+          ],
+          "texto": "de turmas, quando o discente poderá retirar e adicionar turmas, e,\nIII. inclusão de turmas, quando a coordenação do programa poderá, a pedido do discente,\nrealizar matrículas em turmas.\n\n§1º Cabe ao discente conferir o processamento das matrículas em turmas.\n\n§2º Ao discente que frequentar uma turma que não esteja matriculado não é garantido direito à\nmatrícula posterior na mesma.\n\n§3º Os pedidos de inclusão deverão ser entregues na secretaria do programa no prazo definido\npelo calendário acadêmico.\n\nArt. 114. A CPG poderá estabelecer, por meio de Instrução Normativa, critérios de prioridade no\npreenchimento das vagas ofertadas.\n\nArt. 115. A matrícula de discentes regulares em atividades acadêmicas será de responsabilidade\nda coordenação do programa.\n\nSeção VI\nDo Período de Trancamento de Matrículas em Turmas\n\nArt. 11 6. Após o início das aulas, o discente regular poderá trancar sua matrícula em uma ou\nmais turmas desde que:\nI. ainda não tenha ultrapassado metade da carga horária da turma, e,\nII. mantenha-se matriculado em, pelo menos, uma turma de disciplina e/ou atividade\nacadêmica.\n\nParágrafo único. O trancamento de todas as turmas e atividades acadêmicas, às quais o discente\nesteja matriculado, apenas será permitido por meio de uma solicitação de trancamen to de"
+        }
+      ]
+    },
+    "W_4096": {
+      "id_instancia": "W_4096",
+      "W": 4096,
+      "tokens_usados": 3820,
+      "saldo_W": 276,
+      "taxa_ocupacao_percentual": 93.26,
+      "relevancia_total": 57.5855,
+      "total_chunks_selecionados": 10,
+      "total_candidatos_avaliados": 75,
+      "ids_selecionados": [
+        "chunk_0131",
+        "chunk_0018",
+        "chunk_0176",
+        "chunk_0022",
+        "chunk_0139",
+        "chunk_0119",
+        "chunk_0178",
+        "chunk_0136",
+        "chunk_0066",
+        "chunk_0138"
+      ],
+      "chunks": [
+        {
+          "id_chunk": "chunk_0131",
+          "ordem_selecao": 1,
+          "rank_densidade": 1,
+          "v_i": 9.6206,
+          "w_i": 370,
+          "densidade": 0.026002,
+          "id_documento": "doc_006",
+          "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+          "paginas": [
+            19
+          ],
+          "texto": "Elaboração de Pesquisa e os critérios\nde avaliação de desempenho do discente;\nIV. o formato do trabalho a ser entregue pelo discente à banca examinadora, os critérios de\ncomposição da banca e o prazo máximo para a realização, tanto do Exame de Qualificaç ão,\nquanto da Defesa de Dissertação/Tese, e,\nV. o prazo para que o discente entregue o relatório com comprovantes dos Estudos\nExtracurriculares, sua obrigatoriedade, a carga horária mínima e os critérios de aceitação.\n\n§1º Para a Defesa de Dissertação/Tese, o discente deverá ter aprovação no exame de qualificação\ne ter cumprido todos os demais requisitos das normas do programa.\n\n§2º Apenas as atividades acadêmicas de Elaboração de Pesquisa e de Estudos Extracurriculares\nterão carga de créditos, que serão refer entes, respectivamente, ao tempo que deve ser dedicado pelo\ndiscente para a execução do seu projeto de pesquisa, e à carga horária das atividades extracurriculares.\n\n§3º Caberá ao docente orientador supervisionar o cumprimento da carga horária da atividade\nacadêmica “Elaboração de Pesquisa”, considerando esse como um dos critérios para a atribuição do\nconceito final.\n\n§4º No caso das atividades acadêmicas de cursos ofertados por programas integrantes de redes\nnacionais, que possuam normatizações próprias e diferentes das dispostas nesta"
+        },
+        {
+          "id_chunk": "chunk_0018",
+          "ordem_selecao": 2,
+          "rank_densidade": 2,
+          "v_i": 7.0278,
+          "w_i": 391,
+          "densidade": 0.017974,
+          "id_documento": "doc_001",
+          "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+          "paginas": [
+            7
+          ],
+          "texto": "de concessão que, por sua vez, será enviado ao Coordenador de PPG, via sistema Linha Direta.\n17.4. As bolsas deverão ser implementadas no Sistema de Concessão de Bolsas e Auxílios (SCBA) pelo\nCoordenador de PPG, dentro dos prazos a serem informados.\n17.5. O valor das bolsas no país são deﬁnidos pela Portaria CAPES nº 33, de 16 de fevereiro de 2023 ou\noutra que venha a subs\u0000tuí-la. O valor das bolsas no exterior, por sua vez, é regido pela Portaria CAPES nº\n1, de 3 de janeiro de 2020.\n17.6. Das bolsas de Mestrado e Doutorado\n17.6.1. Mestrado - As concessões e implementações das bolsas deverão observar o norma\u0000vo da CAPES\nque regula a modalidade (Portaria CAPES nº 76/2010), no que couber.\nI. As cotas de bolsas de mestrado, com vigência máxima de 24 (vinte e quatro) meses, deverão ser\nimplementadas de maneira escalonada, sendo que a primeira metade das bolsas deve ser\nimplementada a par\u0000r do início do projeto e a segunda metade no primeiro semestre de 2024, em\ncalendário a ser informado pela CAPES.\n17.6.1.1. O candidato à bolsa de mestrado deverá atender os seguintes requisitos:\nI. Comprovar desempenho acadêmico sa\u0000sfatório, consoante às normas deﬁnidas pelo PPG;\nII."
+        },
+        {
+          "id_chunk": "chunk_0176",
+          "ordem_selecao": 3,
+          "rank_densidade": 3,
+          "v_i": 6.1196,
+          "w_i": 378,
+          "densidade": 0.016189,
+          "id_documento": "doc_007",
+          "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+          "paginas": [
+            7,
+            8
+          ],
+          "texto": "Ciência da Computação , desde que o graduando já\ntenha cursado, com aprovação, um mínimo de 70% das disciplinas obrigatórias de seu curso de\ngraduação.\n\nArt. 24. O Curso de Doutorado em Ciência da Computação do PROCC somente aceitará a\nadmissão de discentes regulares.\n\nArt. 25. O acesso aos cursos de Mestrado em Ciência da Computação e de Doutorado em Ciência\nda Computação se dará por meio de aprovação em processo seletivo regido por edital elaborado pelo\nColegiado, conforme modelo definido pela COPGD e nos termos da legislação vigente.\n\n6\n§1º Os editais para discentes especiais devem selecionar candidatos especificamente para cursar\ndisciplinas pré -definidas pelo PROCC, observando o limite de duas disciplinas por discente e de um\nperíodo por vínculo.\n\n§2º A matrícula institucional dos candidatos aprovados ocorrerá conforme o disposto nas Normas\nAcadêmicas da Pós-Graduação stricto sensu da UFS.\n\nArt. 26. A distribuição das cotas de bolsas destinadas ao PROCC, será de responsabilidade da\ncomissão de bolsa que seguirá critérios definidos em Instrução Normativa, considerando as normas\nvigentes das agências de fomento.\n\nCAPÍTULO V\nDO REGIME ACADÊMICO\n\nArt. 27. A duração do vínculo com o programa será:\nI. para o discente regular do mestrado, de doze meses no"
+        },
+        {
+          "id_chunk": "chunk_0022",
+          "ordem_selecao": 4,
+          "rank_densidade": 4,
+          "v_i": 5.5013,
+          "w_i": 381,
+          "densidade": 0.014439,
+          "id_documento": "doc_001",
+          "nome_arquivo": "Edital_CAPES_14_2023_PRAPG.pdf",
+          "paginas": [
+            8
+          ],
+          "texto": "da bolsa original, e limite-se ao ﬁm da vigência original da bolsa concedida de modo\na não prejudicar o andamento do projeto;\nIII. A implementação da nova bolsa advinda da subs\u0000tuição deverá ocorrer no mês subsequente ao\ndesligamento do bolsista original.\nIV. O pedido de subs\u0000tuição deverá ser formalizado, por meio de O\u0000cio, o qual apresentará as\ndevidas jus\u0000ﬁca\u0000vas para o cancelamento da bolsa, assim como a informação da nova bolsa.\n17.7. Das bolsas de Pós-Doutorado e Professor Visitante Sênior no país\n17.7.1. Pós-Doutorado- A concessão de bolsa na modalidade terá vigência máxima de 24 (vinte e\nquatro) meses e deverá observar o norma\u0000vo da CAPES que regula a modalidade (Portaria CAPES nº\n86/2013), no que couber.\n17.7.1.1. O candidato à bolsa de pós-doutorado deve atender os seguintes requisitos:\nI. Ser jovem doutor, \u0000tulado a no máximo 5 anos, a contar da data da implementação da bolsa; e\nII. Se servidor público, deverá ser apresentado o comprovante de afastamento do exercício do cargo\npor igual período da bolsa.\n17.7.1.2. É vedada a concessão de bolsas de pós-doutorado para docentes doutores que integram a\nestrutura da mesma Ins\u0000tuição de Ensino Superior responsável pela submissão do projeto, exceto para o\ncaso explicitado"
+        },
+        {
+          "id_chunk": "chunk_0139",
+          "ordem_selecao": 5,
+          "rank_densidade": 5,
+          "v_i": 5.5475,
+          "w_i": 385,
+          "densidade": 0.014409,
+          "id_documento": "doc_006",
+          "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+          "paginas": [
+            22
+          ],
+          "texto": "de turmas, quando o discente poderá retirar e adicionar turmas, e,\nIII. inclusão de turmas, quando a coordenação do programa poderá, a pedido do discente,\nrealizar matrículas em turmas.\n\n§1º Cabe ao discente conferir o processamento das matrículas em turmas.\n\n§2º Ao discente que frequentar uma turma que não esteja matriculado não é garantido direito à\nmatrícula posterior na mesma.\n\n§3º Os pedidos de inclusão deverão ser entregues na secretaria do programa no prazo definido\npelo calendário acadêmico.\n\nArt. 114. A CPG poderá estabelecer, por meio de Instrução Normativa, critérios de prioridade no\npreenchimento das vagas ofertadas.\n\nArt. 115. A matrícula de discentes regulares em atividades acadêmicas será de responsabilidade\nda coordenação do programa.\n\nSeção VI\nDo Período de Trancamento de Matrículas em Turmas\n\nArt. 11 6. Após o início das aulas, o discente regular poderá trancar sua matrícula em uma ou\nmais turmas desde que:\nI. ainda não tenha ultrapassado metade da carga horária da turma, e,\nII. mantenha-se matriculado em, pelo menos, uma turma de disciplina e/ou atividade\nacadêmica.\n\nParágrafo único. O trancamento de todas as turmas e atividades acadêmicas, às quais o discente\nesteja matriculado, apenas será permitido por meio de uma solicitação de trancamen to de"
+        },
+        {
+          "id_chunk": "chunk_0119",
+          "ordem_selecao": 6,
+          "rank_densidade": 6,
+          "v_i": 4.7215,
+          "w_i": 366,
+          "densidade": 0.0129,
+          "id_documento": "doc_006",
+          "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+          "paginas": [
+            14,
+            15
+          ],
+          "texto": "Institucional\n\nArt. 74. Entende-se por matrícula institucional o ato de formalização de vínculo do candidato\ncom a universidade, momento a partir do qual lhe é atribuído um número de matrícula e passa a integrar o\ncorpo discente da instituição.\n\n13\nArt. 75. Para realizar a matrícula institucional, o candidato aprovado deverá:\nI. comparecer pessoalmente ou por meio de procurador no local de matrícula indicado no edital\ne em data definida no calendário acadêmico;\nII. comprovar titulação exigida no regimento interno do programa;\nIII. apresentar documentação necessária exigida no edital de seleção, e,\nIV. no caso de estrangeiros não residentes, comprovar regularização de permanência no Brasil ,\nemitida pelo órgão federal competente.\n\n§ 1º No caso de estrangeiros não residentes que necessitem do comprovante de vínculo com a\nuniversidade para requisitar regularização de permanência no Brasil , emitido pelo órgão federal\ncompetente, o inciso IV será dispensado no ato da matrícula institucional, devend o, obrigatoriamente,\napresentar o carimbo de entrada no país e será calculado o prazo de até noventa dias para a entrega do\ndocumento na secretaria do programa.\n\n§ 2º É de responsabilidade do candidato aprovado observar os prazos de matrícula institucional\ndefinidos no calendário acadêmico da pós -graduação"
+        },
+        {
+          "id_chunk": "chunk_0178",
+          "ordem_selecao": 7,
+          "rank_densidade": 7,
+          "v_i": 4.6927,
+          "w_i": 367,
+          "densidade": 0.012787,
+          "id_documento": "doc_007",
+          "nome_arquivo": "Resolucao_29_2022_CONEPE_Regimento_Interno_PROCC.pdf",
+          "paginas": [
+            8,
+            9
+          ],
+          "texto": "critérios para a definição e substituição de orientadores:\nI. o orientador indicado deverá manifestar prévia e formalmente a sua concordância, e,\nII. o coorientador, quando existir, deverá substituir o orientador principal nos impedimentos\ndeste.\n\n§1º A substituição do orientador deve ser apresentada ao Colegiado em uma requisição\ndevidamente fundamentada.\n\n§2º O pedido de substituição pode ser formulado tanto pelo discente quanto pelo orientador.\n\n§3º O discente não poderá solicitar substituição do orientador após cumprido vinte meses corridos\ndo início do mestrado, ou quarenta meses no caso do doutorado.\n\nArt. 30. A estrutura curricular dos cursos Mestrado em Ciência da Computação e de Doutorado\nem Ciência da Computação é constituída de um elenco de disciplinas e atividades obrigatórias e optativas,\ne será definida por Instrução Normativa do Colegiado.\n\nParágrafo único. Para a avaliação da aprendizagem e da assiduidade em cada disciplina e\natividade cursadas, serão observados os critérios dispostos nas Normas Acadêmicas da Pós - Graduação\nstricto sensu da UFS.\n\nArt. 31. O período letivo de aulas e as datas de matrícula e de trancamento das disciplinas serão\ndefinidos por meio do Calendário Acadêmico da Pós-Graduação stricto sensu da UFS.\n\n7\nArt. 32. O discente regular poderá requerer aproveitamento de estudos"
+        },
+        {
+          "id_chunk": "chunk_0136",
+          "ordem_selecao": 8,
+          "rank_densidade": 8,
+          "v_i": 4.8476,
+          "w_i": 389,
+          "densidade": 0.012462,
+          "id_documento": "doc_006",
+          "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+          "paginas": [
+            21
+          ],
+          "texto": "tem caráter complementar à oferta de\nturmas de períodos letivos regulares, não podendo substituí-los.\n\n§2º As turmas ofertadas nos períodos letivos especiais devem apresentar as mesmas\ncaracterísticas quanto ao conteúdo e à carga horária daquelas ofertadas nos períodos regulares.\n\nSeção III\nDo Período de Matrícula Institucional\n\nArt. 108. O período de matrícula institucional precede o início do período letivo regular e o início\nda matrícula em turmas, podendo ocorrer em dois momentos:\nI. período de matrícula institucional de candidatos aprovados, e,\nII. período de matrícula institucional de candidatos excedentes.\n\n§ 1º Será garantido o intervalo de, pelo menos, um dia útil entre os períodos de matrícula\ninstitucional para divulgação de convocação dos excedentes, quando houver.\n\n§ 2º É vedada a matrícula institucional de candidatos aprovados no período destinado aos\nexcedentes e vice-versa.\n\nSeção IV\nDo Período de Oferta de Turmas\n\nArt. 109. A oferta de turmas de disciplinas deverá ser aprovada pelo colegiado e cadastrada pela\nsecretaria do Programa no sistema acadêmico eletrônico da universidade no período indicado no\ncalendário acadêmico.\n\nArt. 110. No cadastro das turmas ofertadas devem estar indicados os seguintes dados:\nI. formato de realização, semestral ou intensivo (condensado);\nII. datas de início e de fim, quando"
+        },
+        {
+          "id_chunk": "chunk_0066",
+          "ordem_selecao": 9,
+          "rank_densidade": 9,
+          "v_i": 4.9823,
+          "w_i": 414,
+          "densidade": 0.012035,
+          "id_documento": "doc_002",
+          "nome_arquivo": "IN_01_2023_PROCC_Estrutura_Curricular_Mestrado.pdf",
+          "paginas": [
+            16,
+            17
+          ],
+          "texto": "como: sumário do(s) artigo(s), o(s) artigo(s) propriamente dito(s), sumário de livro(s),\ncapítulo(s) de livro(s), com os dados referentes à publicação e/ou submissão; 4) Conclusão; 5)\n\nReferências.\nOs artigos publicados ou submetidos devem ser escritos no idioma exigido pelo veículo de\ndivulgação. No caso de documento já publicado, o aluno deverá anexar a autorização da Editora\npara a sua inclusão na tese/dissertação.O discente deverá ser o primeiro autor em todos os artigos\ncompilados.\nAtividade: Estudos Extracurriculares\nDescrição: Estudos Extracurriculares compreendem um conjunto de atividades complementares\npara a formação do aluno, cujo quantitativo de créditos é variável de acordo com a quantidade de\natividades realizadas durante o período de matrícula ativa do discente. É obrigatório o\ncumprimento de pelo menos 4 créditos, relativos às atividades Produção em Conferência e\nProdução em Periódico. Para esta atividade, o discente pode solicitar aproveitamento de\ncréditos a qualquer momento desde que comprove sua realização.\nCréditos: mínimo 4 créditos\nCritérios:\nOs critérios de avaliação de desempenho discente da atividade Estudos Extracurriculares são\ndisciplinados pela tabela abaixo :\nTabela de Estudos Extracurriculares\nAtividade Créditos Descrição: Critérios\nProdução em\nConferência\n2 créditos Apresentação de um\nformulário\npreenchido, por parte\ndo discente, com\ncomprovantes de\naceite/publicação de\num artigo completo"
+        },
+        {
+          "id_chunk": "chunk_0138",
+          "ordem_selecao": 10,
+          "rank_densidade": 10,
+          "v_i": 4.5246,
+          "w_i": 379,
+          "densidade": 0.011938,
+          "id_documento": "doc_006",
+          "nome_arquivo": "Resolucao_04_2021_CONEPE_Normas_Academicas_Pos_Graduacao.pdf",
+          "paginas": [
+            22
+          ],
+          "texto": "abordar e que deverá constar no histórico\ndos discentes que vierem a se matricular na turma.\n\nArt. 111. Compete exclusivamente ao(s) docente(s) ministrante(s) da turma ofertada o cadastro\ndo respectivo plano de aula no sistema acadêmico eletrônico da universidade.\n\nParágrafo único. O cadastro do plano de aula mencionado no caput deste artigo deverá ser feito\naté, no máximo, a primeira semana de aula da turma.\n\nSeção V\nDo Período de Matrícula em Turmas\n\nArt. 112 . A matrícula em turmas é de responsabilidade dos discentes regulares e deverá ser\nobrigatoriamente realizada por meio do sistema acadêmico eletrônico da universidade.\n\n§1º Caberá aos orientadores e à coordenação do programa fazerem uma prévia orientação sobre\nas matrículas em turmas que cada discente deverá realizar.\n\n§2º A matrícula em turmas dos discentes especiais será de responsabilidade da secretar ia do\nprograma, conforme resultado do processo seletivo específico.\n\nArt. 113. A matrícula em turmas será dividida em três etapas:\nI. matrícula em turmas, quando o discente poderá se matricular nas turmas ofertadas;\nII. reformulação de turmas, quando o discente poderá retirar e adicionar turmas, e,\nIII. inclusão de turmas, quando a coordenação do programa poderá, a pedido do discente,\nrealizar matrículas em turmas.\n\n§1º"
+        }
+      ]
+    }
+  }
+}
