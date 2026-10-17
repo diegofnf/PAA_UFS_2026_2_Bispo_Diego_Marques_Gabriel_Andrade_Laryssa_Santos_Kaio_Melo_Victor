@@ -3,9 +3,10 @@
 Responsáveis:
 - Etapa 1 (Ingestão e tokenização): Diego Bispo.
 - Etapa 2 (Especificação e baseline guloso): Kaio Santos.
+- Etapa 3 (Programação dinâmica): Diego Bispo e Kaio Santos.
 Trilha A: seleção de contexto por mochila 0/1 com orçamento de tokens.
-Esta etapa implementa a seleção gulosa (baseline); a programação dinâmica e o
-benchmark comparativo pertencem às próximas etapas.
+Esta etapa implementa a solução exata por programação dinâmica; o
+benchmark comparativo pertence à próxima etapa.
 
 ## Relatório técnico
 
@@ -27,11 +28,11 @@ Vídeo da AV2 a publicar.
 
 ```text
 av2/
-├── 1_scripts/              # Preparação, testes e validação do notebook
+├── 1_scripts/              # Preparação, seletores guloso e PD, testes
 ├── 2_dados_tokenizados/    # Corpus com custos e scores associados
 ├── 3_instancias/           # Entradas para os seletores, com capacidades W
-├── 4_selecao_contexto/     # Reservada para as saídas dos seletores
-├── 5_resultados/           # Relatórios e resultados das execuções
+├── 4_selecao_contexto/     # Saídas concretas dos seletores (guloso e PD)
+├── 5_resultados/           # Relatórios de execução dos seletores
 ├── 6_evidencias/           # Notebook executado, testes e versões
 ├── orquestrador_av2.ipynb
 ├── requirements.txt
@@ -41,8 +42,7 @@ av2/
 
 O fluxo dos dados segue a numeração: tokenização → instâncias → seleção →
 resultados. Os scripts executam o fluxo e as evidências registram sua validação.
-`4_selecao_contexto/` está reservada e contém apenas `.gitkeep`, para aparecer
-no GitHub mesmo sem resultados. O corpus original continua em `../av1/`.
+O corpus original continua em `../av1/`.
 Os comandos abaixo partem da raiz do repositório.
 
 ## Organização no GitHub
@@ -80,6 +80,10 @@ python -m pytest av2/1_scripts/test_preparar_instancias.py -q
 # Etapa 2: Seleção de contexto por baseline guloso (Kaio Santos)
 python av2/1_scripts/selecionar_guloso.py
 python av2/1_scripts/test_selecionar_guloso.py
+
+# Etapa 3: Seleção ótima por programação dinâmica (Diego Bispo e Kaio Santos)
+python av2/1_scripts/selecionar_pd.py
+python av2/1_scripts/test_selecionar_pd.py
 ```
 
 O comando padrão funciona com os artefatos já versionados da AV1. Não executa
@@ -136,9 +140,11 @@ algoritmos. Referência: [documentação oficial do tiktoken](https://github.com
 |---|---|
 | `2_dados_tokenizados/chunks_tokenizados.json` | Todos os chunks, com origem/texto intactos, `w_i` inteiro e `v_i` numérico. |
 | `3_instancias/instancias.json` | Lista comum `itens` e quatro `instancias`, com `W` e `ids_itens`. |
-| `4_selecao_contexto/selecao_gulosa.json` | Chunks selecionados para cada capacidade $W$, tokens usados e saldo de $W$. |
+| `4_selecao_contexto/selecao_gulosa.json` | Chunks selecionados pelo baseline guloso para cada capacidade $W$. |
+| `4_selecao_contexto/selecao_pd.json` | Chunks selecionados pela solução ótima por PD para cada capacidade $W$. |
 | `5_resultados/relatorio_preparacao.json` | Contagens, tempos, ambiente, consulta, tokenizer e proveniência da Etapa 1. |
 | `5_resultados/relatorio_guloso.json` | Resumo executivo, aproveitamento de $W$, relevância total e tempos da Etapa 2. |
+| `5_resultados/relatorio_pd.json` | Resumo executivo da PD, relevância máxima atingida e tempos da Etapa 3. |
 
 Os seletores devem carregar `itens` por `id_chunk` e, em cada cenário, usar os
 IDs em `ids_itens` e a capacidade `W`. Todos os cenários utilizam a mesma lista
@@ -233,6 +239,7 @@ executá-los juntos, após instalar `av2/requirements-validacao.txt`:
 ```bash
 python -m pytest av2/1_scripts/test_preparar_instancias.py av1/1_scripts/test_etapa_4.py -q
 python av2/1_scripts/test_selecionar_guloso.py
+python av2/1_scripts/test_selecionar_pd.py
 ```
 
 ## Resultados da seleção gulosa (Etapa 2 — Kaio Santos)
@@ -251,4 +258,22 @@ A varredura contínua garante que itens não sejam descartados precipitadamente:
 - **Complexidade no Modelo RAM:** Tempo $\mathcal{O}(n \log n + B \cdot n) = \mathcal{O}(n \log n)$ com $n=75$ e $B=4$; espaço auxiliar $\mathcal{O}(n)$.
 - **Tempo medido em RAM:** ~0,0005 segundos (sub-milissegundo).
 - **Testes automatizados:** 9 testes unitários aprovados em `av2/1_scripts/test_selecionar_guloso.py`.
+
+## Resultados da seleção por Programação Dinâmica (Etapa 3 — Diego Bispo e Kaio Santos)
+
+A Etapa 3 implementa a solução exata para a Mochila 0/1 via Programação Dinâmica bottom-up com a equação de Bellman e reconstrução dos chunks por backtracking determinístico a partir de $DP[n][W]$.
+
+A garantia matemática de otimalidade global da PD permitiu comprovar empiricamente a superioridade sobre o baseline guloso:
+
+| Capacidade $W$ | Método | Chunks Selecionados | Tokens Utilizados | Saldo de $W$ | Ocupação | Relevância Acumulada | Ganho da PD |
+|:---:|---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **$W = 512$** | Guloso<br/>**PD** | 1<br/>**1** | 370 / 512<br/>**370 / 512** | 142<br/>**142** | 72,27%<br/>**72,27%** | 9,6206<br/>**9,6206** | Empate<br/>(Ótimo atingido) |
+| **$W = 1024$** | Guloso<br/>**PD** | 2<br/>**2** | 761 / 1024<br/>**761 / 1024** | 263<br/>**263** | 74,32%<br/>**74,32%** | 16,6484<br/>**16,6484** | Empate<br/>(Ótimo atingido) |
+| **$W = 2048$** | Guloso<br/>**PD** | 5<br/>**5** | 1905 / 2048<br/>**1905 / 2048** | 143<br/>**143** | 93,02%<br/>**93,02%** | 33,8168<br/>**33,8168** | Empate<br/>(Ótimo atingido) |
+| **$W = 4096$** | Guloso<br/>**PD** | 10<br/>**11** | 3820 / 4096<br/>**4093 / 4096** | 276<br/>**3** | 93,26%<br/>**99,93%** | 57,5855<br/>**60,3138** | **+2,7283 (+4,7%)**<br/>**Ocupação quase perfeita!** |
+
+- **Complexidade no Modelo RAM:** Tempo $\Theta(n \cdot W)$ e espaço $\mathcal{O}(n \cdot W)$.
+- **Tempo medido em RAM:** ~0,147 segundos para todas as 4 instâncias combinadas.
+- **Testes automatizados:** 7 testes unitários aprovados em `av2/1_scripts/test_selecionar_pd.py`, validando a invariante $\text{Relevância}_{\text{PD}} \ge \text{Relevância}_{\text{Guloso}}$.
+
 

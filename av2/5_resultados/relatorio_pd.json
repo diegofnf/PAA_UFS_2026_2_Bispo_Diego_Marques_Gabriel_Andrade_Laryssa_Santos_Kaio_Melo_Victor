@@ -1,0 +1,90 @@
+{
+  "metadados": {
+    "etapa": "av2_3_relatorio_programacao_dinamica",
+    "responsaveis": [
+      "Diego Bispo",
+      "Kaio Santos"
+    ],
+    "data_utc": "2026-10-17T16:20:13.337306+00:00",
+    "consulta": "critérios para atribuição de bolsas e requisitos de matrícula",
+    "metrica_score": "bm25",
+    "total_candidatos_positivos": 75,
+    "algoritmo": "programacao_dinamica_bottom_up",
+    "equacao_recorrencia": "DP[i][c] = max(DP[i-1][c], DP[i-1][c - w_i] + v_i)",
+    "complexidade_assintotica": {
+      "tempo": "O(n * W)",
+      "espaco": "O(n * W)"
+    }
+  },
+  "resumo_cenarios": [
+    {
+      "id_instancia": "W_512",
+      "W": 512,
+      "tokens_usados": 370,
+      "saldo_W": 142,
+      "taxa_ocupacao_percentual": 72.27,
+      "relevancia_total": 9.6206,
+      "total_chunks_selecionados": 1,
+      "ids_selecionados": [
+        "chunk_0131"
+      ]
+    },
+    {
+      "id_instancia": "W_1024",
+      "W": 1024,
+      "tokens_usados": 761,
+      "saldo_W": 263,
+      "taxa_ocupacao_percentual": 74.32,
+      "relevancia_total": 16.6484,
+      "total_chunks_selecionados": 2,
+      "ids_selecionados": [
+        "chunk_0018",
+        "chunk_0131"
+      ]
+    },
+    {
+      "id_instancia": "W_2048",
+      "W": 2048,
+      "tokens_usados": 1905,
+      "saldo_W": 143,
+      "taxa_ocupacao_percentual": 93.02,
+      "relevancia_total": 33.8168,
+      "total_chunks_selecionados": 5,
+      "ids_selecionados": [
+        "chunk_0018",
+        "chunk_0022",
+        "chunk_0131",
+        "chunk_0139",
+        "chunk_0176"
+      ]
+    },
+    {
+      "id_instancia": "W_4096",
+      "W": 4096,
+      "tokens_usados": 4093,
+      "saldo_W": 3,
+      "taxa_ocupacao_percentual": 99.93,
+      "relevancia_total": 60.3138,
+      "total_chunks_selecionados": 11,
+      "ids_selecionados": [
+        "chunk_0018",
+        "chunk_0022",
+        "chunk_0078",
+        "chunk_0115",
+        "chunk_0118",
+        "chunk_0119",
+        "chunk_0131",
+        "chunk_0136",
+        "chunk_0139",
+        "chunk_0176",
+        "chunk_0178"
+      ]
+    }
+  ],
+  "tempos_segundos": {
+    "selecao_pd_ram": 0.15586589998565614,
+    "tempo_processamento_total": 0.1559333000332117,
+    "leitura_io": 0.0018142999615520239,
+    "escrita_io": 0.0027351999888196588
+  }
+}
