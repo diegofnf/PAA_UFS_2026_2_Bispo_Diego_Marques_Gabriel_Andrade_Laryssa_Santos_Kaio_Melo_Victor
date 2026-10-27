@@ -1,0 +1,39 @@
+{
+  "capacidade_W": 10,
+  "itens": [
+    {
+      "id_item": "A",
+      "w_i": 6,
+      "v_i": 30.0,
+      "densidade": 5.0
+    },
+    {
+      "id_item": "B",
+      "w_i": 5,
+      "v_i": 22.0,
+      "densidade": 4.4
+    },
+    {
+      "id_item": "C",
+      "w_i": 5,
+      "v_i": 22.0,
+      "densidade": 4.4
+    }
+  ],
+  "guloso": {
+    "ids_selecionados": [
+      "A"
+    ],
+    "tokens_usados": 6,
+    "relevancia_total": 30.0
+  },
+  "programacao_dinamica": {
+    "ids_selecionados": [
+      "B",
+      "C"
+    ],
+    "tokens_usados": 10,
+    "relevancia_total": 44.0
+  },
+  "conclusao": "A densidade v_i/w_i não garante o ótimo na mochila 0/1."
+}

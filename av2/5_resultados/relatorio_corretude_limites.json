@@ -1,0 +1,78 @@
+{
+  "metadados": {
+    "etapa": "av2_4_corretude_e_limites_teoricos",
+    "responsavel": "Gabriel Marques",
+    "data_utc": "2026-10-27T00:55:29.327575+00:00",
+    "entrada_reutilizada": [
+      "3_instancias/instancias.json",
+      "5_resultados/relatorio_guloso.json",
+      "5_resultados/relatorio_pd.json"
+    ],
+    "total_candidatos": 75,
+    "orcamentos": [
+      512,
+      1024,
+      2048,
+      4096
+    ]
+  },
+  "comparacao_por_orcamento": [
+    {
+      "W": 512,
+      "guloso": {
+        "tokens_usados": 370,
+        "relevancia_total": 9.6206,
+        "total_chunks_selecionados": 1
+      },
+      "programacao_dinamica": {
+        "tokens_usados": 370,
+        "relevancia_total": 9.6206,
+        "total_chunks_selecionados": 1
+      },
+      "ganho_relevancia_pd": 0.0
+    },
+    {
+      "W": 1024,
+      "guloso": {
+        "tokens_usados": 761,
+        "relevancia_total": 16.6484,
+        "total_chunks_selecionados": 2
+      },
+      "programacao_dinamica": {
+        "tokens_usados": 761,
+        "relevancia_total": 16.6484,
+        "total_chunks_selecionados": 2
+      },
+      "ganho_relevancia_pd": 0.0
+    },
+    {
+      "W": 2048,
+      "guloso": {
+        "tokens_usados": 1905,
+        "relevancia_total": 33.8168,
+        "total_chunks_selecionados": 5
+      },
+      "programacao_dinamica": {
+        "tokens_usados": 1905,
+        "relevancia_total": 33.8168,
+        "total_chunks_selecionados": 5
+      },
+      "ganho_relevancia_pd": 0.0
+    },
+    {
+      "W": 4096,
+      "guloso": {
+        "tokens_usados": 3820,
+        "relevancia_total": 57.5855,
+        "total_chunks_selecionados": 10
+      },
+      "programacao_dinamica": {
+        "tokens_usados": 4093,
+        "relevancia_total": 60.3138,
+        "total_chunks_selecionados": 11
+      },
+      "ganho_relevancia_pd": 2.7283
+    }
+  ],
+  "testes_especificos": "1_scripts/test_corretude_limites.py"
+}
