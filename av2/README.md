@@ -4,9 +4,10 @@ Responsáveis:
 - Etapa 1 (Ingestão e tokenização): Diego Bispo.
 - Etapa 2 (Especificação e baseline guloso): Kaio Santos.
 - Etapa 3 (Programação dinâmica): Diego Bispo e Kaio Santos.
+- Etapa 4 (Corretude e benchmark comparativo): Gabriel Marques, com integração dos resultados da equipe.
 Trilha A: seleção de contexto por mochila 0/1 com orçamento de tokens.
-Esta etapa implementa a solução exata por programação dinâmica; o
-benchmark comparativo pertence à próxima etapa.
+Esta etapa implementa a solução exata por programação dinâmica, os testes de
+corretude e o benchmark comparativo com o baseline guloso.
 
 ## Relatório técnico
 
@@ -84,6 +85,10 @@ python av2/1_scripts/test_selecionar_guloso.py
 # Etapa 3: Seleção ótima por programação dinâmica (Diego Bispo e Kaio Santos)
 python av2/1_scripts/selecionar_pd.py
 python av2/1_scripts/test_selecionar_pd.py
+
+# Etapa 4: Corretude, benchmark e evidência consolidada (Gabriel Marques)
+python av2/1_scripts/gerar_relatorio_corretude.py
+python -m pytest av2/1_scripts/test_corretude_limites.py -q
 ```
 
 O comando padrão funciona com os artefatos já versionados da AV1. Não executa
@@ -145,6 +150,8 @@ algoritmos. Referência: [documentação oficial do tiktoken](https://github.com
 | `5_resultados/relatorio_preparacao.json` | Contagens, tempos, ambiente, consulta, tokenizer e proveniência da Etapa 1. |
 | `5_resultados/relatorio_guloso.json` | Resumo executivo, aproveitamento de $W$, relevância total e tempos da Etapa 2. |
 | `5_resultados/relatorio_pd.json` | Resumo executivo da PD, relevância máxima atingida e tempos da Etapa 3. |
+| `4_selecao_contexto/contraexemplo_guloso.json` | Contraexemplo operacional da suboptimalidade do baseline guloso. |
+| `5_resultados/relatorio_corretude_limites.json` | Comparação por orçamento, ganhos de relevância e evidências da Etapa 4. |
 
 Os seletores devem carregar `itens` por `id_chunk` e, em cada cenário, usar os
 IDs em `ids_itens` e a capacidade `W`. Todos os cenários utilizam a mesma lista
@@ -221,11 +228,14 @@ Veja a [matriz de testes e evidências](6_evidencias/README.md).
 A suíte cobre contagem conhecida, não mutação, vazio/sem correspondência,
 fronteiras de orçamento, empate, textos duplicados com IDs distintos, entrada
 grande/Unicode/marcador especial, IDs inválidos, scores inválidos, candidato
-desatualizado e execução integrada nos dados reais. Essas verificações não são
-uma prova de corretude dos algoritmos de seleção, ainda não implementados.
-Os quatro valores de W também não substituem as duas escalas e as repetições
-exigidas no futuro benchmark. Há uma única consulta no caso padrão; ampliar as
-consultas e medir redundância/qualidade é trabalho das próximas etapas.
+desatualizado e execução integrada nos dados reais. A suíte específica da
+Etapa 4 cobre o contraexemplo guloso, a comparação com força bruta, as
+invariantes da reconstrução e a comparação PD versus guloso nos quatro
+orçamentos.
+Os quatro valores de W não substituem experimentos com múltiplas escalas e
+repetições para uma avaliação de desempenho mais ampla. Há uma única consulta
+no caso padrão; ampliar as consultas e medir redundância/qualidade permanece
+como trabalho futuro.
 
 ## Resultados da preparação
 
@@ -233,13 +243,16 @@ Foram preparados 182 chunks de 7 documentos e 75 candidatos positivos. O corpus
 tokenizado soma 74.055 tokens, incluindo sobreposições. As quatro capacidades
 são 512, 1024, 2048 e 4096. Em W = 512, um candidato excede sozinho a capacidade.
 
-Foram aprovados 48 testes: 34 da preparação e 14 de regressão da AV1. Para
-executá-los juntos, após instalar `av2/requirements-validacao.txt`:
+A evidência histórica registra 48 testes da preparação e da regressão da AV1.
+Na execução atual das etapas 1 a 3 da AV2, foram aprovados **53 testes**: 34 da preparação, 10
+do baseline guloso e 9 da programação dinâmica. O resultado JUnit consolidado
+fica em `av2/6_evidencias/testes.xml`.
+
+Opcionalmente, para executar novamente a suíte completa das etapas 1 a 3 e
+regenerar a evidência consolidada:
 
 ```bash
-python -m pytest av2/1_scripts/test_preparar_instancias.py av1/1_scripts/test_etapa_4.py -q
-python av2/1_scripts/test_selecionar_guloso.py
-python av2/1_scripts/test_selecionar_pd.py
+python -m pytest av2/1_scripts/test_preparar_instancias.py av2/1_scripts/test_selecionar_guloso.py av2/1_scripts/test_selecionar_pd.py -q --junitxml=av2/6_evidencias/testes.xml
 ```
 
 ## Resultados da seleção gulosa (Etapa 2 — Kaio Santos)
@@ -257,7 +270,7 @@ A varredura contínua garante que itens não sejam descartados precipitadamente:
 
 - **Complexidade no Modelo RAM:** Tempo $\mathcal{O}(n \log n + B \cdot n) = \mathcal{O}(n \log n)$ com $n=75$ e $B=4$; espaço auxiliar $\mathcal{O}(n)$.
 - **Tempo medido em RAM:** ~0,0005 segundos (sub-milissegundo).
-- **Testes automatizados:** 9 testes unitários aprovados em `av2/1_scripts/test_selecionar_guloso.py`.
+- **Testes automatizados:** 10 testes aprovados em `av2/1_scripts/test_selecionar_guloso.py`.
 
 ## Resultados da seleção por Programação Dinâmica (Etapa 3 — Diego Bispo e Kaio Santos)
 
@@ -274,6 +287,30 @@ A garantia matemática de otimalidade global da PD permitiu comprovar empiricame
 
 - **Complexidade no Modelo RAM:** Tempo $\Theta(n \cdot W)$ e espaço $\mathcal{O}(n \cdot W)$.
 - **Tempo medido em RAM:** ~0,147 segundos para todas as 4 instâncias combinadas.
-- **Testes automatizados:** 7 testes unitários aprovados em `av2/1_scripts/test_selecionar_pd.py`, validando a invariante $\text{Relevância}_{\text{PD}} \ge \text{Relevância}_{\text{Guloso}}$.
+- **Testes automatizados:** 9 testes aprovados em `av2/1_scripts/test_selecionar_pd.py`, cobrindo casos de borda, não mutação, comparação com o baseline e invariantes da reconstrução. O oráculo por força bruta pertence à suíte específica da Etapa 4.
+
+## Corretude e benchmark comparativo (Etapa 4 — Gabriel Marques)
+
+A corretude da programação dinâmica é sustentada pela prova por indução sobre
+`DP[i][c]`, pela reconstrução via backtracking e por testes independentes em
+instâncias pequenas. O oráculo por força bruta enumera todos os subconjuntos e
+confirma o valor ótimo retornado pela PD. Os testes também verificam capacidade,
+unicidade dos IDs, pertencimento à entrada e consistência das somas de custos e
+benefícios.
+
+O contraexemplo guloso usa capacidade `W = 10` e itens `(w, v) = (6, 30),
+(5, 22), (5, 22)`. O guloso obtém 30 ao escolher o primeiro item, enquanto a
+PD escolhe os dois últimos e obtém 44. Portanto, a ordenação por densidade não
+garante optimalidade na mochila 0/1.
+
+A PD possui tempo `O(N * W)` e espaço `O(N * W)`, sendo pseudo-polinomial em
+relação à representação binária de `W`. O baseline guloso possui tempo
+`O(N log N)`, mas não oferece garantia de solução ótima.
+
+O notebook oficial executado é
+`av2/6_evidencias/notebook_executado.ipynb`; a Etapa 4 foi anexada ao final
+sem alterar as células históricas das etapas anteriores. A declaração
+individual de uso de IA e a descrição detalhada da prova devem ser inseridas
+nas seções 7, 16 e 17 do relatório técnico.
 
 

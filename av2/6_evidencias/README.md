@@ -12,11 +12,16 @@ python -m pip install -r av2/requirements-validacao.txt
 python av2/1_scripts/validar_notebook.py --saida caminho/notebook_executado.ipynb
 ```
 
-Resultado: **48 testes aprovados** (34 da preparação AV2 e 14 da AV1).
+Registro histórico: **48 testes aprovados** (34 da preparação AV2 e 14 da AV1).
 Há um aviso preexistente de depreciação do importador `load_module` usado pelos
 testes da AV1; nenhum teste falhou. As três células de código do notebook
 terminaram sem erro. Isso valida a execução em kernel real; não se afirma
 que a execução Windows tenha ocorrido no serviço Colab.
+
+A execução atual das etapas 1 a 3 da AV2, após a inclusão dos seletores e dos
+testes de corretude, aprovou **53 testes**: 34 da preparação, 10 do baseline
+guloso e 9 da programação dinâmica. A Etapa 4 possui adicionalmente 5 testes
+próprios. O resultado consolidado das etapas anteriores está em `testes.xml`.
 
 ## Matriz de resultados esperados e observados
 
@@ -45,7 +50,8 @@ não à preparação dos dados.
 
 ## Arquivos e preservação
 
-- `testes.xml`: resultados de todos os 48 testes.
+- `testes.xml`: resultado consolidado das etapas anteriores; a suíte própria da
+	Etapa 4 é executada separadamente.
 - `notebook_executado.ipynb`: células executadas, saídas e resumo das instâncias.
 - `validacao_limpa.json`: resumo da execução e identificação do código.
 - `dependencias_validacao.txt`: versões instaladas no ambiente novo.
@@ -78,6 +84,43 @@ Linux do mesmo notebook é executada no workflow
 | Documentar tokenização e RAM versus I/O | Seção de custos e campos separados no relatório de preparação. |
 | Permitir reprodução e uso pelos colegas | Notebook independente, dependências, contrato dos JSONs e workflow Linux. |
 
-Essa conclusão cobre a etapa 1. O algoritmo PD compartilhado com Kaio, os
-experimentos comparativos, a qualidade da recuperação e a integração com LLM
-continuam nas respectivas etapas posteriores da atividade.
+## Atendimento da Etapa 4 — Corretude e limites teóricos
+
+Os testes da programação dinâmica incluem casos de borda, não mutação,
+contraexemplo operacional da falha gulosa, comparação com força bruta em
+instância pequena e invariantes da reconstrução. A prova matemática utiliza
+indução sobre `DP[i][c]` e a recorrência de Bellman; a discussão da
+pseudo-polinomialidade considera o valor numérico de `W` em relação ao tamanho
+binário da entrada.
+
+A Etapa 4 possui a suíte própria `../1_scripts/test_corretude_limites.py`, executada
+depois das etapas anteriores. Ela reutiliza os artefatos já produzidos e cobre
+o contraexemplo guloso, o oráculo por força bruta, as invariantes do
+backtracking, a comparação nos quatro valores de `W` e a geração dos relatórios.
+
+O script `../1_scripts/gerar_relatorio_corretude.py` gera os artefatos próprios da
+etapa:
+
+- `../4_selecao_contexto/contraexemplo_guloso.json`: contraexemplo operacional
+	com a solução gulosa e a solução ótima da PD;
+- `../5_resultados/relatorio_corretude_limites.json`: comparação por orçamento,
+  ganhos de relevância e evidências da execução.
+
+Nos quatro cenários atuais, `W` assume 512, 1024, 2048 e 4096. Isso representa
+quatro instâncias de capacidade para cada seletor, ou oito combinações
+algoritmo-capacidade. As 12 execuções registradas na AV1 são outra matriz
+experimental: três configurações, duas cargas e duas repetições; elas não são
+12 variações de `W` da AV2 e não devem ser apresentadas como tal.
+
+Resultados principais da Etapa 4:
+
+| W | Relevância gulosa | Relevância PD | Tokens PD |
+|---:|---:|---:|---:|
+| 512 | 9,6206 | 9,6206 | 370/512 |
+| 1024 | 16,6484 | 16,6484 | 761/1024 |
+| 2048 | 33,8168 | 33,8168 | 1905/2048 |
+| 4096 | 57,5855 | 60,3138 | 4093/4096 |
+
+Essa conclusão cobre a preparação, a seleção, a corretude operacional e os
+limites teóricos da Etapa 4. A integração com uma LLM e a avaliação semântica
+do contexto continuam fora do escopo desta execução.

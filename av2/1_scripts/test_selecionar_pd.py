@@ -111,6 +111,35 @@ class TesteSelecaoPD(unittest.TestCase):
         resolver_mochila_pd(itens, W=150)
         self.assertEqual(itens, copia_profunda)
 
+    def test_reconstrucao_pd_preserva_itens_de_entrada(self):
+        """A reconstrução só pode devolver itens presentes na instância original."""
+        itens = [
+            {"id_chunk": "c1", "v_i": 9.0, "w_i": 4, "texto": "um"},
+            {"id_chunk": "c2", "v_i": 7.0, "w_i": 3, "texto": "dois"},
+            {"id_chunk": "c3", "v_i": 10.0, "w_i": 6, "texto": "tres"},
+        ]
+
+        selecionados, tokens_usados, relevancia_total, _ = resolver_mochila_pd(
+            itens, W=7
+        )
+        itens_por_id = {item["id_chunk"]: item for item in itens}
+
+        self.assertTrue(
+            all(item["id_chunk"] in itens_por_id for item in selecionados)
+        )
+        self.assertLessEqual(tokens_usados, 7)
+        self.assertEqual(
+            tokens_usados,
+            sum(itens_por_id[item["id_chunk"]]["w_i"] for item in selecionados),
+        )
+        self.assertEqual(
+            relevancia_total,
+            round(
+                sum(itens_por_id[item["id_chunk"]]["v_i"] for item in selecionados),
+                4,
+            ),
+        )
+
     def test_execucao_integrada_instancias_reais_e_invariante_relevancia(self):
         """Validação completa sobre instancias.json assegurando Relevância_PD >= Relevância_Guloso."""
         if not ARQUIVO_INSTANCIAS.is_file():
