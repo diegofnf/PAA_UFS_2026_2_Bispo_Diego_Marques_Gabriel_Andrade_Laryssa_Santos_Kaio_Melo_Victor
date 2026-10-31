@@ -1,2 +1,5 @@
 # Tokenizer fixado para reproduzir os custos w_i da AV2.
 tiktoken==0.14.0
+
+# Opcional: gráficos da Etapa 5. O script funciona sem ele, mas não gera PNGs.
+matplotlib>=3.8

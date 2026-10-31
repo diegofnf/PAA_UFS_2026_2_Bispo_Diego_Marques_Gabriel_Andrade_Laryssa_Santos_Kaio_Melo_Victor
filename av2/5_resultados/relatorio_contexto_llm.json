@@ -1,0 +1,355 @@
+{
+  "metadados": {
+    "etapa": "av2_5_contexto_llm",
+    "data_utc": "2026-10-31T08:13:21.565964+00:00",
+    "consulta": "critérios para atribuição de bolsas e requisitos de matrícula",
+    "tokenizer": {
+      "biblioteca": "tiktoken",
+      "versao": "0.14.0",
+      "encoding": "cl100k_base",
+      "metodo": "encode_ordinary"
+    },
+    "modelo_referencia": "gpt-4-turbo",
+    "chamada_llm_realizada": false,
+    "janelas_llm": [
+      1024,
+      2048,
+      4096,
+      8192,
+      16384
+    ],
+    "estrategias": [
+      "integral",
+      "ajustado"
+    ],
+    "deduplicacao": [
+      true,
+      false
+    ],
+    "ordem": "relevancia",
+    "reservas": {
+      "resposta": 512,
+      "seguranca": 64,
+      "tokens_fixos_medidos": 190
+    },
+    "entradas": {
+      "chunks": {
+        "arquivo": "D:\\1 - PROCC\\1-Disciplinas\\Semestre-2\\PROJETO E ANÁLISE DE ALGORITMOS\\PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor\\av2\\2_dados_tokenizados\\chunks_tokenizados.json",
+        "sha256": "1baf8b52eb8cf1c7bdb9f59ee681d09e6823c57981a519fcf7f74d82ea83a931"
+      },
+      "instancias": {
+        "arquivo": "D:\\1 - PROCC\\1-Disciplinas\\Semestre-2\\PROJETO E ANÁLISE DE ALGORITMOS\\PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor\\av2\\3_instancias\\instancias.json",
+        "sha256": "ee8c29b0611b7562a44e486afb18b1c2ec6d4da21b6315c27492be044a43b02c"
+      },
+      "selecao_gulosa": {
+        "arquivo": "D:\\1 - PROCC\\1-Disciplinas\\Semestre-2\\PROJETO E ANÁLISE DE ALGORITMOS\\PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor\\av2\\4_selecao_contexto\\selecao_gulosa.json",
+        "sha256": "fd9a4a6aa7c46de0f16a39c0d25b251e72850102b31cf4f86d2074bf450988fb"
+      },
+      "selecao_pd": {
+        "arquivo": "D:\\1 - PROCC\\1-Disciplinas\\Semestre-2\\PROJETO E ANÁLISE DE ALGORITMOS\\PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor\\av2\\4_selecao_contexto\\selecao_pd.json",
+        "sha256": "6527bbba8eff285d0487a47625c90ff43c4a463bc7f2aa56315027be0f1f6353"
+      }
+    },
+    "versionamento": {
+      "commit_execucao": "6c864e2c8cdd896a9a3019a3634fc4c8eebf92c6",
+      "arvore_suja_antes_gravar": true
+    },
+    "observacao": "Nenhuma chamada a LLM foi realizada. Os payloads são compatíveis com a API de chat e não incluem credenciais."
+  },
+  "validacao_w_i": {
+    "total_chunks": 182,
+    "tokens_individuais_total": 74055,
+    "chunks_com_w_i_zero": 0
+  },
+  "benchmark_selecao": {
+    "guloso": [
+      {
+        "id_instancia": "W_512",
+        "W": 512,
+        "tempo_medio_ms": 0.0538,
+        "memoria_pico_bytes": 2064,
+        "total_chunks": 1,
+        "tokens_usados": 370,
+        "relevancia_total": 9.6206,
+        "total_avaliados": 75
+      },
+      {
+        "id_instancia": "W_1024",
+        "W": 1024,
+        "tempo_medio_ms": 0.0631,
+        "memoria_pico_bytes": 2304,
+        "total_chunks": 2,
+        "tokens_usados": 761,
+        "relevancia_total": 16.6484,
+        "total_avaliados": 75
+      },
+      {
+        "id_instancia": "W_2048",
+        "W": 2048,
+        "tempo_medio_ms": 0.0666,
+        "memoria_pico_bytes": 2928,
+        "total_chunks": 5,
+        "tokens_usados": 1905,
+        "relevancia_total": 33.8168,
+        "total_avaliados": 75
+      },
+      {
+        "id_instancia": "W_4096",
+        "W": 4096,
+        "tempo_medio_ms": 0.0832,
+        "memoria_pico_bytes": 4064,
+        "total_chunks": 10,
+        "tokens_usados": 3820,
+        "relevancia_total": 57.5855,
+        "total_avaliados": 75
+      }
+    ],
+    "pd": [
+      {
+        "id_instancia": "W_512",
+        "W": 512,
+        "tempo_medio_ms": 5.2363,
+        "memoria_pico_bytes": 642328,
+        "total_chunks": 1,
+        "tokens_usados": 370,
+        "relevancia_total": 9.6206,
+        "total_avaliados": 75
+      },
+      {
+        "id_instancia": "W_1024",
+        "W": 1024,
+        "tempo_medio_ms": 14.5668,
+        "memoria_pico_bytes": 1342200,
+        "total_chunks": 2,
+        "tokens_usados": 761,
+        "relevancia_total": 16.6484,
+        "total_avaliados": 75
+      },
+      {
+        "id_instancia": "W_2048",
+        "W": 2048,
+        "tempo_medio_ms": 32.7712,
+        "memoria_pico_bytes": 2924592,
+        "total_chunks": 5,
+        "tokens_usados": 1905,
+        "relevancia_total": 33.8168,
+        "total_avaliados": 75
+      },
+      {
+        "id_instancia": "W_4096",
+        "W": 4096,
+        "tempo_medio_ms": 75.026,
+        "memoria_pico_bytes": 6723864,
+        "total_chunks": 11,
+        "tokens_usados": 4093,
+        "relevancia_total": 60.3138,
+        "total_avaliados": 75
+      }
+    ]
+  },
+  "tempos_selecao_reportados": {
+    "guloso": {
+      "selecao_gulosa_ram": 0.0005847999709658325,
+      "tempo_processamento_total": 0.0008163999882526696,
+      "leitura_io": 0.0037455999990925193,
+      "escrita_io": 0.007367299986071885
+    },
+    "pd": {
+      "selecao_pd_ram": 0.15586589998565614,
+      "tempo_processamento_total": 0.1559333000332117,
+      "leitura_io": 0.0018142999615520239,
+      "escrita_io": 0.0027351999888196588
+    }
+  },
+  "resumo_por_orcamento": [
+    {
+      "seletor": "guloso",
+      "W": 512,
+      "chunks_selecionados": 1,
+      "tokens_w_i": 370,
+      "tokens_textos_recontados": 370,
+      "tokens_contexto": 416,
+      "tokens_prompt": 607,
+      "overhead_prompt": 237,
+      "delta_borda": 0,
+      "economia_dedupe": 0,
+      "relevancia_incluida": 9.6206,
+      "relevancia_por_1000_tokens_prompt": 15.8494,
+      "folga_llm": 7009,
+      "estourou_janela": false
+    },
+    {
+      "seletor": "guloso",
+      "W": 1024,
+      "chunks_selecionados": 2,
+      "tokens_w_i": 761,
+      "tokens_textos_recontados": 762,
+      "tokens_contexto": 843,
+      "tokens_prompt": 1033,
+      "overhead_prompt": 271,
+      "delta_borda": 1,
+      "economia_dedupe": 0,
+      "relevancia_incluida": 16.6484,
+      "relevancia_por_1000_tokens_prompt": 16.1166,
+      "folga_llm": 6583,
+      "estourou_janela": false
+    },
+    {
+      "seletor": "guloso",
+      "W": 2048,
+      "chunks_selecionados": 5,
+      "tokens_w_i": 1905,
+      "tokens_textos_recontados": 1908,
+      "tokens_contexto": 2113,
+      "tokens_prompt": 2304,
+      "overhead_prompt": 396,
+      "delta_borda": 3,
+      "economia_dedupe": 0,
+      "relevancia_incluida": 33.8168,
+      "relevancia_por_1000_tokens_prompt": 14.6774,
+      "folga_llm": 5312,
+      "estourou_janela": false
+    },
+    {
+      "seletor": "guloso",
+      "W": 4096,
+      "chunks_selecionados": 10,
+      "tokens_w_i": 3820,
+      "tokens_textos_recontados": 3828,
+      "tokens_contexto": 4203,
+      "tokens_prompt": 4394,
+      "overhead_prompt": 623,
+      "delta_borda": -49,
+      "economia_dedupe": 57,
+      "relevancia_incluida": 57.5855,
+      "relevancia_por_1000_tokens_prompt": 13.1055,
+      "folga_llm": 3222,
+      "estourou_janela": false
+    },
+    {
+      "seletor": "pd",
+      "W": 512,
+      "chunks_selecionados": 1,
+      "tokens_w_i": 370,
+      "tokens_textos_recontados": 370,
+      "tokens_contexto": 416,
+      "tokens_prompt": 607,
+      "overhead_prompt": 237,
+      "delta_borda": 0,
+      "economia_dedupe": 0,
+      "relevancia_incluida": 9.6206,
+      "relevancia_por_1000_tokens_prompt": 15.8494,
+      "folga_llm": 7009,
+      "estourou_janela": false
+    },
+    {
+      "seletor": "pd",
+      "W": 1024,
+      "chunks_selecionados": 2,
+      "tokens_w_i": 761,
+      "tokens_textos_recontados": 762,
+      "tokens_contexto": 843,
+      "tokens_prompt": 1033,
+      "overhead_prompt": 271,
+      "delta_borda": 1,
+      "economia_dedupe": 0,
+      "relevancia_incluida": 16.6484,
+      "relevancia_por_1000_tokens_prompt": 16.1166,
+      "folga_llm": 6583,
+      "estourou_janela": false
+    },
+    {
+      "seletor": "pd",
+      "W": 2048,
+      "chunks_selecionados": 5,
+      "tokens_w_i": 1905,
+      "tokens_textos_recontados": 1908,
+      "tokens_contexto": 2113,
+      "tokens_prompt": 2304,
+      "overhead_prompt": 396,
+      "delta_borda": 3,
+      "economia_dedupe": 0,
+      "relevancia_incluida": 33.8168,
+      "relevancia_por_1000_tokens_prompt": 14.6774,
+      "folga_llm": 5312,
+      "estourou_janela": false
+    },
+    {
+      "seletor": "pd",
+      "W": 4096,
+      "chunks_selecionados": 11,
+      "tokens_w_i": 4093,
+      "tokens_textos_recontados": 4102,
+      "tokens_contexto": 4521,
+      "tokens_prompt": 4712,
+      "overhead_prompt": 667,
+      "delta_borda": -48,
+      "economia_dedupe": 57,
+      "relevancia_incluida": 60.3138,
+      "relevancia_por_1000_tokens_prompt": 12.8,
+      "folga_llm": 2904,
+      "estourou_janela": false
+    }
+  ],
+  "comparacao_metodos": [
+    {
+      "W": 512,
+      "ganho_relevancia_pd": 0.0,
+      "delta_tokens_prompt_pd": 0,
+      "delta_relevancia_por_1000": 0.0
+    },
+    {
+      "W": 1024,
+      "ganho_relevancia_pd": 0.0,
+      "delta_tokens_prompt_pd": 0,
+      "delta_relevancia_por_1000": 0.0
+    },
+    {
+      "W": 2048,
+      "ganho_relevancia_pd": 0.0,
+      "delta_tokens_prompt_pd": 0,
+      "delta_relevancia_por_1000": 0.0
+    },
+    {
+      "W": 4096,
+      "ganho_relevancia_pd": 2.7283,
+      "delta_tokens_prompt_pd": 318,
+      "delta_relevancia_por_1000": -0.3055
+    }
+  ],
+  "matriz": {
+    "total_execucoes": 160,
+    "janelas": [
+      1024,
+      2048,
+      4096,
+      8192,
+      16384
+    ],
+    "estrategias": [
+      "integral",
+      "ajustado"
+    ],
+    "deduplicacao": [
+      true,
+      false
+    ],
+    "repeticoes_por_celula": 7
+  },
+  "contextos_exportados": {
+    "arquivo": "D:\\1 - PROCC\\1-Disciplinas\\Semestre-2\\PROJETO E ANÁLISE DE ALGORITMOS\\PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor\\av2\\7_contexto_llm\\contextos.json",
+    "janela": 8192,
+    "estrategia": "ajustado",
+    "deduplicar": true,
+    "ordem": "relevancia"
+  },
+  "ambiente": {
+    "sistema_operacional": "Windows 11",
+    "plataforma": "Windows-11-10.0.26300-SP0",
+    "arquitetura": "AMD64",
+    "processador": "Intel64 Family 6 Model 142 Stepping 12, GenuineIntel",
+    "versao_python": "3.14.7",
+    "interpretador": "C:\\Users\\victo.000\\AppData\\Local\\Programs\\Python\\Python314\\python.exe"
+  },
+  "tempo_total_execucao_segundos": 17.8999
+}

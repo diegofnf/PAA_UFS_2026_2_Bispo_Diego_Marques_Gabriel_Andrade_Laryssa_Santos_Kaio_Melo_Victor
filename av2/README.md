@@ -5,9 +5,12 @@ Responsáveis:
 - Etapa 2 (Especificação e baseline guloso): Kaio Santos.
 - Etapa 3 (Programação dinâmica): Diego Bispo e Kaio Santos.
 - Etapa 4 (Corretude e benchmark comparativo): Gabriel Marques, com integração dos resultados da equipe.
+- Etapa 5 (Complexidade e integração IA): Victor Melo. Integração das seleções,
+  orçamento do prompt, deduplicação e análise experimental de tempo, memória e tokens.
 Trilha A: seleção de contexto por mochila 0/1 com orçamento de tokens.
 Esta etapa implementa a solução exata por programação dinâmica, os testes de
-corretude e o benchmark comparativo com o baseline guloso.
+corretude, o benchmark comparativo com o baseline guloso e a montagem do
+contexto para LLM.
 
 ## Relatório técnico
 
@@ -15,7 +18,8 @@ corretude e o benchmark comparativo com o baseline guloso.
 
 ## Vídeo da atividade
 
-Vídeo da AV2 a publicar.
+Vídeo da AV2 a publicar. O roteiro e o estado da gravação estão em
+[`VIDEO.md`](VIDEO.md).
 
 ## Apresentação
 
@@ -33,8 +37,14 @@ av2/
 ├── 2_dados_tokenizados/    # Corpus com custos e scores associados
 ├── 3_instancias/           # Entradas para os seletores, com capacidades W
 ├── 4_selecao_contexto/     # Saídas concretas dos seletores (guloso e PD)
-├── 5_resultados/           # Relatórios de execução dos seletores
+├── 5_resultados/           # Relatórios dos seletores e do contexto para LLM
 ├── 6_evidencias/           # Notebook executado, testes e versões
+├── 7_contexto_llm/         # Payloads de chat, tabela e gráficos da Etapa 5
+├── integrar_contexto.py    # Ponto de entrada oficial da Etapa 5
+├── CONTEXTO_LLM.md         # Análise teórica e experimental da Etapa 5
+├── DECLARACAO_IA.md        # Uso crítico de IA generativa
+├── CONTRIBUICOES.md        # Contribuição individual
+├── VIDEO.md                # Roteiro e URL do vídeo
 ├── orquestrador_av2.ipynb
 ├── requirements.txt
 ├── requirements-validacao.txt
@@ -89,6 +99,10 @@ python av2/1_scripts/test_selecionar_pd.py
 # Etapa 4: Corretude, benchmark e evidência consolidada (Gabriel Marques)
 python av2/1_scripts/gerar_relatorio_corretude.py
 python -m pytest av2/1_scripts/test_corretude_limites.py -q
+
+# Etapa 5: Contexto para LLM, orçamento de prompt e análise de tokens (Victor Melo)
+python av2/integrar_contexto.py
+python -m pytest av2/1_scripts/test_montar_contexto_llm.py -q
 ```
 
 O comando padrão funciona com os artefatos já versionados da AV1. Não executa
@@ -152,6 +166,12 @@ algoritmos. Referência: [documentação oficial do tiktoken](https://github.com
 | `5_resultados/relatorio_pd.json` | Resumo executivo da PD, relevância máxima atingida e tempos da Etapa 3. |
 | `4_selecao_contexto/contraexemplo_guloso.json` | Contraexemplo operacional da suboptimalidade do baseline guloso. |
 | `5_resultados/relatorio_corretude_limites.json` | Comparação por orçamento, ganhos de relevância e evidências da Etapa 4. |
+| `7_contexto_llm/contextos.json` | Payloads de chat (2 seletores × 4 `W`) na janela de exportação. |
+| `7_contexto_llm/tabela_contexto_llm.csv` | Matriz de 160 execuções: tokens, overhead, dedupe, tempo, memória e qualidade. |
+| `7_contexto_llm/prompt_exemplo.md` | Prompt legível da PD em `W = 4096`. |
+| `7_contexto_llm/grafico_*.png` | Prompt por `W`, folga da janela e latência estimada. |
+| `5_resultados/relatorio_contexto_llm.json` | Validação de `w_i`, benchmark dos seletores, resumo por `W` e comparação PD/guloso. |
+| `CONTEXTO_LLM.md` | Análise teórica e experimental da Etapa 5. |
 
 Os seletores devem carregar `itens` por `id_chunk` e, em cada cenário, usar os
 IDs em `ids_itens` e a capacidade `W`. Todos os cenários utilizam a mesma lista
@@ -312,5 +332,43 @@ O notebook oficial executado é
 sem alterar as células históricas das etapas anteriores. A declaração
 individual de uso de IA e a descrição detalhada da prova devem ser inseridas
 nas seções 7, 16 e 17 do relatório técnico.
+
+## Contexto para LLM e complexidade (Etapa 5 — Victor Melo)
+
+A Etapa 5 lê as seleções gulosa e PD, verifica cada `w_i` contra
+`tiktoken==0.14.0` (`cl100k_base`, `encode_ordinary`), monta o prompt com fontes
+`[F1]...`, deduplica a sobreposição de 30 palavras e **reconta o prompt final**.
+O `W` da mochila não é tratado como janela da LLM: instruções, resposta e
+segurança são reservadas separadamente. A análise completa, com complexidade e
+discussão de qualidade, está em [`CONTEXTO_LLM.md`](CONTEXTO_LLM.md).
+
+Resultados principais (janela 8 192, resposta 512, segurança 64, dedupe):
+
+| Seletor | `W` | Chunks | Soma `w_i` | Prompt final | Overhead | Relevância | Relevância/1k |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Guloso | 512 | 1 | 370 | 607 | 237 | 9,6206 | 15,85 |
+| Guloso | 1 024 | 2 | 761 | 1 033 | 271 | 16,6484 | 16,12 |
+| Guloso | 2 048 | 5 | 1 905 | 2 304 | 396 | 33,8168 | 14,68 |
+| Guloso | 4 096 | 10 | 3 820 | 4 394 | 623 | 57,5855 | 13,11 |
+| PD | 4 096 | 11 | 4 093 | 4 712 | 667 | 60,3138 | 12,80 |
+
+- O overhead do prompt é 237–667 tokens; em `W=512`, ele é 64% do custo dos
+  chunks. A concatenação pode alterar a contagem nas bordas (`delta_borda`
+  entre +3 e −49 tokens, já considerando a dedupe).
+- A deduplicação economiza 57 tokens em `W=4 096`.
+- Em 1 024 tokens de janela, nenhum chunk inteiro cabe após as reservas; o
+  contexto ajustado fica vazio. A menor janela que comporta a seleção completa
+  é 2 048 para `W≤1 024`, 4 096 para `W=2 048` e 8 192 para `W=4 096`.
+- Em `W=4 096`, a PD ganha +2,7283 de relevância (+4,7%), mas gasta 318 tokens
+  de prompt a mais; em relevância por 1 000 tokens, o guloso é ligeiramente
+  melhor (13,11 contra 12,80).
+- A PD é bem mais cara: 72,38 ms e 6,72 MB no `W=4 096`, contra 0,08 ms e
+  4,06 KB do guloso. A montagem do contexto custa poucas dezenas de ms
+  (1–34 ms) e 20–646 KB.
+
+A matriz cobre 2 seletores × 4 `W` × 5 janelas × 2 estratégias × 2 modos de
+deduplicação = **160 execuções**. Os 34 testes da Etapa 5 em
+`1_scripts/test_montar_contexto_llm.py` somam-se aos 58 anteriores: **92 testes
+aprovados** na suíte da AV2.
 
 

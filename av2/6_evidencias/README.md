@@ -123,4 +123,64 @@ Resultados principais da Etapa 4:
 
 Essa conclusão cobre a preparação, a seleção, a corretude operacional e os
 limites teóricos da Etapa 4. A integração com uma LLM e a avaliação semântica
-do contexto continuam fora do escopo desta execução.
+do contexto continuam fora do escopo da Etapa 4; a montagem do payload e a
+análise de tokens são tratadas na Etapa 5, abaixo.
+
+## Atendimento da Etapa 5 — Contexto para LLM
+
+A Etapa 5 implementa a montagem do payload de chat e a análise de tokens sem
+chamar serviço externo. O ponto de entrada oficial é `../integrar_contexto.py`,
+que delega para `../1_scripts/montar_contexto_llm.py`; a análise completa está
+em [`../CONTEXTO_LLM.md`](../CONTEXTO_LLM.md). Responsável: Victor Melo.
+
+Verificações executadas:
+
+| Verificação | Resultado |
+|---|---|
+| `w_i` dos 182 chunks contra `encode_ordinary` | 74 055 tokens, nenhuma divergência, nenhum `w_i` zero |
+| Prompt fixo (sistema + moldura + pergunta) | 190 tokens |
+| Matriz seletor × `W` × janela × estratégia × dedupe | 160 execuções, 7 repetições |
+| Orçamento ajustado acima da janela | 0 execuções (o modo integral estoura em 28/80) |
+| Testes da Etapa 5 | 34 aprovados |
+| Suíte completa da AV2 | **92 aprovados** |
+
+Resultados principais (janela 8 192, resposta 512, segurança 64, dedupe):
+
+| Seletor | `W` | Chunks | `w_i` | Prompt | Overhead | Relevância | Relevância/1k |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Guloso | 512 | 1 | 370 | 607 | 237 | 9,6206 | 15,85 |
+| Guloso | 1 024 | 2 | 761 | 1 033 | 271 | 16,6484 | 16,12 |
+| Guloso | 2 048 | 5 | 1 905 | 2 304 | 396 | 33,8168 | 14,68 |
+| Guloso | 4 096 | 10 | 3 820 | 4 394 | 623 | 57,5855 | 13,11 |
+| PD | 4 096 | 11 | 4 093 | 4 712 | 667 | 60,3138 | 12,80 |
+
+- A PD ganha +2,7283 de relevância em `W=4 096`, mas custa 318 tokens de prompt
+  a mais e é ordens de grandeza mais cara (72,38 ms e 6,72 MB contra 0,08 ms e
+  4,06 KB do guloso).
+- Em 1 024 tokens de janela, nenhum chunk inteiro cabe após instruções,
+  resposta e segurança; o contexto ajustado fica vazio.
+- A menor janela que comporta a seleção completa é 2 048 (`W≤1 024`), 4 096
+  (`W=2 048`) e 8 192 (`W=4 096`).
+
+### Matriz de testes da Etapa 5
+
+| Caso / requisito | Resultado esperado | Resultado observado | Evidência | Status |
+|---|---|---|---|---|
+| Normal: corpus real | 182 chunks, 74 055 tokens, nenhum `w_i` divergente | Confirmado | `test_corpus_real_mantem_w_i_exato` | Aprovado |
+| Vazio: nenhum chunk cabe | Contexto vazio, sem estourar a janela | Confirmado | `test_ajustado_sem_chunk_que_cabe_gera_contexto_vazio` | Aprovado |
+| Fronteira: janela apertada | Truncamento preenche o orçamento | Confirmado | `test_truncamento_preenche_orcamento` | Aprovado |
+| Empate de relevância | Desempate por `id_chunk` crescente | `c1` antes de `c2` | `test_empate_de_relevancia_usa_id_chunk` | Aprovado |
+| Entrada grande | 60 chunks respeitam o orçamento | Sem estouro, com descartes | `test_entrada_grande_respeita_orcamento` | Aprovado |
+| Duplicata/sobreposição | Dedupe remove 30 palavras e economiza tokens | 57 tokens em `W=4096` | `test_dedupe_real_economiza_tokens_em_w4096` | Aprovado |
+| Adversarial: `\x00` | Caractere preservado e contado | Texto e contagem conferidos | `test_caractere_de_controle_e_preservado` | Aprovado |
+| Hipótese: PD sempre melhor | Pode ser refutada quando `W≤2048` | PD empata com guloso em `W=2048` | `test_pd_nao_supera_guloso_em_w2048` | Aprovado |
+| Orçamento excedido | Modo integral pode estourar | Estouro registrado | `test_integral_pode_estourar_janela` | Aprovado |
+| Ponto de entrada oficial | `av2/integrar_contexto.py` delega para `main` | `callable(main)` | `test_integrar_contexto_expoe_main` | Aprovado |
+
+Artefatos: `../7_contexto_llm/contextos.json`,
+`../7_contexto_llm/tabela_contexto_llm.csv`,
+`../7_contexto_llm/prompt_exemplo.md`,
+`../7_contexto_llm/grafico_prompt_por_w.png`,
+`../7_contexto_llm/grafico_folga_janela.png`,
+`../7_contexto_llm/grafico_latencia_contexto.png` e
+`../5_resultados/relatorio_contexto_llm.json`.
