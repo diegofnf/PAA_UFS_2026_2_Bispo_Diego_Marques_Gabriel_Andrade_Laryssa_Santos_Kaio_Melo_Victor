@@ -40,9 +40,9 @@ fixos de instruções/formatação; o orçamento de chunks em `W=4 096` é 7 426
 | Etapa | Tempo | Memória | Observação |
 |---|---|---|---|
 | Guloso | `O(N log N)` | `O(N)` | ordenação por densidade `v_i/w_i`; varredura linear |
-| PD 0/1 | `O(NW)` | `O(NW)` | duas matrizes `dp` e `take`, `N=182`, `W≤4 096` |
+| PD 0/1 | `O(NW)` | `O(NW)` | duas matrizes `dp` e `take`, `N=75` candidatos positivos e `W≤4 096` |
 | Ordenação dos selecionados | `O(k log k)` | `O(k)` | `k` é o número de chunks selecionados |
-| Deduplicação | `O(k² log k)` no pior caso | `O(k)` | mescla de intervalos; `k` pequeno na prática |
+| Deduplicação | `O(k·m + k² log k)` no pior caso | `O(k+m)` | mescla de intervalos e varredura das palavras; `k` e `m` pequenos na prática |
 | Recontagem de tokens | `O(C)` | `O(C)` | `C` é o número de tokens/caracteres do prompt |
 | Matriz experimental | `O(160 · custo)` | `O(custo de uma execução)` | 2 seletores × 4 `W` × 5 janelas × 2 estratégias × 2 dedupes |
 
@@ -119,7 +119,7 @@ python av2/1_scripts/validar_notebook.py --saida notebook_executado.ipynb
 2. **Entrada:** 182 chunks, 75 candidatos positivos, `w_i` exato.
 3. **Arquitetura:** `integrar_contexto.py` → prompt → `contextos.json`.
 4. **Orçamento:** 190 fixos + 512 resposta + 64 segurança; prompt final medido.
-5. **Complexidade:** guloso `O(N log N)`, PD `O(NW)`, montagem `O(k² log k)`.
+5. **Complexidade:** guloso `O(N log N)`, PD `O(NW)`, montagem `O(k·m + k² log k)`.
 6. **Resultados:** prompt, overhead, dedupe e comparação PD × guloso.
 7. **Memória:** PD 6,72 MB × guloso 4,06 KB em `W=4 096`.
 8. **Latência:** prefill/decode e dominância do decode.

@@ -135,7 +135,7 @@ caracteres do prompt.
 | Seleção gulosa | `O(n log n)` | `O(n)` |
 | Seleção por PD | `O(nW)` | `O(nW)` |
 | Ordenação para o prompt | `O(k log k)` | `O(k)` |
-| Deduplicação | `O(k(k+m))` | `O(k+m)` |
+| Deduplicação | `O(k·m + k² log k)` | `O(k+m)` |
 | Tokenização BPE do prompt | custo do BPE sobre `O(C)` | `O(tokens)` |
 | Montagem final | `O(C)` | `O(prompt)` |
 
@@ -171,7 +171,9 @@ por isso o relatório registra a mediana de 7 repetições por célula.
 - **Janelas da LLM**: 1 024, 2 048, 4 096, 8 192 e 16 384.
 - **Estratégias**: integral e ajustado.
 - **Deduplicação**: com e sem.
-- **Total**: 2 × 4 × 5 × 2 × 2 = **160 execuções**; 7 repetições por célula.
+- **Total**: 2 × 4 × 5 × 2 × 2 = **160 execuções**; 7 repetições por célula no
+  relatório. O notebook usa 5 repetições para reduzir o tempo de execução, ainda
+  acima do mínimo de 3 exigido pela atividade.
 - **Tempo**: `time.perf_counter` ao redor da montagem e da recontagem.
 - **Memória**: pico de `tracemalloc` (não inclui buffers nativos do `tiktoken`).
 - **Tokenização**: `tiktoken==0.14.0`, `cl100k_base`, `encode_ordinary`.

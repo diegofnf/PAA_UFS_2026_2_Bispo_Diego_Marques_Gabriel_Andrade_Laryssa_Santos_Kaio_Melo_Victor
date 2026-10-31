@@ -102,7 +102,7 @@ python av2/1_scripts/gerar_relatorio_corretude.py
 python -m pytest av2/1_scripts/test_corretude_limites.py -q
 
 # Etapa 5: Contexto para LLM, orçamento de prompt e análise de tokens (Victor Melo)
-python av2/integrar_contexto.py
+python av2/integrar_contexto.py --repeticoes 7
 python -m pytest av2/1_scripts/test_montar_contexto_llm.py -q
 ```
 

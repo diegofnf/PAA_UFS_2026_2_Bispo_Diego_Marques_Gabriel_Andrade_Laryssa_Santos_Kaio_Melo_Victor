@@ -763,8 +763,9 @@ def montar_cenario(
 ) -> ResultadoCenario:
     """Monta um cenário completo e verifica as invariantes de orçamento.
 
-    Complexidade: O(k·m) para tokenizar/recortar k chunks de m palavras, mais
-    O(C) da tokenização BPE do prompt final. Memória O(prompt).
+    Complexidade: O(k·m + k² log k) para tokenizar/recortar/deduplicar k
+    chunks de m palavras, mais O(C) da tokenização BPE do prompt final.
+    Memória O(prompt).
     """
     if estrategia not in ESTRATEGIAS:
         raise ValueError(f"Estratégia desconhecida: {estrategia}")
