@@ -293,8 +293,13 @@ Foram medidos proxies offline:
 **Não foi medido** se a resposta gerada é correta, fiel ou útil. Isso exige um
 LLM ou avaliador humano, com perguntas de referência, rubrica e `temperature=0`.
 O payload está pronto em `7_contexto_llm/contextos.json`, mas o envio não foi
-feito: não há modelo definido na AV2 e nenhuma credencial é armazenada no
-repositório.
+feito. Em 31/10/2026 o ambiente foi verificado: não havia chave de provedor
+(`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, `GOOGLE_API_KEY` ou
+`AZURE_OPENAI_API_KEY`), o GitHub CLI não estava autenticado e o Copilot CLI
+respondeu `No authentication information found`. O registro está em
+`6_evidencias/avaliacao_llm.json`; nenhuma credencial é armazenada no
+repositório. Assim, a qualidade textual continua **não medida**, e os números
+de tempo e memória não incluem latência de rede ou de inferência.
 
 Cobertura lexical não é qualidade: um contexto pode conter todos os termos e
 ainda assim omitir a exceção, misturar normas de anos diferentes ou citar o

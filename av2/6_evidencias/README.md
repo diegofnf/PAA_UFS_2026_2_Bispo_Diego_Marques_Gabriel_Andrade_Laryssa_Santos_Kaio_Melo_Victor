@@ -23,6 +23,20 @@ testes de corretude, aprovou **53 testes**: 34 da preparação, 10 do baseline
 guloso e 9 da programação dinâmica. A Etapa 4 possui adicionalmente 5 testes
 próprios. O resultado consolidado das etapas anteriores está em `testes.xml`.
 
+### Execução atual em cópia limpa (Etapa 5)
+
+Data: 31/10/2026. Commit executado: `6b815ca`. O clone foi criado com
+`git clone --branch av2 --single-branch` em diretório temporário, e o notebook
+completo rodou em kernel real. As células executaram os testes de cada etapa:
+48 da preparação, 9 do guloso, 8 da PD, 5 da corretude e **34 da Etapa 5**,
+todas sem falha. O notebook executado está em
+`notebook_executado_etapa5.ipynb`, o log em `notebook_execucao.log` e o
+registro estruturado em `validacao_notebook.json`.
+
+Essa execução também regenerou, no clone limpo, `av2/4_selecao_contexto/`,
+`av2/5_resultados/` e `av2/7_contexto_llm/`, confirmando que os artefatos da
+Etapa 5 são reproduzíveis a partir do código versionado.
+
 ## Matriz de resultados esperados e observados
 
 Os nomes abaixo correspondem a testes em `av2/1_scripts/test_preparar_instancias.py`.
@@ -52,7 +66,11 @@ não à preparação dos dados.
 
 - `testes.xml`: resultado consolidado das etapas anteriores; a suíte própria da
 	Etapa 4 é executada separadamente.
-- `notebook_executado.ipynb`: células executadas, saídas e resumo das instâncias.
+- `notebook_executado.ipynb`: células executadas, saídas e resumo das instâncias
+  na execução histórica da etapa 1.
+- `notebook_executado_etapa5.ipynb`, `notebook_execucao.log` e
+  `validacao_notebook.json`: execução completa no commit `6b815ca`, com as
+  etapas 1 a 5.
 - `validacao_limpa.json`: resumo da execução e identificação do código.
 - `dependencias_validacao.txt`: versões instaladas no ambiente novo.
 - `../5_resultados/relatorio_preparacao.json`: custos separados, hashes e ambiente.

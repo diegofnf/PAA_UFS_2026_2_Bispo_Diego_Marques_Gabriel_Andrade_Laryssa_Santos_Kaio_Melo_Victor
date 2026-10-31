@@ -1,0 +1,70 @@
+C:\Users\victo.000\AppData\Local\Programs\Python\Python314\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+
+[notice] A new release of pip is available: 26.2.1 -> 26.2.2
+[notice] To update, run: python.exe -m pip install --upgrade pip
+AV2: 182 chunks; 75 candidatos positivos; W=[512, 1024, 2048, 4096]; tokenizer=cl100k_base.
+Sa�da: C:\Users\victo.000\AppData\Local\Temp\paa_av2_clean\av2
+[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[33m                         [100%][0m
+[33m============================== warnings summary ===============================[0m
+<frozen importlib._bootstrap>:533
+  <frozen importlib._bootstrap>:533: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.15; use exec_module() instead
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[33m[32m48 passed[0m, [33m[1m1 warning[0m[33m in 2.10s[0m[0m
+=== AV2 - Etapa 2: Sele��o Gulosa Conclu�da ===
+Inst�ncias lidas de: C:\Users\victo.000\AppData\Local\Temp\paa_av2_clean\av2\3_instancias\instancias.json
+  [W= 512] Chunks:  1 | Tokens:  370/ 512 (Saldo: 142, Ocupa��o:  72.3%) | Relev�ncia total:  9.6206
+  [W=1024] Chunks:  2 | Tokens:  761/1024 (Saldo: 263, Ocupa��o:  74.3%) | Relev�ncia total: 16.6484
+  [W=2048] Chunks:  5 | Tokens: 1905/2048 (Saldo: 143, Ocupa��o:  93.0%) | Relev�ncia total: 33.8168
+  [W=4096] Chunks: 10 | Tokens: 3820/4096 (Saldo: 276, Ocupa��o:  93.3%) | Relev�ncia total: 57.5855
+Contexto salvo em: C:\Users\victo.000\AppData\Local\Temp\paa_av2_clean\av2\4_selecao_contexto\selecao_gulosa.json
+Relat�rio salvo em: C:\Users\victo.000\AppData\Local\Temp\paa_av2_clean\av2\5_resultados\relatorio_guloso.json
+Tempo em RAM: 0.000401s | Tempo total: 0.004599s
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.006s
+
+OK
+=== AV2 - Etapa 3: Sele��o por Programa��o Din�mica Conclu�da ===
+Inst�ncias lidas de: C:\Users\victo.000\AppData\Local\Temp\paa_av2_clean\av2\3_instancias\instancias.json
+  [W= 512] Chunks:  1 | Tokens:  370/ 512 (Saldo: 142, Ocupa��o:  72.3%) | Relev�ncia total:  9.6206
+  [W=1024] Chunks:  2 | Tokens:  761/1024 (Saldo: 263, Ocupa��o:  74.3%) | Relev�ncia total: 16.6484
+  [W=2048] Chunks:  5 | Tokens: 1905/2048 (Saldo: 143, Ocupa��o:  93.0%) | Relev�ncia total: 33.8168
+  [W=4096] Chunks: 11 | Tokens: 4093/4096 (Saldo:   3, Ocupa��o:  99.9%) | Relev�ncia total: 60.3138
+Contexto �timo salvo em: C:\Users\victo.000\AppData\Local\Temp\paa_av2_clean\av2\4_selecao_contexto\selecao_pd.json
+Relat�rio de PD salvo em: C:\Users\victo.000\AppData\Local\Temp\paa_av2_clean\av2\5_resultados\relatorio_pd.json
+Tempo em RAM: 0.140977s | Tempo total: 0.145815s
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.146s
+
+OK
+Contraexemplo salvo em: C:\Users\victo.000\AppData\Local\Temp\paa_av2_clean\av2\4_selecao_contexto\contraexemplo_guloso.json
+Relat�rio salvo em: C:\Users\victo.000\AppData\Local\Temp\paa_av2_clean\av2\5_resultados\relatorio_corretude_limites.json
+[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m                                                                    [100%][0m
+[32m[32m[1m5 passed[0m[32m in 0.42s[0m[0m
+Gr�ficos gerados:
+  C:\Users\victo.000\AppData\Local\Temp\paa_av2_clean\av2\7_contexto_llm\grafico_prompt_por_w.png
+  C:\Users\victo.000\AppData\Local\Temp\paa_av2_clean\av2\7_contexto_llm\grafico_folga_janela.png
+  C:\Users\victo.000\AppData\Local\Temp\paa_av2_clean\av2\7_contexto_llm\grafico_latencia_contexto.png
+------------------------------------------------------------------------------
+Consulta: crit�rios para atribui��o de bolsas e requisitos de matr�cula
+Chunks v�lidos: 182 | tokens individuais: 74055
+Tokens fixos do prompt: 190 | resposta: 512 | seguran�a: 64
+Execu��es da matriz: 160
+Resumo por W (janela de exporta��o, integral, dedupe):
+  guloso W= 512 | prompt=  607 | overhead= 237 | relev�ncia=9.6206 | rel/1k=15.85 | folga=7009
+  guloso W=1024 | prompt= 1033 | overhead= 271 | relev�ncia=16.6484 | rel/1k=16.12 | folga=6583
+  guloso W=2048 | prompt= 2304 | overhead= 396 | relev�ncia=33.8168 | rel/1k=14.68 | folga=5312
+  guloso W=4096 | prompt= 4394 | overhead= 623 | relev�ncia=57.5855 | rel/1k=13.11 | folga=3222
+      pd W= 512 | prompt=  607 | overhead= 237 | relev�ncia=9.6206 | rel/1k=15.85 | folga=7009
+      pd W=1024 | prompt= 1033 | overhead= 271 | relev�ncia=16.6484 | rel/1k=16.12 | folga=6583
+      pd W=2048 | prompt= 2304 | overhead= 396 | relev�ncia=33.8168 | rel/1k=14.68 | folga=5312
+      pd W=4096 | prompt= 4712 | overhead= 667 | relev�ncia=60.3138 | rel/1k=12.80 | folga=2904
+Artefatos em: C:\Users\victo.000\AppData\Local\Temp\paa_av2_clean\av2\7_contexto_llm
+Relat�rio: C:\Users\victo.000\AppData\Local\Temp\paa_av2_clean\av2\5_resultados\relatorio_contexto_llm.json
+[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m                                       [100%][0m
+[32m[32m[1m34 passed[0m[32m in 0.64s[0m[0m
+Notebook executado sem erros: C:\Users\victo.000\AppData\Local\Temp\paa_av2_notebook_executado.ipynb

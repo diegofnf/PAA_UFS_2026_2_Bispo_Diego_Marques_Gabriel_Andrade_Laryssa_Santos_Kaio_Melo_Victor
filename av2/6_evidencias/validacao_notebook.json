@@ -1,0 +1,18 @@
+{
+  "data": "2026-10-31T05:30:59-03:00",
+  "commit": "6b815ca",
+  "branch": "av2",
+  "origem": "clone limpo do repositorio (git clone --branch av2 --single-branch)",
+  "comando": "python av2/1_scripts/validar_notebook.py --saida <temp>/paa_av2_notebook_executado.ipynb",
+  "resultado": "sucesso",
+  "notebook_executado": "av2/6_evidencias/notebook_executado_etapa5.ipynb",
+  "log": "av2/6_evidencias/notebook_execucao.log",
+  "testes_executados_no_notebook": {
+    "test_preparar_instancias.py": "48 passed",
+    "test_selecionar_guloso.py": "9 passed (unittest)",
+    "test_selecionar_pd.py": "8 passed (unittest)",
+    "test_corretude_limites.py": "5 passed",
+    "test_montar_contexto_llm.py": "34 passed"
+  },
+  "observacao": "O notebook foi executado a partir do clone limpo em %TEMP%\\paa_av2_clean, sem reaproveitar artefatos da arvore de trabalho original."
+}

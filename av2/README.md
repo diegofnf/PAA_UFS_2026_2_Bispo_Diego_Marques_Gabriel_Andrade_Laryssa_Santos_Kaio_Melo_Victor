@@ -371,4 +371,15 @@ deduplicação = **160 execuções**. Os 34 testes da Etapa 5 em
 `1_scripts/test_montar_contexto_llm.py` somam-se aos 58 anteriores: **92 testes
 aprovados** na suíte da AV2.
 
+O notebook completo também foi executado em cópia limpa no commit `6b815ca`:
+48 testes da preparação, 9 do guloso, 8 da PD, 5 da corretude e 34 da Etapa 5,
+sem falha. As evidências estão em `6_evidencias/notebook_executado_etapa5.ipynb`,
+`6_evidencias/notebook_execucao.log` e `6_evidencias/validacao_notebook.json`.
+
+Não há provedor de LLM configurado no ambiente (sem chave de API, `gh` sem
+autenticação e Copilot CLI sem autenticação). Por isso, a avaliação real das
+respostas **não foi executada**; o protocolo e o registro da verificação estão
+em [`CONTEXTO_LLM.md`](CONTEXTO_LLM.md) §10 e
+`6_evidencias/avaliacao_llm.json`.
+
 

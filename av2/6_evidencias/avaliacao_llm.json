@@ -1,0 +1,14 @@
+{
+  "data": "2026-10-31T05:31:00-03:00",
+  "status": "nao_executada",
+  "motivo": "Nenhuma credencial de provedor de LLM esta configurada no ambiente. Sem chave e sem modelo definido, o envio do payload nao pode ser reproduzido.",
+  "verificacoes_sem_expor_segredos": [
+    "Variaveis OPENAI_API_KEY, ANTHROPIC_API_KEY, GEMINI_API_KEY, GOOGLE_API_KEY e AZURE_OPENAI_API_KEY ausentes.",
+    "gh auth status: nao autenticado.",
+    "GitHub Copilot CLI: sem autenticacao (No authentication information found)."
+  ],
+  "payload_avaliado": "av2/7_contexto_llm/contextos.json",
+  "protocolo": "av2/CONTEXTO_LLM.md, secao 10",
+  "comando_previsto": "Configurar o provedor, definir o encoding do modelo e enviar cada payload de contextos.json com temperature=0; comparar citacoes [F1] e abstencoes com a rubrica.",
+  "observacao": "A avaliacao offline de cobertura, redundancia e relevancia por token foi executada. A qualidade textual das respostas permanece nao medida, como documentado na secao 10."
+}
