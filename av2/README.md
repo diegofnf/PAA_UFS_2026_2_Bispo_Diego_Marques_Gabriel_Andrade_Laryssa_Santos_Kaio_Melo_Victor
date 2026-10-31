@@ -42,6 +42,7 @@ av2/
 ├── 7_contexto_llm/         # Payloads de chat, tabela e gráficos da Etapa 5
 ├── integrar_contexto.py    # Ponto de entrada oficial da Etapa 5
 ├── CONTEXTO_LLM.md         # Análise teórica e experimental da Etapa 5
+├── RELATORIO_ETAPA5.md     # Texto pronto para o relatório e os slides
 ├── DECLARACAO_IA.md        # Uso crítico de IA generativa
 ├── CONTRIBUICOES.md        # Contribuição individual
 ├── VIDEO.md                # Roteiro e URL do vídeo
@@ -362,9 +363,9 @@ Resultados principais (janela 8 192, resposta 512, segurança 64, dedupe):
 - Em `W=4 096`, a PD ganha +2,7283 de relevância (+4,7%), mas gasta 318 tokens
   de prompt a mais; em relevância por 1 000 tokens, o guloso é ligeiramente
   melhor (13,11 contra 12,80).
-- A PD é bem mais cara: 72,38 ms e 6,72 MB no `W=4 096`, contra 0,08 ms e
+- A PD é bem mais cara: 75,03 ms e 6,72 MB no `W=4 096`, contra 0,08 ms e
   4,06 KB do guloso. A montagem do contexto custa poucas dezenas de ms
-  (1–34 ms) e 20–646 KB.
+  (1,2–31,3 ms) e 20–630 KB.
 
 A matriz cobre 2 seletores × 4 `W` × 5 janelas × 2 estratégias × 2 modos de
 deduplicação = **160 execuções**. Os 34 testes da Etapa 5 em
@@ -380,6 +381,7 @@ Não há provedor de LLM configurado no ambiente (sem chave de API, `gh` sem
 autenticação e Copilot CLI sem autenticação). Por isso, a avaliação real das
 respostas **não foi executada**; o protocolo e o registro da verificação estão
 em [`CONTEXTO_LLM.md`](CONTEXTO_LLM.md) §10 e
-`6_evidencias/avaliacao_llm.json`.
+`6_evidencias/avaliacao_llm.json`. O texto pronto para colar no relatório e nos
+slides está em [`RELATORIO_ETAPA5.md`](RELATORIO_ETAPA5.md).
 
 

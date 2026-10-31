@@ -57,6 +57,6 @@ scripts ou declarar corretude sem verificação.
 ## 6. Limitações declaradas
 
 A IA pode produzir código plausível, mas não garante corretude. Toda a
-implementação foi submetida a testes automatizados e revisão humana. A avaliação
-da qualidade das respostas geradas por LLM não foi executada por ausência de
-modelo/credencial definidos no repositório.
+implementação foi submetida a testes automatizados e deve ser revisada pelos
+autores antes da entrega. A avaliação da qualidade das respostas geradas por
+LLM não foi executada por ausência de modelo/credencial definidos no repositório.

@@ -10,9 +10,10 @@
 
 ## Revisão e validação
 
-- Todos os integrantes participaram da definição do corpus, da consulta e da
-  interpretação dos resultados.
-- A Etapa 5 foi revisada por Victor Melo com apoio de testes automatizados.
+- A divisão acima segue os artefatos e responsáveis registrados no repositório;
+  os integrantes devem confirmar a descrição antes da entrega.
+- A Etapa 5 foi validada por testes automatizados; a revisão final pelos autores
+  deve ser registrada no vídeo e na apresentação.
 - A declaração de uso de IA está em [`DECLARACAO_IA.md`](DECLARACAO_IA.md).
 - O vídeo e a apresentação são entregas coletivas; o roteiro da Etapa 5 está em
   [`VIDEO.md`](VIDEO.md).

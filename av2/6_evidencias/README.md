@@ -173,7 +173,7 @@ Resultados principais (janela 8 192, resposta 512, segurança 64, dedupe):
 | PD | 4 096 | 11 | 4 093 | 4 712 | 667 | 60,3138 | 12,80 |
 
 - A PD ganha +2,7283 de relevância em `W=4 096`, mas custa 318 tokens de prompt
-  a mais e é ordens de grandeza mais cara (72,38 ms e 6,72 MB contra 0,08 ms e
+  a mais e é ordens de grandeza mais cara (75,03 ms e 6,72 MB contra 0,08 ms e
   4,06 KB do guloso).
 - Em 1 024 tokens de janela, nenhum chunk inteiro cabe após instruções,
   resposta e segurança; o contexto ajustado fica vazio.

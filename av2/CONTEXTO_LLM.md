@@ -148,19 +148,19 @@ Valores medidos nesta máquina (mediana de 7 execuções, mesmo harness):
 
 | Método | `W` | Tempo da seleção | Pico de memória | Chunks | Relevância |
 |---|---:|---:|---:|---:|---:|
-| Guloso | 512 | 0,09 ms | 2 064 B | 1 | 9,6206 |
-| Guloso | 1 024 | 0,07 ms | 2 304 B | 2 | 16,6484 |
+| Guloso | 512 | 0,05 ms | 2 064 B | 1 | 9,6206 |
+| Guloso | 1 024 | 0,06 ms | 2 304 B | 2 | 16,6484 |
 | Guloso | 2 048 | 0,07 ms | 2 928 B | 5 | 33,8168 |
-| Guloso | 4 096 | 0,07 ms | 4 064 B | 10 | 57,5855 |
-| PD | 512 | 5,72 ms | 642 328 B | 1 | 9,6206 |
-| PD | 1 024 | 15,51 ms | 1 342 200 B | 2 | 16,6484 |
-| PD | 2 048 | 35,17 ms | 2 924 592 B | 5 | 33,8168 |
-| PD | 4 096 | 72,38 ms | 6 723 864 B | 11 | 60,3138 |
+| Guloso | 4 096 | 0,08 ms | 4 064 B | 10 | 57,5855 |
+| PD | 512 | 5,24 ms | 642 328 B | 1 | 9,6206 |
+| PD | 1 024 | 14,57 ms | 1 342 200 B | 2 | 16,6484 |
+| PD | 2 048 | 32,77 ms | 2 924 592 B | 5 | 33,8168 |
+| PD | 4 096 | 75,03 ms | 6 723 864 B | 11 | 60,3138 |
 
 A PD cresce quase linearmente com `W` neste intervalo; o guloso é ordens de
 grandeza mais barato. Nesta execução, para `W` de 512 a 4 096 na janela 8 192,
-a montagem do contexto ficou entre **2,2 ms e 27,7 ms** e **61,8 KB e
-641,3 KB**. O pior caso de toda a matriz ficou em torno de 34 ms e 645,5 KB; a
+a montagem do contexto ficou entre **1,2 ms e 31,3 ms** e **19,7 KB e
+630,4 KB**. O pior caso de toda a matriz ficou em 31,3 ms e 630,4 KB; a
 memória da PD é a dominante no fluxo completo. Os tempos variam entre execuções;
 por isso o relatório registra a mediana de 7 repetições por célula.
 
