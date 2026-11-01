@@ -1,7 +1,7 @@
 # Declaração de uso de IA generativa — AV2
 
-**Responsável pela Etapa 5:** Victor Melo  
-**Data:** 31/10/2026  
+**Responsáveis pelas etapas documentadas:** Victor Melo (Etapa 5) e Laryssa Barbosa de Andrade (Etapa 6)
+**Data:** 01/11/2026
 **Ferramenta:** GitHub Copilot no VS Code, com assistente baseado em Copilot SDK.
 
 ## 1. Finalidade
@@ -60,3 +60,11 @@ A IA pode produzir código plausível, mas não garante corretude. Toda a
 implementação foi submetida a testes automatizados e deve ser revisada pelos
 autores antes da entrega. A avaliação da qualidade das respostas geradas por
 LLM não foi executada por ausência de modelo/credencial definidos no repositório.
+
+## 7. Apoio à Etapa 6
+
+Na etapa de métricas, a IA foi usada como apoio à leitura do enunciado, à
+revisão da matriz experimental e à organização da documentação. A execução do
+benchmark, os valores de tempo e memória, os casos de teste e os gráficos foram
+gerados pelo script `av2/medir_experimentos.py` e conferidos nos artefatos
+versionados. Não foram inventados resultados nem substituída a execução local.

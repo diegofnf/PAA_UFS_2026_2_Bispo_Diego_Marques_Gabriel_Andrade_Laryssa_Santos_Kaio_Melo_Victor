@@ -1,0 +1,49 @@
+id_medicao,escala,N,W,algoritmo,repeticao,qtd_selecionados,ids_selecionados,beneficio_relevancia_bm25,tokens_usados,orcamento_W,taxa_ocupacao_janela_pct,redundancia_ids,respeitou_orcamento,tempo_preprocessamento_ms,tempo_selecao_ms,tempo_total_fluxo_ms,pico_memoria_kb
+1,Escala_Reduzida_N37,37,512,Baseline_Guloso,1,1,['chunk_0018'],7.0278,391,512,76.37,0.0,True,1.4092,0.0427,1.4519,4.023
+2,Escala_Reduzida_N37,37,512,Baseline_Guloso,2,1,['chunk_0018'],7.0278,391,512,76.37,0.0,True,1.4092,0.0188,1.428,0.68
+3,Escala_Reduzida_N37,37,512,Baseline_Guloso,3,1,['chunk_0018'],7.0278,391,512,76.37,0.0,True,1.4092,0.0162,1.4254,0.68
+4,Escala_Reduzida_N37,37,512,Programacao_Dinamica,1,1,['chunk_0018'],7.0278,391,512,76.37,0.0,True,1.4092,1.9839,3.3931,163.422
+5,Escala_Reduzida_N37,37,512,Programacao_Dinamica,2,1,['chunk_0018'],7.0278,391,512,76.37,0.0,True,1.4092,1.8693,3.2785,161.773
+6,Escala_Reduzida_N37,37,512,Programacao_Dinamica,3,1,['chunk_0018'],7.0278,391,512,76.37,0.0,True,1.4092,2.0161,3.4253,161.773
+7,Escala_Reduzida_N37,37,1024,Baseline_Guloso,1,2,"['chunk_0018', 'chunk_0022']",12.5291,772,1024,75.39,0.0,True,1.4092,0.0303,1.4395,0.539
+8,Escala_Reduzida_N37,37,1024,Baseline_Guloso,2,2,"['chunk_0018', 'chunk_0022']",12.5291,772,1024,75.39,0.0,True,1.4092,0.0162,1.4254,0.539
+9,Escala_Reduzida_N37,37,1024,Baseline_Guloso,3,2,"['chunk_0018', 'chunk_0022']",12.5291,772,1024,75.39,0.0,True,1.4092,0.0147,1.4239,0.539
+10,Escala_Reduzida_N37,37,1024,Programacao_Dinamica,1,2,"['chunk_0018', 'chunk_0022']",12.5291,772,1024,75.39,0.0,True,1.4092,10.1496,11.5588,373.562
+11,Escala_Reduzida_N37,37,1024,Programacao_Dinamica,2,2,"['chunk_0018', 'chunk_0022']",12.5291,772,1024,75.39,0.0,True,1.4092,10.3713,11.7805,373.0
+12,Escala_Reduzida_N37,37,1024,Programacao_Dinamica,3,2,"['chunk_0018', 'chunk_0022']",12.5291,772,1024,75.39,0.0,True,1.4092,10.675,12.0842,373.0
+13,Escala_Reduzida_N37,37,2048,Baseline_Guloso,1,5,"['chunk_0018', 'chunk_0022', 'chunk_0066', 'chunk_0013', 'chunk_0035']",25.5451,2002,2048,97.75,0.0,True,1.4092,0.0309,1.4401,1.07
+14,Escala_Reduzida_N37,37,2048,Baseline_Guloso,2,5,"['chunk_0018', 'chunk_0022', 'chunk_0066', 'chunk_0013', 'chunk_0035']",25.5451,2002,2048,97.75,0.0,True,1.4092,0.0167,1.4259,1.07
+15,Escala_Reduzida_N37,37,2048,Baseline_Guloso,3,5,"['chunk_0018', 'chunk_0022', 'chunk_0066', 'chunk_0013', 'chunk_0035']",25.5451,2002,2048,97.75,0.0,True,1.4092,0.0157,1.4249,1.07
+16,Escala_Reduzida_N37,37,2048,Programacao_Dinamica,1,5,"['chunk_0012', 'chunk_0013', 'chunk_0018', 'chunk_0022', 'chunk_0066']",25.5605,2022,2048,98.73,0.0,True,1.4092,30.9727,32.3819,890.875
+17,Escala_Reduzida_N37,37,2048,Programacao_Dinamica,2,5,"['chunk_0012', 'chunk_0013', 'chunk_0018', 'chunk_0022', 'chunk_0066']",25.5605,2022,2048,98.73,0.0,True,1.4092,32.537,33.9462,890.312
+18,Escala_Reduzida_N37,37,2048,Programacao_Dinamica,3,5,"['chunk_0012', 'chunk_0013', 'chunk_0018', 'chunk_0022', 'chunk_0066']",25.5605,2022,2048,98.73,0.0,True,1.4092,33.7882,35.1974,890.312
+19,Escala_Reduzida_N37,37,4096,Baseline_Guloso,1,9,"['chunk_0018', 'chunk_0022', 'chunk_0066', 'chunk_0013', 'chunk_0035', 'chunk_0068', 'chunk_0017', 'chunk_0012', 'chunk_0069']",41.1167,3766,4096,91.94,0.0,True,1.4092,0.0449,1.4541,1.133
+20,Escala_Reduzida_N37,37,4096,Baseline_Guloso,2,9,"['chunk_0018', 'chunk_0022', 'chunk_0066', 'chunk_0013', 'chunk_0035', 'chunk_0068', 'chunk_0017', 'chunk_0012', 'chunk_0069']",41.1167,3766,4096,91.94,0.0,True,1.4092,0.0214,1.4306,1.133
+21,Escala_Reduzida_N37,37,4096,Baseline_Guloso,3,9,"['chunk_0018', 'chunk_0022', 'chunk_0066', 'chunk_0013', 'chunk_0035', 'chunk_0068', 'chunk_0017', 'chunk_0012', 'chunk_0069']",41.1167,3766,4096,91.94,0.0,True,1.4092,0.0204,1.4296,1.133
+22,Escala_Reduzida_N37,37,4096,Programacao_Dinamica,1,10,"['chunk_0012', 'chunk_0013', 'chunk_0017', 'chunk_0018', 'chunk_0022', 'chunk_0035', 'chunk_0065', 'chunk_0066', 'chunk_0068', 'chunk_0077']",42.5361,4095,4096,99.98,0.0,True,1.4092,86.9874,88.3966,2267.078
+23,Escala_Reduzida_N37,37,4096,Programacao_Dinamica,2,10,"['chunk_0012', 'chunk_0013', 'chunk_0017', 'chunk_0018', 'chunk_0022', 'chunk_0035', 'chunk_0065', 'chunk_0066', 'chunk_0068', 'chunk_0077']",42.5361,4095,4096,99.98,0.0,True,1.4092,101.1657,102.5749,2266.516
+24,Escala_Reduzida_N37,37,4096,Programacao_Dinamica,3,10,"['chunk_0012', 'chunk_0013', 'chunk_0017', 'chunk_0018', 'chunk_0022', 'chunk_0035', 'chunk_0065', 'chunk_0066', 'chunk_0068', 'chunk_0077']",42.5361,4095,4096,99.98,0.0,True,1.4092,153.1065,154.5157,2266.516
+25,Escala_Completa_N75,75,512,Baseline_Guloso,1,1,['chunk_0131'],9.6206,370,512,72.27,0.0,True,1.4092,0.2605,1.6697,6.008
+26,Escala_Completa_N75,75,512,Baseline_Guloso,2,1,['chunk_0131'],9.6206,370,512,72.27,0.0,True,1.4092,0.0893,1.4985,2.32
+27,Escala_Completa_N75,75,512,Baseline_Guloso,3,1,['chunk_0131'],9.6206,370,512,72.27,0.0,True,1.4092,0.0826,1.4918,2.32
+28,Escala_Completa_N75,75,512,Programacao_Dinamica,1,1,['chunk_0131'],9.6206,370,512,72.27,0.0,True,1.4092,9.8635,11.2727,322.75
+29,Escala_Completa_N75,75,512,Programacao_Dinamica,2,1,['chunk_0131'],9.6206,370,512,72.27,0.0,True,1.4092,9.6832,11.0924,320.383
+30,Escala_Completa_N75,75,512,Programacao_Dinamica,3,1,['chunk_0131'],9.6206,370,512,72.27,0.0,True,1.4092,9.2973,10.7065,320.383
+31,Escala_Completa_N75,75,1024,Baseline_Guloso,1,2,"['chunk_0131', 'chunk_0018']",16.6484,761,1024,74.32,0.0,True,1.4092,0.1082,1.5174,2.414
+32,Escala_Completa_N75,75,1024,Baseline_Guloso,2,2,"['chunk_0131', 'chunk_0018']",16.6484,761,1024,74.32,0.0,True,1.4092,0.3718,1.781,2.32
+33,Escala_Completa_N75,75,1024,Baseline_Guloso,3,2,"['chunk_0131', 'chunk_0018']",16.6484,761,1024,74.32,0.0,True,1.4092,1.1261,2.5353,2.32
+34,Escala_Completa_N75,75,1024,Programacao_Dinamica,1,2,"['chunk_0018', 'chunk_0131']",16.6484,761,1024,74.32,0.0,True,1.4092,51.6254,53.0346,700.297
+35,Escala_Completa_N75,75,1024,Programacao_Dinamica,2,2,"['chunk_0018', 'chunk_0131']",16.6484,761,1024,74.32,0.0,True,1.4092,52.1342,53.5434,699.57
+36,Escala_Completa_N75,75,1024,Programacao_Dinamica,3,2,"['chunk_0018', 'chunk_0131']",16.6484,761,1024,74.32,0.0,True,1.4092,48.875,50.2842,699.57
+37,Escala_Completa_N75,75,2048,Baseline_Guloso,1,5,"['chunk_0131', 'chunk_0018', 'chunk_0176', 'chunk_0022', 'chunk_0139']",33.8168,1905,2048,93.02,0.0,True,1.4092,0.1154,1.5246,2.414
+38,Escala_Completa_N75,75,2048,Baseline_Guloso,2,5,"['chunk_0131', 'chunk_0018', 'chunk_0176', 'chunk_0022', 'chunk_0139']",33.8168,1905,2048,93.02,0.0,True,1.4092,0.0883,1.4975,2.32
+39,Escala_Completa_N75,75,2048,Baseline_Guloso,3,5,"['chunk_0131', 'chunk_0018', 'chunk_0176', 'chunk_0022', 'chunk_0139']",33.8168,1905,2048,93.02,0.0,True,1.4092,0.0866,1.4958,2.32
+40,Escala_Completa_N75,75,2048,Programacao_Dinamica,1,5,"['chunk_0018', 'chunk_0022', 'chunk_0131', 'chunk_0139', 'chunk_0176']",33.8168,1905,2048,93.02,0.0,True,1.4092,137.9683,139.3775,1636.852
+41,Escala_Completa_N75,75,2048,Programacao_Dinamica,2,5,"['chunk_0018', 'chunk_0022', 'chunk_0131', 'chunk_0139', 'chunk_0176']",33.8168,1905,2048,93.02,0.0,True,1.4092,181.2541,182.6633,1636.125
+42,Escala_Completa_N75,75,2048,Programacao_Dinamica,3,5,"['chunk_0018', 'chunk_0022', 'chunk_0131', 'chunk_0139', 'chunk_0176']",33.8168,1905,2048,93.02,0.0,True,1.4092,159.0631,160.4723,1636.125
+43,Escala_Completa_N75,75,4096,Baseline_Guloso,1,10,"['chunk_0131', 'chunk_0018', 'chunk_0176', 'chunk_0022', 'chunk_0139', 'chunk_0119', 'chunk_0178', 'chunk_0136', 'chunk_0066', 'chunk_0138']",57.5855,3820,4096,93.26,0.0,True,1.4092,0.1408,1.55,2.414
+44,Escala_Completa_N75,75,4096,Baseline_Guloso,2,10,"['chunk_0131', 'chunk_0018', 'chunk_0176', 'chunk_0022', 'chunk_0139', 'chunk_0119', 'chunk_0178', 'chunk_0136', 'chunk_0066', 'chunk_0138']",57.5855,3820,4096,93.26,0.0,True,1.4092,0.1671,1.5763,2.367
+45,Escala_Completa_N75,75,4096,Baseline_Guloso,3,10,"['chunk_0131', 'chunk_0018', 'chunk_0176', 'chunk_0022', 'chunk_0139', 'chunk_0119', 'chunk_0178', 'chunk_0136', 'chunk_0066', 'chunk_0138']",57.5855,3820,4096,93.26,0.0,True,1.4092,0.1001,1.5093,2.367
+46,Escala_Completa_N75,75,4096,Programacao_Dinamica,1,11,"['chunk_0018', 'chunk_0022', 'chunk_0078', 'chunk_0115', 'chunk_0118', 'chunk_0119', 'chunk_0131', 'chunk_0136', 'chunk_0139', 'chunk_0176', 'chunk_0178']",60.3138,4093,4096,99.93,0.0,True,1.4092,425.8455,427.2547,4130.891
+47,Escala_Completa_N75,75,4096,Programacao_Dinamica,2,11,"['chunk_0018', 'chunk_0022', 'chunk_0078', 'chunk_0115', 'chunk_0118', 'chunk_0119', 'chunk_0131', 'chunk_0136', 'chunk_0139', 'chunk_0176', 'chunk_0178']",60.3138,4093,4096,99.93,0.0,True,1.4092,502.7757,504.1849,4130.164
+48,Escala_Completa_N75,75,4096,Programacao_Dinamica,3,11,"['chunk_0018', 'chunk_0022', 'chunk_0078', 'chunk_0115', 'chunk_0118', 'chunk_0119', 'chunk_0131', 'chunk_0136', 'chunk_0139', 'chunk_0176', 'chunk_0178']",60.3138,4093,4096,99.93,0.0,True,1.4092,517.5924,519.0016,4130.164

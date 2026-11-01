@@ -7,6 +7,8 @@ Responsáveis:
 - Etapa 4 (Corretude e benchmark comparativo): Gabriel Marques, com integração dos resultados da equipe.
 - Etapa 5 (Complexidade e integração IA): Victor Melo. Integração das seleções,
   orçamento do prompt, deduplicação e análise experimental de tempo, memória e tokens.
+- Etapa 6 (Métricas e benchmark): Laryssa Barbosa de Andrade. Instrumentação de
+  tempo e memória, comparação entre os seletores, casos de teste, tabelas e gráficos.
 Trilha A: seleção de contexto por mochila 0/1 com orçamento de tokens.
 Esta etapa implementa a solução exata por programação dinâmica, os testes de
 corretude, o benchmark comparativo com o baseline guloso e a montagem do
@@ -40,6 +42,7 @@ av2/
 ├── 5_resultados/           # Relatórios dos seletores e do contexto para LLM
 ├── 6_evidencias/           # Notebook executado, testes e versões
 ├── 7_contexto_llm/         # Payloads de chat, tabela e gráficos da Etapa 5
+├── medir_experimentos.py   # Benchmark da Etapa 6
 ├── integrar_contexto.py    # Ponto de entrada oficial da Etapa 5
 ├── CONTEXTO_LLM.md         # Análise teórica e experimental da Etapa 5
 ├── RELATORIO_ETAPA5.md     # Texto pronto para o relatório e os slides
@@ -104,6 +107,9 @@ python -m pytest av2/1_scripts/test_corretude_limites.py -q
 # Etapa 5: Contexto para LLM, orçamento de prompt e análise de tokens (Victor Melo)
 python av2/integrar_contexto.py --repeticoes 7
 python -m pytest av2/1_scripts/test_montar_contexto_llm.py -q
+
+# Etapa 6: métricas, benchmark e casos de teste (Laryssa Andrade)
+python av2/medir_experimentos.py
 ```
 
 O comando padrão funciona com os artefatos já versionados da AV1. Não executa
@@ -172,6 +178,12 @@ algoritmos. Referência: [documentação oficial do tiktoken](https://github.com
 | `7_contexto_llm/prompt_exemplo.md` | Prompt legível da PD em `W = 4096`. |
 | `7_contexto_llm/grafico_*.png` | Prompt por `W`, folga da janela e latência estimada. |
 | `5_resultados/relatorio_contexto_llm.json` | Validação de `w_i`, benchmark dos seletores, resumo por `W` e comparação PD/guloso. |
+| `5_resultados/relatorio_experimentos.json` | 48 medições brutas, médias por cenário, metadados e 8 casos de teste da Etapa 6. |
+| `5_resultados/medicoes_brutas.csv` | Uma linha por medição, com tempo, memória, tokens, relevância e validações. |
+| `5_resultados/tabela_experimentos.csv` | Tabela-síntese das 16 combinações de escala, algoritmo e orçamento. |
+| `5_resultados/grafico_tempo_vs_w.png` | Tempo médio de seleção por orçamento e algoritmo. |
+| `5_resultados/grafico_memoria_vs_w.png` | Pico médio de memória por orçamento e algoritmo. |
+| `5_resultados/grafico_relevancia_vs_w.png` | Relevância BM25 acumulada por orçamento e algoritmo. |
 | `CONTEXTO_LLM.md` | Análise teórica e experimental da Etapa 5. |
 
 Os seletores devem carregar `itens` por `id_chunk` e, em cada cenário, usar os
@@ -383,5 +395,30 @@ respostas **não foi executada**; o protocolo e o registro da verificação est�
 em [`CONTEXTO_LLM.md`](CONTEXTO_LLM.md) §10 e
 `6_evidencias/avaliacao_llm.json`. O texto pronto para colar no relatório e nos
 slides está em [`RELATORIO_ETAPA5.md`](RELATORIO_ETAPA5.md).
+
+## Métricas e benchmark (Etapa 6 — Laryssa Barbosa de Andrade)
+
+O script `medir_experimentos.py` compara os mesmos itens de entrada da AV2
+com o baseline guloso e a programação dinâmica. A matriz experimental usa duas
+escalas (`N=37` e `N=75`), quatro capacidades (`W=512, 1024, 2048, 4096`) e
+três repetições por combinação, totalizando 48 medições. O pré-processamento é
+medido separadamente; a seleção é medida com `time.perf_counter()` e o pico de
+memória com `tracemalloc`. Também são registrados tokens utilizados, relevância
+BM25, ocupação do orçamento, IDs selecionados, redundância e respeito a `W`.
+
+Na escala completa, o guloso permanece abaixo de 0,54 ms de seleção e
+2,4–3,6 KB de pico de memória. A programação dinâmica cresce de 9,61 ms e
+321,2 KB em `W=512` para 482,07 ms e 4.130,4 KB em `W=4096`, comportamento
+compatível com o custo pseudo-polinomial `O(NW)`. A PD empata com o guloso em
+`W=512`, `W=1024` e `W=2048`, e obtém +2,7283 de relevância em `W=4096`,
+usando 4.093 tokens contra 3.820.
+
+O relatório JSON contém os dados brutos e os oito casos de teste exigidos:
+caso normal, capacidade zero, item maior que a capacidade, entrada ampla,
+empate determinístico, entrada vazia, duplicata com não mutação e contraexemplo
+da heurística gulosa. Os CSVs permitem reanálise sem reexecutar o benchmark e os
+três PNGs documentam tempo, memória e relevância. A comparação é justa porque
+os dois algoritmos recebem a mesma lista, o mesmo `W`, a mesma escala e as
+mesmas três repetições.
 
 

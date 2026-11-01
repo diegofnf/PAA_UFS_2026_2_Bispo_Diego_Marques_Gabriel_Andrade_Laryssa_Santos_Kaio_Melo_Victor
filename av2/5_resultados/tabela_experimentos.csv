@@ -1,0 +1,17 @@
+escala,N,W,algoritmo,tempo_preprocessamento_ms,tempo_selecao_medio_ms,tempo_total_medio_ms,memoria_media_kb,beneficio_relevancia_bm25,tokens_usados,taxa_ocupacao_janela_pct,redundancia_ids,respeitou_orcamento,qtd_selecionados
+Escala_Reduzida_N37,37,512,Baseline_Guloso,1.4092,0.0259,1.4351,1.794,7.0278,391,76.37,0.0,True,1
+Escala_Reduzida_N37,37,512,Programacao_Dinamica,1.4092,1.9564,3.3656,162.323,7.0278,391,76.37,0.0,True,1
+Escala_Reduzida_N37,37,1024,Baseline_Guloso,1.4092,0.0204,1.4296,0.539,12.5291,772,75.39,0.0,True,2
+Escala_Reduzida_N37,37,1024,Programacao_Dinamica,1.4092,10.3986,11.8078,373.187,12.5291,772,75.39,0.0,True,2
+Escala_Reduzida_N37,37,2048,Baseline_Guloso,1.4092,0.0211,1.4303,1.07,25.5451,2002,97.75,0.0,True,5
+Escala_Reduzida_N37,37,2048,Programacao_Dinamica,1.4092,32.4326,33.8418,890.5,25.5605,2022,98.73,0.0,True,5
+Escala_Reduzida_N37,37,4096,Baseline_Guloso,1.4092,0.0289,1.4381,1.133,41.1167,3766,91.94,0.0,True,9
+Escala_Reduzida_N37,37,4096,Programacao_Dinamica,1.4092,113.7532,115.1624,2266.703,42.5361,4095,99.98,0.0,True,10
+Escala_Completa_N75,75,512,Baseline_Guloso,1.4092,0.1441,1.5533,3.549,9.6206,370,72.27,0.0,True,1
+Escala_Completa_N75,75,512,Programacao_Dinamica,1.4092,9.6147,11.0239,321.172,9.6206,370,72.27,0.0,True,1
+Escala_Completa_N75,75,1024,Baseline_Guloso,1.4092,0.5354,1.9446,2.351,16.6484,761,74.32,0.0,True,2
+Escala_Completa_N75,75,1024,Programacao_Dinamica,1.4092,50.8782,52.2874,699.812,16.6484,761,74.32,0.0,True,2
+Escala_Completa_N75,75,2048,Baseline_Guloso,1.4092,0.0968,1.506,2.351,33.8168,1905,93.02,0.0,True,5
+Escala_Completa_N75,75,2048,Programacao_Dinamica,1.4092,159.4285,160.8377,1636.367,33.8168,1905,93.02,0.0,True,5
+Escala_Completa_N75,75,4096,Baseline_Guloso,1.4092,0.136,1.5452,2.383,57.5855,3820,93.26,0.0,True,10
+Escala_Completa_N75,75,4096,Programacao_Dinamica,1.4092,482.0712,483.4804,4130.406,60.3138,4093,99.93,0.0,True,11
