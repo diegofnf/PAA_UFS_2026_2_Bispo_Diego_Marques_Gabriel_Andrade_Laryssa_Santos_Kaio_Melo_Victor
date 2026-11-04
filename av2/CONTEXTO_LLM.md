@@ -325,22 +325,37 @@ termo em outro sentido. A recuperação é BM25, não semântica.
 
 ## 11. Ameaças à validade
 
-1. **Uma consulta**: todos os números são da consulta versionada; não há
+A mesma lista, na mesma ordem, aparece na §15 do relatório técnico.
+
+1. **Escopo**: uma consulta, um corpus e uma escala. Os quatro valores de `W`
+   são cenários de capacidade sobre a mesma lista de 75 candidatos; não há
    generalização estatística para outras perguntas.
-2. **Tokenizer fixo**: `cl100k_base` é a unidade da AV2; um modelo com outro
+2. **Relevância não é qualidade**: o score BM25 mede relevância lexical
+   estimada, não utilidade nem fidelidade da resposta. Nenhuma etapa chamou uma
+   LLM; sem credencial no ambiente, correção, fidelidade e utilidade não foram
+   avaliadas. Foram medidos proxies offline: cobertura dos termos da consulta de
+   60% a 100%, 1 a 4 documentos distintos, redundância de 5-gramas e relevância
+   por 1 000 tokens.
+3. **Tokenizer fixo**: `cl100k_base` é a unidade da AV2; um modelo com outro
    vocabulário pode contar tokens de forma diferente. O modo `tiktoken` deve ser
    reexecutado com o encoding do modelo escolhido.
-3. **Template de chat não medido**: a moldura real da API pode adicionar
+4. **Template de chat não medido**: a moldura real da API pode adicionar
    tokens; a reserva de 64 tokens é uma margem declarada, não uma medição do
    provedor.
-4. **Latência estimada**: as taxas de prefill/decode são hipóteses; não foram
-   medidas em API paga.
-5. **Memória**: `tracemalloc` cobre objetos Python, não os buffers nativos do
+5. **Latência estimada**: as taxas de prefill (2 000 tokens/s) e decode
+   (60 tokens/s) são hipóteses; não foram medidas em rede real. O decode domina
+   a estimativa — cerca de 8,5 s de 10,9 s.
+6. **Memória**: `tracemalloc` cobre objetos Python, não os buffers nativos do
    `tiktoken` nem a memória do provedor.
-6. **Deduplicação textual**: remover 30 palavras pode eliminar uma fronteira
-   de frase útil; o corte é lexical e não semântico.
-7. **Ordem**: a ordem por relevância coloca a melhor fonte em `[F1]`, mas não
-   foi medido o efeito *lost in the middle*.
+7. **Contexto e corte**: em 28 de 80 execuções com estratégia integral o
+   contexto transbordou a janela; a estratégia ajustada não transborda para
+   janelas iguais ou maiores que 1.024 tokens, mas pode esvaziar o contexto
+   quando nenhum chunk inteiro cabe após as reservas. A deduplicação é lexical e
+   não semântica — remover 30 palavras pode eliminar uma fronteira de frase útil
+   — e a ordem por relevância coloca a melhor fonte em `[F1]` sem que o efeito
+   *lost in the middle* tenha sido medido.
+8. **Tempos**: variam com máquina, cache do tokenizer e coleta de metadados; só
+   são comparáveis execuções feitas no mesmo ambiente.
 
 ## 12. Reprodutibilidade
 
