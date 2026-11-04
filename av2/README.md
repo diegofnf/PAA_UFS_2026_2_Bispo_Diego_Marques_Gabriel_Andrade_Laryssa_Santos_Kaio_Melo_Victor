@@ -16,16 +16,14 @@ contexto para LLM.
 
 ## Relatório técnico
 
-- [Relatório da AV2](https://docs.google.com/document/d/1cFoJsM_uP5D8M5gXjQQlGoIUPa56ldwupIIRD0V7Y_8/edit)
+- [Relatório da AV2](https://drive.google.com/file/d/1SaqdDHRddf2bz4C7uyznd5FEPDFGkT1h/view?usp=drive_link)
 
 ## Vídeo da atividade
 
-Vídeo da AV2 a publicar. O roteiro e o estado da gravação estão em
-[`VIDEO.md`](VIDEO.md).
-
+[Vídeo da AV2](https://youtu.be/X7lYFRdTYxc)
 ## Apresentação
 
-- [Apresentação da AV2](https://docs.google.com/presentation/d/1FjPmWpVQE1aJELaLnQo0peaQ_8FZfcmRb1jCor3uHu0/edit)
+- [Apresentação da AV2](https://drive.google.com/file/d/1ZduJaJeDYUdmlX21u3VNbspKlozGhIiN/view?usp=sharing)
 
 ## Orquestrador
 
