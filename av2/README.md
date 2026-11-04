@@ -45,7 +45,6 @@ av2/
 ├── medir_experimentos.py   # Benchmark da Etapa 6
 ├── integrar_contexto.py    # Ponto de entrada oficial da Etapa 5
 ├── CONTEXTO_LLM.md         # Análise teórica e experimental da Etapa 5
-├── RELATORIO_ETAPA5.md     # Texto pronto para o relatório e os slides
 ├── DECLARACAO_IA.md        # Uso crítico de IA generativa
 ├── CONTRIBUICOES.md        # Contribuição individual
 ├── VIDEO.md                # Roteiro e URL do vídeo
@@ -434,8 +433,7 @@ Não há provedor de LLM configurado no ambiente (sem chave de API, `gh` sem
 autenticação e Copilot CLI sem autenticação). Por isso, a avaliação real das
 respostas **não foi executada**; o protocolo e o registro da verificação estão
 em [`CONTEXTO_LLM.md`](CONTEXTO_LLM.md) §10 e
-`6_evidencias/avaliacao_llm.json`. O texto pronto para colar no relatório e nos
-slides está em [`RELATORIO_ETAPA5.md`](RELATORIO_ETAPA5.md).
+`6_evidencias/avaliacao_llm.json`.
 
 ## Métricas e benchmark (Etapa 6 — Laryssa Barbosa de Andrade)
 
