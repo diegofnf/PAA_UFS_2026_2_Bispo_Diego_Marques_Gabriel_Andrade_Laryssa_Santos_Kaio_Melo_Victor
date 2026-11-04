@@ -145,38 +145,22 @@ python av2/1_scripts/validar_notebook.py --saida notebook_executado.ipynb
 
 ## 8. Slides para a apresentação (Victor Melo)
 
-A apresentação tem 10–12 minutos para cinco integrantes; a Etapa 5 precisa de
-**2 slides principais** e 1 de reserva. Os textos abaixo estão prontos para
-colar. Use as figuras `7_contexto_llm/grafico_prompt_por_w.png` (slide 1) e
-`grafico_folga_janela.png` (slide 2).
+A apresentação tem 10–12 minutos para cinco integrantes; a Etapa 5 ocupa
+**4 slides e 1 de reserva**, com cerca de 2 min 45 s de fala (410 palavras).
 
-### Slide 1 — Do chunk selecionado ao prompt da LLM
+1. **Do orçamento da mochila ao orçamento do prompt** — reservas da janela
+   (8 192 = 190 + 512 + 64 + 7 426), instância de 75 candidatos e os dois
+   selecionadores.
+2. **Montar o contexto com evidências e fontes** — cabeçalho de fonte, dedupe,
+   recontagem e 5-gramas; custo da montagem (1,17–31,89 ms; 20–630 KB).
+3. **Prompt, overhead e o preço da otimalidade** — tabela por `W` e
+   `7_contexto_llm/grafico_prompt_por_w.png`.
+4. **Complexidade: Θ(NW) contra Θ(N log N)** — pseudo-polinomial, 311 mil
+   estados e o confronto 58,94 ms × 0,06 ms.
+5. **Reserva** — `grafico_folga_janela.png` e `grafico_latencia_contexto.png`
+   para perguntas sobre estouro de janela e latência.
 
-- **Título:** Do orçamento da mochila ao orçamento do prompt
-- **Subtítulo:** `W` é a soma de `w_i`; a janela da LLM é outra conta
-- **Coluna 1 — Entrada:** seleções gulosa e PD; 182 chunks validados com
-  `tiktoken 0.14.0` (`cl100k_base`); 74 055 tokens individuais.
-- **Coluna 2 — Montagem:** blocos `[F1]…` com documento, página e chunk;
-  deduplicação de 30 palavras de sobreposição; recontagem do prompt final.
-- **Coluna 3 — Orçamento:** 190 tokens fixos + 512 de resposta + 64 de
-  segurança; em 8 192 de janela, 7 426 ficam para chunks.
-- **Fecho:** "O que a LLM recebe é medido, não estimado."
-
-### Slide 2 — Resultados e o que eles custam
-
-- **Título:** Prompt, overhead e o preço da otimalidade
-- **Tabela:** guloso e PD em `W=4 096` — prompt 4 394 × 4 712; overhead
-  623 × 667; relevância 57,59 × 60,31; tokens/1k 13,11 × 12,80.
-- **Dois números grandes:** +2,7283 de relevância da PD; 318 tokens de prompt
-  a mais.
-- **Memória/tempo:** PD 58,94 ms e 6,72 MB × guloso 0,06 ms e 4,06 KB.
-- **Qualidade:** proxies offline — cobertura dos termos da consulta de 60% a
-  100% e 1 a 4 documentos distintos; a qualidade textual não foi medida por
-  falta de credencial de LLM.
-- **Riscos:** janela de 1 024 esvazia o contexto; qualidade textual não medida;
-  uma única consulta.
-
-### Slide de reserva — Complexidade
+Complexidades para a pergunta de reserva:
 
 | Etapa | Tempo | Memória |
 |---|---|---|
@@ -184,6 +168,13 @@ colar. Use as figuras `7_contexto_llm/grafico_prompt_por_w.png` (slide 1) e
 | PD 0/1 | `O(NW)` | `O(NW)` |
 | Montagem + dedupe | `O(k·m + k² log k)` no pior caso | `O(k+m)` |
 | Recontagem do prompt | `O(C)` | `O(C)` |
+
+Pontos de reserva sobre qualidade: os proxies medidos foram cobertura dos termos
+da consulta (60% a 100%), 1 a 4 documentos distintos, redundância de 5-gramas e
+relevância por 1 000 tokens; a qualidade textual não foi medida por falta de
+credencial de LLM. Riscos a citar: janela de 1 024 pode esvaziar o contexto,
+uma única consulta e falso positivo lexical (o chunk de maior BM25 da consulta
+trata de outro assunto).
 
 **Demonstração (30 s):** `python av2/integrar_contexto.py` e abrir
 `7_contexto_llm/contextos.json`.
@@ -213,8 +204,8 @@ colar. Use as figuras `7_contexto_llm/grafico_prompt_por_w.png` (slide 1) e
 1. Gravar a participação de cada integrante e publicar o vídeo; inserir a URL
    em `VIDEO.md`, no `README.md` da raiz, no `README.md` da AV2 e na seção
    “URL do vídeo” do relatório.
-2. Atualizar as seções 16 e 17 do relatório (declaração de IA e contribuição
-   individual — Kaio e Victor estão sem texto) e colar o bloco 9.1.
+2. Revisar as seções 16 e 17 do relatório (declaração de IA e contribuição
+   individual), já preenchidas, e conferir o texto do bloco 9.1 na seção 14.
 3. Inserir os gráficos no relatório: hoje o documento tem 11 páginas e nenhuma
    figura.
 4. Unir `av2` à `main` e criar a tag `av2-entrega`, preservando `av1/` e

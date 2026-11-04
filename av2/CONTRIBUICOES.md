@@ -6,7 +6,7 @@
 | Kaio Santos | 2 | Baseline guloso por densidade de relevância | `1_scripts/selecionar_guloso.py`, `4_selecao_contexto/selecao_gulosa.json` |
 | Diego Bispo e Kaio Santos | 3 | Programação dinâmica exata da mochila 0/1 | `1_scripts/selecionar_pd.py`, `4_selecao_contexto/selecao_pd.json` |
 | Gabriel Marques | 4 | Corretude, contraexemplo e benchmark comparativo | `1_scripts/gerar_relatorio_corretude.py`, `5_resultados/relatorio_corretude_limites.json` |
-| Victor Melo | 5 | Integração com LLM, orçamento de tokens, análise de tempo/memória e riscos | `integrar_contexto.py`, `1_scripts/montar_contexto_llm.py`, `CONTEXTO_LLM.md`, `7_contexto_llm/` |
+| Victor Melo | 5 | Integração com LLM, orçamento de tokens, análise de tempo/memória e riscos | `integrar_contexto.py`, `1_scripts/montar_contexto_llm.py`, `CONTEXTO_LLM.md`, `RELATORIO_ETAPA5.md`, `DECLARACAO_IA.md`, `7_contexto_llm/` |
 | Laryssa Barbosa de Andrade | 6 | Instrumentação do benchmark, comparação entre guloso e PD, oito casos de teste, exportação de dados e gráficos | `medir_experimentos.py`, `5_resultados/relatorio_experimentos.json`, `5_resultados/*.csv`, `5_resultados/*.png` |
 
 ## Revisão e validação
