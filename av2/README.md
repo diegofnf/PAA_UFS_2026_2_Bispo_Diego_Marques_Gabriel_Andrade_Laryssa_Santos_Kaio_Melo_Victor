@@ -20,7 +20,7 @@ contexto para LLM.
 
 ## Vídeo da atividade
 
-[Vídeo da AV2](https://youtu.be/X7lYFRdTYxc)
+- [Vídeo da AV2](https://youtu.be/X7lYFRdTYxc)
 ## Apresentação
 
 - [Apresentação da AV2](https://drive.google.com/file/d/1ZduJaJeDYUdmlX21u3VNbspKlozGhIiN/view?usp=sharing)
