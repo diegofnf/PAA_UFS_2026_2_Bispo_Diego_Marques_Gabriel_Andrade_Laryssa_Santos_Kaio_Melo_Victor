@@ -1,8 +1,8 @@
 ## Atividade 2
 
-- [Relatório técnico](https://docs.google.com/document/d/1cFoJsM_uP5D8M5gXjQQlGoIUPa56ldwupIIRD0V7Y_8/edit)
+- [Relatório técnico](https://drive.google.com/file/d/1SaqdDHRddf2bz4C7uyznd5FEPDFGkT1h/view?usp=sharing)
 - [Vídeo da atividade](https://www.youtube.com/watch?v=X7lYFRdTYxc)
-- [Apresentação](https://docs.google.com/presentation/d/1FjPmWpVQE1aJELaLnQo0peaQ_8FZfcmRb1jCor3uHu0/edit)
+- [Apresentação](https://docs.google.com/presentation/d/18YrYL9ekzkkaGfYi2o6FEBf6wXOXU-KQ/edit?usp=sharing&ouid=103703117631165794406&rtpof=true&sd=true)
 - [Orquestrador](https://colab.research.google.com/github/diegofnf/PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Melo_Victor/blob/av2/av2/orquestrador_av2.ipynb)
 
 ## Atividade 1
