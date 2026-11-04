@@ -1,8 +1,10 @@
 # Declaração de uso de IA generativa — AV2
 
 **Responsáveis pelas etapas documentadas:** Victor Melo (Etapa 5) e Laryssa Barbosa de Andrade (Etapa 6)
-**Data:** 01/11/2026
+**Data:** 03/11/2026
 **Ferramenta:** GitHub Copilot no VS Code, com assistente baseado em Copilot SDK.
+**Modelo:** selecionado na própria sessão do Copilot; a equipe deve registrar
+aqui o identificador exibido no seletor de modelos antes da entrega.
 
 ## 1. Finalidade
 
@@ -51,7 +53,10 @@ scripts ou declarar corretude sem verificação.
 - O prompt final foi recontado; a concatenação altera tokens nas bordas.
 - Blocos removidos no reparo final passaram a ser contados.
 - O ponto de entrada oficial `av2/integrar_contexto.py` foi testado.
-- A suíte da AV2 foi executada: **92 testes aprovados**.
+- A suíte da AV2 foi executada: **92 testes aprovados** (34 da preparação, 10 do
+  baseline guloso, 9 da programação dinâmica, 5 da corretude e 34 da Etapa 5).
+- Os artefatos da Etapa 5 foram regenerados em clone limpo no commit `5b0fe1d`
+  para que a evidência registre `arvore_suja_antes_gravar = false`.
 - Nenhuma chamada a LLM foi feita nesta etapa.
 
 ## 6. Limitações declaradas

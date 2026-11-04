@@ -1,7 +1,7 @@
 {
   "metadados": {
     "etapa": "av2_5_contexto_llm",
-    "data_utc": "2026-10-31T08:13:21.565964+00:00",
+    "data_utc": "2026-11-03T15:45:28.719847+00:00",
     "consulta": "critérios para atribuição de bolsas e requisitos de matrícula",
     "tokenizer": {
       "biblioteca": "tiktoken",
@@ -34,25 +34,25 @@
     },
     "entradas": {
       "chunks": {
-        "arquivo": "D:\\1 - PROCC\\1-Disciplinas\\Semestre-2\\PROJETO E ANÁLISE DE ALGORITMOS\\PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor\\av2\\2_dados_tokenizados\\chunks_tokenizados.json",
+        "arquivo": "C:\\Users\\victo.000\\AppData\\Local\\Temp\\paa_av2_clean\\av2\\2_dados_tokenizados\\chunks_tokenizados.json",
         "sha256": "1baf8b52eb8cf1c7bdb9f59ee681d09e6823c57981a519fcf7f74d82ea83a931"
       },
       "instancias": {
-        "arquivo": "D:\\1 - PROCC\\1-Disciplinas\\Semestre-2\\PROJETO E ANÁLISE DE ALGORITMOS\\PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor\\av2\\3_instancias\\instancias.json",
+        "arquivo": "C:\\Users\\victo.000\\AppData\\Local\\Temp\\paa_av2_clean\\av2\\3_instancias\\instancias.json",
         "sha256": "ee8c29b0611b7562a44e486afb18b1c2ec6d4da21b6315c27492be044a43b02c"
       },
       "selecao_gulosa": {
-        "arquivo": "D:\\1 - PROCC\\1-Disciplinas\\Semestre-2\\PROJETO E ANÁLISE DE ALGORITMOS\\PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor\\av2\\4_selecao_contexto\\selecao_gulosa.json",
+        "arquivo": "C:\\Users\\victo.000\\AppData\\Local\\Temp\\paa_av2_clean\\av2\\4_selecao_contexto\\selecao_gulosa.json",
         "sha256": "fd9a4a6aa7c46de0f16a39c0d25b251e72850102b31cf4f86d2074bf450988fb"
       },
       "selecao_pd": {
-        "arquivo": "D:\\1 - PROCC\\1-Disciplinas\\Semestre-2\\PROJETO E ANÁLISE DE ALGORITMOS\\PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor\\av2\\4_selecao_contexto\\selecao_pd.json",
+        "arquivo": "C:\\Users\\victo.000\\AppData\\Local\\Temp\\paa_av2_clean\\av2\\4_selecao_contexto\\selecao_pd.json",
         "sha256": "6527bbba8eff285d0487a47625c90ff43c4a463bc7f2aa56315027be0f1f6353"
       }
     },
     "versionamento": {
-      "commit_execucao": "6c864e2c8cdd896a9a3019a3634fc4c8eebf92c6",
-      "arvore_suja_antes_gravar": true
+      "commit_execucao": "5b0fe1d5b15d4a904eccd0406b7029d74b61a8bd",
+      "arvore_suja_antes_gravar": false
     },
     "observacao": "Nenhuma chamada a LLM foi realizada. Os payloads são compatíveis com a API de chat e não incluem credenciais."
   },
@@ -66,7 +66,7 @@
       {
         "id_instancia": "W_512",
         "W": 512,
-        "tempo_medio_ms": 0.0538,
+        "tempo_medio_ms": 0.0756,
         "memoria_pico_bytes": 2064,
         "total_chunks": 1,
         "tokens_usados": 370,
@@ -76,7 +76,7 @@
       {
         "id_instancia": "W_1024",
         "W": 1024,
-        "tempo_medio_ms": 0.0631,
+        "tempo_medio_ms": 0.0512,
         "memoria_pico_bytes": 2304,
         "total_chunks": 2,
         "tokens_usados": 761,
@@ -86,7 +86,7 @@
       {
         "id_instancia": "W_2048",
         "W": 2048,
-        "tempo_medio_ms": 0.0666,
+        "tempo_medio_ms": 0.0574,
         "memoria_pico_bytes": 2928,
         "total_chunks": 5,
         "tokens_usados": 1905,
@@ -96,7 +96,7 @@
       {
         "id_instancia": "W_4096",
         "W": 4096,
-        "tempo_medio_ms": 0.0832,
+        "tempo_medio_ms": 0.0643,
         "memoria_pico_bytes": 4064,
         "total_chunks": 10,
         "tokens_usados": 3820,
@@ -108,7 +108,7 @@
       {
         "id_instancia": "W_512",
         "W": 512,
-        "tempo_medio_ms": 5.2363,
+        "tempo_medio_ms": 4.6351,
         "memoria_pico_bytes": 642328,
         "total_chunks": 1,
         "tokens_usados": 370,
@@ -118,7 +118,7 @@
       {
         "id_instancia": "W_1024",
         "W": 1024,
-        "tempo_medio_ms": 14.5668,
+        "tempo_medio_ms": 11.9459,
         "memoria_pico_bytes": 1342200,
         "total_chunks": 2,
         "tokens_usados": 761,
@@ -128,7 +128,7 @@
       {
         "id_instancia": "W_2048",
         "W": 2048,
-        "tempo_medio_ms": 32.7712,
+        "tempo_medio_ms": 27.3582,
         "memoria_pico_bytes": 2924592,
         "total_chunks": 5,
         "tokens_usados": 1905,
@@ -138,7 +138,7 @@
       {
         "id_instancia": "W_4096",
         "W": 4096,
-        "tempo_medio_ms": 75.026,
+        "tempo_medio_ms": 58.9352,
         "memoria_pico_bytes": 6723864,
         "total_chunks": 11,
         "tokens_usados": 4093,
@@ -337,7 +337,7 @@
     "repeticoes_por_celula": 7
   },
   "contextos_exportados": {
-    "arquivo": "D:\\1 - PROCC\\1-Disciplinas\\Semestre-2\\PROJETO E ANÁLISE DE ALGORITMOS\\PAA_UFS_2026_2_Bispo_Diego_Marques_Gabriel_Andrade_Laryssa_Santos_Kaio_Farias_Franzone_Melo_Victor\\av2\\7_contexto_llm\\contextos.json",
+    "arquivo": "C:\\Users\\victo.000\\AppData\\Local\\Temp\\paa_av2_clean\\av2\\7_contexto_llm\\contextos.json",
     "janela": 8192,
     "estrategia": "ajustado",
     "deduplicar": true,
@@ -351,5 +351,5 @@
     "versao_python": "3.14.7",
     "interpretador": "C:\\Users\\victo.000\\AppData\\Local\\Programs\\Python\\Python314\\python.exe"
   },
-  "tempo_total_execucao_segundos": 17.8999
+  "tempo_total_execucao_segundos": 17.6713
 }

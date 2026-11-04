@@ -18,10 +18,19 @@ testes da AV1; nenhum teste falhou. As três células de código do notebook
 terminaram sem erro. Isso valida a execução em kernel real; não se afirma
 que a execução Windows tenha ocorrido no serviço Colab.
 
-A execução atual das etapas 1 a 3 da AV2, após a inclusão dos seletores e dos
-testes de corretude, aprovou **53 testes**: 34 da preparação, 10 do baseline
-guloso e 9 da programação dinâmica. A Etapa 4 possui adicionalmente 5 testes
-próprios. O resultado consolidado das etapas anteriores está em `testes.xml`.
+A execução atual da suíte da AV2 aprova **92 testes**: 34 da preparação, 10 do
+baseline guloso, 9 da programação dinâmica, 5 da corretude e 34 da Etapa 5. O
+`testes.xml` versionado é o resultado consolidado de `pytest av2/1_scripts`; os
+14 testes de regressão da AV1 e os oito casos da Etapa 6 são executados à parte.
+
+### Proveniência dos artefatos da Etapa 5
+
+O `5_resultados/relatorio_contexto_llm.json` versionado foi regenerado em
+03/11/2026 a partir de um clone limpo do commit `5b0fe1d`, com
+`arvore_suja_antes_gravar = false`. A execução anterior registrava `true`, o que
+impedia distinguir o código executado das alterações locais; ela foi substituída
+para corrigir essa rastreabilidade. Os tokens, custos e relevâncias são
+determinísticos e não mudaram; apenas os tempos variam entre execuções.
 
 ### Execução atual em cópia limpa (Etapa 5)
 
@@ -173,8 +182,8 @@ Resultados principais (janela 8 192, resposta 512, segurança 64, dedupe):
 | PD | 4 096 | 11 | 4 093 | 4 712 | 667 | 60,3138 | 12,80 |
 
 - A PD ganha +2,7283 de relevância em `W=4 096`, mas custa 318 tokens de prompt
-  a mais e é ordens de grandeza mais cara (75,03 ms e 6,72 MB contra 0,08 ms e
-  4,06 KB do guloso).
+  a mais e é ordens de grandeza mais cara (58,94 ms e 6,72 MB contra 0,06 ms e
+  4,06 KB do guloso), na execução de 03/11/2026 registrada no relatório.
 - Em 1 024 tokens de janela, nenhum chunk inteiro cabe após instruções,
   resposta e segurança; o contexto ajustado fica vazio.
 - A menor janela que comporta a seleção completa é 2 048 (`W≤1 024`), 4 096

@@ -148,21 +148,37 @@ Valores medidos nesta máquina (mediana de 7 execuções, mesmo harness):
 
 | Método | `W` | Tempo da seleção | Pico de memória | Chunks | Relevância |
 |---|---:|---:|---:|---:|---:|
-| Guloso | 512 | 0,05 ms | 2 064 B | 1 | 9,6206 |
-| Guloso | 1 024 | 0,06 ms | 2 304 B | 2 | 16,6484 |
-| Guloso | 2 048 | 0,07 ms | 2 928 B | 5 | 33,8168 |
-| Guloso | 4 096 | 0,08 ms | 4 064 B | 10 | 57,5855 |
-| PD | 512 | 5,24 ms | 642 328 B | 1 | 9,6206 |
-| PD | 1 024 | 14,57 ms | 1 342 200 B | 2 | 16,6484 |
-| PD | 2 048 | 32,77 ms | 2 924 592 B | 5 | 33,8168 |
-| PD | 4 096 | 75,03 ms | 6 723 864 B | 11 | 60,3138 |
+| Guloso | 512 | 0,08 ms | 2 064 B | 1 | 9,6206 |
+| Guloso | 1 024 | 0,05 ms | 2 304 B | 2 | 16,6484 |
+| Guloso | 2 048 | 0,06 ms | 2 928 B | 5 | 33,8168 |
+| Guloso | 4 096 | 0,06 ms | 4 064 B | 10 | 57,5855 |
+| PD | 512 | 4,64 ms | 642 328 B | 1 | 9,6206 |
+| PD | 1 024 | 11,95 ms | 1 342 200 B | 2 | 16,6484 |
+| PD | 2 048 | 27,36 ms | 2 924 592 B | 5 | 33,8168 |
+| PD | 4 096 | 58,94 ms | 6 723 864 B | 11 | 60,3138 |
 
 A PD cresce quase linearmente com `W` neste intervalo; o guloso é ordens de
 grandeza mais barato. Nesta execução, para `W` de 512 a 4 096 na janela 8 192,
-a montagem do contexto ficou entre **1,2 ms e 31,3 ms** e **19,7 KB e
-630,4 KB**. O pior caso de toda a matriz ficou em 31,3 ms e 630,4 KB; a
-memória da PD é a dominante no fluxo completo. Os tempos variam entre execuções;
-por isso o relatório registra a mediana de 7 repetições por célula.
+a montagem do contexto ficou entre **1,17 ms e 31,89 ms** e **19,7 KB e
+630,4 KB**. O pior caso de toda a matriz ficou em 31,89 ms e 630,4 KB; a
+memória da PD é a dominante no fluxo completo. Os tempos variam entre execuções
+(cache do tokenizer e escalonamento do sistema); o relatório registra a mediana
+de 7 repetições por célula e números de execuções diferentes não devem ser
+comparados entre si.
+
+### 6.1 Melhor, pior e caso médio da montagem
+
+| Operação | Melhor caso | Pior caso | Caso médio |
+|---|---|---|---|
+| Montagem dos blocos | `O(k)` sem dedupe: um bloco por chunk, sem intervalo coberto | `O(k·m + k² log k)` com sobreposição: `k` recortes, cada um reordenando até `k` intervalos | Dominado pela tokenização do texto: `O(C)` |
+| Deduplicação | `O(1)` quando não há palavra em comum entre chunks consecutivos | `O(k² log k)` quando todos os `k` chunks cobrem o mesmo intervalo | `O(k·m + k·log k)` na prática, com `m ≈ 200` palavras |
+| Recontagem do prompt | `O(1)` para prompt vazio (janela pequena) | `O(C)` com todos os chunks incluídos | `O(C)`, com `C ≈ 4 000` tokens em `W=4 096` |
+
+Nos dados reais o caso médio é o relevante: nenhuma seleção tem sobreposição
+total, e a maior parte do custo é a codificação BPE do prompt final — não a
+escolha nem a dedupe. O custo do algoritmo é, portanto, separado do custo de
+tokenização, de I/O de disco e de eventual chamada de API; **embeddings não são
+usados nesta entrega**, então não há custo vetorial a medir.
 
 ## 7. Protocolo experimental
 
@@ -287,7 +303,7 @@ Foram medidos proxies offline:
 - cobertura dos termos da consulta: 60% (`W=512`), 80% (`W=1 024`), 100%
   (`W≥2 048`);
 - documentos distintos: 1, 2, 3 e 4, respectivamente;
-- redundância de 5-gramas: 0%, 0,25%, 1,86% e 2,50% no guloso; 3,25% na PD
+- redundância de 5-gramas: 0%, 0,24%, 1,93% e 2,53% no guloso; 3,28% na PD
   em `W=4 096`;
 - relevância por 1 000 tokens de prompt;
 - perda de relevância quando a janela corta chunks.

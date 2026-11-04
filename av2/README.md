@@ -160,6 +160,34 @@ a etapa de integração deve contar novamente o prompt final com o tokenizer do
 modelo escolhido. Se o tokenizer mudar, regenerar todas as instâncias dos dois
 algoritmos. Referência: [documentação oficial do tiktoken](https://github.com/openai/tiktoken).
 
+## Configuração da Etapa 5
+
+`av2/integrar_contexto.py` aceita as mesmas opções do implementador
+`1_scripts/montar_contexto_llm.py`. Os padrões reproduzem a entrega; as opções
+existem para reexecutar com outro orçamento, outra janela ou outro modelo.
+
+| Opção | Padrão | Efeito |
+|---|---|---|
+| `--chunks`, `--instancias`, `--selecao-gulosa`, `--selecao-pd` | artefatos versionados | Entradas da montagem. |
+| `--saida` | `av2/7_contexto_llm/` | Pasta dos payloads, CSV, prompt de exemplo e gráficos. |
+| `--relatorio` | `av2/5_resultados/relatorio_contexto_llm.json` | Relatório consolidado. |
+| `--janelas` | 1 024, 2 048, 4 096, 8 192, 16 384 | Janelas da LLM avaliadas na matriz. |
+| `--estrategias` | `integral` e `ajustado` | Manter o excesso ou remover blocos até caber. |
+| `--ordem` | `relevancia` | Critério de ordenação dos blocos no prompt: `relevancia`, `selecao` ou `corpus`. |
+| `--reserva-resposta`, `--reserva-seguranca` | 512 e 64 | Tokens reservados fora do orçamento de chunks. |
+| `--encoding`, `--modelo` | `cl100k_base`, `gpt-4-turbo` | Tokenizer e modelo de referência; precisam ser compatíveis. |
+| `--taxa-prefill`, `--taxa-decode` | 2 000 e 60 tokens/s | Hipóteses da latência estimada. |
+| `--repeticoes` | 5 | Repetições por célula; a entrega usa 7. |
+| `--janela-exportacao`, `--estrategia-exportacao` | 8 192, `ajustado` | Cenário exportado em `contextos.json`. |
+| `--truncar-ultimo`, `--sem-graficos` | desligados | Truncar o último chunk em vez de descartá-lo; não gerar PNGs. |
+
+A matriz sempre mede as duas opções de deduplicação (com e sem), por isso não
+há opção de CLI para ela: o efeito da remoção de sobreposição é resultado
+experimental, não configuração de execução.
+
+Trocar `--encoding` ou `--modelo` obriga a refazer as instâncias dos dois
+seletores, porque `w_i` é contado com o tokenizer fixado.
+
 ## Contrato dos arquivos de saída
 
 | Arquivo relativo a `av2/` | Conteúdo |
@@ -266,9 +294,11 @@ Etapa 4 cobre o contraexemplo guloso, a comparação com força bruta, as
 invariantes da reconstrução e a comparação PD versus guloso nos quatro
 orçamentos.
 Os quatro valores de W não substituem experimentos com múltiplas escalas e
-repetições para uma avaliação de desempenho mais ampla. Há uma única consulta
-no caso padrão; ampliar as consultas e medir redundância/qualidade permanece
-como trabalho futuro.
+repetições para uma avaliação de desempenho mais ampla; essa lacuna foi
+endereçada pela Etapa 6, que mede duas escalas (N = 37 e N = 75) com três
+repetições por combinação. Continua havendo uma única consulta no caso padrão;
+ampliar as consultas e medir redundância/qualidade permanece como trabalho
+futuro.
 
 ## Resultados da preparação
 
@@ -277,15 +307,18 @@ tokenizado soma 74.055 tokens, incluindo sobreposições. As quatro capacidades
 são 512, 1024, 2048 e 4096. Em W = 512, um candidato excede sozinho a capacidade.
 
 A evidência histórica registra 48 testes da preparação e da regressão da AV1.
-Na execução atual das etapas 1 a 3 da AV2, foram aprovados **53 testes**: 34 da preparação, 10
-do baseline guloso e 9 da programação dinâmica. O resultado JUnit consolidado
-fica em `av2/6_evidencias/testes.xml`.
+Na execução atual, a suíte da AV2 aprova **92 testes**: 34 da preparação, 10 do
+baseline guloso, 9 da programação dinâmica, 5 da corretude e 34 da Etapa 5.
+Somados aos 14 testes de regressão da AV1, o total do repositório é 106. Os oito
+casos de teste da Etapa 6 rodam dentro de `medir_experimentos.py` e são
+registrados no relatório JSON daquela etapa. O resultado JUnit consolidado fica
+em `av2/6_evidencias/testes.xml`.
 
-Opcionalmente, para executar novamente a suíte completa das etapas 1 a 3 e
-regenerar a evidência consolidada:
+Opcionalmente, para executar novamente a suíte completa da AV2 e regenerar a
+evidência consolidada:
 
 ```bash
-python -m pytest av2/1_scripts/test_preparar_instancias.py av2/1_scripts/test_selecionar_guloso.py av2/1_scripts/test_selecionar_pd.py -q --junitxml=av2/6_evidencias/testes.xml
+python -m pytest av2/1_scripts -q --junitxml=av2/6_evidencias/testes.xml
 ```
 
 ## Resultados da seleção gulosa (Etapa 2 — Kaio Santos)
@@ -375,19 +408,27 @@ Resultados principais (janela 8 192, resposta 512, segurança 64, dedupe):
 - Em `W=4 096`, a PD ganha +2,7283 de relevância (+4,7%), mas gasta 318 tokens
   de prompt a mais; em relevância por 1 000 tokens, o guloso é ligeiramente
   melhor (13,11 contra 12,80).
-- A PD é bem mais cara: 75,03 ms e 6,72 MB no `W=4 096`, contra 0,08 ms e
+- A PD é bem mais cara: 58,94 ms e 6,72 MB no `W=4 096`, contra 0,06 ms e
   4,06 KB do guloso. A montagem do contexto custa poucas dezenas de ms
-  (1,2–31,3 ms) e 20–630 KB.
+  (1,17–31,89 ms) e 20–630 KB.
 
 A matriz cobre 2 seletores × 4 `W` × 5 janelas × 2 estratégias × 2 modos de
-deduplicação = **160 execuções**. Os 34 testes da Etapa 5 em
-`1_scripts/test_montar_contexto_llm.py` somam-se aos 58 anteriores: **92 testes
-aprovados** na suíte da AV2.
+deduplicação = **160 execuções**, com mediana de 7 repetições por célula. Os 34
+testes da Etapa 5 em `1_scripts/test_montar_contexto_llm.py` somam-se aos 58
+anteriores: **92 testes aprovados** na suíte da AV2.
 
 O notebook completo também foi executado em cópia limpa no commit `6b815ca`:
-48 testes da preparação, 9 do guloso, 8 da PD, 5 da corretude e 34 da Etapa 5,
-sem falha. As evidências estão em `6_evidencias/notebook_executado_etapa5.ipynb`,
-`6_evidencias/notebook_execucao.log` e `6_evidencias/validacao_notebook.json`.
+48 testes da preparação (34 da AV2 + 14 da AV1), 9 do guloso, 8 da PD, 5 da
+corretude e 34 da Etapa 5, sem falha — a contagem de cada arquivo naquela
+execução é histórica e hoje é 34/10/9/5/34. As evidências estão em
+`6_evidencias/notebook_executado_etapa5.ipynb`, `6_evidencias/notebook_execucao.log`
+e `6_evidencias/validacao_notebook.json`; os artefatos desta pasta registram a
+execução daquele commit e são históricos.
+
+Os tempos da Etapa 5 dependem da máquina e variam entre execuções; compare só
+números obtidos no mesmo ambiente. Este artefato foi regenerado em 03/11/2026
+(Windows 11, Python 3.14.7) e a execução histórica de cópia limpa usou
+Python 3.12.14.
 
 Não há provedor de LLM configurado no ambiente (sem chave de API, `gh` sem
 autenticação e Copilot CLI sem autenticação). Por isso, a avaliação real das
